@@ -28,7 +28,7 @@ projects_btn: "Research"
 posts_btn: "News"
 imprint_btn: "Imprint"
 name_badge: "an article by"
-rss_badge: "Subscribe feed!"
+rss_badge: "pip!"
 
 # build settings
 markdown: kramdown
