@@ -6,7 +6,7 @@ layout: page
         <span class="my-mini-heading">Legal Notice / Imprint</span><br>
         <ul>
             <li>
-                <p class="my-item" >Jacopo Grilli<br>
+                <p class="my-item" >Your Name<br>
                     <span class="my-item-sub">Author</span></p>
             </li>
             <li>
@@ -15,7 +15,7 @@ layout: page
             </li>
             <li>
                 <p class="my-item">&copy; Year Your Name<br>
-                    <span class="my-item-sub">Copyleft</span></p>
+                    <span class="my-item-sub">Copyright</span></p>
             </li>
             <li>
                 <p class="my-item"><a class="my-link" href="https://www.google.com/analytics/terms/en.html">Google Analytics</a><br>

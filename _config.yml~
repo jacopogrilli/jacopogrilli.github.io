@@ -3,7 +3,7 @@ description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 about: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
 location: "Your Region, Country"
 email: your-email@example.com
-baseurl: "/material-theme"
+baseurl: "/"
 
 url: "http://jacopogrilli.github.io/" # replace by your site's url
 twitter_username: jcrickets
@@ -62,3 +62,5 @@ whitelist:
 exclude:
   - LICENSE
   - README.md
+
+theme: jekyll-theme-cayman
