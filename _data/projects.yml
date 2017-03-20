@@ -1,0 +1,18 @@
+- name: Statistical laws in genomes evolution
+  link: "#"
+  description: "Life populates almost every corner of this planet, with striking differences
+                            of forms and shapes, that reflect the adaptation to a particular environment and
+                            unique evolutionary histories. Despite the contingency of the processes shaping genomes, remarkable
+                            regularities and patterns can be found across organisms.
+                            We studied how different patterns involving genes with the same
+                            functions were connected to patterns of evolutionary closely related genes
+                            [<a target="_blank" href="http://dx.doi.org/10.1093/nar/gkr7112">NAR2012</a>].
+                            We also studied the role of HGT in shaping the genomes of prokaryotes and
+                            the relation between genes occurrence and HGT
+                            [<a target="_blank" href="http://dx.doi.org/10.1093/nar/gku378">NAR2014</a>]."
+- name: project 2
+  link: "#"
+  description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
+- name: project 3
+  link: "#"
+  description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
