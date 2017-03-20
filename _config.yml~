@@ -5,10 +5,17 @@ location: "Your Region, Country"
 email: your-email@example.com
 baseurl: "/material-theme"
 
+<<<<<<< HEAD
 url: "http://jacopogrilli.github.io/" # replace by your site's url
 twitter_username: jcrickets
 github_username:  jacopogrilli
 author: "Jacopo Grilli"
+=======
+url: "http://jacopogrilli.github.io" # replace by your site's url
+twitter_username: your-name
+github_username:  lukas-h
+author: "Your Name"
+>>>>>>> 66a84b303035d7f5a4f9095e1e50564130030ec4
 
 # google analytics tracking code, please change the value
 g_analytics: ""
