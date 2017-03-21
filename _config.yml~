@@ -1,13 +1,15 @@
 title: "Jacopo Grilli"
 description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-about: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-location: "Your Region, Country"
+about: "Postdoctoral scholar"
+location: "Dept. of Ecology and Evolution, University of Chicago"
 email: your-email@example.com
 baseurl: ""
 
 url: "https://jacopogrilli.github.io" # replace by your site's url
-twitter_username: jcrickets
-github_username:  jacopogrilli
+twitter_username: jacrickets
+# github_username:  jacopogrilli
+resgate_username: Jacopo_Grilli
+maplocation: Department+of+Ecology+and+Evolution,+Chicago,+IL+60637
 author: "Jacopo Grilli"
 
 
@@ -28,7 +30,7 @@ projects_btn: "Research"
 posts_btn: "News"
 imprint_btn: "Imprint"
 name_badge: "an article by"
-rss_badge: "Subscribe feed!"
+rss_badge: "pip!"
 
 # build settings
 markdown: kramdown

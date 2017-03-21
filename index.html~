@@ -7,9 +7,8 @@ layout: default
   <a id="projects-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_projects();">{{ site.projects_btn }}</a>
   <a id="projects-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_projects();">{{ site.projects_btn }}</a>
 </div>
-
-
 <div id="posts">
+
   <h2 class="my-mini-heading">{{ site.posts_btn }}</h2>
 
   <ul>

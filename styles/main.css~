@@ -291,7 +291,7 @@ a{
 }
 
 .my-map-link:hover{
-    color: #FF6666;
+    color: #05A500;
 }
 
 
