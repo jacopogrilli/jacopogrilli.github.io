@@ -273,8 +273,6 @@ a{
     font-family: 'Playfair Display', serif;
 }
 .my-text-author a:hover{
-    font-size: 17px;
-    font-family: 'Playfair Display', serif;
     background: #c9f6ff;
     border: 0px solid #c9f6ff;
     border-radius: 3px;
