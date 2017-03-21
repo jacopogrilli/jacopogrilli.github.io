@@ -316,7 +316,7 @@ a{
     font-size: 14.5px;
     color: #4db6ac;
 }
-#projects, #posts, #aboutme{
+#projects, #posts{
     display: none;
 }
 img{

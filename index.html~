@@ -65,17 +65,17 @@ layout: default
 
 <noscript>
 
-    <div id="aboutme-noscript">
-      <h2 class="my-mini-heading">{{ site.aboutme_btn }}</h2>
+<div id="aboutme-noscript">
+  <h2 class="my-mini-heading">{{ site.aboutme_btn }}</h2>
 
-            <p class="my-item">
-            {% include aboutme.html %}
-        </p>
+        <p class="my-item">
+        {% include aboutme.html %}
+    </p>
 
-      <div>
-        <a onclick="hide_lists();" class="waves-effect waves-teal btn-flat btn-large">{{ site.close_btn }}</a>
-      </div>
-    </div>
+  <div>
+    <a onclick="hide_lists();" class="waves-effect waves-teal btn-flat btn-large">{{ site.close_btn }}</a>
+  </div>
+</div>
 
   <div id="posts-noscript">
 
