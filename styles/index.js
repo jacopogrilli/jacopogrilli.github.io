@@ -20,6 +20,7 @@ var show_projects = function() {
     $('#projects').fadeIn(0)
     $('#projects-btn').addClass('disabled')
 };
+
 var show_posts = function() {
 //    $('#projects-btn').removeClass('disabled');
 //    $('#aboutme-btn').removeClass('disabled');
