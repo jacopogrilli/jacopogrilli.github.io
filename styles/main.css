@@ -173,8 +173,7 @@ a{
 }
 .my-name{
     font-family: 'Josefi Sans Regular', cursive;
-/*    font-size: 45px;*/
-    font-size: 2.5vw;
+    font-size: 45px;
     color: black;
 }
 .my-name:hover{
@@ -330,7 +329,7 @@ a{
     font-size: 14.5px;
     color: #4db6ac;
 }
-#projects, #posts, #aboutme{
+#projects, #posts, #aboutme, #publications{
     display: none;
 }
 img{
