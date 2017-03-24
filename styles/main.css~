@@ -8,7 +8,7 @@ src:local('Material Icons'),local(MaterialIcons-Regular),url(fonts/icons.woff2) 
 .container {
   width: 1200px;
   margin: 0 auto;
-  position: relative' 
+  position: relative; 
 }
 
 @font-face {
