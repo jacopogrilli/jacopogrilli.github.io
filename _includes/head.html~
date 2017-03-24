@@ -2,24 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
-<!--- MODIFICARE QUI PER OPZIONI DI LARGEZZA: fare in modo che fitti anche in schermi piccoli ----> 
-    <script type="text/javascript">
-    $(function(){
-    if( !( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) ) { // if not a phone/tablet
-      var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
-      var wh = ( $(window).height() < window.screen.height ) ? $(window).height() : window.screen.height; //get proper height
-      var mh = 980; // min height of site
-      var ratio =  wh / mh; //calculate ratio
-      if( wh < mh){ //smaller than minimum size
-       $('#Viewport').attr('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=no, width=' + ww);
-      }else{ //regular size
-       $('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=1., minimum-scale=1.0, user-scalable=no, width=' + ww);
-      }
-    }
-    });
-    </script>
+    <meta name="viewport" content="width=0.5device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5">
 
 
 

@@ -195,7 +195,7 @@ a{
 .my-mini-heading{
     font-family: 'Josefi Sans Regular', cursive;
     font-weight: normal;
-    font-size: 23px;
+    font-size: 27px;
 }
 .my-mini-heading-sub{
     font-family: 'Josefi Sans Regular', monospace;
@@ -301,15 +301,7 @@ a{
 }
 
 .my-google-scholar-link:hover{
-    color: #357df3;
-}
-
-.my-researchgate-link:hover{
-    color: #00d0af;
-}
-
-.my-orcid-link:hover{
-    color: #a6ce39;
+    color: #05A500;
 }
 
 .my-map-link:hover{
@@ -327,7 +319,7 @@ a{
 .my-item{
      font-family: 'Playfair Display', serif;    
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .my-item-sub{

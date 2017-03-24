@@ -2,13 +2,15 @@ title: "Jacopo Grilli"
 description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
 about: "Postdoctoral scholar"
 location: "Dept. of Ecology and Evolution, University of Chicago"
-email: your-email@example.com
+email: jgrilli@uchicago.edu
 baseurl: ""
 
 url: "https://jacopogrilli.github.io" # replace by your site's url
 twitter_username: jacrickets
 # github_username:  jacopogrilli
-resgate_username: Jacopo_Grilli
+scholar_username: "P2V3b3QAAAAJ"
+resgate_username: "Jacopo_Grilli"
+orcid_username: "0000-0002-8235-5803"
 maplocation: Department+of+Ecology+and+Evolution,+Chicago,+IL+60637
 author: "Jacopo Grilli"
 

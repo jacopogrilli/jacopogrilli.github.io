@@ -73,10 +73,9 @@ layout: default
     {% for pub in site.data.publications %}
     <li>
       <p class="my-item">
-        {{ pub.authors }}
-        <a href="{{ pub.link }}" class="my-link">{{ pub.title }}</a>
-        {{ pub.journal }}
-        <br>
+        {{ pub.﻿authors }}<br>
+        <a href="https://doi.org/{{ pub.DOI }}" class="my-link">{{ pub.Title }}</a><br>
+        {{ pub.Journal }}, {{ pub.ref }}. ({{ pub.Year }})
       </p>
     </li>
     {% endfor %}

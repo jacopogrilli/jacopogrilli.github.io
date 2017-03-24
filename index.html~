@@ -68,15 +68,14 @@ layout: default
 
 
 <div id="publications">
-  <h2 class="my-mini-heading">{{ site.pubs_btn }}</h2>
+  <h2 class="my-mini-heading">{{ site.publications_btn }}</h2>
   <ul>
     {% for pub in site.data.publications %}
     <li>
       <p class="my-item">
-        {{ pub.authors }}
-        <a href="{{ pub.link }}" class="my-link">{{ pub.title }}</a>
-        {{ pub.journal }}
-        <br>
+        {{ pub.﻿authors }}<br>
+        <a href="https://doi.org/{{ pub.DOI }}" class="my-link">{{ pub.Title }}</a><br>
+        {{ pub.Journal }}, {{ pub.ref }}. ({{ pub.Year }})
       </p>
     </li>
     {% endfor %}

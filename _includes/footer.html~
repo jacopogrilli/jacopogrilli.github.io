@@ -19,7 +19,7 @@
         <a href="http://scholar.google.com/citations?user={{ site.scholar_username }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" ><i class="ai ai-google-scholar"></i></a>
         {% endif %}
         {% if site.orcid_username %}
-        <a href="http://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a>
+        <a href="https://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a>
         {% endif %}
     </p>
 </footer>

@@ -8,7 +8,9 @@ baseurl: ""
 url: "https://jacopogrilli.github.io" # replace by your site's url
 twitter_username: jacrickets
 # github_username:  jacopogrilli
-resgate_username: Jacopo_Grilli
+scholar_username: "P2V3b3QAAAAJ"
+resgate_username: "Jacopo_Grilli"
+orcid_username: "0000-0002-8235-5803"
 maplocation: Department+of+Ecology+and+Evolution,+Chicago,+IL+60637
 author: "Jacopo Grilli"
 
