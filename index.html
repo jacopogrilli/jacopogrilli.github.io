@@ -67,6 +67,19 @@ layout: default
 </div>
 
 
+
+<div id="publications">
+  <h2 class="my-mini-heading">{{ site.publications_btn }}</h2>
+        <p class="my-text-author">
+        {% include pubs.html %}
+    </p>
+
+  <div>
+    <a onclick="hide_lists();" class="waves-effect waves-teal btn-flat btn-large">{{ site.close_btn }}</a>
+  </div>
+</div>
+
+<!---
 <div id="publications">
   <h2 class="my-mini-heading">{{ site.publications_btn }}</h2>
   <ul>
@@ -85,7 +98,7 @@ layout: default
   </div>
 </div>
 
-
+--->
 
 
 <noscript>
