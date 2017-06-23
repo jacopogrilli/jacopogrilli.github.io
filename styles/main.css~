@@ -16,11 +16,11 @@ src:local('Material Icons'),local(MaterialIcons-Regular),url(fonts/icons.woff2) 
 
 .container
 {
-  padding-right: 1px;
-  padding-left: 1px;
+  padding-right: 0%;
+  padding-left: 0%;
   margin-right: auto;
   margin-left: auto;
-  width: 20000px;
+  width: 100%;
 }
 
 .material-icons {
