@@ -14,6 +14,15 @@ src:local('Material Icons'),local(MaterialIcons-Regular),url(fonts/icons.woff2) 
   src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/icons.ttf) format('truetype');
 }
 
+.container
+{
+  padding-right: 1px;
+  padding-left: 1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
