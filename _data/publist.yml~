@@ -1,0 +1,439 @@
+
+
+  
+
+- title: An adder behavior in mammalian cells achieves size control by modulation of growth rate and cell cycle duration
+  authors: C. Cadart, S. Monnier, J. Grilli, R. Attia, E. Terriac, B. Baum, M. Cosentino Lagomarsino and, M. Piel
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2017
+  doi: 
+  arxiv: 
+  biorxiv: 2017/06/20/152728
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: A point of no return leading to death during heat-shock in C. elegans
+  authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga and, L.B. Snoek
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2017
+  doi: 
+  arxiv: 
+  biorxiv: 2017/05/16/135988
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Higher-order interactions stabilize dynamics in competitive network models
+  authors: J. Grilli, G. Barabás, M.J. Michalska-Smith and Stefano Allesina.
+  journal: Nature
+  journalshort: Nature
+  reference: "in press"
+  year: 2017
+  doi: 10.1038/nature23273
+  arxiv:
+  biorxiv:
+  news: "[Nature: News&Views](http://www.nature.com/nature/journal/vaop/ncurrent/full/nature23103.html),
+        [Computation institute](https://ci.uchicago.edu/press-releases/new-ecological-model-generates-diversity-chain-head-head-battles),
+        [Nature Eco&Evo: Behind the paper](https://natureecoevocommunity.nature.com/channels/521-behind-the-paper/posts/18885-for-ecological-interactions-3-2),
+        [Science Life](https://sciencelife.uchospitals.edu/2017/07/27/new-ecological-model-generates-diversity-with-chain-of-head-to-head-battles/),
+        [Phys.org](https://phys.org/news/2017-07-ecological-tournament-style-framework-biodiversity.html)."
+  description: "Although higher-order interactions have been studied for decades, their role in shaping ecological communities is still unclear. The inclusion of higher-order interactions in competitive network models stabilizes dynamics, making species coexistence robust to the perturbation of both population abundance and parameter values."
+  image: dummy.png
+  mendeley: 
+  pmid: 28746307
+  preprint: 0
+  highlight: 1
+
+- title: Last name analysis of mobility, gender imbalance, and nepotism across academic systems
+  authors: J. Grilli and S. Allesina.
+  journal: Proceedings of the National Academy of Sciences
+  journalshort: PNAS
+  reference: "114(29):7600-7605"
+  year: 2017
+  doi: 10.1073/pnas.1703513114
+  arxiv:
+  biorxiv:
+  news: Wired, Phys.org e tanto altro
+  description: In the era of Big Data, a list of names seems a meager source of data...
+  image: dummy.png
+  mendeley: research-papers/last-name-analysis-mobility-gender-imbalance-nepotism-across-academic-systems 
+  pmid: 28673985
+  preprint: 0
+  highlight: 1
+  
+- title: Collapse of resilience patterns in generalized Lotka-Volterra dynamics and beyond 
+  authors: C. Tu, J. Grilli, F. Schuessler and, S. Suweis
+  journal: Physical Review E
+  journalshort: PRE
+  reference: "95, 062307"
+  year: 2017
+  doi: 10.1103/PhysRevE.95.062307
+  arxiv: 1606.09630
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/collapse-resilience-patterns-generalized-lotkavolterra-dynamics-beyond/
+  pmid: 28709280
+  preprint: 0
+  highlight: 0
+
+- title: Family-specific scaling laws in bacterial genomes
+  authors: E. de Lazzari, J. Grilli, S. Maslov and, M. Cosentino Lagomarsino
+  journal: Nucleic Acids Research
+  journalshort: NAR
+  reference: "45(13):7615-7622"
+  year: 2017
+  doi: 10.1093/nar/gkx510
+  arxiv: 1703.09822
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/familyspecific-scaling-laws-bacterial-genomes/
+  pmid: 28605556
+  preprint: 0
+  highlight: 0
+
+- title: Relevant parameters in models of cell division control
+  authors: J. Grilli, M. Osella, A.S. Kennard, and M. Cosentino Lagomarsino
+  journal: Physical Review E
+  journalshort: PRE
+  reference: 95, 032411
+  year: 2017
+  doi: 10.1103/PhysRevE.95.032411
+  arxiv: 1606.09284
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/relevant-parameters-models-cell-division-control/
+  pmid: 28415269
+  preprint: 0
+  highlight: 0
+
+
+- title: Feasibility and coexistence of large ecological communities
+  authors: J. Grilli, M. Adorisio, S. Suweis, G. Barabás, J.R. Banavar, S. Allesina, and A. Maritan
+  journal: Nature Communications
+  journalshort: Nat Comm
+  reference: "8:0"
+  year: 2017
+  doi: 10.1038/ncomms14389
+  arxiv: 1507.05337
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/feasibility-coexistence-large-ecological-communities
+  pmid: 28233768
+  preprint: 0
+  highlight: 0
+
+
+- title: "Statistical mechanics of ecological systems: neutral theory and beyond"
+  authors: S. Azaele, S. Suweis, J. Grilli, I. Volkov, J.R. Banavar, and A. Maritan
+  journal: Review of Modern Physics
+  journalshort: RMP
+  reference: 88, 035003
+  year: 2016
+  doi: 10.1103/RevModPhys.88.035003
+  arxiv: 1506.01721
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/statistical-mechanics-ecological-systems-neutral-theory-beyond-6
+  pmid: 
+  preprint: 0
+  highlight: 1
+
+
+- title: Modularity and stability in ecological communities 
+  authors: J. Grilli, T. Rogers and, S. Allesina
+  journal: Nature Communications
+  journalshort: Nat Comm
+  reference: "7:12031"
+  year: 2016
+  doi: 10.1038/ncomms12031
+  arxiv:
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/modularity-stability-ecological-communities
+  pmid: 27337386
+  preprint: 0
+  highlight: 1
+
+
+- title: Cooperation, competition and the emergence of criticality in communities of adaptive systems
+  authors: J. Hidalgo, J. Grilli,  S. Suweis, A. Maritan and, M.A. Muñoz
+  journal: "Journal of Statistical Mechanics: Theory and Experiment"
+  journalshort: JStat
+  reference: "2016(3):033203"
+  year: 2016
+  doi: 10.1088/1742-5468/2016/03/033203
+  arxiv: 1510.05941
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/cooperation-competition-emergence-criticality-communities-adaptive-systems
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
+- title: Individuality and universality in the growth-division laws of single E. coli cells
+  authors: A.S. Kennard, M. Osella, A. Javer, J. Grilli, P. Nghe, S. Tans, P. Cicuta and, M. Cosentino Lagomarsino
+  journal: Physical Review E
+  journalshort: PRE
+  reference: 93, 012408
+  year: 2016
+  doi: 10.1103/PhysRevE.93.012408
+  arxiv: 1411.4321
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/individuality-universality-growthdivision-laws-single-e-coli-cells
+  pmid: 26871102
+  preprint: 0
+  highlight: 0
+
+
+- title: Effect of localization on the stability of mutualistic ecological networks
+  authors: S. Suweis, J. Grilli, J.R. Banavar, S. Allesina and, A. Maritan
+  journal: Nature Communications
+  journalshort: Nat Comm
+  reference: "6:10179"
+  year: 2015
+  doi: 10.1038/ncomms10179
+  arxiv: 
+  biorxiv: "2015/07/27/023275"
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/effect-localization-stability-mutualistic-ecological-networks
+  pmid: 26674106
+  preprint: 0
+  highlight: 0
+
+
+- title: Predicting the stability of large structured food webs
+  authors: S. Allesina, J. Grilli, G. Barabás, S. Tang, J. Aljadeff and A. Maritan
+  journal: Nature Communications
+  journalshort: Nat Comm
+  reference: 6:7842
+  year: 2015
+  doi: 10.1038/ncomms8842
+  arxiv: 
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/predicting-stability-large-structured-food-webs
+  pmid: 26198207
+  preprint: 0
+  highlight: 0
+
+
+- title: Metapopulation persistence in random fragmented landscapes
+  authors: J. Grilli, G. Barabás and, S. Allesina
+  journal: Plos Computational Biology
+  journalshort: PCB
+  reference: "11(5):e1004251"
+  year: 2015
+  doi: 10.1371/journal.pcbi.1004251
+  arxiv: 
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/metapopulation-persistence-random-fragmented-landscapes
+  pmid: 25993004
+  preprint: 0
+  highlight: 0
+
+
+- title: Information-based fitness and the emergence of criticality in living systems
+  authors: J. Hidalgo*, J. Grilli*, S. Suweis, M.A. Muñoz, J.R. Banavar and, A. Maritan
+  journal: Proceedings of the National Academy of Sciences
+  journalshort: PNAS
+  reference: "111(28):10095-10100"
+  year: 2014
+  doi: 10.1073/pnas.1319166111
+  arxiv: 1307.4325
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/informationbased-fitness-emergence-criticality-living-systems
+  pmid: 24982145
+  preprint: 0
+  highlight: 1
+
+
+
+- title: Spatial maximum entropy modeling from presence/absence tropical forest data
+  authors: M. Adorisio, J. Grilli, S. Suweis, S. Azaele, J.R. Banavar and, A. Maritan
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2014
+  doi: 
+  arxiv: 1407.2425
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+
+- title: Cross-species gene-family fluctuations reveal the dynamics of horizontal transfers
+  authors: J. Grilli, M. Romano, F. Bassetti and, M. Cosentino Lagomarsino
+  journal: Nucleic Acids Research
+  journalshort: NAR
+  reference: "42(11):6850-6860"
+  year: 2014
+  doi: 10.1093/nar/gku378
+  arxiv: 
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/crossspecies-genefamily-fluctuations-reveal-dynamics-horizontal-transfers
+  pmid: 24829449
+  preprint: 0
+  highlight: 0
+
+- title: Disentangling the effect of hybrid interactions and of the constant effort hypothesis on ecological community stability
+  authors: S. Suweis*, J. Grilli*, and A. Maritan
+  journal: Oikos
+  journalshort: Oikos
+  reference: "123(5):525-532"
+  year: 2014
+  doi: 10.1111/j.1600-0706.2013.00822.x
+  arxiv: 1301.1569
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/disentangling-effect-hybrid-interactions-constant-effort-hypothesis-ecological-community-stability
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
+- title: "Growth or reproduction: emergence of an evolutionary optimal strategy"
+  authors: J. Grilli, S. Suweis and, A. Maritan
+  journal: "Journal of Statistical Mechanics: Theory and Experiment"
+  journalshort: JStat
+  reference: 2013(10):P10020
+  year: 2013
+  doi: 10.1088/1742-5468/2013/10/P10020
+  arxiv: 1306.5877
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/growth-reproduction-emergence-evolutionary-optimal-strategy
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
+- title: Absence of detailed balance in ecology
+  authors: J. Grilli, S. Azaele, J.R. Banavar and, A. Maritan
+  journal: Europhysics Letters
+  journalshort: EPL
+  reference: "100:38002"
+  year: 2012
+  doi: 10.1209/0295-5075/100/38002
+  arxiv: 1210.5819
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/absence-detailed-balance-ecology
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
+- title: Spatial aggregation and the species-area relationship across scales
+  authors: J. Grilli, S. Azaele, J.R. Banavar and, A. Maritan
+  journal: Journal of Theoretical Biology
+  journalshort: JTB
+  reference: "313:87-97"
+  year: 2012
+  doi: 10.1016/j.jtbi.2012.07.030
+  arxiv: 1209.3591
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/spatial-aggregation-speciesarea-relationship-across-scales
+  pmid: 22902426
+  preprint: 0
+  highlight: 0
+
+- title: Large-scale dynamics of horizontal transfers
+  authors: L. Grassi, J. Grilli and M. Cosentino Lagomarsino
+  journal: Mobile Genetics Elements
+  journalshort: MGE
+  reference: "2(3):163-167"
+  year: 2012
+  doi: 10.4161/mge.21112
+  arxiv: 1209.3591
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/largescale-dynamics-horizontal-transfers
+  pmid: 23061026
+  preprint: 0
+  highlight: 0
+
+- title: Joint scaling laws in functional and evolutionary categories in prokaryotic genomes
+  authors: J. Grilli, B. Bassetti, S. Maslov and, M. Cosentino Lagomarsino
+  journal: Nucleic Acids Research
+  journalshort: NAR
+  reference: "40(2):530-540"
+  year: 2012
+  doi: 10.1093/nar/gkr711
+  arxiv: 1101.5814
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/joint-scaling-laws-functional-evolutionary-categories-prokaryotic-genomes
+  pmid: 21937509
+  preprint: 0
+  highlight: 0
+
+
+
+

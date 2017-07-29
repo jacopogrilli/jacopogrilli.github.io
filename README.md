@@ -1,14 +1,11 @@
-# light material jekyll theme
-a lightweight jekyll blogging theme, perfect for your personal page.
+# Allan Lab Website
 
-# [DEMO](http://himsel.me/material-theme)
+This is the website of our academic research group at Leiden University.
 
-### Use this Jekyll theme
-[Read the Article about it!](http://himsel.me/material-theme/2016/09/19/use-my-jekyll-theme.html)  
-If you are too busy to read these few lines, then please do this:  
-- fork repo  
-- change the site's url and other values in `_config.yml`  
+This website is powered by Jekyll and some Bootstrap, Bootwatch. We tried to make it simple yet adaptable, so that it is easy for you to re-use it for your purpose. Plese feel free to copy and modify for your own purposes.  You don't have to link to us or mention us (but of course we appreciate it).
 
-####License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-This theme is distributed under the MIT License.
+Go to *aboutwebsite.md*  to learn how to copy and modidy this page for your purpose. 
+
+
+Copyright Allan Lab. Code released under the MIT License.
+
