@@ -16,6 +16,39 @@ I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D 
 
 [<i class="fa fa-file-pdf-o"></i>  Download my cv](jgrilli_cv.pdf) 
 
+
+{% if site.github_username %}
+<p><a href="https://github.com/{{ site.github_username }}" class="waves-effect waves-teal btn-flat my-github-link"><i class="fa fa-github"></i></a> </p>
+{% endif %}
+{% if site.resgate_username %}
+<p><a href="http://www.researchgate.net/profile/{{ site.resgate_username }}" class="waves-effect waves-teal btn-flat my-researchgate-link" ><i class="ai ai-researchgate"></i></a></p>
+{% endif %}
+{% if site.mendeley_username %}
+<p><a href="https://www.mendeley.com/profiles/{{ site.mendeley_username }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" ><i class="ai ai-mendeley"></i></a></p>
+{% endif %}
+{% if site.scholar_username %}
+<p><a href="http://scholar.google.com/citations?user={{ site.scholar_username }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" ><i class="ai ai-google-scholar"></i></a></p>
+{% endif %}
+{% if site.orcid_username %}
+<div class="iconbottom">
+<p>
+<a href="http://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a>
+</p> </div>
+{% endif %}
+{% if site.twitter_username %}
+<div class="iconbottom">
+<p>
+<a href="https://twitter.com/{{ site.twitter_username }}" class="waves-effect waves-teal btn-flat my-twitter-link"><i class="fa fa-twitter"></i></a>
+</p></div>
+{% endif %}
+{% if site.linkedin_username %}
+<div class="iconbottom">
+<p>
+<a href="http://www.linkedin.com/pub/{{ site.linkedin_username }}" class="waves-effect waves-teal btn-flat my-twitter-link"><i class="fa fa-linkedin"></i></a>
+</p></div>
+{% endif %}
+
+
 <br><br>
 
 <figure align="center">
