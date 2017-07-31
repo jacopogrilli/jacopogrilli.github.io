@@ -1,12 +1,12 @@
 ---
-title: "Jacopo Grilli - Research"
+title: "Jacopo Grilli - Contact"
 layout: textlay
-excerpt: "Jacopo Grilli -- Research"
+excerpt: "Jacopo Grilli -- Contact"
 sitemap: false
-permalink: /contacts/
+permalink: /contact/
 ---
 
-# Contacts
+# Contact
 
 
 <br>

@@ -12,6 +12,6 @@ permalink: /allnews.html
 <p>
 <strong>
 {{ article.date }}</strong>  --- {{ article.headline }} <br>
-<em>{% if article.fullnews %}{{ article.fullnews }}{% endif %}</em>
+{% if article.fullnews %}{{ article.fullnews }}{% endif %}
 </p>
 {% endfor %}

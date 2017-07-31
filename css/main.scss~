@@ -19,7 +19,13 @@ figcaption {
     margin-bottom: 20px;
 }
 
+a {
+    color: #00A806;
+}
 
+a:hover{
+    color: #00A806;
+}
 
 /* Top navigation bar */
 
@@ -122,8 +128,8 @@ firstp {
 /*.container > div {*/
 /*    display: inline-block;*/
 /*    display: -moz-inline-box;*/
-/*    *display: inline; /* For IE7 */*/
-/*/*    zoom: 1; /* Trigger hasLayout */*/
+/*    *display: inline; /* For IE7 */
+/*/*    zoom: 1; /* Trigger hasLayout */
 /*    width: 12%;*/
 /*    text-align: center;*/
 /*}*/
@@ -148,7 +154,17 @@ firstp {
     color: #FF6666;
 }
 
+.my-linkedin-link:hover{
+    color: #0077b5;
+}
 
+.my-publons-link:hover{
+    color: #336699;
+}
+
+.my-mendeley-link:hover{
+    color: #000000;
+}
 
 .my-github-link:hover{
     color: #e19e2f;

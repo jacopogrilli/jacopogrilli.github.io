@@ -19,6 +19,7 @@ I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D 
 <a href="https://www.mendeley.com/profiles/{{ site.mendeley_username }}" class="waves-effect waves-teal btn-flat my-mendeley-link" ><i class="ai ai-mendeley"></i></a> - 
 <a href="http://scholar.google.com/citations?user={{ site.scholar_username }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" ><i class="ai ai-google-scholar"></i></a> -
 <a href="http://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a> -
+<a href="https://publons.com/author/1176681{{ site.publons_username }}" class="waves-effect waves-teal btn-flat my-publons-link" ><i class="ai ai-publons"></i></a> -
 <a href="https://twitter.com/{{ site.twitter_username }}" class="waves-effect waves-teal btn-flat my-twitter-link"><i class="fa fa-twitter"></i></a> -
 <a href="http://www.linkedin.com/pub/{{ site.linkedin_username }}" class="waves-effect waves-teal btn-flat my-linkedin-link"><i class="fa fa-linkedin"></i></a>
 </p>
