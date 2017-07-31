@@ -20,7 +20,8 @@ Room 403, Zoology building <br>
 <br>
 
 <div class="map" markdown="0">
-    <div id="googleMap" class="templatemo-map"></div>
+<div id="googleMap" class="templatemo-map"></div>
 </div>
 
-<br><br>
+<br>
+<br>
