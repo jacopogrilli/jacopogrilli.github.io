@@ -43,7 +43,6 @@ firstp {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
   max-width: 1000px; /* or 950px */
 }
 
@@ -120,14 +119,14 @@ firstp {
 	height: 380px;
 }
 
-.container > div {
-    display: inline-block;
-    display: -moz-inline-box;
-    *display: inline; /* For IE7 */
-/*    zoom: 1; /* Trigger hasLayout */
-    width: 12%;
-    text-align: center;
-}
+/*.container > div {*/
+/*    display: inline-block;*/
+/*    display: -moz-inline-box;*/
+/*    *display: inline; /* For IE7 */*/
+/*/*    zoom: 1; /* Trigger hasLayout */*/
+/*    width: 12%;*/
+/*    text-align: center;*/
+/*}*/
 
 .my-twitter-link:hover{
     color: #1da0f2;
