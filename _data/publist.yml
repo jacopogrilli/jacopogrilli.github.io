@@ -148,7 +148,7 @@
   biorxiv:
   news:
   description: "We develop a geometrical framework to study the range of conditions necessary for feasible coexistence. We show that feasibility is determined by few quantities describing the interactions, yielding a nontrivial complexity–feasibility relationship."
-  image: dummy.png
+  image: ncomm2017.png
   mendeley: research-papers/feasibility-coexistence-large-ecological-communities
   pmid: 28233768
   preprint: 0
@@ -294,7 +294,7 @@
   biorxiv:
   news: 
   description: "Using tools from statistical mechanics and information theory, we show that complex adaptive or evolutionary systems can be much more efficient in coping with diverse heterogeneous environmental conditions when operating at criticality"
-  image: dummy.png
+  image: pnas2014.png
   mendeley: research-papers/informationbased-fitness-emergence-criticality-living-systems
   pmid: 24982145
   preprint: 0
@@ -437,7 +437,7 @@
   biorxiv:
   news: 
   description: "Studies of fully sequenced genomes revealed that their functional and evolutionary composition is governed by simple quantitative laws. Here we introduce the first model that jointly explains observed scaling laws for evolutionary families and functional categories."
-  image: dummy.png
+  image: nar2012.png
   mendeley: research-papers/joint-scaling-laws-functional-evolutionary-categories-prokaryotic-genomes
   pmid: 21937509
   preprint: 0

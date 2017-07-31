@@ -41,7 +41,7 @@
 
 
 - title: Higher-order interactions stabilize dynamics in competitive network models
-  authors: J. Grilli, G. Barabás, M.J. Michalska-Smith and Stefano Allesina.
+  authors: J. Grilli, G. Barabás, M.J. Michalska-Smith and Stefano Allesina
   journal: Nature
   journalshort: Nature
   reference: "in press"
@@ -50,19 +50,19 @@
   arxiv:
   biorxiv:
   news: "[Nature: News&Views](http://www.nature.com/nature/journal/vaop/ncurrent/full/nature23103.html),
-        [Computation institute](https://ci.uchicago.edu/press-releases/new-ecological-model-generates-diversity-chain-head-head-battles),
         [Nature Eco&Evo: Behind the paper](https://natureecoevocommunity.nature.com/channels/521-behind-the-paper/posts/18885-for-ecological-interactions-3-2),
+        [Computation institute](https://ci.uchicago.edu/press-releases/new-ecological-model-generates-diversity-chain-head-head-battles),
         [Science Life](https://sciencelife.uchospitals.edu/2017/07/27/new-ecological-model-generates-diversity-with-chain-of-head-to-head-battles/),
         [Phys.org](https://phys.org/news/2017-07-ecological-tournament-style-framework-biodiversity.html)."
-  description: "Although higher-order interactions have been studied for decades, their role in shaping ecological communities is still unclear. The inclusion of higher-order interactions in competitive network models stabilizes dynamics, making species coexistence robust to the perturbation of both population abundance and parameter values."
-  image: dummy.png
+  description: "Although higher-order interactions have been studied for decades, their role in shaping ecological communities is still unclear. The inclusion of higher-order interactions stabilizes dynamics, making species coexistence robust to the perturbation of both population abundance and parameter values."
+  image: nature2017.png
   mendeley: 
   pmid: 28746307
   preprint: 0
   highlight: 1
 
 - title: Last name analysis of mobility, gender imbalance, and nepotism across academic systems
-  authors: J. Grilli and S. Allesina.
+  authors: J. Grilli and S. Allesina
   journal: Proceedings of the National Academy of Sciences
   journalshort: PNAS
   reference: "114(29):7600-7605"
@@ -70,9 +70,16 @@
   doi: 10.1073/pnas.1703513114
   arxiv:
   biorxiv:
-  news: Wired, Phys.org e tanto altro
-  description: In the era of Big Data, a list of names seems a meager source of data...
-  image: dummy.png
+  news: "[Nature](http://www.nature.com/news/italy-s-anti-nepotism-drive-picked-up-in-surname-study-1.22242),
+        [EurekAlert](https://www.eurekalert.org/pub_releases/2017-07/uocm-wia062817.php),
+        [Science Life](https://sciencelife.uchospitals.edu/2017/07/03/whats-in-a-name-big-data-approach-reveals-distinctive-patterns-in-higher-education-systems/),
+        [U Chicago News](https://news.uchicago.edu/article/2017/07/03/studying-lists-last-names-reveal-hiring-practices-higher-education),
+        [Wired Italia](https://www.wired.it/scienza/lab/2017/07/04/universita-mappa-nepotismo-italia/), [...]
+        "
+  description: "In the age of Big Data, a list of names might seem like a meager source of data.
+    In this work (which is a bona fide [exercise in style](https://en.wikipedia.org/wiki/Exercises_in_Style)), we show that analyzing last name distributions one can highlight distinctive
+    patterns in academic systems around the world."
+  image: pnas2017.png
   mendeley: research-papers/last-name-analysis-mobility-gender-imbalance-nepotism-across-academic-systems 
   pmid: 28673985
   preprint: 0
@@ -139,13 +146,13 @@
   doi: 10.1038/ncomms14389
   arxiv: 1507.05337
   biorxiv:
-  news: 
-  description: 
-  image: dummy.png
+  news:
+  description: "We develop a geometrical framework to study the range of conditions necessary for feasible coexistence. We show that feasibility is determined by few quantities describing the interactions, yielding a nontrivial complexity–feasibility relationship."
+  image: ncomm2017.png
   mendeley: research-papers/feasibility-coexistence-large-ecological-communities
   pmid: 28233768
   preprint: 0
-  highlight: 0
+  highlight: 1
 
 
 - title: "Statistical mechanics of ecological systems: neutral theory and beyond"
@@ -158,8 +165,10 @@
   arxiv: 1506.01721
   biorxiv:
   news: 
-  description: 
-  image: dummy.png
+  description: "The simplest theories often have much merit and many limitations, and, in this vein, the value of neutral theory (NT) of
+    biodiversity has been the subject of much debate over the past 15 years. Here we review the quantitative aspects of NT,
+    its extensions, what its successes are, and what important problems remain unresolved"
+  image: rmp2016.png
   mendeley: research-papers/statistical-mechanics-ecological-systems-neutral-theory-beyond-6
   pmid: 
   preprint: 0
@@ -181,7 +190,7 @@
   mendeley: research-papers/modularity-stability-ecological-communities
   pmid: 27337386
   preprint: 0
-  highlight: 1
+  highlight: 0
 
 
 - title: Cooperation, competition and the emergence of criticality in communities of adaptive systems
@@ -284,7 +293,7 @@
   arxiv: 1307.4325
   biorxiv:
   news: 
-  description: 
+  description: "Using tools from statistical mechanics and information theory, we show that complex adaptive or evolutionary systems can be much more efficient in coping with diverse heterogeneous environmental conditions when operating at criticality"
   image: dummy.png
   mendeley: research-papers/informationbased-fitness-emergence-criticality-living-systems
   pmid: 24982145
@@ -427,12 +436,12 @@
   arxiv: 1101.5814
   biorxiv:
   news: 
-  description: 
-  image: dummy.png
+  description: "Studies of fully sequenced genomes revealed that their functional and evolutionary composition is governed by simple quantitative laws. Here we introduce the first model that jointly explains observed scaling laws for evolutionary families and functional categories."
+  image: nar2012.png
   mendeley: research-papers/joint-scaling-laws-functional-evolutionary-categories-prokaryotic-genomes
   pmid: 21937509
   preprint: 0
-  highlight: 0
+  highlight: 1
 
 
 
