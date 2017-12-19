@@ -1,4 +1,41 @@
 
+- title: The effect of population abundances on the stability of large random ecosystems
+  authors: T. Gibbs, J. Grilli, T. Rogers, and S. Allesina
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2017
+  doi: 
+  arxiv: 1708.08837
+  biorxiv: 
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+  
+
+- title: Cooperation promotes biodiversity and stability in a model ecosystem
+  authors: C. Tu, S. Suweis, J. Grilli, M. Formentin, and Amos Maritan
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2017
+  doi: 
+  arxiv: 1708.03154
+  biorxiv: 
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
 
   
 
@@ -21,13 +58,13 @@
   highlight: 0
 
 
-- title: A point of no return leading to death during heat-shock in C. elegans
+- title: Temporal dynamics of gene expression in heat-stressed Caenorhabditis elegans
   authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga and, L.B. Snoek
-  journal: 
-  journalshort: 
-  reference: 
+  journal: "Plos One"
+  journalshort: POne
+  reference: "2(12), e0189445"
   year: 2017
-  doi: 
+  doi: 10.1371/journal.pone.0189445
   arxiv: 
   biorxiv: 2017/05/16/135988
   news: 
@@ -35,8 +72,8 @@
   image: dummy.png
   mendeley: 
   researchgate: 
-  pmid: 
-  preprint: 1
+  pmid: 29228038
+  preprint: 0
   highlight: 0
 
 
@@ -44,7 +81,7 @@
   authors: J. Grilli, G. Barabás, M.J. Michalska-Smith and Stefano Allesina
   journal: Nature
   journalshort: Nature
-  reference: "in press"
+  reference: "548, 210–213"
   year: 2017
   doi: 10.1038/nature23273
   arxiv:
@@ -56,7 +93,7 @@
         [Phys.org](https://phys.org/news/2017-07-ecological-tournament-style-framework-biodiversity.html)."
   description: "Although higher-order interactions have been studied for decades, their role in shaping ecological communities is still unclear. The inclusion of higher-order interactions stabilizes dynamics, making species coexistence robust to the perturbation of both population abundance and parameter values."
   image: nature2017.png
-  mendeley: 
+  mendeley: research-papers/higherorder-interactions-stabilize-dynamics-competitive-network-models/
   pmid: 28746307
   preprint: 0
   highlight: 1
