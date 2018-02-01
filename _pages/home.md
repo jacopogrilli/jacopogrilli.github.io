@@ -1,7 +1,7 @@
 ---
 title: "Jacopo Grilli - Home"
 layout: homelay
-excerpt: "Jacopo Grilli at the University of Chicago."
+excerpt: "Jacopo Grilli at the Santa Fe Institute."
 sitemap: false
 permalink: /
 ---
@@ -25,19 +25,18 @@ recently, I started working on aging and stress response in C. elegans.
 <br><br>
 
 
-Currently, I am a Postdoctoral scholar at the University of Chicago,
+Currently, I am a
+<a target="_blank" href="https://www.santafe.edu/people/profile/jacopo-grilli">
+Omidyar Postdoctoral Fellow</a>
+at the Santa Fe Institute.<br>
+
+I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D in Physics in 2015 at the University of Padova, where I was supervised by
+<a target="_blank" href="http://www.pd.infn.it/~maritan/">
+Amos Maritan</a>. In 2015, I moved to the University of Chicago as a Postdoctoral scholar,
 working in the lab of
 <a target="_blank" href="http://allesinalab.uchicago.edu/">
 Stefano Allesina</a>.
-I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D in Physics in 2015 at the University of Padova, where I was supervised by
-<a target="_blank" href="http://www.pd.infn.it/~maritan/">
-Amos Maritan</a>.
 
-
--In January 2018, I will start as a
-<a target="_blank" href="https://www.santafe.edu/people/profile/jacopo-grilli">
-Omidyar Postdoctoral Fellow</a>
-at the Santa Fe Institute.-
 
 
 <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/images/jgrilli_cv.pdf">

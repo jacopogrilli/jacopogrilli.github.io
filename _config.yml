@@ -26,12 +26,13 @@ arxiv_username: "grilli_j_1"
 biorxiv_username: "jacopo grilli"
 linkedin_username: "jacopo-grilli/a6/9b9/15a/en"
 mendeley_username: "jacopo-grilli"
-maplocation: Department+of+Ecology+and+Evolution,+Chicago,+IL+60637
+maplocation: Santa+Fe+Institute
 author: "Jacopo Grilli"
 
-map_latitude: 41.7912018
-map_longitude: -87.5993417
-map_title: 'Room 404, Zoology Building'
+
+map_latitude: 35.700149
+map_longitude: -105.910828
+map_title: 'Santa Fe Institute'
 map_apikey: "AIzaSyBnQF4MBlavhBv8GrjYolkJpSxGHz4P0Bc"
 
 include:

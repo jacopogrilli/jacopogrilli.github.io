@@ -11,11 +11,11 @@ permalink: /contact/
 
 <br>
 
-<i class="fa fa-map-marker"></i> Department of Ecology and Evolution, University of Chicago <br>
-Room 403, Zoology building <br>
-1101 E 57th st, 60637, Chicago IL<br>
+<i class="fa fa-map-marker"></i> Santa Fe Institute <br>
+1399 Hyde Park Road, 
+Santa Fe 87501 NM, USA <br>
 
-<i class="fa fa-envelope-o"></i> jgrilli[at]uchicago[dot]edu
+<i class="fa fa-envelope-o"></i> jgrilli[at]santafe[dot]edu
 
 <br>
 
