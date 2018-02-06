@@ -17,6 +17,9 @@ Santa Fe 87501 NM, USA <br>
 
 <i class="fa fa-envelope-o"></i> jgrilli[at]santafe[dot]edu
 
+<i class="fa fa-phone"></i> (+1)505-946-2771
+
+
 <br>
 
 <div class="map" markdown="0">
