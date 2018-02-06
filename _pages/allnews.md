@@ -1,7 +1,7 @@
 ---
 title: "Home"
 layout: textlay
-excerpt: "Allan Lab at Leiden University."
+excerpt: "Jacopo Grilli @ the Santa Fe Institute."
 sitemap: false
 permalink: /allnews.html
 ---
