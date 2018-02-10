@@ -8,6 +8,10 @@ permalink: /research/
 
 # Research
 
+<em>"Simplicity is the greatest form of sophistication"</em> 
+
+
+
 <div style="text-align: justify">
 
 {% for reas in site.data.research %}
