@@ -1,5 +1,5 @@
 - title: Zipf and Heaps laws from dependency structures in component systems
-  authors: A. Mazzolini, J. Grilli, E. De Lazzari, M. Osella, M. Cosentino Lagomarsino, M. Gherardi
+  authors: A. Mazzolini, J. Grilli, E. De Lazzari, M. Osella, M. Cosentino Lagomarsino, and M. Gherardi
   journal: 
   journalshort: 
   reference: 
@@ -38,7 +38,7 @@
   
 
 - title: Cooperation promotes biodiversity and stability in a model ecosystem
-  authors: C. Tu, S. Suweis, J. Grilli, M. Formentin, and Amos Maritan
+  authors: C. Tu, S. Suweis, J. Grilli, M. Formentin, and A. Maritan
   journal: 
   journalshort: 
   reference: 
@@ -58,7 +58,7 @@
   
 
 - title: An adder behavior in mammalian cells achieves size control by modulation of growth rate and cell cycle duration
-  authors: C. Cadart, S. Monnier, J. Grilli, R. Attia, E. Terriac, B. Baum, M. Cosentino Lagomarsino and, M. Piel
+  authors: C. Cadart, S. Monnier, J. Grilli, R. Attia, E. Terriac, B. Baum, M. Cosentino Lagomarsino, and M. Piel
   journal: 
   journalshort: 
   reference: 
@@ -77,7 +77,7 @@
 
 
 - title: Temporal dynamics of gene expression in heat-stressed Caenorhabditis elegans
-  authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga and, L.B. Snoek
+  authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga, and L.B. Snoek
   journal: "Plos One"
   journalshort: POne
   reference: "2(12), e0189445"
@@ -96,7 +96,7 @@
 
 
 - title: Higher-order interactions stabilize dynamics in competitive network models
-  authors: J. Grilli, G. Barabás, M.J. Michalska-Smith and Stefano Allesina
+  authors: J. Grilli, G. Barabás, M.J. Michalska-Smith, and S. Allesina
   journal: Nature
   journalshort: Nature
   reference: "548, 210–213"
@@ -141,7 +141,7 @@
   highlight: 1
   
 - title: Collapse of resilience patterns in generalized Lotka-Volterra dynamics and beyond 
-  authors: C. Tu, J. Grilli, F. Schuessler and, S. Suweis
+  authors: C. Tu, J. Grilli, F. Schuessler, and S. Suweis
   journal: Physical Review E
   journalshort: PRE
   reference: "95, 062307"
@@ -158,7 +158,7 @@
   highlight: 0
 
 - title: Family-specific scaling laws in bacterial genomes
-  authors: E. de Lazzari, J. Grilli, S. Maslov and, M. Cosentino Lagomarsino
+  authors: E. De Lazzari, J. Grilli, S. Maslov, and M. Cosentino Lagomarsino
   journal: Nucleic Acids Research
   journalshort: NAR
   reference: "45(13):7615-7622"
@@ -231,7 +231,7 @@
 
 
 - title: Modularity and stability in ecological communities 
-  authors: J. Grilli, T. Rogers and, S. Allesina
+  authors: J. Grilli, T. Rogers, and S. Allesina
   journal: Nature Communications
   journalshort: Nat Comm
   reference: "7:12031"
@@ -249,7 +249,7 @@
 
 
 - title: Cooperation, competition and the emergence of criticality in communities of adaptive systems
-  authors: J. Hidalgo, J. Grilli,  S. Suweis, A. Maritan and, M.A. Muñoz
+  authors: J. Hidalgo, J. Grilli,  S. Suweis, A. Maritan, and M.A. Muñoz
   journal: "Journal of Statistical Mechanics: Theory and Experiment"
   journalshort: JStat
   reference: "2016(3):033203"
@@ -267,7 +267,7 @@
 
 
 - title: Individuality and universality in the growth-division laws of single E. coli cells
-  authors: A.S. Kennard, M. Osella, A. Javer, J. Grilli, P. Nghe, S. Tans, P. Cicuta and, M. Cosentino Lagomarsino
+  authors: A.S. Kennard, M. Osella, A. Javer, J. Grilli, P. Nghe, S. Tans, P. Cicuta, and M. Cosentino Lagomarsino
   journal: Physical Review E
   journalshort: PRE
   reference: 93, 012408
@@ -285,7 +285,7 @@
 
 
 - title: Effect of localization on the stability of mutualistic ecological networks
-  authors: S. Suweis, J. Grilli, J.R. Banavar, S. Allesina and, A. Maritan
+  authors: S. Suweis, J. Grilli, J.R. Banavar, S. Allesina, and A. Maritan
   journal: Nature Communications
   journalshort: Nat Comm
   reference: "6:10179"
@@ -303,7 +303,7 @@
 
 
 - title: Predicting the stability of large structured food webs
-  authors: S. Allesina, J. Grilli, G. Barabás, S. Tang, J. Aljadeff and A. Maritan
+  authors: S. Allesina, J. Grilli, G. Barabás, S. Tang, J. Aljadeff, and A. Maritan
   journal: Nature Communications
   journalshort: Nat Comm
   reference: 6:7842
@@ -321,7 +321,7 @@
 
 
 - title: Metapopulation persistence in random fragmented landscapes
-  authors: J. Grilli, G. Barabás and, S. Allesina
+  authors: J. Grilli, G. Barabás, and S. Allesina
   journal: Plos Computational Biology
   journalshort: PCB
   reference: "11(5):e1004251"
@@ -339,7 +339,7 @@
 
 
 - title: Information-based fitness and the emergence of criticality in living systems
-  authors: J. Hidalgo*, J. Grilli*, S. Suweis, M.A. Muñoz, J.R. Banavar and, A. Maritan
+  authors: J. Hidalgo*, J. Grilli*, S. Suweis, M.A. Muñoz, J.R. Banavar, and A. Maritan
   journal: Proceedings of the National Academy of Sciences
   journalshort: PNAS
   reference: "111(28):10095-10100"
@@ -358,7 +358,7 @@
 
 
 - title: Spatial maximum entropy modeling from presence/absence tropical forest data
-  authors: M. Adorisio, J. Grilli, S. Suweis, S. Azaele, J.R. Banavar and, A. Maritan
+  authors: M. Adorisio, J. Grilli, S. Suweis, S. Azaele, J.R. Banavar, and A. Maritan
   journal: 
   journalshort: 
   reference: 
@@ -377,7 +377,7 @@
 
 
 - title: Cross-species gene-family fluctuations reveal the dynamics of horizontal transfers
-  authors: J. Grilli, M. Romano, F. Bassetti and, M. Cosentino Lagomarsino
+  authors: J. Grilli, M. Romano, F. Bassetti, and M. Cosentino Lagomarsino
   journal: Nucleic Acids Research
   journalshort: NAR
   reference: "42(11):6850-6860"
@@ -412,7 +412,7 @@
 
 
 - title: "Growth or reproduction: emergence of an evolutionary optimal strategy"
-  authors: J. Grilli, S. Suweis and, A. Maritan
+  authors: J. Grilli, S. Suweis, and A. Maritan
   journal: "Journal of Statistical Mechanics: Theory and Experiment"
   journalshort: JStat
   reference: 2013(10):P10020
@@ -430,7 +430,7 @@
 
 
 - title: Absence of detailed balance in ecology
-  authors: J. Grilli, S. Azaele, J.R. Banavar and, A. Maritan
+  authors: J. Grilli, S. Azaele, J.R. Banavar, and A. Maritan
   journal: Europhysics Letters
   journalshort: EPL
   reference: "100:38002"
@@ -448,7 +448,7 @@
 
 
 - title: Spatial aggregation and the species-area relationship across scales
-  authors: J. Grilli, S. Azaele, J.R. Banavar and, A. Maritan
+  authors: J. Grilli, S. Azaele, J.R. Banavar, and A. Maritan
   journal: Journal of Theoretical Biology
   journalshort: JTB
   reference: "313:87-97"
@@ -465,7 +465,7 @@
   highlight: 0
 
 - title: Large-scale dynamics of horizontal transfers
-  authors: L. Grassi, J. Grilli and M. Cosentino Lagomarsino
+  authors: L. Grassi, J. Grilli, and M. Cosentino Lagomarsino
   journal: Mobile Genetics Elements
   journalshort: MGE
   reference: "2(3):163-167"
@@ -482,7 +482,7 @@
   highlight: 0
 
 - title: Joint scaling laws in functional and evolutionary categories in prokaryotic genomes
-  authors: J. Grilli, B. Bassetti, S. Maslov and, M. Cosentino Lagomarsino
+  authors: J. Grilli, B. Bassetti, S. Maslov, and M. Cosentino Lagomarsino
   journal: Nucleic Acids Research
   journalshort: NAR
   reference: "40(2):530-540"
