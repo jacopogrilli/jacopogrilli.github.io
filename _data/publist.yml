@@ -1,3 +1,22 @@
+- title: Concurrent processes set E. coli cell division
+  authors: G. Micali, J. Grilli, M. Osella, and M. Cosentino Lagomarsino
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2018
+  doi: 
+  arxiv:
+  biorxiv: 2018/04/16/301671
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
 - title: Zipf and Heaps laws from dependency structures in component systems
   authors: A. Mazzolini, J. Grilli, E. De Lazzari, M. Osella, M. Cosentino Lagomarsino, and M. Gherardi
   journal: 
@@ -339,7 +358,7 @@
 
 
 - title: Information-based fitness and the emergence of criticality in living systems
-  authors: J. Hidalgo*, J. Grilli*, S. Suweis, M.A. Muñoz, J.R. Banavar, and A. Maritan
+  authors: J. Hidalgo, J. Grilli, S. Suweis, M.A. Muñoz, J.R. Banavar, and A. Maritan
   journal: Proceedings of the National Academy of Sciences
   journalshort: PNAS
   reference: "111(28):10095-10100"
@@ -394,7 +413,7 @@
   highlight: 0
 
 - title: Disentangling the effect of hybrid interactions and of the constant effort hypothesis on ecological community stability
-  authors: S. Suweis*, J. Grilli*, and A. Maritan
+  authors: S. Suweis, J. Grilli, and A. Maritan
   journal: Oikos
   journalshort: Oikos
   reference: "123(5):525-532"
