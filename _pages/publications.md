@@ -68,7 +68,7 @@ Pre-prints are [here](#preprints) or on
   [{{ number_pub }}] {{ publi.authors }}<br />
   <em><a target="_blank" href="http://doi.org/{{ publi.doi }}">{{ publi.title }}</a></em><br />
   {{ publi.journal }}, {{publi.reference}}. {{publi.year}}<br>
-  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a> - {% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a> - {% endif %}<a target="_blank" href="https://www.researchgate.net/search.Search.html?type=researcher&query={{ publi.doi }}" ><i class="ai ai-researchgate"></i></a> - <a target="_blank" href="https://www.mendeley.com/{{ publi.mendeley }}" ><i class="ai ai-mendeley"></i></a>{% if publi.pmid %} - <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publi.pmid }}" ><i class="ai ai-pubmed"></i></a>{% endif %}
+  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a> - {% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://www.biorxiv.org/content/early/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a> - {% endif %}<a target="_blank" href="https://www.researchgate.net/search.Search.html?type=researcher&query={{ publi.doi }}" ><i class="ai ai-researchgate"></i></a> - <a target="_blank" href="https://www.mendeley.com/{{ publi.mendeley }}" ><i class="ai ai-mendeley"></i></a>{% if publi.pmid %} - <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publi.pmid }}" ><i class="ai ai-pubmed"></i></a>{% endif %}
 
 {% assign number_pub = number_pub | plus: 1 %}
 
@@ -85,7 +85,7 @@ Pre-prints are [here](#preprints) or on
   [{{ number_pub }}] {{ publi.authors }}<br />
   <em><a target="_blank" href="http://doi.org/{{ publi.doi }}">{{ publi.title }}</a></em><br />
   {{publi.year}} - 
-  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a>{% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a>{% endif %}
+  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a>{% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://www.biorxiv.org/content/early/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a>{% endif %}
 
 {% assign number_pub = number_pub | plus: 1 %}
 
