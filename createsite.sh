@@ -2,7 +2,7 @@
 ( cd ../CollabNet/ ; bash executeall.sh )
 
 # serve
-
+cp ../../Cv/aggiornato/jgrilli_cv.pdf ./images/
 
 if [ "$1" == "-s" ]; then
 
