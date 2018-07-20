@@ -25,12 +25,12 @@
   arxiv:
   biorxiv:
   news: 
-  description: 
-  image: dummy.png
+  description: "The problem of the random zoo: if we start with n species, and run the dynamics, how large will the final community be?"
+  image: nee2018.png
   mendeley: research-papers/coexistence-species-random-ecosystems/
   pmid: 29988167
   preprint: 0
-  highlight: 0
+  highlight: 1
 
 
 - title: Dissecting the control mechanisms for DNA replication and cell division in E. coli
@@ -567,7 +567,7 @@
   mendeley: research-papers/joint-scaling-laws-functional-evolutionary-categories-prokaryotic-genomes
   pmid: 21937509
   preprint: 0
-  highlight: 1
+  highlight: 0
 
 
 
