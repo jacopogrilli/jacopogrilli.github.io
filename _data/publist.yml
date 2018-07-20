@@ -11,8 +11,24 @@
   description: 
   image: dummy.png
   mendeley: 
-  researchgate: 
   pmid: 
+  preprint: 0
+  highlight: 0
+
+- title: Coexistence of many species in random ecosystems
+  authors: C.A. Serván, J.A. Capitán, J. Grilli, K.E. Morrison, and S. Allesina
+  journal: Nature Ecology & Evolution
+  journalshort: Nat Eco&Evo
+  reference: "2, 1237–1242"
+  year: 2018
+  doi: 10.1038/s41559-018-0603-6
+  arxiv:
+  biorxiv:
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/coexistence-species-random-ecosystems/
+  pmid: 29988167
   preprint: 0
   highlight: 0
 
@@ -144,8 +160,7 @@
   news: 
   description: 
   image: dummy.png
-  mendeley: 
-  researchgate: 
+  mendeley: research-papers/temporal-dynamics-gene-expression-heatstressed-caenorhabditis-elegans/
   pmid: 29228038
   preprint: 0
   highlight: 0
