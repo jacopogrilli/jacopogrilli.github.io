@@ -24,8 +24,9 @@
   doi: 10.1038/s41559-018-0603-6
   arxiv:
   biorxiv:
-  news: 
-  description: "The problem of the random zoo: if we start with n species, and run the dynamics, how large will the final community be?"
+  news: [Nature Eco&Evo: Behind the paper](https://natureecoevocommunity.nature.com/users/31165-stefano-allesina/posts/36128-the-problem-of-the-random-zoo) 
+  description: "The problem of the random zoo: if we start with n species, and run the dynamics, how large will the final community be? The
+                answer is many! And, interestingly, network structure has very little influence on the level of biodiversity attained. "
   image: nee2018.png
   mendeley: research-papers/coexistence-species-random-ecosystems/
   pmid: 29988167
