@@ -4,13 +4,31 @@
   journalshort: Frontiers in Microbiology
   reference: "9, 1541"
   year: 2018
-  doi: 0.3389/fmicb.2018.01541
+  doi: 10.3389/fmicb.2018.01541
   arxiv:
   biorxiv:
   news: 
   description: 
   image: dummy.png
   mendeley: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+- title: Zipf and Heaps laws from dependency structures in component systems
+  authors: A. Mazzolini, J. Grilli, E. De Lazzari, M. Osella, M. Cosentino Lagomarsino, and M. Gherardi
+  journal: Physical Review E
+  journalshort: PRE
+  reference: "98, 012315"
+  year: 2018
+  doi: 10.1103/PhysRevE.98.012315
+  arxiv: 1801.06438
+  biorxiv: 
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
   pmid: 
   preprint: 0
   highlight: 0
@@ -71,23 +89,7 @@
   highlight: 0
 
 
-- title: Zipf and Heaps laws from dependency structures in component systems
-  authors: A. Mazzolini, J. Grilli, E. De Lazzari, M. Osella, M. Cosentino Lagomarsino, and M. Gherardi
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2018
-  doi: 
-  arxiv: 1801.06438
-  biorxiv: 
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 
 - title: The effect of population abundances on the stability of large random ecosystems
