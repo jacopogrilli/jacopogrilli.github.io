@@ -1,3 +1,22 @@
+- title: Size control in mammalian cells involves modulation of both growth rate and cell cycle duration
+  authors: C. Cadart, S. Monnier, J. Grilli,  P.J. Sáez, N. Srivastava, R. Attia, E. Terriac, B. Baum, M. Cosentino Lagomarsino, and M. Piel
+  journal: Nature Communications
+  journalshort: Nat Comm
+  reference: "9:3275"
+  year: 2018
+  doi: 10.1038/s41467-018-05393-0
+  arxiv: 
+  biorxiv: 2017/06/20/152728
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
 - title: The empirical fluctuation pattern of E. coli division control
   authors: J. Grilli, C. Cadart, G. Micali, M. Osella, and M. Cosentino Lagomarsino
   journal: Frontiers in Microbiology
@@ -132,23 +151,7 @@
 
   
 
-- title: An adder behavior in mammalian cells achieves size control by modulation of growth rate and cell cycle duration
-  authors: C. Cadart, S. Monnier, J. Grilli, R. Attia, E. Terriac, B. Baum, M. Cosentino Lagomarsino, and M. Piel
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2017
-  doi: 
-  arxiv: 
-  biorxiv: 2017/06/20/152728
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 
 - title: Temporal dynamics of gene expression in heat-stressed Caenorhabditis elegans
