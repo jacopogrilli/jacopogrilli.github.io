@@ -1,3 +1,21 @@
+- title: Social tipping points in animal societies
+  authors: J.N. Pruitt, A. Berdahl, C. Riehl, N. Pinter-Wollman, H.V. Moeller, E.G. Pringle, L.M. Aplin, E.J.H. Robinson, J. Grilli, P. Yeh, V.M. Savage, M.H. Price, J. Garland, I.C. Gilby, M. C. Crofoot, G.N. Doering, and E.A. Hobson
+  journal: Proceedings of the Royal Society B
+  journalshort: Proc.R.S.B
+  reference: "285:20181282"
+  year: 2018
+  doi: 10.1098/rspb.2018.1282
+  arxiv: 
+  biorxiv: 
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/social-tipping-points-animal-societies/
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: The effect of population abundances on the stability of large random ecosystems
   authors: T. Gibbs, J. Grilli, T. Rogers, and S. Allesina
   journal: Physical Review E
@@ -10,7 +28,7 @@
   news: 
   description: 
   image: dummy.png
-  mendeley: 
+  mendeley: research-papers/effect-population-abundances-stability-large-random-ecosystems/
   researchgate: 
   pmid: 
   preprint: 0
