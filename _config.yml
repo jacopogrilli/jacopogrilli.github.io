@@ -34,7 +34,7 @@ author: "Jacopo Grilli"
 map_latitude: 35.700149
 map_longitude: -105.910828
 map_title: 'Santa Fe Institute'
-map_apikey: "AIzaSyAz8KtdCLW0KLT3_-njY2ltGm4k28uHLO8"
+map_apikey: "AIzaSyD3OqSEPg5iyHcriIfz-776IahCE3DhxZY"
 
 include:
   - .htaccess
