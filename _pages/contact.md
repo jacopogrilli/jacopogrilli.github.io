@@ -23,7 +23,7 @@ Santa Fe 87501 NM, USA <br>
 <br>
 
 <div class="map" markdown="0">
-<div id="googleMap" class="templatemo-map"></div>
+<div id="googleMaps" class="templatemo-map"></div>
 </div>
 
 <br>

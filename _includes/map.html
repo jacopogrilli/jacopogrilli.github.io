@@ -44,7 +44,7 @@ styles:[
         "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "simplified"
+                "visibility": "on"
             }
         ]
     },
@@ -394,22 +394,22 @@ styles:[
   };
 
  var mymarker = {
-//        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-  //      fillColor: '#ffaa00',
-    //    fillOpacity: 1,
-     //   strokeColor: '#000',
-    //    strokeWeight: 1,
-//        scale: 0.75,
-        icon: "{{ site.url }}{{ site.baseurl }}/images/map.png"
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#ffaa00',
+        fillOpacity: 0.2,
+        strokeColor: '#ffaa00',
+        strokeWeight: 2,
+        scale: 1,
         };
 
 
-var map=new google.maps.Map(document.getElementById("googleMap")
+var map=new google.maps.Map(document.getElementById("googleMaps")
   ,mapProp);
 var marker = new google.maps.Marker({
     position: new google.maps.LatLng({{ site.map_latitude }}, {{ site.map_longitude }} ),
     map: map,
     icon: mymarker,
+//    animation: google.maps.Animation.DROP,
     title: "{{ site.map_title }}"
 });
 }

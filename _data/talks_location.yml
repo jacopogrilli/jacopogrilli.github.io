@@ -1,0 +1,170 @@
+- location: thessaloniki_convention
+  country: Greece
+  state:
+  city: Thessaloniki
+  latitude: 40.626534
+  longitude: 22.955532
+
+- location: paris_music
+  country: France
+  state:
+  city: Paris
+  latitude: 48.868453
+  longitude: 2.369228
+
+- location: sfi
+  country: USA
+  state: NM
+  city: Santa Fe
+  latitude: 35.700309
+  longitude: -105.908521
+
+- location: portocontericerce
+  country: Italy
+  state:
+  city: Alghero
+  latitude: 40.595982
+  longitude: 8.165617
+
+- location: losangeles_convention
+  country: USA
+  state: CA
+  city: Los Angeles
+  latitude: 34.040070
+  longitude: -118.270099
+
+- location: ictp
+  country: Italy
+  state:
+  city: Trieste
+  latitude: 45.703175
+  longitude: 13.719814
+ 
+- location: amsterdam_convention
+  country: The Neatherlands
+  state:
+  city: Amsterdam
+  latitude: 52.375155
+  longitude: 4.896065
+
+- location: lcqb_medicine
+  country: France
+  state:
+  city: Paris
+  latitude: 48.850731
+  longitude: 2.340693
+
+- location: sanservolo
+  country: Italy
+  state:
+  city: Venice
+  latitude: 45.419258
+  longitude: 12.357309
+
+- location: uchicago_ecology
+  country: USA
+  state: IL
+  city: Chicago
+  latitude: 41.791225
+  longitude: -87.599196
+
+
+- location: uwageningen_nematodes
+  country: The Neatherlands
+  state: 
+  city: Wageningen
+  latitude: 51.986604
+  longitude: 5.663152
+
+- location: lucca_imt
+  country: Italy
+  state:
+  city: Lucca
+  latitude: 43.845884
+  longitude: 10.511231
+
+
+
+- location: eth_environmental
+  country: Switzerland
+  state:
+  city: Zürich
+  latitude: 47.379145
+  longitude: 8.548517
+
+- location: utorino_fisica
+  country: Italy
+  state:
+  city: Torino
+  latitude: 45.052202
+  longitude: 7.681547
+
+
+- location: uiuc_plant
+  country: USA
+  state: IL
+  city: Urbana-Champaign
+  latitude: 40.108765
+  longitude: -88.224574
+
+- location: northwestern_downtown
+  country: USA
+  state: IL
+  city: Chicago
+  latitude: 41.895521
+  longitude: -87.619553
+
+- location: baltimore_convention
+  country: USA
+  state: MD
+  city: Baltimore
+  latitude: 39.285646
+  longitude: -76.616890
+
+
+- location: laherradura
+  country: Spain
+  state:
+  city: La Herradura
+  latitude: 36.734205
+  longitude: -3.740657
+
+- location: upadova_fisica
+  country: Italy
+  state:
+  city: Padova
+  latitude: 45.409042
+  longitude: 11.886379
+
+- location: barcelona_convention
+  country: Spain
+  state:
+  city: Barcelona
+  latitude: 41.371311
+  longitude: 2.181535
+
+- location: como_villa
+  country: Italy
+  state:
+  city: Como
+  latitude: 45.823136
+  longitude: 9.067489
+
+- location: umilano_fisica
+  country: Italy
+  state:
+  city: Milan
+  latitude: 45.476529
+  longitude: 9.231125
+
+- location: uparma_fisica
+  country: Italy
+  state:
+  city: Parma
+  latitude: 44.766491
+  longitude: 10.303893
+
+
+
+
+

@@ -1,49 +1,52 @@
-!DOCTYPE html>
-<html> 
-<head> 
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-  <title>Google Maps Multiple Markers</title> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3OqSEPg5iyHcriIfz-776IahCE3DhxZY"></script>
-</head> 
-<body>
-  <div id="map" style="width: 500px; height: 400px;"></div>
+<!-- Javascripts ---->
+<script>
+function initializebis()
+{
 
-  <script>
-    // Define your locations: HTML content for the info window, latitude, longitude
-    var locations = [
-      ['<h4>Bondi Beach</h4>', -33.890542, 151.274856],
-      ['<h4>Coogee Beach</h4>', -33.923036, 151.259052],
-      ['<h4>Cronulla Beach</h4>', -34.028249, 151.157507],
-      ['<h4>Manly Beach</h4>', -33.80010128657071, 151.28747820854187],
-      ['<h4>Maroubra Beach</h4> ppppp', -33.950198, 151.259302]
-    ];
-
-    // Setup the different icons and shadows
-    var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
-
-    var icons = [
-      'https://jacopogrilli.github.io/images/map.png',
-      iconURLPrefix + 'green-dot.png',
-      iconURLPrefix + 'blue-dot.png',
-      iconURLPrefix + 'orange-dot.png',
-      iconURLPrefix + 'purple-dot.png',
-      iconURLPrefix + 'pink-dot.png',      
-      iconURLPrefix + 'yellow-dot.png'
-    ]
-    var iconsLength = icons.length;
+var locations = new Array();
 
 
+{% for loc in site.data.talks_location %} 
+var description_talk = '';
+var description_ws = '';
+var upcoming = 0;
+{% assign number_talk = 0 %}
+{% assign number_ws = 0 %}
+    {% for talk in site.data.talks %} 
+        {% if talk.location == loc.location %}
+            {% if talk.what == 0 %}
+                {% assign number_talk = number_talk | plus: 1 %}
+                description_talk = description_talk.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }} @ {{talk.place}}<br>');
+            {% endif %}
+            {% if talk.what == 1 %}
+                {% assign number_ws = number_ws | plus: 1 %}
+                description_ws = description_ws.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br>{{ talk.title }}<br>');
+            {% endif %}
+            {% if talk.upcoming == 1 %}
+                upcoming = 1;
+            {% endif %}
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 1,
+    //        description = '<i>{{ talk.date }}</i><br>{{ talk.title }}';
+        {% endif %}
+    {% endfor %}
+    //        locations.push(  [description, {{ talk.latitude }}, {{ talk.longitude }}, {{ talk.what }}]    );
+            {% if number_talk > 0 %}
+                locations.push(  [description_talk, {{ loc.latitude }}, {{ loc.longitude }}, 0, upcoming ]    );
+            {% endif %}
+            {% if number_ws > 0 %}
+                locations.push(  [description_ws, {{ loc.latitude }}, {{ loc.longitude }} + 0.0001, 1, upcoming ]    );
+            {% endif %}
+{% endfor %}
+
+
+
+var mapPropa = {
       center: new google.maps.LatLng(-37.92, 151.25),
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-      streetViewControl: false,
-      panControl: false,
-      zoomControlOptions: {
-         position: google.maps.ControlPosition.LEFT_BOTTOM
-      },
+  zoom: 5,
+  scrollwheel: true,
+    mapTypeControl: false,
+    streetViewControl: false,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
 styles:[
     {
         "featureType": "all",
@@ -424,23 +427,84 @@ styles:[
         ]
         }
     ]
-    });
+    };
+
+    var map=new google.maps.Map(document.getElementById("talkMaps"),mapPropa);
+
 
     var infowindow = new google.maps.InfoWindow({
-      maxWidth: 160
+      maxWidth: 250
     });
+
+ var mymarker1 = {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#ff1616',
+        fillOpacity: 0.2,
+        strokeColor: '#ff1616',
+        strokeWeight: 2,
+        scale: 1,
+        };
+
+ var mymarker1bis = {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#ff1616',
+        fillOpacity: 1,
+        strokeColor: '#ff1616',
+        strokeWeight: 2,
+        scale: 1,
+        };
+
+ var mymarker2 = {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#1E90FF',
+        fillOpacity: 0.2,
+        strokeColor: '#1E90FF',
+        strokeWeight: 2,
+        scale: 1,
+        };
+
+ var mymarker2bis = {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#1E90FF',
+        fillOpacity: 1,
+        strokeColor: '#1E90FF',
+        strokeWeight: 2,
+        scale: 1,
+        };
+
 
     var markers = new Array();
 
-    var iconCounter = 0;
 
     // Add the markers and infowindows to the map
-    for (var i = 0; i < locations.length; i++) {  
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-        icon: icons[iconCounter]
-      });
+    for (var i = 0; i < locations.length; i++) {
+      if( locations[i][3] == 0 && locations[i][4] == 0 ){  
+        var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            icon: mymarker1
+        });
+      } else if( locations[i][3] == 0 && locations[i][4] == 1 ){
+        var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         icon: mymarker1bis
+        });
+      } else if( locations[i][3] == 1 && locations[i][4] == 0 ){
+        var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         icon: mymarker2
+        });
+      } else {
+        var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         icon: mymarker2bis
+        });
+     }
+
+
 
       markers.push(marker);
 
@@ -450,13 +514,10 @@ styles:[
           infowindow.open(map, marker);
         }
       })(marker, i));
-
-      iconCounter++;
-      // We only have a limited number of possible icon colors, so we may have to restart the counter
-      if(iconCounter >= iconsLength) {
-        iconCounter = 0;
-      }
     }
+
+
+
 
     function autoCenter() {
       //  Create a new viewpoint bound
@@ -469,6 +530,9 @@ styles:[
       map.fitBounds(bounds);
     }
     autoCenter();
-  </script> 
-</body>
-</html>
+
+}
+
+google.maps.event.addDomListener(window, 'load', initializebis);
+</script> 
+
