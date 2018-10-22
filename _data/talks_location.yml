@@ -1,3 +1,10 @@
+- location: losalamos_cnls
+  country: USA
+  state: NM
+  city: Los Alamos
+  latitude: 35.874127
+  longitude: -106.322409
+
 - location: thessaloniki_convention
   country: Greece
   state:

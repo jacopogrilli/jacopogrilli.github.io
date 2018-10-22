@@ -1,3 +1,21 @@
+- title: Dissecting the control mechanisms for DNA replication and cell division in E. coli
+  authors: G. Micali, J. Grilli, J. Marchi, M. Osella, and M. Cosentino Lagomarsino
+  journal: Cell Reports
+  journalshort: CellRep
+  reference: "25,3:761-771.E4"
+  year: 2018
+  doi: 10.1016/j.celrep.2018.09.061
+  arxiv:
+  biorxiv: 2018/04/25/308155
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: research-papers/dissecting-control-mechanisms-dna-replication-cell-division-e-coli/
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: Social tipping points in animal societies
   authors: J.N. Pruitt, A. Berdahl, C. Riehl, N. Pinter-Wollman, H.V. Moeller, E.G. Pringle, L.M. Aplin, E.J.H. Robinson, J. Grilli, P. Yeh, V.M. Savage, M.H. Price, J. Garland, I.C. Gilby, M. C. Crofoot, G.N. Doering, and E.A. Hobson
   journal: Proceedings of the Royal Society B
@@ -12,7 +30,7 @@
   image: dummy.png
   mendeley: research-papers/social-tipping-points-animal-societies/
   researchgate: 
-  pmid: 
+  pmid: 30232162
   preprint: 0
   highlight: 0
 
@@ -106,24 +124,6 @@
   preprint: 0
   highlight: 1
 
-
-- title: Dissecting the control mechanisms for DNA replication and cell division in E. coli
-  authors: G. Micali, J. Grilli, J. Marchi, M. Osella, and M. Cosentino Lagomarsino
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2018
-  doi: 
-  arxiv:
-  biorxiv: 2018/04/25/308155
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
 
 - title: Concurrent processes set E. coli cell division
   authors: G. Micali, J. Grilli, M. Osella, and M. Cosentino Lagomarsino
