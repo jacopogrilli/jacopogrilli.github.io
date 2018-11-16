@@ -57,9 +57,47 @@ Pre-prints are [here](#preprints) or on
 {% endif %}
 
 
+
+
+{% assign total_pub = 0 %}
+
+{% for publi in site.data.publist %}
+
+{% if publi.preprint == 0 %}
+
+{% assign total_pub = total_pub | plus: 1 %}
+
+{% endif %}
+
+{% endfor %}
+
+
+
+
+
+## Preprints
+
+{% for publi in site.data.publist %}
+
+{% if publi.preprint == 1 %}
+
+<!--  [{{ number_pub }}]-->
+  {{ publi.authors }}<br />
+  <em><a target="_blank" href="http://doi.org/{{ publi.doi }}">{{ publi.title }}</a></em><br />
+  {{publi.year}} - 
+  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a>{% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://www.biorxiv.org/content/early/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a>{% endif %}
+
+<!--{% assign number_pub = number_pub | minus: 1 %}-->
+
+{% endif %}
+
+{% endfor %}
+
+
 ## Full List
 
-{% assign number_pub = 1 %}
+{% assign number_pub = total_pub %}
+
 
 {% for publi in site.data.publist %}
 
@@ -72,28 +110,13 @@ Pre-prints are [here](#preprints) or on
 <span style="display:inline;" class="__dimensions_badge_embed__" data-doi="{{ publi.doi }}" data-style="small_rectangle"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 
-{% assign number_pub = number_pub | plus: 1 %}
+{% assign number_pub = number_pub | minus: 1 %}
 
 {% endif %}
 
 {% endfor %}
 
-## Preprints
 
-{% for publi in site.data.publist %}
-
-{% if publi.preprint == 1 %}
-
-  [{{ number_pub }}] {{ publi.authors }}<br />
-  <em><a target="_blank" href="http://doi.org/{{ publi.doi }}">{{ publi.title }}</a></em><br />
-  {{publi.year}} - 
-  {% if publi.arxiv %}<a target="_blank" href="https://arxiv.org/abs/{{ publi.arxiv }}" ><i class="ai ai-arxiv"></i> arXiv</a>{% endif %}{% if publi.biorxiv %}<a target="_blank" href="https://www.biorxiv.org/content/early/{{ publi.biorxiv }}" ><i class="ai ai-biorxiv"></i> biorXiv</a>{% endif %}
-
-{% assign number_pub = number_pub | plus: 1 %}
-
-{% endif %}
-
-{% endfor %}
 
 <br><br>
 
