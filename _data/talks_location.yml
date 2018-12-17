@@ -1,3 +1,17 @@
+- location: ictp-saifr
+  country: Brazil
+  state: SP
+  city: São Paulo
+  latitude: -23.5243290
+  longitude: -46.6655
+
+- location: usp-ecology
+  country: Brazil
+  state: SP
+  city: São Paulo
+  latitude: -23.5647843
+  longitude: -46.7298528
+
 - location: losalamos_cnls
   country: USA
   state: NM

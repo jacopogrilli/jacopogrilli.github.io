@@ -8,6 +8,37 @@
   url: https://cnls.lanl.gov/external/showtalksummary.php?selection=7595
   slides:  
 
+- title: Irreversibility in Ecology
+  what: 1
+  upcoming: 1
+  type: Working Group
+  date: January 29-31, 2019
+  place: Santa Fe Institute
+  location: sfi
+  url: https://www.santafe.edu/events/irreversibility-ecology
+  slides: 
+
+- title: Higher-order interactions stabilize the dynamics of ecological communities	
+  what: 0
+  upcoming: 0
+  type: Invited talk
+  date: December 14, 2018
+  place: Department of Ecology, USP
+  location: usp-ecology
+  url: 
+  slides:  
+
+- title: Higher-order interactions stabilize the dynamics of ecological communities	
+  what: 0
+  upcoming: 0
+  type: Invited talk
+  date: December 13, 2018
+  place: ICTP-SAIFR
+  location: ictp-saifr
+  url: http://www.ictp-saifr.org/2018-research-seminars-and-activities/
+  slides:  
+
+
 - title: Higher-order interactions stabilize dynamics in competitive network models	
   what: 0
   upcoming: 0
@@ -18,14 +49,14 @@
   url: https://easychair.org/cfp/ReACT3
   slides:  
 
-- title: EcoNet	
+- title: "EcoNet. Ecological networks: spandrels, selection, and assembly"
   what: 1
   upcoming: 0
-  type: NetSci 2018 Satellite Meeting
+  type: Satellite Meeting
   date: June 12, 2018
-  place:  
+  place: NetSci 2018  
   location: paris_music
-  url: 
+  url: https://liphlab.github.io/
   slides:  
 
 - title: On the stability of large ecological communities
@@ -91,12 +122,12 @@
   url: 
   slides:  
 
-- title: Living 2.0
+- title: "Living 2.0. Robustness, Adaptability and Critical Transitions in Living Systems"
   what: 1
   upcoming: 0
-  type: CCS 2016 Satellite Meeting
+  type: Satellite Meeting
   date: September 20, 2016
-  place:  
+  place: CCS 2016  
   location: amsterdam_convention
   url: 
   slides:  
@@ -170,7 +201,7 @@
   upcoming: 0
   type: Invited Seminar
   date: March 26, 2015
-  place:  
+  place:  Wageningen University
   location: uwageningen_nematodes
   url: 
   slides:  
@@ -187,14 +218,14 @@
   slides:  
 
 
-- title: "LIVING"
+- title: "LIVING. Robustness, Adaptability and Critical Transitions in Living Systems "
   what: 1
   upcoming: 0
-  type: ECCS 2014 Satellite Meeting
+  type: Satellite Meeting
   date: September 25, 2014
-  place:  
+  place: ECCS 2014  
   location: lucca_imt
-  url: 
+  url: https://seis.bristol.ac.uk/~fs13378/eccs_2014_livingsys.html
   slides:  
 
 - title: "Persistence of a population in randomly fragmented landscapes"

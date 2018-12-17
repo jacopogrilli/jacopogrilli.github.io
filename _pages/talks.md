@@ -30,14 +30,16 @@ permalink: /talks/
 {% endfor %}
 
 
+<div class="map" markdown="0">
+<div id="talkMaps" class="templatemo-map"></div>
+</div>
+
+
 <em>click on the marker for more info </em>&nbsp;
 [ <span class="redText"><em>talk</em></span>&nbsp;-&nbsp;
 <span class="greenText"><em>organized workshop</em></span>
 {% if number_upc > 0 %}&nbsp;-&nbsp; <em>solid colors = upcoming </em>{% endif %}]
 
-<div class="map" markdown="0">
-<div id="talkMaps" class="templatemo-map"></div>
-</div>
 
 {% assign number_upc = 0 %}
 
@@ -51,11 +53,20 @@ permalink: /talks/
 
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
-  <em><i class="fa fa-calendar" aria-hidden="true"></i> {{ publi.date }}</em><br>
+  {% if publi.what == 0 %}
+  <em><i class="fa fa-calendar" aria-hidden="true"  style="color:#ff1616" ></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
   {% endif %}
+  {% if publi.what == 1 %}
+  <em><i class="fa fa-calendar" aria-hidden="true"   style="color:#1E90FF"></i> {{ publi.date }}</em><br>
+  <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  {% endif %}
+  {% endif %}
   {% endfor %}
+  
+
 {% endif %}
 
 {% endfor %}
@@ -70,21 +81,26 @@ permalink: /talks/
 {% if number_printed < 5 %}
 
 {% if publi.upcoming == 0 %}
-{% if publi.what == 0 %}
   {% assign number_printed = number_printed | plus: 1 %}
 
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
-  <em><i class="fa fa-calendar" aria-hidden="true"></i> {{ publi.date }}</em><br>
-<!--  {% if publi.url %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a>{% else %}{{ publi.title }}{% endif %}<br>-->
+  {% if publi.what == 0 %}
+  <em><i class="fa fa-calendar" aria-hidden="true"  style="color:#ff1616" ></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  {% endif %}
+  {% if publi.what == 1 %}
+  <em><i class="fa fa-calendar" aria-hidden="true"   style="color:#1E90FF"></i> {{ publi.date }}</em><br>
+  <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  {% endif %}
   {% endif %}
   {% endfor %}
 
 {% endif %}
 {% endif %}
-{% endif %}
+
 
 {% endfor %}
 

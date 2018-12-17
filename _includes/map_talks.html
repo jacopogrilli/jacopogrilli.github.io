@@ -20,7 +20,7 @@ var upcoming = 0;
             {% endif %}
             {% if talk.what == 1 %}
                 {% assign number_ws = number_ws | plus: 1 %}
-                description_ws = description_ws.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br>{{ talk.title }}<br>');
+                description_ws = description_ws.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }}{% if talk.place %} @ {{talk.place}}{% endif %}<br>');
             {% endif %}
             {% if talk.upcoming == 1 %}
                 upcoming = 1;
