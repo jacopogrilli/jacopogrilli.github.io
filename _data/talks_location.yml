@@ -1,3 +1,10 @@
+- location: pyeongchang
+  country: South Korea
+  state: 
+  city: Pyeongchang-gun, Gangwon-do
+  latitude: 37.656872
+  longitude: 128.674820
+
 - location: ictp-saifr
   country: Brazil
   state: SP
