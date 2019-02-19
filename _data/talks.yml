@@ -8,9 +8,11 @@
   url: https://www.santafe.edu/events/higher-order-interactions-experiments-inference-an
   slides: 
 
-- title: TBA
+
+
+- title: Mysteries and Laws of Biodiversity
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited talk
   date: February 15, 2019
   place: Pyeong Chang Forum 2019
@@ -19,9 +21,20 @@
   slides:  
 
 
-- title: Coexistence in large ecological communities
+- title: Higher-order interactions stabilize dynamics in competitive network models
   what: 0
-  upcoming: 1
+  upcoming: 0
+  type: Invited talk
+  date: February 11, 2019
+  place: Seoul National University
+  location: snu_physics
+  url: 
+  slides:  
+
+
+- title:  Higher-order interactions stabilize the dynamics of ecological communities	
+  what: 0
+  upcoming: 0
   type: Invited seminar
   date: February 4, 2019
   place: CNLS Colloquium, Los Alamos National Lab
@@ -33,7 +46,7 @@
 
 - title: Irreversible Processes in Ecological Evolution
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Working Group
   date: January 29-31, 2019
   place: Santa Fe Institute

@@ -6,6 +6,8 @@ sitemap: false
 permalink: /
 ---
 
+
+
 I am a biological physicist, with a background in statistical physics and strong experience
 in interdisciplinary projects and collaborations. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most
 of my [research]({{ site.url }}{{ site.baseurl }}/research) is in theoretical ecology, with a particular focus on ecological networks and
