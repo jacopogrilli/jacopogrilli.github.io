@@ -1,3 +1,17 @@
+- location: oxford_math
+  country: United Kingdom
+  state: 
+  city: Oxford
+  latitude: 51.758865
+  longitude: -1.259550
+
+- location: cmo
+  country: Mexico
+  state: Oaxaca
+  city: Oaxaca
+  latitude: 17.104487
+  longitude: -96.711223
+
 - location: pyeongchang
   country: South Korea
   state: 

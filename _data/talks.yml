@@ -1,3 +1,43 @@
+- title: "TBD"
+  what: 0
+  upcoming: 1
+  type: Invited talk
+  date: July 23-25, 2018
+  place: "Cognitive Regime Shifts II (Working Group), Santa Fe Institute"
+  location: sfi
+  url: 
+  slides:  
+
+- title: "TBD"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: September 9-11, 2019
+  place:  "Higher-order Interaction Networks: Dynamics, Structure, Data (Workshop), Mathematical Institute, University of Oxford"
+  location: oxford_math
+  url: https://www.maths.ox.ac.uk/groups/networks/events/higher-order-interaction-workshop
+  slides: 
+
+- title: "TBD"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: September 2-6, 2019
+  place:  Model-guided data science (School), Villa del Grumello
+  location: como_villa
+  url: http://mgds.lakecomoschool.org/
+  slides: 
+
+- title: "TBD"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: August 18-23, 2019
+  place: "Out-of-Equilibrium Processes in Evolution and Ecology (BIRS Workshop), Casa Matemática Oaxaca"
+  location: cmo
+  url: https://www.birs.ca/events/2019/5-day-workshops/19w5150
+  slides: 
+
 - title: "Higher-Order Interactions: Experiments, Inference and Models"
   what: 1
   upcoming: 1
@@ -91,7 +131,7 @@
   upcoming: 0
   type: Invited talk
   date: July 23-25, 2018
-  place: "Working group: Cognitive Regime Shifts I, Santa Fe Institute"
+  place: "Cognitive Regime Shifts I (Working Group), Santa Fe Institute"
   location: sfi
   url: https://www.santafe.edu/events/cognitive-regime-shift-i-when-brain-breaks
   slides:  
@@ -106,12 +146,12 @@
   url: https://liphlab.github.io/
   slides:  
 
-- title: Diversity in ecological communities
+- title: "Diversity in ecological communities"
   what: 0
   upcoming: 0
   type: Invited talk
   date: May 7-11, 2018
-  place: "Working group: Statistical physics of cells and genomes"
+  place:  "Statistical physics of cells and genomes (Working group)"
   location: portocontericerce
   url: http://www.portocontericerche.it/en/news/statistical-physics-cells-and-genomes
   slides:  

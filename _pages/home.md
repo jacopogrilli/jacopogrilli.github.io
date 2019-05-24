@@ -27,7 +27,9 @@ recently, I started working on aging and stress response in C. elegans.
 <br><br>
 
 
-Currently, I am a
+Currently, I am an Associate Research Officer (PI) at the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
+ International Centre for Theoretical Physics</a> (ICTP, Trieste, Italy)
+and a former
 <a target="_blank" href="https://www.santafe.edu/people/profile/jacopo-grilli">
 Omidyar Postdoctoral Fellow</a>
 at the Santa Fe Institute.<br>
