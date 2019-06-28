@@ -1,7 +1,7 @@
 ---
 title: "Jacopo Grilli - Home"
 layout: homelay
-excerpt: "Jacopo Grilli at the Santa Fe Institute."
+excerpt: "Jacopo Grilli at the ICTP."
 sitemap: false
 permalink: /
 ---
@@ -10,9 +10,9 @@ permalink: /
 
 I am a biological physicist, with a background in statistical physics and strong experience
 in interdisciplinary projects and collaborations. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most
-of my [research]({{ site.url }}{{ site.baseurl }}/research) is in theoretical ecology, with a particular focus on ecological networks and
-neutral theory. I am also working on problems in genomics and cell physiology and, more
-recently, I started working on aging and stress response in C. elegans.
+of my research is at the interface between statistical physics and ecology, with a particular focus on coexistence, stability, and variability. 
+I also work on different problems in genomics and cell physiology.
+[Here]({{ site.url }}{{ site.baseurl }}/research) is a decription of my research interest.
 
 <br><br>
 
@@ -27,19 +27,20 @@ recently, I started working on aging and stress response in C. elegans.
 <br><br>
 
 
-Currently, I am an Associate Research Officer (PI) at the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
+Currently, I am an Associate Research Officer (PI) in the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
+ QLS section</a>  at the <a target="_blank" href="https://www.ictp.it/about-ictp/mission-history.aspx">
  International Centre for Theoretical Physics</a> (ICTP, Trieste, Italy)
 and a former
 <a target="_blank" href="https://www.santafe.edu/people/profile/jacopo-grilli">
 Omidyar Postdoctoral Fellow</a>
 at the Santa Fe Institute.<br>
 
-I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D in Physics in 2015 at the University of Padova, where I was supervised by
-<a target="_blank" href="http://www.pd.infn.it/~maritan/">
-Amos Maritan</a>. In 2015, I moved to the University of Chicago as a Postdoctoral scholar,
-working in the lab of
-<a target="_blank" href="http://allesinalab.uchicago.edu/">
-Stefano Allesina</a>.
+<!--I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D in Physics in 2015 at the University of Padova, where I was supervised by-->
+<!--<a target="_blank" href="http://www.pd.infn.it/~maritan/">-->
+<!--Amos Maritan</a>. In 2015, I moved to the University of Chicago as a Postdoctoral scholar,-->
+<!--working in the lab of-->
+<!--<a target="_blank" href="http://allesinalab.uchicago.edu/">-->
+<!--Stefano Allesina</a>.-->
 
 
 

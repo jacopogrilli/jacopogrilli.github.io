@@ -11,13 +11,15 @@ permalink: /contact/
 
 <br>
 
-<i class="fa fa-map-marker"></i> Santa Fe Institute <br>
-1399 Hyde Park Road, 
-Santa Fe 87501 NM, USA <br>
+<i class="fa fa-map-marker"></i> 
+The Abdus Salam International Centre for Theoretical Physics <br>
+Quantitative Life Science section <br>
+Strada Costiera 11, 
+I-34151 Trieste, Italy <br>
 
-<i class="fa fa-envelope-o"></i> jgrilli[at]santafe[dot]edu
+<i class="fa fa-envelope-o"></i> jgrilli[at]ictp[dot]it
 
-<i class="fa fa-phone"></i> (+1)505-946-2771
+<i class="fa fa-phone"></i> (+39)040-2240148
 
 
 <br>
