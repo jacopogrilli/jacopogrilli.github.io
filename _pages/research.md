@@ -16,8 +16,8 @@ permalink: /research/
 
 {% for reas in site.data.research %}
 <br>
-  <b>{{ reas.title }}</b> <br>
-  <em>Mainly with:  {{ reas.with }} </em><br />
+  <b>{{ reas.title }}</b> 
+   {% if reas.with %}<br><em>Mainly with:  {{ reas.with }} </em> {% endif %}<br>
     {{ reas.description }}
     
 {% endfor %}

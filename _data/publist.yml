@@ -1,3 +1,62 @@
+- title: Laws of diversity and variation in microbial communities
+  authors: J. Grilli
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2019
+  doi: 10.1101/680454
+  arxiv:
+  biorxiv: 10.1101/680454v1
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Transcriptome dynamics predict thermotolerance in Caenorhabditis elegans
+  authors: K. Jovic, J. Grilli, M.G. Sterken, J.A.G. Riksen, B.L. Snoek, S. Allesina, J.E. Kammenga
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2019
+  doi: 10.1101/661652
+  arxiv:
+  biorxiv: 10.1101/661652v2
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Reconciling cooperation, biodiversity and stability in complex ecological communities
+  authors: C. Tu, S. Suweis, J. Grilli, M. Formentin, and A. Maritan
+  journal: Scientific Reports
+  journalshort: SciRep
+  reference: 9, 5580
+  year: 2019
+  doi: 10.1038/s41598-019-41614-2
+  arxiv: 1708.03154
+  biorxiv: 
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+  
+
+
 - title: Concurrent processes set E. coli cell division
   authors: G. Micali, J. Grilli, M. Osella, and M. Cosentino Lagomarsino
   journal: Science Advances
@@ -144,39 +203,8 @@
 
 
 
-
-
-
-
-
-
-  
-
-- title: Cooperation promotes biodiversity and stability in a model ecosystem
-  authors: C. Tu, S. Suweis, J. Grilli, M. Formentin, and A. Maritan
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2017
-  doi: 
-  arxiv: 1708.03154
-  biorxiv: 
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
-
-  
-
-
-
-
 - title: Temporal dynamics of gene expression in heat-stressed Caenorhabditis elegans
-  authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga, and L.B. Snoek
+  authors: K. Jovic, M.G. Sterken, J. Grilli, R.P.J. Bevers, M. Rodriguez, J.A.G. Riksen, S. Allesina, J.E. Kammenga, and B.L. Snoek
   journal: "Plos One"
   journalshort: POne
   reference: "2(12), e0189445"

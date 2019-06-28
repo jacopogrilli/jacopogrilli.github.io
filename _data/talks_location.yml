@@ -5,6 +5,14 @@
   latitude: 51.758865
   longitude: -1.259550
 
+- location: fbk
+  country: Italy
+  state: 
+  city: Trento
+  latitude: 46.066928
+  longitude: 11.151217
+ 
+
 - location: cmo
   country: Mexico
   state: Oaxaca
