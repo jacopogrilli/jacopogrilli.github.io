@@ -1,3 +1,11 @@
+- location: sissa
+  country: Italy
+  state: 
+  city: Trieste
+  latitude: 45.679603
+  longitude: 13.775119
+
+
 - location: oxford_math
   country: United Kingdom
   state: 
