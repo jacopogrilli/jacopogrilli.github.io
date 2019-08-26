@@ -12,10 +12,10 @@ permalink: /allnews.html
 <p>
 <strong>
 {{ article.date }}</strong>  --- {{ article.headline }} <br>
-<em>{% if article.fullnews %}{{ article.fullnews }}{% endif %}</em>
+<em>{% if article.fullnews %}{{ article.fullnews }}<br>{% endif %}</em>
 {% if article.image %}
-<br><img src="../images/news/{{ article.image }}" class="img-responsive" width="275px" style="float: left" alt = "sometext" />
-<br><br><br><br><br><br><br><br><br>
+<img src="../images/news/{{ article.image }}" class="img" height = "250px" width="auto"  style="float: left" alt = "sometext" />
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endif %}
 </p>
 {% endfor %}

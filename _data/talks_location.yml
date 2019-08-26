@@ -25,8 +25,9 @@
   country: Mexico
   state: Oaxaca
   city: Oaxaca
-  latitude: 17.104487
-  longitude: -96.711223
+  latitude: 17.104454
+  longitude: -96.711048
+
 
 - location: pyeongchang
   country: South Korea

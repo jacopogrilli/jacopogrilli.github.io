@@ -12,7 +12,7 @@ I am a biological physicist, with a background in statistical physics and strong
 in interdisciplinary projects and collaborations. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most
 of my research is at the interface between statistical physics and ecology, with a particular focus on coexistence, stability, and variability. 
 I also work on different problems in genomics and cell physiology.
-[Here]({{ site.url }}{{ site.baseurl }}/research) is a decription of my research interest.
+[Here]({{ site.url }}{{ site.baseurl }}/research) is a more detailed decription of my research interests.
 
 <br><br>
 

@@ -1,3 +1,8 @@
+- date: "August 19-23, 2019"
+  headline: "At a <a target='_blank' href='https://www.birs.ca/events/2019/5-day-workshops/19w5150'>great workshop</a> in Oaxaca, Mexico. Giving a talk on Tuesday"
+  image: "2019_oaxaca_cut.jpg"
+  fullnews: 
+
 - date: "July 30, 2019"
   headline: "Giving a talk (nextdoor) at SISSA."
   fullnews: 
@@ -104,6 +109,7 @@ a talk on Tuesday."
 - date: "May 7-11, 2018"
   headline: "At a <a target='_blank' href='http://www.lgm.upmc.fr/mcl/retreat2018/'>great meeting</a> in Alghero."
   fullnews: "#marcomeeting"
+  image: "2018_marcomeeting_alghero.jpg"
 
 
 - date: "April 16, 2018"
@@ -124,7 +130,7 @@ a talk on Tuesday."
 
 - date: "December 22, 2017"
   headline: "Last day in the <a target='_blank' href='http://allesinalab.uchicago.edu/'>Allesina Lab</a>."
-  image: "allesinacoffee.png"
+  image: "2017_allesinacoffee.png"
   fullnews: "While this is not my last day in Chicago, this will be the last day with the usual routine (dominated by espressos).
             The more than 1000 days that I spent in the Allesina Lab have been intense and very fun. Thanks to all the people I have shared
             this path with: Stefano, Matt, Liz, Gyuri, Carlos, Theo, Dan, José, Angelo, Kevin, Filippo, Zach and Vicente."  
