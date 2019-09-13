@@ -35,7 +35,7 @@
 
 
 
-- title: "Cell-size control in bacteria"
+- title: "Cell-size control"
   with: "M. Cosentino Lagomarsino, G. Micali, M. Osella"
   description: The dream of every cell is to become two cells. Without a coupling between cell size and
         division, cells would not have the experimentally observed stationary distribution of sizes.
