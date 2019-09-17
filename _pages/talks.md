@@ -18,6 +18,14 @@ permalink: /talks/
     {
         color:#1E90FF;
     }
+    .futurepText
+    {
+        color:#0e9e00;
+    }
+    .pastpText
+    {
+        color:#595959;
+    }
 </style>
 </head>
 
@@ -36,9 +44,8 @@ permalink: /talks/
 
 
 <em>click on the marker for more info </em>&nbsp;
-[ <span class="redText"><em>talk</em></span>&nbsp;-&nbsp;
-<span class="greenText"><em>organized workshop</em></span>
-{% if number_upc > 0 %}&nbsp;-&nbsp; <em>solid colors = upcoming </em>{% endif %}]
+[<span class="pastpText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span>  past{% if number_upc > 0 %}&nbsp;-&nbsp; <span class="futurepText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span> upcoming{% endif %}&nbsp;-&nbsp; <span class="redText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> talk&nbsp;-&nbsp; <span class="greenText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> organized workshop
+]
 
 
 {% assign number_upc = 0 %}
@@ -88,12 +95,12 @@ permalink: /talks/
   {% if publi.what == 0 %}
   <em><i class="fa fa-calendar" aria-hidden="true"  style="color:#ff1616" ></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
-  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> video</a><br>{% endif %}
   {% endif %}
   {% if publi.what == 1 %}
   <em><i class="fa fa-calendar" aria-hidden="true"   style="color:#1E90FF"></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
-  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }},
   {% endif %}
   {% endif %}
   {% endfor %}

@@ -18,7 +18,8 @@
   place: "Cognitive Regime Shifts II (Working Group), Santa Fe Institute"
   location: sfi
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title: "Laws of diversity and variation in microbial communities"
@@ -30,6 +31,7 @@
   location: como_villa
   url: http://mgds.lakecomoschool.org/
   slides: 
+  video: 
 
 - title: "Macroecological laws across microbial communities"
   what: 0
@@ -40,6 +42,7 @@
   location: cmo
   url: https://www.birs.ca/events/2019/5-day-workshops/19w5150
   slides: 
+  video: http://www.birs.ca/events/2019/5-day-workshops/19w5150/videos/watch/201908201250-Grilli.html
 
 - title: "Laws of diversity and variation in microbial communities"
   what: 0
@@ -50,6 +53,7 @@
   location: sissa
   url: https://www.sissa.it/sbp/activity/seminarlist.php?show=SBPGS
   slides: 
+  video: 
 
 - title: "Macroecological laws across microbial communities"
   what: 0
@@ -60,6 +64,7 @@
   location: fbk
   url: http://italy.cssociety.org/index.php/ccs-italy-2019/
   slides: 
+  video: 
 
 - title: "Higher-Order Interactions: Experiments, Inference and Models"
   what: 1
@@ -70,6 +75,7 @@
   location: sfi
   url: https://www.santafe.edu/events/higher-order-interactions-experiments-inference-an
   slides: 
+  video: 
 
 - title: Mysteries and Laws of Biodiversity
   what: 0
@@ -79,7 +85,8 @@
   place: Pyeong Chang Forum 2019
   location: pyeongchang
   url: http://pyeongchangfr.com/eng/
-  slides:  
+  slides: 
+  video:  
 
 
 - title: Higher-order interactions stabilize dynamics in competitive network models
@@ -90,7 +97,8 @@
   place: Seoul National University
   location: snu_physics
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title:  Higher-order interactions stabilize the dynamics of ecological communities	
@@ -101,7 +109,8 @@
   place: CNLS Colloquium, Los Alamos National Lab
   location: losalamos_cnls
   url: https://cnls.lanl.gov/external/showtalksummary.php?selection=7595
-  slides:  
+  slides: 
+  video:  
 
 
 
@@ -114,6 +123,7 @@
   location: sfi
   url: https://www.santafe.edu/events/irreversibility-ecology
   slides: 
+  video: 
 
 - title: Higher-order interactions stabilize the dynamics of ecological communities	
   what: 0
@@ -123,7 +133,8 @@
   place: Department of Ecology, USP
   location: usp-ecology
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: Higher-order interactions stabilize the dynamics of ecological communities	
   what: 0
@@ -133,7 +144,8 @@
   place: ICTP-SAIFR
   location: ictp-saifr
   url: http://www.ictp-saifr.org/2018-research-seminars-and-activities/
-  slides:  
+  slides: 
+  video:  
 
 
 - title: Higher-order interactions stabilize dynamics in competitive network models	
@@ -144,7 +156,8 @@
   place: ReAct 3.0 @ CCS 2018
   location: thessaloniki_convention
   url: https://easychair.org/cfp/ReACT3
-  slides:  
+  slides: 
+  video:  
 
 
 - title: On the stability of large ecological communities
@@ -155,7 +168,8 @@
   place: "Cognitive Regime Shifts I (Working Group), Santa Fe Institute"
   location: sfi
   url: https://www.santafe.edu/events/cognitive-regime-shift-i-when-brain-breaks
-  slides:  
+  slides: 
+  video:  
 
 - title: "EcoNet. Ecological networks: spandrels, selection, and assembly"
   what: 1
@@ -165,7 +179,8 @@
   place: NetSci 2018  
   location: paris_music
   url: https://liphlab.github.io/
-  slides:  
+  slides: 
+  video:  
 
 - title: "Diversity in ecological communities"
   what: 0
@@ -175,7 +190,8 @@
   place:  "Statistical physics of cells and genomes (Working group)"
   location: portocontericerce
   url: http://www.portocontericerche.it/en/news/statistical-physics-cells-and-genomes
-  slides:  
+  slides: 
+  video:  
 
 - title: Statistical physics of (meta)genomes
   what: 0
@@ -185,7 +201,8 @@
   place: APS March Meeting 2018
   location: losangeles_convention
   url: "https://meetings.aps.org/Meeting/MAR18/Session/K51.11"
-  slides:  
+  slides: 
+  video:  
 
 
 
@@ -197,7 +214,8 @@
   place: ICTP
   location: ictp
   url: http://indico.ictp.it/event/8222/
-  slides:  
+  slides: 
+  video:  
 
 - title: "What’s in a Last Name? Mobility, Gender Imbalance and Nepotism across Academic Systems"
   what: 0
@@ -207,7 +225,8 @@
   place: Second Science of Science Meeting
   location: northwestern_downtown
   url: http://www.science-of-science-chicago.org/
-  slides:  
+  slides: 
+  video:  
 
 
 - title: Higher-order interactions stabilize the dynamics of ecological communities	
@@ -218,7 +237,8 @@
   place: Santa Fe Institute
   location: sfi
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Living 2.0. Robustness, Adaptability and Critical Transitions in Living Systems"
   what: 1
@@ -228,7 +248,8 @@
   place: CCS 2016  
   location: amsterdam_convention
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Coexistence in large ecosystems: from structure to function"
   what: 0
@@ -238,7 +259,8 @@
   place:  Laboratory of Computational and Quantitative Biology, UPMC
   location: lcqb_medicine
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Coexistence in large ecosystems: from structure to function"
   what: 0
@@ -248,7 +270,8 @@
   place:  ICTP
   location: ictp
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title: "Living Systems: from Interaction Patterns to Critical Behavior"
@@ -259,7 +282,8 @@
   place:  
   location: sanservolo
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Feasibility and stability of large ecosystems"
   what: 0
@@ -269,7 +293,8 @@
   place: 100th ESA Conference
   location: baltimore_convention
   url: https://eco.confex.com/eco/2015/webprogram/Paper55332.html
-  slides:  
+  slides: 
+  video:  
 
 - title: "Persistence of a population in randomly fragmented landscapes"
   what: 0
@@ -279,7 +304,8 @@
   place: Granada Seminar
   location: laherradura
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 
@@ -291,7 +317,8 @@
   place:  Department of Ecology and Evolution, University of Chicago
   location: uchicago_ecology
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title: "On the stability of large ecosystems"
@@ -302,7 +329,8 @@
   place:  Wageningen University
   location: uwageningen_nematodes
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title: "Emergence of criticality in communities of living systems"
@@ -313,7 +341,8 @@
   place:  Workshop on Physics of Complex Systems
   location: upadova_fisica
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 - title: "LIVING. Robustness, Adaptability and Critical Transitions in Living Systems "
@@ -324,7 +353,8 @@
   place: ECCS 2014  
   location: lucca_imt
   url: https://seis.bristol.ac.uk/~fs13378/eccs_2014_livingsys.html
-  slides:  
+  slides: 
+  video:  
 
 - title: "Persistence of a population in randomly fragmented landscapes"
   what: 0
@@ -334,7 +364,8 @@
   place:  ECCS 2014
   location: lucca_imt
   url: 
-  slides:  
+  slides: 
+  video:  
 
 
 
@@ -347,6 +378,7 @@
   location: eth_environmental
   url: 
   slides: 
+  video: 
 
 - title: "Scaling laws in genome evolution"
   what: 0
@@ -357,6 +389,7 @@
   location: utorino_fisica
   url: 
   slides: 
+  video: 
 
 
 - title: "Emergence of criticality in living systems through adaptation and evolution"
@@ -368,6 +401,7 @@
   location: uiuc_plant
   url: 
   slides: 
+  video: 
 
 - title: "Emergence of criticality in living systems through adaptation and evolution"
   what: 0
@@ -378,6 +412,7 @@
   location: barcelona_convention
   url: 
   slides: 
+  video: 
 
 - title: "Universal properties of ecological interactions and stability of ecosystems"
   what: 0
@@ -388,6 +423,7 @@
   location: como_villa
   url: 
   slides: 
+  video: 
 
 
 - title: "Growth or Reproduction? Emergence of a Strategy"
@@ -398,7 +434,8 @@
   place:  Workshop on Physics of Complex Systems
   location: upadova_fisica
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Growth or Reproduction? Emergence of a Strategy"
   what: 0
@@ -408,7 +445,8 @@
   place:  Scientific day in honor of Bruno Bassetti
   location: umilano_fisica
   url: 
-  slides:  
+  slides: 
+  video:  
 
 - title: "Spatial distribution of species across scales"
   what: 0
@@ -418,7 +456,8 @@
   place:  XVII Conference on Statistical Physics and Complex Systems
   location: uparma_fisica
   url:  http://www.fis.unipr.it/stat/PARMA2012/welcome2012.htm
-  slides:  
+  slides: 
+  video:  
 
 
 

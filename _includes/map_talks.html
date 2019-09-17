@@ -16,11 +16,11 @@ var upcoming = 0;
         {% if talk.location == loc.location %}
             {% if talk.what == 0 %}
                 {% assign number_talk = number_talk | plus: 1 %}
-                description_talk = description_talk.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }} @ {{talk.place}}<br>');
+                description_talk = description_talk.concat('<br><i class="fa fa-calendar" aria-hidden="true" style="color:#ff1616"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }} @ {{talk.place}}<br>');
             {% endif %}
             {% if talk.what == 1 %}
                 {% assign number_ws = number_ws | plus: 1 %}
-                description_ws = description_ws.concat('<br><i class="fa fa-calendar" aria-hidden="true"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }}{% if talk.place %} @ {{talk.place}}{% endif %}<br>');
+                description_talk = description_talk.concat('<br><i class="fa fa-calendar" aria-hidden="true" style="color:#1E90FF"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }}{% if talk.place %} @ {{talk.place}}{% endif %}<br>');
             {% endif %}
             {% if talk.upcoming == 1 %}
                 upcoming = 1;
@@ -33,9 +33,9 @@ var upcoming = 0;
             {% if number_talk > 0 %}
                 locations.push(  [description_talk, {{ loc.latitude }}, {{ loc.longitude }}, 0, upcoming ]    );
             {% endif %}
-            {% if number_ws > 0 %}
-                locations.push(  [description_ws, {{ loc.latitude }}, {{ loc.longitude }} + 0.0001, 1, upcoming ]    );
-            {% endif %}
+    //        {% if number_ws > 0 %}
+     //           locations.push(  [description_ws, {{ loc.latitude }}, {{ loc.longitude }} + 0.0001, 1, upcoming ]    );
+    //        {% endif %}
 {% endfor %}
 
 
@@ -438,39 +438,42 @@ styles:[
 
  var mymarker1 = {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-        fillColor: '#ff1616',
+        fillColor: '#595959',
         fillOpacity: 0.2,
-        strokeColor: '#ff1616',
+        strokeColor: '#595959',
         strokeWeight: 2,
         scale: 1,
         };
 
  var mymarker1bis = {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-        fillColor: '#ff1616',
-        fillOpacity: 1,
-        strokeColor: '#ff1616',
+        fillColor: '#0e9e00',
+        fillOpacity: 0.4,
+        strokeColor: '#0e9e00',
         strokeWeight: 2,
         scale: 1,
         };
 
- var mymarker2 = {
-        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-        fillColor: '#1E90FF',
-        fillOpacity: 0.2,
-        strokeColor: '#1E90FF',
-        strokeWeight: 2,
-        scale: 1,
-        };
 
- var mymarker2bis = {
-        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-        fillColor: '#1E90FF',
-        fillOpacity: 1,
-        strokeColor: '#1E90FF',
-        strokeWeight: 2,
-        scale: 1,
-        };
+
+// var mymarker2 = {
+//        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+//        fillColor: '#1E90FF',
+//        fillOpacity: 0.2,
+//        strokeColor: '#1E90FF',
+//        strokeWeight: 2,
+//        scale: 1,
+//        };
+
+// var mymarker2bis = {
+//        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+//        fillColor: '#1E90FF',
+//        fillOpacity: 1,
+//        strokeColor: '#1E90FF',
+//        strokeWeight: 2,
+//        scale: 1,
+//        };
+
 
 
     var markers = new Array();
@@ -478,31 +481,31 @@ styles:[
 
     // Add the markers and infowindows to the map
     for (var i = 0; i < locations.length; i++) {
-      if( locations[i][3] == 0 && locations[i][4] == 0 ){  
+      if( locations[i][4] == 0  ){  
         var marker = new google.maps.Marker({
          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map,
             icon: mymarker1
         });
-      } else if( locations[i][3] == 0 && locations[i][4] == 1 ){
+      } else { //} if( locations[i][3] == 0 && locations[i][4] == 1 ){
         var marker = new google.maps.Marker({
          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
          map: map,
          icon: mymarker1bis
         });
-      } else if( locations[i][3] == 1 && locations[i][4] == 0 ){
-        var marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map,
-         icon: mymarker2
-        });
-      } else {
-        var marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map,
-         icon: mymarker2bis
-        });
-     }
+      } //else if( locations[i][3] == 1 && locations[i][4] == 0 ){
+//        var marker = new google.maps.Marker({
+//         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+//         map: map,
+//         icon: mymarker2
+//        });
+//      } else {
+///        var marker = new google.maps.Marker({
+//         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+//         map: map,
+//         icon: mymarker2bis
+//        });
+//     }
 
 
 
