@@ -44,7 +44,7 @@ permalink: /talks/
 
 
 <em>click on the marker for more info </em>&nbsp;
-[<span class="pastpText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span>  past{% if number_upc > 0 %}&nbsp;-&nbsp; <span class="futurepText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span> upcoming{% endif %}&nbsp;-&nbsp; <span class="redText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> talk&nbsp;-&nbsp; <span class="greenText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> organized workshop
+[{% if number_upc > 0 %}<span class="pastpText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span>  past&nbsp;-&nbsp; <span class="futurepText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span> upcoming&nbsp;-&nbsp;{% endif %}<span class="redText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> talk&nbsp;-&nbsp; <span class="greenText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> organized workshop
 ]
 
 
@@ -79,13 +79,13 @@ permalink: /talks/
 {% endfor %}
 
 
-## Recent
+## Past
 
 {% assign number_printed = 0 %}
 
 {% for publi in site.data.talks %}
 
-{% if number_printed < 5 %}
+{% if number_printed < 10000 %}
 
 {% if publi.upcoming == 0 %}
   {% assign number_printed = number_printed | plus: 1 %}
