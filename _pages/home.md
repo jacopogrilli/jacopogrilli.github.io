@@ -14,14 +14,9 @@ of my research is at the interface between statistical physics and ecology, with
 I also work on different problems in genomics and cell physiology.
 [Here]({{ site.url }}{{ site.baseurl }}/research) is a more detailed decription of my research interests.
 
-<br>
-
 <figure align="center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/myface.png" style="width: 200px">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/myface.png" style="width: 230px">
 </figure>
-
-<br>
-
 
 Currently, I am an Associate Research Officer (PI) in the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
  QLS section</a>  at the <a target="_blank" href="https://www.ictp.it/about-ictp/mission-history.aspx">
