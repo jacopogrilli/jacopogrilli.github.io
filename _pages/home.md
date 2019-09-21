@@ -15,7 +15,7 @@ I also work on different problems in genomics and cell physiology.
 [Here]({{ site.url }}{{ site.baseurl }}/research) is a more detailed decription of my research interests.
 
 <figure align="center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/myface.png" style="width: 230px">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/myface.png" style="width: 210px">
 </figure>
 
 Currently, I am an Associate Research Officer (PI) in the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
