@@ -12,19 +12,19 @@ permalink: /talks/
 <style>
     .redText
     {
-        color:#ff1616;
+        color:#a88359;
     }
     .greenText
     {
-        color:#1E90FF;
+        color:#8259a8;
     }
     .futurepText
     {
-        color:#1ea8a2;
+        color:#ff0808;
     }
     .pastpText
     {
-        color:#595959;
+        color:#696969;
     }
 </style>
 </head>
@@ -44,7 +44,7 @@ permalink: /talks/
 
 
 <em>click on the marker for more info </em>&nbsp;
-[{% if number_upc > 0 %}<span class="pastpText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span>  past&nbsp;-&nbsp; <span class="futurepText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span> upcoming&nbsp;-&nbsp;{% endif %}<span class="redText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> talk&nbsp;-&nbsp; <span class="greenText"><em><i class="fa fa-calendar" aria-hidden="true"></i></em></span> organized workshop
+[{% if number_upc > 0 %}<span class="pastpText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span>  past&nbsp;-&nbsp; <span class="futurepText"><em><i class="fa fa-map-marker" aria-hidden="true"></i></em></span> upcoming&nbsp;-&nbsp;{% endif %}<span class="redText"><em><i class="fa fa-comment" aria-hidden="true"></i></em></span> talk&nbsp;-&nbsp; <span class="greenText"><em><i class="fa fa-comments" aria-hidden="true"></i></em></span> organized workshop
 ]
 
 
@@ -61,12 +61,12 @@ permalink: /talks/
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
   {% if publi.what == 0 %}
-  <em><i class="fa fa-calendar" aria-hidden="true"  style="color:#ff1616" ></i> {{ publi.date }}</em><br>
+  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#a88359" ></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
   {% endif %}
   {% if publi.what == 1 %}
-  <em><i class="fa fa-calendar" aria-hidden="true"   style="color:#1E90FF"></i> {{ publi.date }}</em><br>
+  <em><i class="fa fa-comments" aria-hidden="true"   style="color:#8259a8"></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
   {% endif %}
@@ -93,12 +93,12 @@ permalink: /talks/
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
   {% if publi.what == 0 %}
-  <em><i class="fa fa-calendar" aria-hidden="true"  style="color:#ff1616" ></i> {{ publi.date }}</em><br>
+  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#a88359" ></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> video</a><br>{% endif %}
   {% endif %}
   {% if publi.what == 1 %}
-  <em><i class="fa fa-calendar" aria-hidden="true"   style="color:#1E90FF"></i> {{ publi.date }}</em><br>
+  <em><i class="fa fa-comments" aria-hidden="true"   style="color:#8259a8"></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
   {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }},
   {% endif %}
