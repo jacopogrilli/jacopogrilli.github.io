@@ -20,7 +20,7 @@ permalink: /talks/
     }
     .futurepText
     {
-        color:#0e9e00;
+        color:#1ea8a2;
     }
     .pastpText
     {
