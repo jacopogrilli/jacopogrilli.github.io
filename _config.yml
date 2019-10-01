@@ -34,7 +34,7 @@ author: "Jacopo Grilli"
 map_latitude: 45.703146
 map_longitude: 13.719458
 map_title: 'ICTP'
-map_apikey: "AIzaSyD3OqSEPg5iyHcriIfz-776IahCE3DhxZY"
+map_apikey: "AIzaSyAz8KtdCLW0KLT3_-njY2ltGm4k28uHLO8"
 
 include:
   - .htaccess
