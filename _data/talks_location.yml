@@ -1,3 +1,25 @@
+
+- location: ictp
+  country: Italy
+  state:
+  city: Trieste
+  latitude: 45.703175
+  longitude: 13.719814
+
+- location: sfi
+  country: USA
+  state: NM
+  city: Santa Fe
+  latitude: 35.700309
+  longitude: -105.908521
+
+- location: ictp-saifr
+  country: Brazil
+  state: SP
+  city: São Paulo
+  latitude: -23.5243290
+  longitude: -46.6655
+
 - location: sissa
   country: Italy
   state: 
@@ -44,12 +66,7 @@
   latitude: 37.457696
   longitude: 126.949413
 
-- location: ictp-saifr
-  country: Brazil
-  state: SP
-  city: São Paulo
-  latitude: -23.5243290
-  longitude: -46.6655
+
 
 - location: usp-ecology
   country: Brazil
@@ -79,12 +96,7 @@
   latitude: 48.868453
   longitude: 2.369228
 
-- location: sfi
-  country: USA
-  state: NM
-  city: Santa Fe
-  latitude: 35.700309
-  longitude: -105.908521
+
 
 - location: portocontericerce
   country: Italy
@@ -100,12 +112,6 @@
   latitude: 34.040070
   longitude: -118.270099
 
-- location: ictp
-  country: Italy
-  state:
-  city: Trieste
-  latitude: 45.703175
-  longitude: 13.719814
  
 - location: amsterdam_convention
   country: The Neatherlands
