@@ -19,14 +19,25 @@
   url: https://www.ictp-saifr.org/community-ecology-from-patterns-to-principles/
   slides:
 
-- title: "TBD"
+- title: "Laws of diversity and variation in microbial communities"
   what: 0
-  upcoming: 1
-  type: Invited talk
+  upcoming: 0
+  type: Invited Talk
+  date: December 9-10, 2019
+  place: "Quantitative Methods in Gene Regulation V, Institute of Physics"
+  location: london_iop
+  url: http://gene2019.iopconfs.org
+  slides: 
+  video: 
+
+- title: 
+  what: 0
+  upcoming: 0
+  type: Invited
   date: November 12-13, 2019
   place: "Cognitive Regime Shifts II (Working Group), Santa Fe Institute"
   location: sfi
-  url: 
+  url: https://centre.santafe.edu/complextime/Cognitive_Regime_Shift_II_-_When/why/how_the_Brain_Breaks
   slides: 
   video:  
 

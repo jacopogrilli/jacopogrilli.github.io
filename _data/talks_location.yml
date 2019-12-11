@@ -1,24 +1,10 @@
+- location: london_iop
+  country: United Kingdom
+  state: 
+  city: London
+  latitude: 51.532321
+  longitude: -0.120450
 
-- location: ictp
-  country: Italy
-  state:
-  city: Trieste
-  latitude: 45.703175
-  longitude: 13.719814
-
-- location: sfi
-  country: USA
-  state: NM
-  city: Santa Fe
-  latitude: 35.700309
-  longitude: -105.908521
-
-- location: ictp-saifr
-  country: Brazil
-  state: SP
-  city: São Paulo
-  latitude: -23.5243290
-  longitude: -46.6655
 
 - location: sissa
   country: Italy
@@ -238,6 +224,25 @@
   longitude: 10.303893
 
 
+- location: ictp
+  country: Italy
+  state:
+  city: Trieste
+  latitude: 45.703175
+  longitude: 13.719814
 
+- location: sfi
+  country: USA
+  state: NM
+  city: Santa Fe
+  latitude: 35.700309
+  longitude: -105.908521
+
+- location: ictp-saifr
+  country: Brazil
+  state: SP
+  city: São Paulo
+  latitude: -23.5243290
+  longitude: -46.6655
 
 
