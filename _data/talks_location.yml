@@ -1,3 +1,10 @@
+- location: eawag
+  country: Switzerland
+  state: 
+  city:  Dübendorf
+  latitude: 47.403935
+  longitude: 8.609686
+
 - location: london_iop
   country: United Kingdom
   state: 

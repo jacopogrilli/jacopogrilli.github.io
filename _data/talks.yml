@@ -1,7 +1,29 @@
+- title: "Quantitative Approaches in Ecosystem Ecology"
+  what: 1
+  upcoming: 1
+  type: Winter School on Quantitative Systems Biology
+  date: November 30 - December 11, 2020
+  place: ICTP
+  location: ictp
+  url: http://indico.ictp.it/event/9131/
+  slides:
+
+
+- title: "Laws of diversity and variation in microbial communities"
+  what: 0
+  upcoming: 1
+  type: Invited Seminar
+  date: March 17, 2020
+  place:   Eawag
+  location: eawag
+  url: "https://www.eawag.ch/en/news-agenda/agenda/detail/?tx_sfpevents_sfpevents%5Bevent%5D=1660&tx_sfpevents_sfpevents%5Bcontroller%5D=Events&cHash=9c5f2fb5d383eb434ea2490675742c87"
+  slides: 
+  video: 
+
 
 - title: "Aging in Single-celled Organisms: from Bacteria to the Whole Tree of Life"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Working Group
   date: February 10-12, 2020
   place: Santa Fe Institute
