@@ -1,12 +1,31 @@
-- title: Laws of diversity and variation in microbial communities
+- title: Macroecological laws describe variation and diversity in microbial communities
   authors: J. Grilli
+  journal: Nature Communications
+  journalshort: NatComm
+  reference: 11, 4743
+  year: 2020
+  doi: 10.1038/s41467-020-18529-y
+  arxiv:
+  biorxiv: 10.1101/680454v1
+  news: 
+  description: "Three macroecological laws quantitatively characterize the
+fluctuation of species presence and abundance across microbial communities and over time."
+  image: ncomm2020.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 1
+
+- title: ppGpp is a bacterial cell size regulator
+  authors: F. Buke, J. Grilli, M. Cosentino Lagomarsino, G. Bokinsky, S. Tans
   journal: 
   journalshort: 
   reference: 
-  year: 2019
-  doi: 10.1101/680454
+  year: 2020
+  doi: 
   arxiv:
-  biorxiv: 10.1101/680454v1
+  biorxiv: 10.1101/2020.06.16.154187v1
   news: 
   description: 
   image: dummy.png
@@ -16,6 +35,23 @@
   preprint: 1
   highlight: 0
 
+- title: Threshold accumulation of a constitutive protein explains E. coli cell division behavior in nutrient upshifts
+  authors: M. Panlilio, J. Grilli, G. Tallarico, B. Sclavi, P. Cicuta, M. Cosentino Lagomarsino
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2020
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/2020.08.03.233908v1
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
 
 
 - title: Transcriptome dynamics predict thermotolerance in Caenorhabditis elegans
@@ -265,7 +301,7 @@
   mendeley: research-papers/last-name-analysis-mobility-gender-imbalance-nepotism-across-academic-systems 
   pmid: 28673985
   preprint: 0
-  highlight: 1
+  highlight: 0
   
 - title: Collapse of resilience patterns in generalized Lotka-Volterra dynamics and beyond 
   authors: C. Tu, J. Grilli, F. Schuessler, and S. Suweis

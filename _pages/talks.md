@@ -61,12 +61,12 @@ permalink: /talks/
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
   {% if publi.what == 0 %}
-  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#ffb778" ></i> {{ publi.date }}</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#ffb778" ></i> {{ publi.date }}</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}
   {% endif %}
   {% if publi.what == 1 %}
   <em><i class="fa fa-comments" aria-hidden="true"   style="color:#c78aff"></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
-  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}
+{{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}
   {% endif %}
   {% endif %}
   {% endfor %}
@@ -91,12 +91,12 @@ permalink: /talks/
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
   {% if publi.what == 0 %}
-  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#ffb778" ></i> {{ publi.date }}</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> video</a><br>{% endif %}
+  <em><i class="fa fa-comment" aria-hidden="true"  style="color:#ffb778" ></i> {{ publi.date }}</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> video</a><br>{% endif %}
   {% endif %}
   {% if publi.what == 1 %}
   <em><i class="fa fa-comments" aria-hidden="true"   style="color:#c78aff"></i> {{ publi.date }}</em><br>
   <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
-  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}, {{ loc.country }},
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}
   {% endif %}
   {% endif %}
   {% endfor %}

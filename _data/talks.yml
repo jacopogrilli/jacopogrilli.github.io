@@ -11,14 +11,48 @@
 
 - title: "Laws of diversity and variation in microbial communities"
   what: 0
-  upcoming: 1
+  upcoming: 0
+  type: Invited Talk
+  date: August 25, 2020
+  place: "Theory and Modeling of Living System symposium, Emory College"
+  location: remotely
+  url: http://livingtheory.emory.edu/programs/conferences-symposiums.html
+  slides: 
+  video: https://www.youtube.com/watch?v=LeMLeHIAzTQ
+
+
+- title: "Laws of diversity and variation in microbial communities"
+  what: 0
+  upcoming: 0
   type: Invited Seminar
-  date: March 17, 2020
-  place:   Eawag
-  location: eawag
-  url: "https://www.eawag.ch/en/news-agenda/agenda/detail/?tx_sfpevents_sfpevents%5Bevent%5D=1660&tx_sfpevents_sfpevents%5Bcontroller%5D=Events&cHash=9c5f2fb5d383eb434ea2490675742c87"
+  date: August 24, 2020
+  place: Dept. of Physics, University of Florida
+  location: remotely
+  url: https://www.phys.ufl.edu/wp/index.php/event/condensed-matter-biophysics-seminars-jacopo-grilli-ictp-trieste/
   slides: 
   video: 
+
+- title: "Laws of diversity and variation in microbial communities"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: April 21, 2020
+  place: Rockefeller university
+  location: remotely
+  url: 
+  slides: 
+  video: 
+
+#- title: "Laws of diversity and variation in microbial communities"
+#  what: 0
+#  upcoming: 1
+#  type: Invited Seminar
+#  date: March 17, 2020
+#  place:   Eawag
+#  location: eawag
+#  url: "https://www.eawag.ch/en/news-agenda/agenda/detail/?tx_sfpevents_sfpevents%5Bevent%5D=1660&tx_sfpevents_sfpevents%5Bcontroller%5D=Events&cHash=9c5f2fb5d383eb434ea2490675742c87"
+#  slides: 
+#  video: 
 
 
 - title: "Aging in Single-celled Organisms: from Bacteria to the Whole Tree of Life"
