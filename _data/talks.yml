@@ -1,12 +1,96 @@
+- title: "What is typical in microbial communities?"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: April 14, 2021
+  place: Centre for Ecological Sciences, Indian Institute of Science, India
+  location: remotely
+  url: http://ces.iisc.ac.in/new/?q=node/1018
+  slides: 
+  video: 
+
+
+
+- title: "What is typical in microbial communities?"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: March 19, 2021
+  place: Instituto Carlos I, university of Granada, Spain
+  location: remotely
+  url: 
+  slides: 
+  video: 
+
+
+- title: "What is typical in microbial communities?"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: February 25, 2021
+  place: Biological Complexity Unit, Okinawa Institute of Science and Technology, Japan
+  location: remotely
+  url: https://groups.oist.jp/bcu/event/what-typical-microbial-communities
+  slides: 
+  video: 
+
+
+- title: "Limits to Diversity Assembly"
+  what: 1
+  upcoming: 0
+  type: Workshop
+  date: January 19 - January 21, 2021
+  place: ICTP
+  location: remotely
+  url: http://indico.ictp.it/event/9511/
+  slides:
+
+
 - title: "Quantitative Approaches in Ecosystem Ecology"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Winter School on Quantitative Systems Biology
-  date: November 30 - December 11, 2020
+  date: November 30 - December 18, 2020
   place: ICTP
-  location: ictp
+  location: remotely
   url: http://indico.ictp.it/event/9131/
+  video: https://www.youtube.com/watch?v=UjJJR5NKu60&list=PLRwcSE2bmyBzuq2WD2MoyRFofIZ68McLF&index=1&t=2s
   slides:
+
+- title: "What is typical in microbial communities?"
+  what: 0
+  upcoming: 0
+  type: Talk
+  date: September 18, 2020
+  place: "EESB seminars, MIT, US"
+  location: remotely
+  url: https://sites.google.com/view/eesb-talks/2020#h.b3wmejy56lw6
+  slides: 
+
+
+
+- title: "Laws of diversity and variation in microbial communities"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: September 30, 2020
+  place: Department of Biology, Hong Kong Baptist University, Hong Kong
+  location: remotely
+  url: 
+  slides: 
+  video: 
+
+
+
+- title: "Higher-order interactions in ecological systems"
+  what: 0
+  upcoming: 0
+  type: Invited Talk
+  date: September 18, 2020
+  place: "Toponet 2020, NetSci 2020"
+  location: remotely
+  url: https://sites.google.com/view/toponets2020/
+  slides: 
 
 
 - title: "Laws of diversity and variation in microbial communities"
