@@ -198,3 +198,7 @@ firstp {
   top: -5px;
   right: 105%;
 }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

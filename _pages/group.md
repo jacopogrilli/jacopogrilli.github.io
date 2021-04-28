@@ -59,6 +59,11 @@ permalink: /group/
 
 <!-- CUSTOMIZE --->
 
+<!--<div class="tooltip">Hover over me-->
+<!--  <span class="tooltiptext">Tooltip text</span>-->
+<!--</div>-->
+
+
 
 <p>
 {% if member.cv %} <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/images/teamcv/{{ member.cv }}">
