@@ -92,11 +92,12 @@
 
 - name: Matteo Sireci
   photo: rock.jpg
-  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">Miguel Angel Muñoz</a>  started XXX
-  email: Bastiaans@Physics.LeidenUniv.nl
-  description: I am interested in blablabla
-  number_educ: 1
-  education1: Master Leiden University with Milan Allan
+  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">Miguel Angel Muñoz</a>  started Sept 2019
+  email: msireci@onsager.ugr.es
+  description: "I am a theoretical physicist interested in biophysics, non equilibrium statistical mechanics and their interfaces. My focus is on  two themes (but I love to get dispersed): coexistence, variation and interaction in microbial ecosystem, combining data and models; bacterial phenotypic evolution, studying both  abstract theory to emphasize its out of equilibrium dynamics, and empirically grounded models."
+  number_educ: 2
+  education1: B.Sc in Physics, Università degli Studi di Padova, Padova, Italy
+  education2: M.Sc. in Physics, Ludwig Maximilians Univerisity, Munich, Germany
   twitterusername: 
   githubusername:  
   scholarusername: 
@@ -108,7 +109,7 @@
   linkedinusername: 
   mendeleyusername: 
   stravausername: 
-  cv:
+  cv: "cv_sireci.pdf"
 
 - name: Iuri Macocco
   photo: rock.jpg
