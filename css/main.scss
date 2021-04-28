@@ -199,38 +199,25 @@ firstp {
 
 [data-tooltip]:before {
 	position: absolute;
-  z-index: 2;
+  z-index: 1;
     top: -5px;
     left: 105%;
-	margin-bottom: 5px;
-	margin-left: -80px;
-	padding: 7px;
-	width: 160px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius:    3px;
-	border-radius:         3px;
-	background-color: #ffffff;
+	width: 120px;
 	background-color: #ffffff;
 	color: #00A806;
 	content: attr(data-tooltip);
 	text-align: center;
-	font-size: 14px;
-	line-height: 1.2;
 }
 
 /* Triangle hack to make tooltip look like a speech bubble */
 [data-tooltip]:after {
 	position: absolute;
-  z-index: 2;  
-	top: 115%;
-	left: 50%;
+    z-index: 1;  
+    top: -5px;
+    left: 105%;
 	margin-left: -5px;
 	margin-top: -5px;
 	width: 0;
-	border-bottom: 5px solid #000;
-	border-bottom: 5px solid hsla(0, 0%, 20%, 0.9);
-	border-right: 5px solid transparent;
-	border-left: 5px solid transparent;
 	content: " ";
 	font-size: 0;
 	line-height: 0;
