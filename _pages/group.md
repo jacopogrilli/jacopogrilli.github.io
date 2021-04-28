@@ -60,7 +60,6 @@ permalink: /group/
 
 
 <!-- CUSTOMIZE --->
-  <p><a href="#" data-tooltip="I’m the tooltip, yo.">I’m a link with a tooltip.</a></p>
 
 
 <p>
