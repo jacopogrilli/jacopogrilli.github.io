@@ -45,7 +45,8 @@ at the Santa Fe Institute.<br>
 <a target="_blank" href="http://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a> -
 <a target="_blank" href="https://publons.com/a/{{ site.publons_username }}" class="waves-effect waves-teal btn-flat my-publons-link" ><i class="ai ai-publons"></i></a> -
 <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}" class="waves-effect waves-teal btn-flat my-twitter-link"><i class="fa fa-twitter"></i></a> -
-<a target="_blank" href="http://www.linkedin.com/pub/{{ site.linkedin_username }}" class="waves-effect waves-teal btn-flat my-linkedin-link"><i class="fa fa-linkedin"></i></a>
+<a target="_blank" href="http://www.linkedin.com/pub/{{ site.linkedin_username }}" class="waves-effect waves-teal btn-flat my-linkedin-link"><i class="fa fa-linkedin"></i></a> - 
+<a target="_blank" href="https://www.strava.com/athletes/{{ site.strava_username }}" class="waves-effect waves-teal btn-flat my-mail-link"><i class="fab fa-strava"></i></a>
 </p>
 
 

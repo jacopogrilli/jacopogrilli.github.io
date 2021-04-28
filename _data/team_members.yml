@@ -1,0 +1,187 @@
+- name: Jacopo Grilli
+  photo: jgrilli.jpg
+  info: Associate Research Officer (PI), started May 2019
+  email: jgrilli@ictp.it
+  number_educ: 4
+  education4: <a href="https://www.santafe.edu/research/fellowships/omidyar">Omidyar Postdoctoral Fellow</a>, <a href="https://www.santafe.edu/">Santa Fe Institute</a>, Santa Fe, NM, US
+  education3: Postdoc with <a href="https://allesinalab.uchicago.edu/">Stefano Allesina</a>, <a href="https://ecologyandevolution.uchicago.edu/">Dept. of Ecology&Evolution</a>, University of Chicago, Chicago, IL, US
+  education2: Ph.D. in Physics with  <a href="https://www.liphlab.com/people/amos/">Amos Maritan</a>, Università di Padova, Padova, Italy
+  education1: B.Sc. and M.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
+  description: I am a biological physicist, with a background in statistical physics. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most of my research is at the interface between statistical physics and ecology, with a particular focus on coexistence, stability, and variability. I also work on different problems in genomics and cell physiology.
+  twitterusername: jacrickets
+  githubusername:  jacopogrilli
+  scholarusername: "P2V3b3QAAAAJ"
+  resgateusername: "Jacopo_Grilli"
+  orcidusername: "0000-0002-8235-5803"
+  publonsusername: "558637"
+  arxivusername: "grilli_j_1"
+  biorxivusername: "jacopo grilli"
+  linkedinusername: "jacopo-grilli/a6/9b9/15a/en"
+  mendeleyusername: "jacopo-grilli"
+  stravausername: "49472118"
+  cv: "jgrilli_cv.pdf"
+  
+  
+- name: Silvia Zaoli
+  photo: rock.jpg
+  info: Postdoc, started January 2020
+  email: dooheecho80@gmail.com
+  description: I am interested in blablabla
+  number_educ: 3
+  education3: Postdoc
+  education2: PhD
+  education1: M.Sc.
+  twitterusername: 
+  githubusername:  
+  scholarusername: aPZha4cAAAAJ
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+  
+- name: Lorenzo Fant
+  photo: lfant.jpg
+  info: PhD student at SISSA, started Oct 2016
+  email: lorenzofant@gmail.com
+  description: I am interested in blablabla
+  number_educ: 1
+  education1: B.Sc. and M.Sc. Physics, Università di Trento, Trento, Italy 
+  twitterusername: "lorenzo_fant"
+  githubusername:  
+  scholarusername: Fqnde5sAAAAJ
+  resgateusername: "Lorenzo-Fant"
+  orcidusername: "0000-0002-0258-1107"
+  publonsusername: "4364025"
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: "58651578"
+  cv: "lfant_cv.pdf"
+
+
+  
+- name: Solmaz Golmohammadi
+  photo: rock.jpg
+  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
+  email: verdoes@fmd.physics.leidenuniv.nl
+  description: I am interested in blablabla
+  number_educ: 1
+  education1: Leidse instrumentmakers School
+  education2: 
+  education3: 
+  education4: 
+  twitterusername: 
+  githubusername:  
+  scholarusername:
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+
+- name: Matteo Sireci
+  photo: rock.jpg
+  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">Miguel Angel Muñoz</a>  started XXX
+  email: Bastiaans@Physics.LeidenUniv.nl
+  description: I am interested in blablabla
+  number_educ: 1
+  education1: Master Leiden University with Milan Allan
+  twitterusername: 
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+
+- name: Iuri Macocco
+  photo: rock.jpg
+  info: PhD Student...
+  email: M.Leeuwenhoek@tudelft.nl
+  description: I am interested in blablabla
+  number_educ: 1
+  education1: Master Leiden University with Milan Allan
+  education2: 
+  education3: 
+  education4:  
+  twitterusername: 
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+ 
+  
+- name: Mattia Corigliano
+  photo: rock.jpg
+  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started XXX
+  email: Oosten@fmd.physics.leidenuniv.nl
+  description: I am interested in blablabla
+  number_educ: 2
+  education1: Leidse instrumentmakers School
+  education2: Associate degree Mechanical Engineering, Hogeschool Arnhem Nijmegen
+  twitterusername: 
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+
+- name: Adalberto Valsecchi
+  photo: rock.jpg
+  info: Master Student at University of Milan, Italy, Started March 2021
+  email: Oosten@fmd.physics.leidenuniv.nl
+  description: I am interested in blablabla
+  number_educ: 2
+  education1: Leidse instrumentmakers School
+  education2: Associate degree Mechanical Engineering, Hogeschool Arnhem Nijmegen
+  twitterusername: 
+  githubusername:  
+  scholarusername:
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:
+
+ 
+#- name: "This could be you !"
+#  photo: rock.jpg
+#  info: See <a href="http://www.allanlab.org/vacancies">openings</a> for more info
+#  email: milan.allan@gmail.com
+#  number_educ: 0
+#  education1:  
+#  education2:  
+#  education3: 
+#  education4:  
