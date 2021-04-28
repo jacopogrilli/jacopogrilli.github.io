@@ -58,10 +58,7 @@ permalink: /group/
   </p>
 
 <!-- CUSTOMIZE --->
-<span 
-  data-text="Thanks for hovering! I'm a tooltip" 
-  class="tooltip"
->Hover over me!</span>
+  <p><a href="#" data-tooltip="I’m the tooltip, yo.">I’m a link with a tooltip.</a></p>
 
 
 <p>
