@@ -23,26 +23,26 @@
   
   
 - name: Silvia Zaoli
-  photo: rock.jpg
+  photo: szaoli.jpg
   info: Postdoc, started January 2020
-  email: dooheecho80@gmail.com
-  description: I am interested in blablabla
+  email: silvia.zaoli@gmail.com
+  description: "I am a physicist who became fascinated with ecology. My research is driven by the curiosity to understand how the macroscopic patterns and behaviours that we observe in ecosystems emerge from the complex interactions of a large number of entities. I am especially interested in understanding the roles of interactions, environmental fluctuations and trait heterogeneity in shaping communities, their composition and their variability."
   number_educ: 3
-  education3: Postdoc
-  education2: PhD
-  education1: M.Sc.
+  education3: Postdoc with <a href="https://fabriziolillo.wordpress.com/">Fabrizio Lillo</a>, Department of Mathematics, Università di Bologna, Bologna, Italy 
+  education2: PhD in Environmental Engineering with <a href="https://www.epfl.ch/labs/echo/">Andrea Rinaldo</a> at EPFL, Lausanne, Switzerland 
+  education1: B.Sc and M.Sc in Physics at Università di Padova, Padova, Italy
   twitterusername: 
   githubusername:  
   scholarusername: aPZha4cAAAAJ
-  resgateusername: 
-  orcidusername: 
+  resgateusername: Silvia-Zaoli
+  orcidusername: 0000-0001-6619-0984
   publonsusername: 
   arxivusername: 
   biorxivusername: 
-  linkedinusername: 
+  linkedinusername: silviazaoli12345
   mendeleyusername: 
   stravausername: 
-  cv:
+  cv: "szaoli_cv.pdf"
   
 - name: Lorenzo Fant
   photo: lfant.jpg
@@ -136,25 +136,24 @@
  
   
 - name: Mattia Corigliano
-  photo: rock.jpg
-  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started XXX
-  email: Oosten@fmd.physics.leidenuniv.nl
+  photo: mcorigliano.jpg
+  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
+  email: mcorigliano96@gmail.com
   description: I am interested in blablabla
-  number_educ: 2
-  education1: Leidse instrumentmakers School
-  education2: Associate degree Mechanical Engineering, Hogeschool Arnhem Nijmegen
-  twitterusername: 
+  number_educ: 1
+  education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
+  twitterusername: MCorigliano_
   githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
+  scholarusername: HhvKKzQAAAAJ
+  resgateusername: Mattia-Corigliano
+  orcidusername: 0000-0002-6645-6778
   publonsusername: 
   arxivusername: 
   biorxivusername: 
-  linkedinusername: 
+  linkedinusername: mattia-corigliano-b05407203/
   mendeleyusername: 
   stravausername: 
-  cv:
+  cv: cv_corigliano.pdf
 
 - name: Adalberto Valsecchi
   photo: rock.jpg
