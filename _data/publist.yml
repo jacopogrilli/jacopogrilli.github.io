@@ -1,3 +1,21 @@
+- title: Threshold accumulation of a constitutive protein explains E. coli cell division behavior in nutrient upshifts
+  authors: M. Panlilio, J. Grilli, G. Tallarico, B. Sclavi, P. Cicuta, M. Cosentino Lagomarsino
+  journal: Proceedings of the National Academy of Sciences
+  journalshort: PNAS
+  reference: 118 (18) e2016391118
+  year: 2021
+  doi: 10.1073/pnas.2016391118
+  arxiv:
+  biorxiv: 10.1101/2020.08.03.233908v1
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: Remote teaching data-driven physical modeling through a COVID-19 data challenge
   authors: M. Cosentino Lagomarsino, G. Pacifico, V. Firmano, E. Bella, P. Benzoni, J. Grilli, F. Bassetti, F. Capuani, P. Cicuta, and M. Gherardi
   journal: 
@@ -129,24 +147,6 @@ fluctuation of species presence and abundance across microbial communities and o
   researchgate: 
   pmid: 
   preprint: 1
-  highlight: 0
-
-- title: Threshold accumulation of a constitutive protein explains E. coli cell division behavior in nutrient upshifts
-  authors: M. Panlilio, J. Grilli, G. Tallarico, B. Sclavi, P. Cicuta, M. Cosentino Lagomarsino
-  journal: Proceedings of the National Academy of Sciences
-  journalshort: PNAS
-  reference: 118 (18) e2016391118
-  year: 2021
-  doi: 10.1073/pnas.2016391118
-  arxiv:
-  biorxiv: 10.1101/2020.08.03.233908v1
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 0
   highlight: 0
 
 
