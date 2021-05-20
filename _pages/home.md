@@ -1,7 +1,7 @@
 ---
 title: "QECOEVO - Home"
 layout: homelay
-excerpt: "QECOEVO at the ICTP."
+excerpt: "qEcoEvo at the ICTP."
 sitemap: false
 permalink: /
 ---
