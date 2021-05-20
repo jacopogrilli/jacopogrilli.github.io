@@ -48,7 +48,7 @@
   photo: lfant.jpg
   info: PhD student at SISSA, started Oct 2016
   email: lorenzofant@gmail.com
-  description: I am interested in blablabla
+  description: 
   number_educ: 2
   education2: M.Sc. Physics, Università di Trieste, Trieste, Italy
   education1: B.Sc. Physics, Università di Trento, Trento, Italy 
@@ -67,31 +67,31 @@
 
 
   
-- name: Solmaz Golmohammadi
-  photo: rock.jpg
-  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
-  email: verdoes@fmd.physics.leidenuniv.nl
-  description: I am interested in blablabla
-  number_educ: 1
-  education1: Leidse instrumentmakers School
-  education2: 
-  education3: 
-  education4: 
-  twitterusername: 
-  githubusername:  
-  scholarusername:
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv:
+#- name: Solmaz Golmohammadi
+#  photo: rock.jpg
+#  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
+#  email: verdoes@fmd.physics.leidenuniv.nl
+#  description: 
+#  number_educ: 1
+#  education1: Leidse instrumentmakers School
+#  education2: 
+#  education3: 
+#  education4: 
+#  twitterusername: 
+#  githubusername:  
+#  scholarusername:
+#  resgateusername: 
+#  orcidusername: 
+#  publonsusername: 
+#  arxivusername: 
+#  biorxivusername: 
+#  linkedinusername: 
+#  mendeleyusername: 
+#  stravausername: 
+#  cv:
 
 - name: Matteo Sireci
-  photo: rock.jpg
+  photo: msireci.jpg
   info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">Miguel Angel Muñoz</a>  started Sept 2019
   email: msireci@onsager.ugr.es
   description: "I am a theoretical physicist interested in biophysics, non equilibrium statistical mechanics and their interfaces. My focus is on  two themes (but I love to get dispersed): coexistence, variation and interaction in microbial ecosystem, combining data and models; bacterial phenotypic evolution, studying both  abstract theory to emphasize its out of equilibrium dynamics, and empirically grounded models."
@@ -111,35 +111,12 @@
   stravausername: 
   cv: "cv_sireci.pdf"
 
-- name: Iuri Macocco
-  photo: rock.jpg
-  info: PhD Student...
-  email: M.Leeuwenhoek@tudelft.nl
-  description: I am interested in blablabla
-  number_educ: 1
-  education1: Master Leiden University with Milan Allan
-  education2: 
-  education3: 
-  education4:  
-  twitterusername: 
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv:
- 
   
 - name: Mattia Corigliano
   photo: mcorigliano.jpg
   info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
   email: mcorigliano96@gmail.com
-  description: I am interested in blablabla
+  description: 
   number_educ: 1
   education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
   twitterusername: MCorigliano_
@@ -156,17 +133,16 @@
   cv: cv_corigliano.pdf
 
 - name: Adalberto Valsecchi
-  photo: rock.jpg
+  photo: avalsecchi.jpg
   info: Master Student at University of Milan, Italy, Started March 2021
-  email: Oosten@fmd.physics.leidenuniv.nl
-  description: I am interested in blablabla
-  number_educ: 2
-  education1: Leidse instrumentmakers School
-  education2: Associate degree Mechanical Engineering, Hogeschool Arnhem Nijmegen
+  email: valsecchi.adalberto@gmail.com
+  description: 
+  number_educ: 1
+  education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
   twitterusername: 
   githubusername:  
   scholarusername:
-  resgateusername: 
+  resgateusername: Adalberto_Valsecchi
   orcidusername: 
   publonsusername: 
   arxivusername: 
@@ -174,7 +150,8 @@
   linkedinusername: 
   mendeleyusername: 
   stravausername: 
-  cv:
+  spotifyusername: 0QywAgoqmactggMU0Vfwf0
+  cv: cv_avalsecchi.pdf
 
  
 #- name: "This could be you !"

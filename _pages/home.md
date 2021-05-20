@@ -1,54 +1,75 @@
 ---
-title: "Jacopo Grilli - Home"
+title: "QECOEVO - Home"
 layout: homelay
-excerpt: "Jacopo Grilli at the ICTP."
+excerpt: "QECOEVO at the ICTP."
 sitemap: false
 permalink: /
 ---
 
+## Quantitative Ecology and Evolution
+
+[We]({{ site.url }}{{ site.baseurl }}/group) are a small group at [the Abdus Salam Centre for Theoretical Physics](http://www.ictp.it). Our main goal is to explore and understand how diversity is generated, organized, and mantained in ecological communities. 
+ 
 
 
-I am a biological physicist, with a background in statistical physics and strong experience
-in interdisciplinary projects and collaborations. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most
-of my research is at the interface between statistical physics and ecology, with a particular focus on coexistence, stability, and variability. 
-I also work on different problems in genomics and cell physiology.
-[Here]({{ site.url }}{{ site.baseurl }}/research) is a more detailed decription of my research interests.
+<!--- CAMBIARLE LE FIGURE A 16:9 o 2:1 -> meglio 2*1s--->
+<div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover" >
+    <!-- Menu -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="3"></li>
+<!--        <li data-target="#carousel" data-slide-to="4"></li>-->
+    </ol>
 
-<figure align="center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/myface.png" style="width: 210px">
-</figure>
+    <!-- Items -->
+    <div class="carousel-inner" markdown="0">
 
-Currently, I am an Associate Research Officer (PI) in the <a target="_blank" href="https://www.ictp.it/research/qls/members.aspx">
- QLS section</a>  at the <a target="_blank" href="https://www.ictp.it/about-ictp/mission-history.aspx">
- International Centre for Theoretical Physics</a> (ICTP, Trieste, Italy)
-and a former
-<a target="_blank" href="https://www.santafe.edu/people/profile/jacopo-grilli">
-Omidyar Postdoctoral Fellow</a>
-at the Santa Fe Institute.<br>
-
-<!--I graduated in Physics in 2011 at the University of Milan and I obtained a Ph.D in Physics in 2015 at the University of Padova, where I was supervised by-->
-<!--<a target="_blank" href="http://www.pd.infn.it/~maritan/">-->
-<!--Amos Maritan</a>. In 2015, I moved to the University of Chicago as a Postdoctoral scholar,-->
-<!--working in the lab of-->
-<!--<a target="_blank" href="http://allesinalab.uchicago.edu/">-->
-<!--Stefano Allesina</a>.-->
-
-
-
-<a target="_blank" href="{{ site.url }}{{ site.baseurl }}/images/jgrilli_cv.pdf">
-<i class="fa fa-file-pdf-o"></i>  Download my cv</a>
-
-<p>
-<a target="_blank" href="http://www.researchgate.net/profile/{{ site.resgate_username }}" class="waves-effect waves-teal btn-flat my-researchgate-link" ><i class="ai ai-researchgate"></i> </a> -
-<a target="_blank" href="https://www.mendeley.com/profiles/{{ site.mendeley_username }}" class="waves-effect waves-teal btn-flat my-mendeley-link" ><i class="ai ai-mendeley"></i></a> - 
-<a target="_blank" href="http://scholar.google.com/citations?user={{ site.scholar_username }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" ><i class="ai ai-google-scholar"></i></a> -
-<a target="_blank" href="http://orcid.org/{{ site.orcid_username }}" class="waves-effect waves-teal btn-flat my-orcid-link" ><i class="ai ai-orcid"></i></a> -
-<a target="_blank" href="https://publons.com/a/{{ site.publons_username }}" class="waves-effect waves-teal btn-flat my-publons-link" ><i class="ai ai-publons"></i></a> -
-<a target="_blank" href="https://twitter.com/{{ site.twitter_username }}" class="waves-effect waves-teal btn-flat my-twitter-link"><i class="fa fa-twitter"></i></a> -
-<a target="_blank" href="http://www.linkedin.com/pub/{{ site.linkedin_username }}" class="waves-effect waves-teal btn-flat my-linkedin-link"><i class="fa fa-linkedin"></i></a> - 
-<a target="_blank" href="https://www.strava.com/athletes/{{ site.strava_username }}" class="waves-effect waves-teal btn-flat my-mail-link"><i class="fab fa-strava"></i></a>
-</p>
+        <div class="item active">
+            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/ictpmiramare.jpg" alt="Slide 1" width="100%" />
+        </div>
+        <div class="item">
+            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/popchemostatmazzob.jpg" alt="Slide 2" width="100%" />
+        </div>
+        <div class="item">
+            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/ecoli.jpg" alt="Slide 3" width="100%"/>
+        </div>
+        <div class="item">
+            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 4" width="100%" />
+        </div>
+<!--        <div class="item">-->
+<!--            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 5" width="100%" />-->
+<!--        </div>-->
+    </div> 
+  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 
-<br><br>
 
+Most of our focus is on microbial communities, which we study with a deep and
+sincere synergy between theory-driven and data-driven approaches.
+By unveiling quantitative regularities in complex ecological data and by advancing the theoretical understanding of large interacting communities, we aim to determine how the ecological and evolutionary forces produce the stunning taxonomic and functional diversity that we observe on planet Earth. <br>
+[Here](research) is a more detailed description of our research interests.
+
+We are part of the [Quantitative Life Sciences](https://www.ictp.it/research/qls.aspx) section of the [the Abdus Salam Centre for Theoretical Physics (ICTP)](http://www.ictp.it) located in Trieste, Italy.
+
+<!-- **We are  looking for passionate new PhD students, Postdocs, and Master students to join the team** [(more info)]({{ site.url }}{{ site.baseurl }}/vacancies) **!**-->
+ 
+<!--We welcome applications of outstanding, independent and highly-motivated Msc/PhD students and postdoctoral researchers with their own funding sources. For inquiries about research opportunities please contact me:  edgar(at)ictp(dot)it-->
+
+ 
+<!--We are grateful for funding from Leiden University and [NWO](www.nwo.nl) ([Vidi talent grant](http://www.nwo.nl/en/research-and-results/programmes/Talent+Scheme) and the [Frontiers in Nanoscience program](https://www.universiteitleiden.nl/en/research/research-projects/science/frontiers-of-nanoscience-nanofront)).-->
+
+<!--<figure class="third">-->
+<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_Leiden.jpg" style="width: 200px">-->
+<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_Nanofront.jpg" style="width: 160px">-->
+<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_NWO.jpg" style="width: 160px">-->
+<!--</figure>-->
