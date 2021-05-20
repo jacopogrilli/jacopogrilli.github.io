@@ -67,28 +67,28 @@
 
 
   
-#- name: Solmaz Golmohammadi
-#  photo: rock.jpg
-#  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
-#  email: verdoes@fmd.physics.leidenuniv.nl
-#  description: 
-#  number_educ: 1
-#  education1: Leidse instrumentmakers School
-#  education2: 
-#  education3: 
-#  education4: 
-#  twitterusername: 
-#  githubusername:  
-#  scholarusername:
-#  resgateusername: 
-#  orcidusername: 
-#  publonsusername: 
-#  arxivusername: 
-#  biorxivusername: 
-#  linkedinusername: 
-#  mendeleyusername: 
-#  stravausername: 
-#  cv:
+- name: Solmaz Golmohammadi
+  photo: solmaz.jpg
+  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
+  email: golmohammadi@iasbs.ac.ir
+  description: "I am a physics student interested in studying nature from the complex systems perspective, using network science, nonlinear dynamics, statistical physics and stochastic analysis.  My thesis will be specifically focused on spatial synchrony in ecology, which is a fundamental feature of population dynamics."
+  number_educ: 1
+  education1: B.Sc. Institute for Advanced Studies in Basic Sciences (IASBS), Zanjan, Iran
+  education2: 
+  education3: 
+  education4: 
+  twitterusername: solmaazam
+  githubusername: Solmaaz 
+  scholarusername:
+  resgateusername: Solmaz-Golmohammadi
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: solmaz-gol-0a04b6171
+  mendeleyusername: 
+  stravausername: 
+  cv: sgolmohammadi_cv.pdf
 
 - name: Matteo Sireci
   photo: msireci.jpg
