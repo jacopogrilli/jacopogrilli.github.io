@@ -1,6 +1,8 @@
 # create collabs net
 ( cd ../CollabNet/ ; bash executeall.sh )
 
+#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
+
 # serve
 cp ../../Cv/aggiornato/jgrilli_cv.pdf ./images/
 
