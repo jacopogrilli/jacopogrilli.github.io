@@ -1,3 +1,39 @@
+- title: Universality of evolutionary dynamics with arbitrary demography
+  authors: A. Mazzolini, J. Grilli
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2021
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/2021.06.17.448795
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: Heavy-tailed abundance distributions from stochastic Lotka-Volterra models
+  authors: L. Descheemaeker,  J. Grilli, S. de Buyl
+  journal: Physical Review E
+  journalshort: PRE
+  reference: 104, 034404
+  year: 2021
+  doi: 10.1103/PhysRevE.104.034404
+  arxiv:
+  biorxiv: 10.1101/2021.02.19.431657
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
 - title: Threshold accumulation of a constitutive protein explains E. coli cell division behavior in nutrient upshifts
   authors: M. Panlilio, J. Grilli, G. Tallarico, I. Iuliani, B. Sclavi, P. Cicuta, M. Cosentino Lagomarsino
   journal: Proceedings of the National Academy of Sciences
@@ -74,24 +110,6 @@
   highlight: 0
     
 
-
-- title: Heavy-tailed abundance distributions from stochastic Lotka-Volterra models
-  authors: L. Descheemaeker,  J. Grilli, S. de Buyl
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2021
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2021.02.19.431657
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
 
 - title: A macroecological description of alternative stable states reproduces intra-and inter-host variability of gut microbiome
   authors: S. Zaoli, J. Grilli
