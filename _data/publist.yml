@@ -1,3 +1,40 @@
+- title: Local stability properties of complex, species-rich soil food webs with functional block structure
+  authors: F. de Castro, S.M. Adl, S. Allesina, R.D. Bardgett, T. Bolger, J.J. Dalzell, M. Emmerson, T. Fleming, D. Garlaschelli, J. Grilli, S.E. Hannula, F. de Vries, Z. Lindo, A.G. Maule, M. Öpik, M.C. Rillig, S.D. Veresoglou, D.H. Wall, T. Caruso
+  journal: Ecology and Evolution
+  journalshort: EcoEvo
+  reference: 00:1–12 (2021)
+  year: 2021
+  doi: 10.1002/ece3.8278
+  arxiv:
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+- title: A macroecological description of alternative stable states reproduces intra-and inter-host variability of gut microbiome
+  authors: S. Zaoli, J. Grilli
+  journal: Science Advances
+  journalshort: SciAdv
+  reference: 7 (43), eabj2882
+  year: 2021
+  doi: 10.1126/sciadv.abj2882
+  arxiv:
+  biorxiv: 10.1101/2021.02.12.430897
+  news: "[ICTP: news highlights](https://www.ictp.it/about-ictp/media-centre/news/2021/10/zaoli-microbiome-research.aspx)"
+  description: "A model with environmental stochasticity and alternative stable states reproduces variability in the human gut microbiome."
+  image: sciadv2021.png
+  mendeley: 
+  researchgate: 
+  pmid: 34669476
+  preprint: 0
+  highlight: 1
+
+
 - title: Ecological stochasticity and phage induction diversify bacterioplankton communities at the microscale
   authors: R.E. Szabo,  S. Pontrelli,  J. Grilli,  J.A. Schwartzman,  S. Pollak,  U. Sauer,  O.X. Cordero
   journal: 
@@ -62,13 +99,13 @@
   arxiv:
   biorxiv: 10.1101/2020.08.03.233908v1
   news: 
-  description: 
-  image: dummy.png
+  description: "We monitor single-cell growth division upon nutrient changes and we discriminate among fundamentally different mechanisms of cell-division control."
+  image: pnas2021.png
   mendeley: 
   researchgate: 
   pmid: 
   preprint: 0
-  highlight: 0
+  highlight: 1
 
 - title: Remote teaching data-driven physical modeling through a COVID-19 data challenge
   authors: M. Cosentino Lagomarsino, G. Pacifico, V. Firmano, E. Bella, P. Benzoni, J. Grilli, F. Bassetti, F. Capuani, P. Cicuta, and M. Gherardi
@@ -129,25 +166,6 @@
     
 
 
-- title: A macroecological description of alternative stable states reproduces intra-and inter-host variability of gut microbiome
-  authors: S. Zaoli, J. Grilli
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2021
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2021.02.12.430897
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
-
-
 - title: Macroecological laws describe variation and diversity in microbial communities
   authors: J. Grilli
   journal: Nature Communications
@@ -157,7 +175,7 @@
   doi: 10.1038/s41467-020-18529-y
   arxiv:
   biorxiv: 10.1101/680454v1
-  news: 
+  news: "[ICTP: news highlights](https://www.ictp.it/about-ictp/media-centre/news/2020/9/grilli-publication-nature.aspx)."
   description: "Three macroecological laws quantitatively characterize the
 fluctuation of species presence and abundance across microbial communities and over time."
   image: ncomm2020.png
@@ -368,7 +386,7 @@ fluctuation of species presence and abundance across microbial communities and o
   mendeley: research-papers/coexistence-species-random-ecosystems/
   pmid: 29988167
   preprint: 0
-  highlight: 1
+  highlight: 0
 
 
 
@@ -648,7 +666,7 @@ fluctuation of species presence and abundance across microbial communities and o
   mendeley: research-papers/informationbased-fitness-emergence-criticality-living-systems
   pmid: 24982145
   preprint: 0
-  highlight: 1
+  highlight: 0
 
 
 
