@@ -22,17 +22,17 @@
   cv: "jgrilli_cv.pdf"
   past: 0
   
-## Vitor Monteiro
+
 
 
 - name: Will Shoemaker
   website: wrshoemaker.github.io/
-  photo: wshoemaker.jpg
+  photo: wshoemaker.jpeg
   info: Postdoc, started May 2022
   email: williamrshoemaker@gmail.com
   description: "I study the ecological and evolutionary dynamics of microbial communities. Though I am a biologist by training, I am fascinated with views of biological systems that are grounded in statistical physics. At ICTP I am working to build a physicist's intuition of microbial ecology and evolution through empirical and theoretical means. My current research is focused on connecting macroecological predictions to experimental data and the application of macroecological principles to patterns of genetic diversity in the human gut microbiome."
   number_educ: 3
-  education3: Postdoc with Nandita Garud, Dept. of Ecology and Evolutionary Biology, University of California, Los Angeles, USA
+  education3: Postdoc with Nandita Garud, Dept. of Eco. and Evo. Biology, UCLA, Los Angeles, USA
   education2: Ph.D. in Biology, Indiana University, Bloomington, Indiana, USA 
   education1: B.Sc. in Biology, James Madison University, Harrisonburg, Virginia, USA 
   twitterusername: ShoeStrapped
@@ -98,6 +98,32 @@
   mendeleyusername: 
   stravausername: 
   cv: sgolmohammadi_cv.pdf
+  past: 0
+
+
+- name: Vitor Monteiro Marquioni
+  website: https://vitormmarquioni.blogspot.com/
+  photo: vmonteiro.jpg
+  info: Visiting Ph.D. Student, started March 2022
+  email: vimarqmon@gmail.com
+  description: "I am a physicist mainly interested in describing biological phenomena in mathematical ways. My goal is to achieve analytical results in Individual-Based Models (currently, applied to evolution and species formation). To this aim, I use techniques from dynamical systems, stochastic processes and statistical mechanics, but since these are very broad theoretical fields, my interests may spread over other IBMs whenever I am able to apply this toolkit."
+  number_educ: 2
+  education1: B.Sc and M.Sc in Physics at Universidade de São Paulo, IFSC, USP, Brazil
+  education2: PhD candidate in Physics at Universidade Estadual de Campinas, UNICAMP, Brazil
+  education3: 
+  education4: 
+  twitterusername: VitorMarquioni
+  githubusername: 
+  scholarusername: FyyhlpYAAAAJ
+  resgateusername: Vitor-Marquioni
+  orcidusername: 0000-0002-8904-0230
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: vmonteiro_cv.pdf
   past: 0
 
 - name: Matteo Sireci
