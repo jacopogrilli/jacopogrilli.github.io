@@ -1,5 +1,6 @@
 - name: Jacopo Grilli
   photo: jgrilli.jpg
+  country: ita
   info: Associate Research Officer (PI), started May 2019
   email: jgrilli@ictp.it
   number_educ: 4
@@ -26,6 +27,7 @@
 
 
 - name: Will Shoemaker
+  country: usa
   website: wrshoemaker.github.io/
   photo: wshoemaker.jpeg
   info: Postdoc, started May 2022
@@ -52,6 +54,7 @@
 
   
 - name: Lorenzo Fant
+  country: ita
   website: https://lorenzofant.github.io/
   photo: lfant.jpg
   info: PhD student at SISSA, started Oct 2016
@@ -77,8 +80,9 @@
 
   
 - name: Solmaz Golmohammadi
+  country: irn
   photo: solmaz.jpg
-  info: Ph.D. student at IASBS, Zanjan, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
+  info: Ph.D. student at IASBS, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
   email: golmohammadi@iasbs.ac.ir
   description: "I am a physics student interested in studying nature from the complex systems perspective, using network science, nonlinear dynamics, statistical physics and stochastic analysis.  My thesis will be specifically focused on spatial synchrony in ecology, which is a fundamental feature of population dynamics."
   number_educ: 1
@@ -102,9 +106,10 @@
 
 
 - name: Vitor Monteiro Marquioni
-  website: vitormmarquioni.blogspot.com/
+  country: bra
+  website: https://vitormmarquioni.blogspot.com/
   photo: vmonteiro.jpg
-  info: Visiting Ph.D. Student, started March 2022
+  info: Ph.D. Student at UNICAMP with <a href="https://sites.ifi.unicamp.br/aguiar/en/">M. de Aguiar</a> and Visiting Student at ICTP, started March 2022
   email: vimarqmon@gmail.com
   description: "I am a physicist mainly interested in describing biological phenomena in mathematical ways. My goal is to achieve analytical results in Individual-Based Models (currently, applied to evolution and species formation). To this aim, I use techniques from dynamical systems, stochastic processes and statistical mechanics, but since these are very broad theoretical fields, my interests may spread over other IBMs whenever I am able to apply this toolkit."
   number_educ: 2
@@ -127,8 +132,9 @@
   past: 0
 
 - name: Matteo Sireci
+  country: ita
   photo: msireci.jpg
-  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">Miguel Angel Muñoz</a>  started Sept 2019
+  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">M.A. Muñoz</a>  started Sept 2019
   email: msireci@onsager.ugr.es
   description: "I am a theoretical physicist interested in biophysics, non equilibrium statistical mechanics and their interfaces. My focus is on  two themes (but I love to get dispersed): coexistence, variation and interaction in microbial ecosystem, combining data and models; bacterial phenotypic evolution, studying both  abstract theory to emphasize its out of equilibrium dynamics, and empirically grounded models."
   number_educ: 2
@@ -150,6 +156,7 @@
 
   
 - name: Samuele Lipani
+  country: ita
   photo: slipani.jpg
   info: Master Student in Physics of Data at University of Padova, Italy, started April 2022 
   email: samuelepio.lipani@studenti.unipd.it
@@ -171,7 +178,41 @@
   past: 0
 
 
+
+
+
+- name: Adalberto Valsecchi
+  country: ita
+  photo: avalsecchi.jpg
+  info: Master Student at University of Milan, Italy, March 2021 - February 2022
+  email: valsecchi.adalberto@gmail.com
+  description: "I am interested in statistical physics and its interdisciplinary applications (e.g. in Computer Science, in Biology and in Linguistics); I used its tools to study artificial neural networks and I am currently approaching eco-evolutionary microbiology challenges. I am also fascinated by theoretical physics because of its weird and amazing way to represent Nature."
+  number_educ: 1
+  education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
+  twitterusername: 
+  githubusername:  
+  scholarusername:
+  resgateusername: Adalberto_Valsecchi
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  spotifyusername: 0QywAgoqmactggMU0Vfwf0
+  cv: cv_avalsecchi.pdf
+  past: 1
+
+- name: Aamna Saleem
+  country: pak
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2020 - December 2021
+  linkedinusername:
+  past: 1
+
 - name: Silvia Zaoli
+  country: ita
   website:
   photo: szaoli.jpg
   info: Postdoc, January 2020 - December 2021
@@ -195,7 +236,23 @@
   cv: "szaoli_cv.pdf"
   past: 1
 
+
+- name: Ivana Rondon
+  country: ven
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2020 - August 2021
+  linkedinusername: ivana-rondon-08b362116
+  past: 1
+
+- name: Min Hao Ming
+  country: mys
+  photo: 
+  info: MATH Diploma Program student at ICTP, September 2020 - August 2021
+  linkedinusername: ling-min-hao-1b652113
+  past: 1
+
 - name: Mattia Corigliano
+  country: ita
   photo: mcorigliano.jpg
 #  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
   info: Master Student at University of Milan, Italy, October 2020 - July 2021
@@ -216,47 +273,6 @@
   stravausername: 
   cv: cv_corigliano.pdf
   past: 1
-
-- name: Adalberto Valsecchi
-  photo: avalsecchi.jpg
-  info: Master Student at University of Milan, Italy, March 2021 - February 2022
-  email: valsecchi.adalberto@gmail.com
-  description: "I am interested in statistical physics and its interdisciplinary applications (e.g. in Computer Science, in Biology and in Linguistics); I used its tools to study artificial neural networks and I am currently approaching eco-evolutionary microbiology challenges. I am also fascinated by theoretical physics because of its weird and amazing way to represent Nature."
-  number_educ: 1
-  education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
-  twitterusername: 
-  githubusername:  
-  scholarusername:
-  resgateusername: Adalberto_Valsecchi
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  spotifyusername: 0QywAgoqmactggMU0Vfwf0
-  cv: cv_avalsecchi.pdf
-  past: 1
-
-- name: Aamna Saleem
-  photo: 
-  info: QLS Diploma Program student at ICTP, September 2020 - December 2021
-  linkedinusername:
-  past: 1
-
-- name: Ivana Rondon
-  photo: 
-  info: QLS Diploma Program student at ICTP, September 2020 - August 2021
-  linkedinusername: ivana-rondon-08b362116
-  past: 1
-
-- name: Min Hao Ming
-  photo: 
-  info: MATH Diploma Program student at ICTP, September 2020 - August 2021
-  linkedinusername: ling-min-hao-1b652113
-  past: 1
-
  
 #- name: "This could be you !"
 #  photo: rock.jpg
