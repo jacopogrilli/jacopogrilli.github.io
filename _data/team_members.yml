@@ -20,31 +20,39 @@
   mendeleyusername: "jacopo-grilli"
   stravausername: "49472118"
   cv: "jgrilli_cv.pdf"
+  past: 0
   
-  
-- name: Silvia Zaoli
-  photo: szaoli.jpg
-  info: Postdoc, started January 2020
-  email: silvia.zaoli@gmail.com
-  description: "I am a physicist who became fascinated with ecology. My research is driven by the curiosity to understand how the macroscopic patterns and behaviours that we observe in ecosystems emerge from the complex interactions of a large number of entities. I am especially interested in understanding the roles of interactions, environmental fluctuations and trait heterogeneity in shaping communities, their composition and their variability."
+## Vitor Monteiro
+
+
+- name: Will Shoemaker
+  website: wrshoemaker.github.io/
+  photo: wshoemaker.jpg
+  info: Postdoc, started May 2022
+  email: williamrshoemaker@gmail.com
+  description: "I study the ecological and evolutionary dynamics of microbial communities. Though I am a biologist by training, I am fascinated with views of biological systems that are grounded in statistical physics. At ICTP I am working to build a physicist's intuition of microbial ecology and evolution through empirical and theoretical means. My current research is focused on connecting macroecological predictions to experimental data and the application of macroecological principles to patterns of genetic diversity in the human gut microbiome."
   number_educ: 3
-  education3: Postdoc with <a href="https://fabriziolillo.wordpress.com/">Fabrizio Lillo</a>, Department of Mathematics, Università di Bologna, Bologna, Italy 
-  education2: PhD in Environmental Engineering with <a href="https://www.epfl.ch/labs/echo/">Andrea Rinaldo</a> at EPFL, Lausanne, Switzerland 
-  education1: B.Sc and M.Sc in Physics at Università di Padova, Padova, Italy
-  twitterusername: 
+  education3: Postdoc with Nandita Garud, Dept. of Ecology and Evolutionary Biology, University of California, Los Angeles, USA
+  education2: Ph.D. in Biology, Indiana University, Bloomington, Indiana, USA 
+  education1: B.Sc. in Biology, James Madison University, Harrisonburg, Virginia, USA 
+  twitterusername: ShoeStrapped
   githubusername:  
-  scholarusername: aPZha4cAAAAJ
-  resgateusername: Silvia-Zaoli
-  orcidusername: 0000-0001-6619-0984
+  scholarusername: 92HwU5EAAAAJ
+  resgateusername: 
+  orcidusername: 
   publonsusername: 
   arxivusername: 
   biorxivusername: 
-  linkedinusername: silviazaoli12345
+  linkedinusername: 
   mendeleyusername: 
   stravausername: 
-  cv: "szaoli_cv.pdf"
+  cv: 
+  past: 0
+  
+
   
 - name: Lorenzo Fant
+  website: https://lorenzofant.github.io/
   photo: lfant.jpg
   info: PhD student at SISSA, started Oct 2016
   email: lorenzofant@gmail.com
@@ -64,6 +72,7 @@
   mendeleyusername: 
   stravausername: "58651578"
   cv: "lfant_cv.pdf"
+  past: 0
 
 
   
@@ -89,6 +98,7 @@
   mendeleyusername: 
   stravausername: 
   cv: sgolmohammadi_cv.pdf
+  past: 0
 
 - name: Matteo Sireci
   photo: msireci.jpg
@@ -110,11 +120,59 @@
   mendeleyusername: 
   stravausername: 
   cv: "cv_sireci.pdf"
+  past: 0
 
   
+- name: Samuele Lipani
+  photo: slipani.jpg
+  info: Master Student in Physics of Data at University of Padova, Italy, started April 2022 
+  email: samuelepio.lipani@studenti.unipd.it
+  description: "I am a physics student currently working on data science and population dynamics and ecology. I am really interested in biological physics and its application in ecology and quantitative life sciences. As a data scientist I usually compute physical models in Python, R, Julia or Matlab by exploiting network science tools and complex systems environments."
+  number_educ: 1
+  education1: B.Sc. in Physics, Università di Catania, Catania, Italy
+  twitterusername: 
+  githubusername:  samuelelipani
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: samuele-lipani-03656a229/
+  mendeleyusername: 
+  stravausername: 
+  cv: slipani_cv.pdf
+  past: 0
+
+
+- name: Silvia Zaoli
+  website:
+  photo: szaoli.jpg
+  info: Postdoc, January 2020 - December 2021
+  email: silvia.zaoli@gmail.com
+  description: "I am a physicist who became fascinated with ecology. My research is driven by the curiosity to understand how the macroscopic patterns and behaviours that we observe in ecosystems emerge from the complex interactions of a large number of entities. I am especially interested in understanding the roles of interactions, environmental fluctuations and trait heterogeneity in shaping communities, their composition and their variability."
+  number_educ: 3
+  education3: Postdoc with <a href="https://fabriziolillo.wordpress.com/">Fabrizio Lillo</a>, Department of Mathematics, Università di Bologna, Bologna, Italy 
+  education2: PhD in Environmental Engineering with <a href="https://www.epfl.ch/labs/echo/">Andrea Rinaldo</a> at EPFL, Lausanne, Switzerland 
+  education1: B.Sc and M.Sc in Physics at Università di Padova, Padova, Italy
+  twitterusername: 
+  githubusername:  
+  scholarusername: aPZha4cAAAAJ
+  resgateusername: Silvia-Zaoli
+  orcidusername: 0000-0001-6619-0984
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: silviazaoli
+  mendeleyusername: 
+  stravausername: 
+  cv: "szaoli_cv.pdf"
+  past: 1
+
 - name: Mattia Corigliano
   photo: mcorigliano.jpg
-  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
+#  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
+  info: Master Student at University of Milan, Italy, October 2020 - July 2021
   email: mcorigliano96@gmail.com
   description: 
   number_educ: 1
@@ -131,10 +189,11 @@
   mendeleyusername: 
   stravausername: 
   cv: cv_corigliano.pdf
+  past: 1
 
 - name: Adalberto Valsecchi
   photo: avalsecchi.jpg
-  info: Master Student at University of Milan, Italy, Started March 2021
+  info: Master Student at University of Milan, Italy, March 2021 - February 2022
   email: valsecchi.adalberto@gmail.com
   description: "I am interested in statistical physics and its interdisciplinary applications (e.g. in Computer Science, in Biology and in Linguistics); I used its tools to study artificial neural networks and I am currently approaching eco-evolutionary microbiology challenges. I am also fascinated by theoretical physics because of its weird and amazing way to represent Nature."
   number_educ: 1
@@ -152,6 +211,25 @@
   stravausername: 
   spotifyusername: 0QywAgoqmactggMU0Vfwf0
   cv: cv_avalsecchi.pdf
+  past: 1
+
+- name: Aamna Saleem
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2020 - December 2021
+  linkedinusername:
+  past: 1
+
+- name: Ivana Rondon
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2020 - August 2021
+  linkedinusername: ivana-rondon-08b362116
+  past: 1
+
+- name: Min Hao Ming
+  photo: 
+  info: MATH Diploma Program student at ICTP, September 2020 - August 2021
+  linkedinusername: ling-min-hao-1b652113
+  past: 1
 
  
 #- name: "This could be you !"

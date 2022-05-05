@@ -1,3 +1,78 @@
+
+- title: Protein degradation sets the fraction of active ribosomes at vanishing growth
+  authors: L. Calabrese,  J. Grilli, M. Osella, C.P. Kempes, M. Cosentino Lagomarsino, L. Ciandrini
+  journal: Plos Computational Biology   
+  journalshort: PlosCB
+  reference: "18(5): e1010059"
+  year: 2022
+  doi: 10.1371/journal.pcbi.1010059
+  arxiv:
+  biorxiv: 10.1101/2021.03.25.436692
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 35500024
+  preprint: 0
+  highlight: 0
+    
+
+
+- title: Stable cooperation emerges in stochastic multiplicative growth
+  authors: L. Fant, O. Mazzarisi, E. Panizon, J. Grilli
+  journal: 
+  journalshort: 
+  reference: 
+  year: 2022
+  doi: 
+  arxiv: 2202.02787
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: The stochastic logistic model with correlated carrying capacities reproduces beta-diversity metrics of microbial communities
+  authors: S. Zaoli, J. Grilli
+  journal: Plos Computational Biology
+  journalshort: PlosCB
+  reference: 18(4):e1010043
+  year: 2022
+  doi: 10.1371/journal.pcbi.1010043
+  arxiv:
+  biorxiv: 10.1101/2021.11.16.468765
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 35363772
+  preprint: 0
+  highlight: 0
+
+- title: ppGpp is a bacterial cell size regulator
+  authors: F. Buke, J. Grilli, M. Cosentino Lagomarsino, G. Bokinsky, S.J. Tans
+  journal: Current Biology
+  journalshort: 
+  reference: 32(4):870-877
+  year: 2022
+  doi: 10.1016/j.cub.2021.12.033
+  arxiv:
+  biorxiv: 10.1101/2020.06.16.154187v1
+  news: 
+  description: 
+  image: dummy.png
+  mendeley: 
+  researchgate: 
+  pmid: 34990598
+  preprint: 0
+  highlight: 0
+
 - title: Local stability properties of complex, species-rich soil food webs with functional block structure
   authors: F. de Castro, S.M. Adl, S. Allesina, R.D. Bardgett, T. Bolger, J.J. Dalzell, M. Emmerson, T. Fleming, D. Garlaschelli, J. Grilli, S.E. Hannula, F. de Vries, Z. Lindo, A.G. Maule, M. Öpik, M.C. Rillig, S.D. Veresoglou, D.H. Wall, T. Caruso
   journal: Ecology and Evolution
@@ -12,7 +87,7 @@
   image: 
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 34824812
   preprint: 0
   highlight: 0
 
@@ -85,7 +160,7 @@
   image: 
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 34654137
   preprint: 0
   highlight: 0
 
@@ -103,7 +178,7 @@
   image: pnas2021.png
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 33931503
   preprint: 0
   highlight: 1
 
@@ -146,24 +221,6 @@
 
 
 
-- title: Role of protein degradation in growth laws
-  authors: L. Calabrese,  J. Grilli, M. Osella, C.P. Kempes, M. Cosentino Lagomarsino, L. Ciandrini
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2021
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2021.03.25.436692
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
-    
 
 
 - title: Macroecological laws describe variation and diversity in microbial communities
@@ -181,27 +238,9 @@ fluctuation of species presence and abundance across microbial communities and o
   image: ncomm2020.png
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 32958773
   preprint: 0
   highlight: 1
-
-- title: ppGpp is a bacterial cell size regulator
-  authors: F. Buke, J. Grilli, M. Cosentino Lagomarsino, G. Bokinsky, S. Tans
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2020
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2020.06.16.154187v1
-  news: 
-  description: 
-  image: dummy.png
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
 
 
 - title: Transcriptome dynamics predict thermotolerance in Caenorhabditis elegans
