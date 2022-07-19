@@ -1,13 +1,38 @@
-- title: "Variation and diversity in microbial communities"
-  description: How coexistence of many species is maintained is a fundamental and
-        unanswered question in ecology.
-        Coexistence is a puzzle because we lack a quantitative understanding of the variation in species presence and 
-        abundance. Whether variation in ecological communities is driven by deterministic
-        or random processes is one of the most controversial issues in 
-        ecology. We studied the variation of species presence and abundance in
-        microbial communities from a macroecological standpoint, identifying three 
-        novel, universal, and foundamental macroecological laws
-        [<a target="_blank" href="https://www.nature.com/articles/s41467-020-18529-y">NC2020</a>].
+- title: "Statistical patterns of empirical microbial communities"
+  description: We study the patterns of diversity, abundance, and variation of microbial communities
+            from a macroecological standpoint. By studying these patterns, we aim at identifying and quantify the contributions of the different ecological
+            forces that shape communities composition across spatial and temporal scales.
+            We use the patterns to identify simple (but not trivial) models that predict them [<a target="_blank" href="https://www.nature.com/articles/s41467-020-18529-y">NC2020</a>],
+            and we use the models to identify novel patters which, by invalidating the simpler model, reveal novel ecological insights
+            on community structure and dynamics [<a target="_blank" href="https://www.science.org/doi/full/10.1126/sciadv.abj2882">SciAdv2021</a>,<a target="_blank" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010043">PlosCB2022</a>,<a target="_blank" href="https://www.biorxiv.org/content/10.1101/2022.07.12.499693">BiorXiv2022</a>].
+
+
+- title: "Theoretical microbial ecology and evolution"
+  description: We develop theory to describe the ecology and evolution of (mostly microbial) communities. We tend to formulate
+        mathematical tractable models to shape our intuition about ecological and evolutionary models, and why try to push the boundaries
+        of what is tractable, by borrowing advnced methods from stochastic processes, disordered systems, and random matrix theory.
+        We are particularly, but not exclusively, interested in the interface between ecology and evolution, both on how non-trivial ecological structure influence
+        the evolution of population [<a target="_blank" href="https://www.biorxiv.org/content/10.1101/2021.06.17.448795">BiorXiv2022</a>] and
+        how the evolution of relevant-ecological traits determine the community structure and
+        composition [<a target="_blank" href="https://www.biorxiv.org/content/10.1101/2021.04.02.438173">BiorXiv2022</a>]. While we appreciate
+        purely and proudly theoretical and conceptual projects, we also enjoy very much to develop theory, and put it into a test, working together with
+        experimental collaborators
+        [<a target="_blank" href="https://www.biorxiv.org/content/10.1101/2021.04.02.438173">BiorXiv2022</a>].
+        
+        
+
+
+#- title: "Variation and diversity in microbial communities"
+#  description: How coexistence of many species is maintained is a fundamental and
+#        unanswered question in ecology.
+#        Coexistence is a puzzle because we lack a quantitative understanding of the variation in species presence and 
+#        abundance. Whether variation in ecological communities is driven by deterministic
+#        or random processes is one of the most controversial issues in 
+ #       ecology. We studied the variation of species presence and abundance in
+#        microbial communities from a macroecological standpoint, identifying three 
+#        novel, universal, and foundamental macroecological laws
+ #       [<a target="_blank" href="https://www.nature.com/articles/s41467-020-18529-y">NC2020</a>].
+
 
     
 - title: "Stability of large ecological systems and ecological networks"
@@ -100,7 +125,5 @@
 #        how criticality can emerge without fine-tuning but as a consequence of
 #        evolution and adaptation
 #        [<a target="_blank" href="http://dx.doi.org/10.1073/pnas.1319166111">PNAS2014</a>].
-
-
 
 
