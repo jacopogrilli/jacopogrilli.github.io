@@ -12,6 +12,7 @@
     
 - title: "Stability of large ecological systems and ecological networks"
   with: "S. Allesina, G. Barabás, A. Maritan, S. Suweis"
+  past: 1
   description: Ecosystems are typically composed by a large number of interacting individuals
         and species. What do determine their stability respect to perturbation
         and their persistence in time?
@@ -50,11 +51,11 @@
         [<a target="_blank" href="http://journals.aps.org/pre/abstract/10.1103/PhysRevE.95.032411">PRE2017</a>] and
         we study their dependence on cell-growth fluctuations [<a target="_blank" href="https://www.frontiersin.org/articles/10.3389/fmicb.2018.01541/full">frontMB2018</a>]. We studied the empirical correlation patterns of DNA replication and cell division showing that no master control
         is needed to achieve the observed coordination [<a target="_blank" href="https://advances.sciencemag.org/content/4/11/eaau3324?rss=1&intcmp=trendmd-adv">SciAdv2018</a>,<a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S2211124718315067">CellRep2018</a>].
-    
-        
+            
 
 - title: "Statistical laws in genomes evolution"
   with: "M. Cosentino Lagomarsino, S. Maslov"
+  past: 1
   description: Life populates almost every corner of this planet, with striking differences
         of forms and shapes, that reflect the adaptation to a particular environment and
         unique evolutionary histories. Despite the contingency of the processes shaping genomes, remarkable
@@ -70,6 +71,7 @@
 
 - title: "Neutral theory and spatial ecology"
   with: "S. Azaele, J.R. Banavar, A. Maritan"
+  past: 1
   description: Macroscopic phenomena are intrinsically stochastic and noise strongly affects
         the species composition and diversity of ecosystems. Statistical mechanics
         offers many tools that
@@ -81,6 +83,7 @@
         for analytical solutions in spatially explicit systems. Using a phenomenological
         model we were able to connect different spatial and non-spatial ecological patterns
         [<a target="_blank" href="http://dx.doi.org/10.1016/j.jtbi.2012.07.030">JTB2012</a>].
+    
 
 
 #- title: "Paths to criticality without fine-tuning"
