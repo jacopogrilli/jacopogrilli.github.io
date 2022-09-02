@@ -1,3 +1,27 @@
+
+- location: areasciencepark
+  country: Italy
+  state: 
+  city:  Trieste
+  latitude: 45.657469
+  longitude: 13.829076
+
+
+- location: istveneto
+  country: Italy
+  state: 
+  city:  Venice
+  latitude: 45.431887
+  longitude: 12.329660
+
+
+- location: ensphys
+  country: France
+  state: 
+  city:  Paris
+  latitude: 48.841867
+  longitude: 2.344930
+
 - location: remotely
   country: 
   state: 
