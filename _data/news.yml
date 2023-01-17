@@ -1,11 +1,11 @@
 - date: "February 13, 2023"
   headline: "Matteo going back to Granada..."
-  fullnews: "Last dinner together""
+  fullnews: "Last dinner together"
   image: "2023_matteodinner.jpg"
 
 - date: "October 10, 2022"
-  headline: "Teaching at the QBio Serrapilhera Program at ICTP-SAIFR in São Paulo, Brazil with Martina Dal Bello."
-  fullnews: 
+  headline: "Teaching at the <a target='_blank' href='https://www.ictp-saifr.org/qbioprogram/'>QBio Serrapilhera Program</a> at ICTP-SAIFR in São Paulo, Brazil with <a target='_blank' href='https://martinadalbello.com/'>Martina Dal Bello</a>."
+  fullnews: "Videos <a target='_blank' href='https://www.youtube.com/watch?v=I7XON73CcQQ&list=PLg0_ydgtbHGEX-2ir7b_lLPo9RhnNsOIc'>here</a>"
 
 - date: "July 13, 2022"
   headline: "Paper on phylogenetic signal in abundance correlations on <a target='_blank' href='http://www.biorxiv.org/content/10.1101/2022.07.12.499693'>Biorxiv</a>."
