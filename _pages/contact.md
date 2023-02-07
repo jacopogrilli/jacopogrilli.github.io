@@ -13,7 +13,7 @@ permalink: /contact/
 
 <i class="fa fa-map-marker"></i> 
 The Abdus Salam International Centre for Theoretical Physics <br>
-Quantitative Life Science section <br>
+Quantitative Life Sciences section <br>
 Strada Costiera 11, 
 I-34151 Trieste, Italy <br>
 
