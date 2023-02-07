@@ -6,7 +6,7 @@ function initialize()
 {
 var mapProp = {
   center: new google.maps.LatLng( {{ site.map_latitude }}, {{ site.map_longitude }} ),
-  zoom: 5,
+  zoom: 4,
   scrollwheel: false,
     mapTypeControl: false,
     streetViewControl: false,
@@ -402,13 +402,22 @@ styles:[
         scale: 1,
         };
 
+ var mymarker1 = {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: '#f24522',
+        fillOpacity: 0.5,
+        strokeColor: '#f24522',
+        strokeWeight: 3,
+        scale: 1,
+        };
+
 
 var map=new google.maps.Map(document.getElementById("googleMaps")
   ,mapProp);
 var marker = new google.maps.Marker({
     position: new google.maps.LatLng({{ site.map_latitude }}, {{ site.map_longitude }} ),
     map: map,
-    icon: mymarker,
+    icon: mymarker1,
 //    animation: google.maps.Animation.DROP,
     title: "{{ site.map_title }}"
 });
