@@ -215,6 +215,27 @@
   past: 0
 
 
+- name: Richmond Crisostomo
+  country: phl
+  photo: rcrisostomo.jpg
+  info: Master Student in QBio at U. of Montpellier, France, started February 2023 - 
+  email: richmond.crisostomo@etu.umontpellier.fr
+  description: "I am in pursuit of understanding the mechanisms of life through the lens of quantitative biology, complex systems, and data science. As a physicist, I attempt to analyze biological systems across spatiotemporal scales using fundamental principles, generalizations, and idealized models. As a quantitative biology student, my duty is to learn to tame these (seemingly) wild abstractions by appropriating necessary biophysical constraints, narrowing down the range of implications to what can be physiologically realizable and interpretable - whatever living system they may be applied to. Currently, I am a visiting research fellow at the ICTP where I will attempt to model the eco-evolutionary dynamics of strains within the human gut, in order to characterize population trajectories at the edge of ecological differentiation."
+  number_educ: 1
+  education1: B.Sc. in Applied Physics, University of the Philippines, Diliman
+  twitterusername: rmcrisostomo
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: richmond-crisostomo-76402017b
+  mendeleyusername: 
+  stravausername: 
+  cv: "rcrisostomo.pdf"
+  past: 0
 
 
 

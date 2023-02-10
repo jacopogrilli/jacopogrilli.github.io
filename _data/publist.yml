@@ -18,11 +18,11 @@
 
 - title: Intrinsic dimension estimation for discrete metrics
   authors: I. Macocco, A. Glielmo, J. Grilli, A. Laio
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2022
-  doi: 
+  journal: Physical Review Letters
+  journalshort: PRL
+  reference: 130, 067401
+  year: 2023
+  doi: 10.1103/PhysRevLett.130.067401
   arxiv: 2207.09688
   biorxiv: 
   news: 
@@ -31,7 +31,7 @@
   mendeley: 
   researchgate: 
   pmid: 
-  preprint: 1
+  preprint: 0
   highlight: 0
 
 - title: Historical contingencies and phage induction diversify bacterioplankton communities at the microscale
