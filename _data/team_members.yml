@@ -118,6 +118,32 @@
   cv: sgolmohammadi_cv.pdf
   past: 0
 
+- name: José M. Camacho Mateu
+  country: esp
+  website: 
+  photo: jcamacho.png
+  info: Ph.D. Carlos III University of Madrid and Visiting Student at ICTP since January 2023
+  email: joscamac@math.uc3m.es
+  description: "As a PhD student, I am fascinated by the complex role that microbial interactions play in the structure and function of microbial communities. The significance of microbial interactions cannot be overstated, particularly in the context of debilitating conditions such as different types of cancer, Crohn's disease or cystic fibrosis. My ultimate goal is to contribute to the development of a theoretical framework for understanding the dynamics of the microbiome, enabling us to predict the efficacy of microbiome-based medical treatments."
+  number_educ: 2
+  education1: M.Sc. in Physics and Math, Universidad de Granada, Granada, Spain
+  education2: B.Sc. in Physics, Universidad de Granada, Granada, Spain
+  education3: 
+  education4: 
+  twitterusername: physgon
+  githubusername: 
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: 
+  past: 0
+
 
 - name: Vitor Monteiro Marquioni
   country: bra
@@ -143,7 +169,7 @@
   mendeleyusername: 
   stravausername: 
   cv: vmonteiro_cv.pdf
-  past: 0
+  past: 1
 
 - name: Matteo Sireci
   country: ita
@@ -212,7 +238,7 @@
   mendeleyusername: 
   stravausername: 
   cv: slipani_cv.pdf
-  past: 0
+  past: 1
 
 
 - name: Richmond Crisostomo
