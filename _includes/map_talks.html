@@ -453,10 +453,10 @@ styles:[
 
  var mymarker1bis = {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-        fillColor: '#ff0808',
-        fillOpacity: 0.4,
-        strokeColor: '#ff0808',
-        strokeWeight: 2,
+        fillColor: '#f24522',
+        fillOpacity: 0.5,
+        strokeColor: '#f24522',
+        strokeWeight: 3,
         scale: 1,
         };
 
@@ -487,7 +487,7 @@ styles:[
 
     // Add the markers and infowindows to the map
     for (var i = 0; i < locations.length; i++) {
-      if( locations[i][4] == 0  ){  
+      if( locations[i][4] == 0 ){  // NOT UPCOMING
         var marker = new google.maps.Marker({
          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map,
@@ -499,20 +499,7 @@ styles:[
          map: map,
          icon: mymarker1bis
         });
-      } //else if( locations[i][3] == 1 && locations[i][4] == 0 ){
-//        var marker = new google.maps.Marker({
-//         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-//         map: map,
-//         icon: mymarker2
-//        });
-//      } else {
-///        var marker = new google.maps.Marker({
-//         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-//         map: map,
-//         icon: mymarker2bis
-//        });
-//     }
-
+      } 
 
 
       markers.push(marker);
