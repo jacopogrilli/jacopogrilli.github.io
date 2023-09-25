@@ -1,3 +1,15 @@
+- date: "August 28, 2023"
+  headline: "Matteo's paper on correlation and phylogeny out in <a target='_blank' href='https://www.pnas.org/doi/abs/10.1073/pnas.2217144120'>PNAS</a>."
+  fullnews: 
+
+- date: "August 18, 2023"
+  headline:  "Fritz, Patricia, and Roaa succesfully defended their Diploma final project"
+  fullnews: "diploma2023.jpg"
+
+- date: "June 19, 2023"
+  headline:  "Matteo succesfully defended his Ph.D.!"
+  fullnews: 
+
 - date: "January 19, 2023"
   headline:  "New preprint on genome vs gene sweeps in metacommunities on <a target='_blank' href='https://www.biorxiv.org/content/10.1101/2023.01.17.524383'>Biorxiv</a>."
   fullnews: 
@@ -6,6 +18,10 @@
   headline: "Matteo going back to Granada..."
   fullnews: "Last dinner together"
   image: "2023_matteodinner.jpg"
+
+- date: "December 6, 2022"
+  headline:  "Samuele defended his master thesis"
+  fullnews: 
 
 - date: "October 10, 2022"
   headline: "Teaching at the <a target='_blank' href='https://www.ictp-saifr.org/qbioprogram/'>QBio Serrapilhera Program</a> at ICTP-SAIFR in São Paulo, Brazil with <a target='_blank' href='https://martinadalbello.com/'>Martina Dal Bello</a>."

@@ -1,7 +1,82 @@
+- title: Environmental fluctuations explain the universal decay of species-abundance correlations with phylogenetic distance
+  authors: M. Sireci, M.A. Muñoz, and J. Grilli
+  journal: Proceedings of the National Academy of Sciences
+  journalshort: PNAS
+  reference: 120 (37) e2217144120
+  year: 2023
+  doi: 10.1073/pnas.2217144120
+  arxiv:
+  biorxiv: 10.1101/2022.07.12.499693
+  news: 
+  description: "We identify a novel macroecological law relating mean pairwise correlation with genetic similarity and show that fluctuations of shared environmental factors are responsible for such a universal pattern."
+  image: "pnas2023.png"
+  mendeley: 
+  researchgate: 
+  pmid: 37669363
+  preprint: 1
+  highlight: 1
+
+- title: Universality of evolutionary trajectories under arbitrary forms of self-limitation and competition
+  authors: A. Mazzolini, J. Grilli
+  journal: Physical Review E
+  journalshort: PRE
+  reference: 108, 034406
+  year: 2023
+  doi: 10.1103/PhysRevE.108.034406
+  arxiv:
+  biorxiv: 10.1101/2021.06.17.448795
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Macroecological laws in experimental microbial systems
+  authors: W.R. Shoemaker, A. Sanchez, J. Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2023
+  doi: 10.1101/2023.07.24.550281
+  arxiv:
+  biorxiv: 10.1101/2023.07.24.550281
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Stable cooperation emerges in stochastic multiplicative growth
+  authors: L. Fant, O. Mazzarisi, E. Panizon, J. Grilli
+  journal: Physical Review E
+  journalshort: PRE
+  reference: 108, L012401
+  year: 2023
+  doi: 10.1103/PhysRevE.108.L012401
+  arxiv: 2202.02787
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 37583239
+  preprint: 0
+  highlight: 0
+
+
 - title: Keystone intransitive loops
   authors: J. Grilli
   journal: Proceedings of the National Academy of Sciences
-  journalshort: pnas
+  journalshort: PNAS
   reference:  120 (17) e2304170120 [commentary]
   year: 2023
   doi: 10.1073/pnas.2304170120
@@ -12,7 +87,7 @@
   image: 
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 37068257
   preprint: 0
   highlight: 0
 
@@ -66,7 +141,7 @@
   image: 
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 36827575
   preprint: 0
   highlight: 0
 
@@ -84,28 +159,12 @@
   image: 
   mendeley: 
   researchgate: 
-  pmid: 
+  pmid: 35862452
   preprint: 0
   highlight: 0
 
 
-- title: A macroecological law links abundance correlations with phylogenetic similarity in microbiomes
-  authors: M. Sireci, M.A. Muñoz, and J. Grilli
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2022
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2022.07.12.499693
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 
 
@@ -148,23 +207,7 @@
     
 
 
-- title: Stable cooperation emerges in stochastic multiplicative growth
-  authors: L. Fant, O. Mazzarisi, E. Panizon, J. Grilli
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2022
-  doi: 
-  arxiv: 2202.02787
-  biorxiv: 
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 - title: The stochastic logistic model with correlated carrying capacities reproduces beta-diversity metrics of microbial communities
   authors: S. Zaoli, J. Grilli
@@ -240,23 +283,7 @@
 
 
 
-- title: Universality of evolutionary dynamics with arbitrary demography
-  authors: A. Mazzolini, J. Grilli
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2021
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2021.06.17.448795
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 - title: Heavy-tailed abundance distributions from stochastic Lotka-Volterra models
   authors: L. Descheemaeker,  J. Grilli, S. de Buyl
@@ -655,7 +682,7 @@ fluctuation of species presence and abundance across microbial communities and o
   mendeley: research-papers/feasibility-coexistence-large-ecological-communities
   pmid: 28233768
   preprint: 0
-  highlight: 1
+  highlight: 0
 
 
 - title: "Statistical mechanics of ecological systems: neutral theory and beyond"

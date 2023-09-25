@@ -1,3 +1,26 @@
+- location: jena
+  country: Jena
+  state: 
+  city: Germany
+  latitude: 50.92957938770758
+  longitude: 11.584626698855692
+
+- location: granadacarmenvictoria
+  country: Spain
+  state: 
+  city:  Granada
+  latitude: 37.18100983119616
+  longitude: -3.58884944361102
+
+- location: torrazzettapv
+  country: Italy
+  state: 
+  city: Borgo Priolo
+  latitude: 44.978837707248005
+  longitude: 9.109839015209289
+
+
+
 - location: bgu
   country: Israel
   state: 

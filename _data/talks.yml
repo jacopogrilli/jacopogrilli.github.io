@@ -1,3 +1,14 @@
+- title: TBA
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: October 19, 2023
+  place: Workshop on New Frontiers in Modelling Ecology and Evolution of Microbiomes, Friedrich Schiller University
+  location: jena
+  url: https://sites.google.com/view/fmeem2023
+  slides:
+
+
 - title: "Advanced School on Quantitative Principles in Microbial Physiology: from Single Cells to Cell Communities"
   what: 1
   upcoming: 1
@@ -8,14 +19,36 @@
   url: https://indico.ictp.it/event/10213
   slides:
 
-- title: TBD
+- title: Deep Dive on linking models and data
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Talk
   date: September 4 - September 6, 2023
   place: Ecological networks from theory to application, Ben-Gurion University of the Negev
   location: bgu
   url: https://lifewp.bgu.ac.il/wp/econet2023/
+  slides: 
+  video: 
+
+- title: Non-catastrophic shifts in the human gut microbiome
+  what: 0
+  upcoming: 0
+  type: Invited Talk
+  date: June 15 - June 16, 2023
+  place: Ecological perturbations across systems and scales, University of Granada
+  location: granadacarmenvictoria
+  url: 
+  slides: 
+  video: 
+
+- title: Coarse-graining microbial ecology
+  what: 0
+  upcoming: 0
+  type: Invited Talk
+  date: May 3 - May 5, 2023
+  place: Cosentino-Lagomarsino and Ciandrini group retreat, 
+  location: torrazzettapv
+  url: 
   slides: 
   video: 
 
@@ -42,6 +75,7 @@
   slides: 
   video: 
 
+### SPRING COLLEGE
 
 - title: "What is typical in microbial communities?"
   what: 0
@@ -53,6 +87,10 @@
   url: https://nccr-microbiomes.ch/event/jacopo-grilli-on-alternative-stable-states-in-the-human-gut-microbiome/
   slides: 
   video: 
+
+### TRIESTE
+
+### PADOVA
 
 - title: "What is typical in microbial communities?"
   what: 0

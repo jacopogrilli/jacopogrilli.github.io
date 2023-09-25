@@ -24,7 +24,7 @@ permalink: /talks/
     }
     .pastpText
     {
-        color:#696969;
+        color:#228B22;
     }
 </style>
 </head>

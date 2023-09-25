@@ -1,6 +1,8 @@
 - name: Jacopo Grilli
   photo: jgrilli.jpg
   country: ita
+  fromlatitude: 45.37320623211329
+  fromlongitude: 9.424961331236911
   info: Associate Research Officer (PI), started May 2019
   email: jgrilli@ictp.it
   number_educ: 4
@@ -22,26 +24,14 @@
   stravausername: "49472118"
   cv: "jgrilli_cv.pdf"
   past: 0
-  
 
-- name: Manuel Vasquez Ibarra
-  country: gtm
-  photo: 
-  info: QLS Diploma Program student at ICTP, September 2020 - December 2021
-  linkedinusername:
-  past: 1
-
-- name: Sahar Farrag
-  country: egy
-  photo: 
-  info: QLS Diploma Program student at ICTP, September 2020 - December 2021
-  linkedinusername:
-  past: 1
 
 
 
 - name: Will Shoemaker
   country: usa
+  fromlatitude: 39.11488884951013
+  fromlongitude: -77.56478484405119
   website: wrshoemaker.github.io/
   photo: wshoemaker.jpeg
   info: Postdoc, started May 2022
@@ -64,37 +54,44 @@
   stravausername: 
   cv: 
   past: 0
-  
 
-  
-- name: Lorenzo Fant
-  country: ita
-  website: https://lorenzofant.github.io/
-  photo: lfant.jpg
-  info: PhD student at SISSA, Sept 2019 - Feb 2022
-  email: lorenzofant@gmail.com
-  description: 
+
+- name: Annamaria Bupu
+  country: idn
+  fromlatitude: -6.920817339564152
+  fromlongitude: 107.62353863735886
+  photo: abupu.jpg
+  info: Ph.D. student at SISSA (joint ICTP-SISA), started Oct 2022
+  email: anna.bupu@gmail.com
+  description: "I am a physics student interested in biological systems, especially in the 
+variation of the composition of microbial communities and their relation with 
+ecological function. My current research centers on investigating the 
+reproducibility of microbial communities at various taxonomical levels using a 
+data-driven approach in combination with models."
   number_educ: 2
-  education2: M.Sc. Physics, Università di Trieste, Trieste, Italy
-  education1: B.Sc. Physics, Università di Trento, Trento, Italy 
-  twitterusername: "lorenzo_fant"
-  githubusername:  
-  scholarusername: Fqnde5sAAAAJ
-  resgateusername: "Lorenzo-Fant"
-  orcidusername: "0000-0002-0258-1107"
-  publonsusername: "4364025"
+  education1: M.Sc. in Physics, Universitas Indonesia, Depok Indonesia
+  education2: B.Sc. in Physics, Universitas Indonesia, Depok, Indonesia
+  education3: 
+  education4: 
+  twitterusername: 
+  githubusername: 
+  scholarusername:
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
   arxivusername: 
   biorxivusername: 
-  linkedinusername: "lorenzo-fant"
+  linkedinusername: 
   mendeleyusername: 
-  stravausername: "58651578"
-  cv: "lfant_cv.pdf"
-  past: 1
+  stravausername: 
+  cv: abupu_cv.pdf
+  past: 0
 
 
-  
 - name: Solmaz Golmohammadi
   country: irn
+  fromlatitude: 36.684376080846924
+  fromlongitude: 48.50902938973805
   photo: solmaz.jpg
   info: Ph.D. student at IASBS, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
   email: golmohammadi@iasbs.ac.ir
@@ -118,38 +115,15 @@
   cv: sgolmohammadi_cv.pdf
   past: 0
 
-- name: José M. Camacho Mateu
-  country: esp
-  website: 
-  photo: jcamacho.png
-  info: Ph.D. Carlos III University of Madrid and Visiting Student at ICTP since January 2023
-  email: joscamac@math.uc3m.es
-  description: "As a PhD student, I am fascinated by the complex role that microbial interactions play in the structure and function of microbial communities. The significance of microbial interactions cannot be overstated, particularly in the context of debilitating conditions such as different types of cancer, Crohn's disease or cystic fibrosis. My ultimate goal is to contribute to the development of a theoretical framework for understanding the dynamics of the microbiome, enabling us to predict the efficacy of microbiome-based medical treatments."
-  number_educ: 2
-  education1: M.Sc. in Physics and Math, Universidad de Granada, Granada, Spain
-  education2: B.Sc. in Physics, Universidad de Granada, Granada, Spain
-  education3: 
-  education4: 
-  twitterusername: physgon
-  githubusername: 
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: 
-  past: 0
 
 
 - name: Vitor Monteiro Marquioni
   country: bra
+  fromlatitude: -22.009235120645137
+  fromlongitude: -47.89058707838147
   website: https://vitormmarquioni.blogspot.com/
   photo: vmonteiro.jpg
-  info: Ph.D. Student at UNICAMP with <a href="https://sites.ifi.unicamp.br/aguiar/en/">M. de Aguiar</a> and Visiting Student at ICTP, started March 2022
+  info: Ph.D. Student at UNICAMP with <a href="https://sites.ifi.unicamp.br/aguiar/en/">M. de Aguiar</a> and Visiting Student at ICTP, March 2022 - March 2023
   email: vimarqmon@gmail.com
   description: "I am a physicist mainly interested in describing biological phenomena in mathematical ways. My goal is to achieve analytical results in Individual-Based Models (currently, applied to evolution and species formation). To this aim, I use techniques from dynamical systems, stochastic processes and statistical mechanics, but since these are very broad theoretical fields, my interests may spread over other IBMs whenever I am able to apply this toolkit."
   number_educ: 2
@@ -171,31 +145,11 @@
   cv: vmonteiro_cv.pdf
   past: 1
 
-- name: Matteo Sireci
-  country: ita
-  photo: msireci.jpg
-  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">M.A. Muñoz</a>,  started Sept 2019
-  email: msireci@onsager.ugr.es
-  description: "I am a theoretical physicist interested in biophysics, non equilibrium statistical mechanics and their interfaces. My focus is on  two themes (but I love to get dispersed): coexistence, variation and interaction in microbial ecosystem, combining data and models; bacterial phenotypic evolution, studying both  abstract theory to emphasize its out of equilibrium dynamics, and empirically grounded models."
-  number_educ: 2
-  education1: B.Sc in Physics, Università degli Studi di Padova, Padova, Italy
-  education2: M.Sc. in Physics, Ludwig Maximilians Univerisity, Munich, Germany
-  twitterusername: 
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: "cv_sireci.pdf"
-  past: 0
 
 - name: Xiaotian Zhou
   country: chn
+  fromlatitude: 32.071447955255756
+  fromlongitude: 118.80770662015016
   photo: xzhou.jpg
   info: Ph.D. student at HHU, China, co-supervised with <a href="https://XXX">Jiyang Wang</a> and <a href="https://XXX">Aidong Ruan</a>, started Sept 2019
   email: xzhou@ictp.it
@@ -217,11 +171,149 @@
   cv: "cv_xtzhou.pdf"
   past: 0
 
+
+- name: Richmond Crisostomo
+  country: phl
+  fromlatitude: 14.649338821260542
+  fromlongitude: 121.09885335614611
+  photo: rcrisostomo.jpg
+  info: Master Student in QBio at U. of Montpellier, France, started February 2023 - 
+  email: richmond.crisostomo@etu.umontpellier.fr
+  description: "I am in pursuit of understanding the mechanisms of life through the lens of quantitative biology, complex systems, and data science. As a physicist, I attempt to analyze biological systems across spatiotemporal scales using fundamental principles, generalizations, and idealized models. As a quantitative biology student, my duty is to learn to tame these (seemingly) wild abstractions by appropriating necessary biophysical constraints, narrowing down the range of implications to what can be physiologically realizable and interpretable - whatever living system they may be applied to. Currently, I am a visiting research fellow at the ICTP where I will attempt to model the eco-evolutionary dynamics of strains within the human gut, in order to characterize population trajectories at the edge of ecological differentiation."
+  number_educ: 1
+  education1: B.Sc. in Applied Physics, University of the Philippines, Diliman
+  twitterusername: rmcrisostomo
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: richmond-crisostomo-76402017b
+  mendeleyusername: 
+  stravausername: 
+  cv: "rcrisostomo.pdf"
+  past: 1
+
+
+
+- name: Matteo Sireci
+  country: ita
+  fromlatitude: 45.40628993380715
+  fromlongitude: 11.877327743691996
+  photo: msireci.jpg
+  info: PhD Student at Universidad de Granada, Spain, co-supervised with <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=en">M.A. Muñoz</a>,  Sept 2019 - June 2023
+  email: msireci@onsager.ugr.es
+  description: "I am a theoretical physicist interested in biophysics, non equilibrium statistical mechanics and their interfaces. My focus is on  two themes (but I love to get dispersed): coexistence, variation and interaction in microbial ecosystem, combining data and models; bacterial phenotypic evolution, studying both  abstract theory to emphasize its out of equilibrium dynamics, and empirically grounded models."
+  number_educ: 2
+  education1: B.Sc in Physics, Università degli Studi di Padova, Padova, Italy
+  education2: M.Sc. in Physics, Ludwig Maximilians Univerisity, Munich, Germany
+  twitterusername: 
+  githubusername:  
+  scholarusername: _X7tfNMAAAAJ
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: "cv_sireci.pdf"
+  past: 1
+
+
+
+- name: Rian Fritz Jalandoni
+  country: phl
+  fromlatitude: 10.72013743522088
+  fromlongitude: 122.56407692405666
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2022 - August 2023
+  linkedinusername: rian-fritz-jalandoni-0ab7b7190
+  past: 1  
+
+- name: Roaa Mohmmed Yagb Omer
+  country: sdn
+  fromlatitude: 12.146390709720864
+  fromlongitude: 24.89669550239758
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2022 - August 2023
+  linkedinusername:
+  past: 1  
+
+- name: Patricia Lazo Paravicini
+  country: bol
+  fromlatitude: -16.488421018782336
+  fromlongitude: -68.12237431596978
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2022 - August 2023
+  linkedinusername:
+  past: 1    
+
+- name: José M. Camacho Mateu
+  country: esp
+  fromlatitude: 38.02130812807731
+  fromlongitude: -1.0948620356248788
+  website: 
+  photo: jcamacho.png
+  info: Visiting Student at ICTP January 2023 - May 2023 (Ph.D. student Carlos III University of Madrid) 
+  email: joscamac@math.uc3m.es
+  description: "As a PhD student, I am fascinated by the complex role that microbial interactions play in the structure and function of microbial communities. The significance of microbial interactions cannot be overstated, particularly in the context of debilitating conditions such as different types of cancer, Crohn's disease or cystic fibrosis. My ultimate goal is to contribute to the development of a theoretical framework for understanding the dynamics of the microbiome, enabling us to predict the efficacy of microbiome-based medical treatments."
+  number_educ: 2
+  education1: M.Sc. in Physics and Math, Universidad de Granada, Granada, Spain
+  education2: B.Sc. in Physics, Universidad de Granada, Granada, Spain
+  education3: 
+  education4: 
+  twitterusername: physgon
+  githubusername: 
+  scholarusername: 
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: 
+  past: 1
+
+
+- name: Lorenzo Fant
+  country: ita
+  fromlatitude: 45.444019266151216
+  fromlongitude: 12.327901997254894
+  website: https://lorenzofant.github.io/
+  photo: lfant.jpg
+  info: PhD student at SISSA, Sept 2019 - Feb 2022
+  email: lorenzofant@gmail.com
+  description: 
+  number_educ: 2
+  education2: M.Sc. Physics, Università di Trieste, Trieste, Italy
+  education1: B.Sc. Physics, Università di Trento, Trento, Italy 
+  twitterusername: "lorenzo_fant"
+  githubusername:  
+  scholarusername: Fqnde5sAAAAJ
+  resgateusername: "Lorenzo-Fant"
+  orcidusername: "0000-0002-0258-1107"
+  publonsusername: "4364025"
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: "lorenzo-fant"
+  mendeleyusername: 
+  stravausername: "58651578"
+  cv: "lfant_cv.pdf"
+  past: 1
+
   
 - name: Samuele Lipani
   country: ita
+  fromlatitude: 37.49015635434264
+  fromlongitude: 14.060243192226524
   photo: slipani.jpg
-  info: Master Student in Physics of Data at University of Padova, Italy, started April 2022 
+  info: Master Student in Physics of Data at University of Padova, Italy, April 2022 - April 2023
   email: samuelepio.lipani@studenti.unipd.it
   description: "I am a physics student currently working on data science and population dynamics and ecology. I am really interested in biological physics and its application in ecology and quantitative life sciences. As a data scientist I usually compute physical models in Python, R, Julia or Matlab by exploiting network science tools and complex systems environments."
   number_educ: 1
@@ -241,32 +333,31 @@
   past: 1
 
 
-- name: Richmond Crisostomo
-  country: phl
-  photo: rcrisostomo.jpg
-  info: Master Student in QBio at U. of Montpellier, France, started February 2023 - 
-  email: richmond.crisostomo@etu.umontpellier.fr
-  description: "I am in pursuit of understanding the mechanisms of life through the lens of quantitative biology, complex systems, and data science. As a physicist, I attempt to analyze biological systems across spatiotemporal scales using fundamental principles, generalizations, and idealized models. As a quantitative biology student, my duty is to learn to tame these (seemingly) wild abstractions by appropriating necessary biophysical constraints, narrowing down the range of implications to what can be physiologically realizable and interpretable - whatever living system they may be applied to. Currently, I am a visiting research fellow at the ICTP where I will attempt to model the eco-evolutionary dynamics of strains within the human gut, in order to characterize population trajectories at the edge of ecological differentiation."
-  number_educ: 1
-  education1: B.Sc. in Applied Physics, University of the Philippines, Diliman
-  twitterusername: rmcrisostomo
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: richmond-crisostomo-76402017b
-  mendeleyusername: 
-  stravausername: 
-  cv: "rcrisostomo.pdf"
-  past: 0
 
+- name: Manuel Vasquez Ibarra
+  country: gtm
+  fromlatitude: 14.710375441929187
+  fromlongitude: -90.43237868022162
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2021 - August 2022
+  linkedinusername: manuel-a-vasquez-ibarra-77a2b1125
+  past: 1
+
+
+- name: Sahar Farrag
+  country: egy
+  fromlatitude: 27.18590506702392
+  fromlongitude: 31.187170830102225
+  photo: 
+  info: QLS Diploma Program student at ICTP, September 2021 - August 2022
+  linkedinusername: sahar-farrag-64b8b61a6
+  past: 1
 
 
 - name: Adalberto Valsecchi
   country: ita
+  fromlatitude: 46.16986622826677
+  fromlongitude: 9.877608103021835
   photo: avalsecchi.jpg
   info: Master Student at University of Milan, Italy, March 2021 - February 2022
   email: valsecchi.adalberto@gmail.com
@@ -288,8 +379,11 @@
   cv: cv_avalsecchi.pdf
   past: 1
 
+
 - name: Aamna Saleem
   country: pak
+  fromlatitude: 31.670489405949482
+  fromlongitude: 73.69331185619717
   photo: 
   info: QLS Diploma Program student at ICTP, September 2020 - December 2021
   linkedinusername:
@@ -297,6 +391,8 @@
 
 - name: Silvia Zaoli
   country: ita
+  fromlatitude: 44.068377980873066
+  fromlongitude: 12.570919868854308
   website:
   photo: szaoli.jpg
   info: Postdoc, January 2020 - December 2021
@@ -320,23 +416,29 @@
   cv: "szaoli_cv.pdf"
   past: 1
 
-
 - name: Ivana Rondon
   country: ven
+  fromlatitude: 8.570607303925312
+  fromlongitude: -71.18068280022997
   photo: 
   info: QLS Diploma Program student at ICTP, September 2020 - August 2021
   linkedinusername: ivana-rondon-08b362116
   past: 1
 
-- name: Min Hao Ming
+- name: Min Hao Ling
   country: mys
+  fromlatitude: 5.414082760799222
+  fromlongitude: 100.3312336321657
   photo: 
   info: MATH Diploma Program student at ICTP, September 2020 - August 2021
-  linkedinusername: ling-min-hao-1b652113
+  linkedinusername: ling-min-hao-1b6521135
   past: 1
+
 
 - name: Mattia Corigliano
   country: ita
+  fromlatitude: 45.61888547993196
+  fromlongitude: 9.207953148641618
   photo: mcorigliano.jpg
 #  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
   info: Master Student at University of Milan, Italy, October 2020 - July 2021
