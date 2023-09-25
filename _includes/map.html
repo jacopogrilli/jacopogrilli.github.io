@@ -7,9 +7,11 @@ function initialize()
 var mapProp = {
   center: new google.maps.LatLng( {{ site.map_latitude }}, {{ site.map_longitude }} ),
   zoom: 4,
-  scrollwheel: false,
+  scrollwheel: true,
     mapTypeControl: false,
     streetViewControl: false,
+   zoomControl: false,
+    fullscreenControl: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
 styles:[
     {
