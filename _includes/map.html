@@ -398,9 +398,9 @@ styles:[
  var mymarker = {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
         fillColor: '#5145bf',
-        fillOpacity: 0.4,
-        strokeColor: '#5145bf',
-        strokeWeight: 2,
+        fillOpacity: 0.,
+        strokeColor: '#2b3a73',
+        strokeWeight: 3,
         scale: 1,
         };
 
@@ -414,12 +414,24 @@ styles:[
         };
 
 
+ var mymarker1bis = { //future
+        //path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        path: 'm 0,0 a 2.8544439,2.8544443 0 0 1 -2.854445,2.85444 2.8544439,2.8544443 0 0 1 -2.854444,-2.85444 2.8544439,2.8544443 0 0 1 2.854444,-2.85445 2.8544439,2.8544443 0 0 1 2.854445,2.85445 z',
+        fillColor: '#2b3a73',
+        fillOpacity: 0.,
+        strokeOpacity: 1,
+        strokeColor: '#2b3a73',
+        strokeWeight: 4,
+        scale: 5
+        };
+
+
 var map=new google.maps.Map(document.getElementById("googleMaps")
   ,mapProp);
 var marker = new google.maps.Marker({
     position: new google.maps.LatLng({{ site.map_latitude }}, {{ site.map_longitude }} ),
     map: map,
-    icon: mymarker1,
+    icon: mymarker,
 //    animation: google.maps.Animation.DROP,
     title: "{{ site.map_title }}"
 });
