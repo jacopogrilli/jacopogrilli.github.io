@@ -110,7 +110,7 @@ permalink: /group/
 {% endfor %}
 
 <div class="col-sm-0">
-<div class="map" markdown="0" box-shadow="none" border-radius="0px">
+<div class="map" markdown="0" box-shadow="none">
 <div id="groupMaps" class="templatemo-map"></div>
 </div>
 --- where we are from (<span style="color:#E4431B">**present**</span>
