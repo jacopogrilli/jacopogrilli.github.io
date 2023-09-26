@@ -92,6 +92,8 @@ permalink: /group/
 <br/>
 <br/>
 
+&nbsp;
+
 ### Past Members
 
 {% for member in site.data.team_members %}
@@ -107,14 +109,14 @@ permalink: /group/
 
 {% endfor %}
 
-
-<br/>
-
-<!--<div id="textid" class="col-sm-12">-->
-<!--<div class="map" markdown="0">-->
-<!--<div id="groupMaps" class="templatemo-map" ></div>-->
-<!--</div>-->
-<!--</div>-->
+<div class="col-sm-0">
+<div class="map" markdown="0" box-shadow="none" border-radius="0px">
+<div id="groupMaps" class="templatemo-map"></div>
+</div>
+--- where we are from (<span style="color:#E4431B">**present**</span>
+and
+<span style="color:#419794">**past**</span>) ---
+</div>
 
  <!--TO CREATE MAP https://developers.google.com/chart/interactive/docs/gallery/geochart?csw=1#Example-->
 
