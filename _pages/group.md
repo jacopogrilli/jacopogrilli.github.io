@@ -109,14 +109,12 @@ permalink: /group/
 
 {% endfor %}
 
-<div class="col-sm-0">
 <div class="map" markdown="0" box-shadow="none">
-<div id="groupMaps" class="templatemo-map"></div>
+<div id="groupMaps" class="templatemo-map" box-shadow="none"></div>
 </div>
 --- where we are from (<span style="color:#E4431B">**present**</span>
 and
 <span style="color:#419794">**past**</span>) ---
-</div>
 
  <!--TO CREATE MAP https://developers.google.com/chart/interactive/docs/gallery/geochart?csw=1#Example-->
 
