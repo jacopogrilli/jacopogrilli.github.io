@@ -22,12 +22,14 @@ Magazine about Trieste in Italy
 ### Moving in Trieste
 
 
-*Trieste's urban territory lies at the foot of an imposing escarpment that comes down abruptly from the Karst Plateau towards the sea.*<br>
-You will have the natural tendency to stay on the 1D line between ICTP and the center (which is all by the sea and all flat). Going up to the Karst require to pass a barrier potential, but it's definitely worth to explore it.
+<!--*Trieste's urban territory lies at the foot of an imposing escarpment that comes down abruptly from the Karst Plateau towards the sea.*<br>-->
+<!--You will have the natural tendency to stay on the 1D line between ICTP and the center (which is all by the sea and all flat). Going up to the Karst require to pass a barrier potential, but it's definitely worth to explore it.-->
 
 
 
 Google Maps is quite accurate for [public buses](https://www.triestetrasporti.it/en/time-schedule-and-routes/lines-and-timetables/) (you can get the ticket at ICTP).
+The buses to different villages on Karst are 42, 43 and 44.
+
 
 [Ferries](https://www.delfinoverde.it/servizi-di-linea/) from Center to Muggia (all year) and from Center to Sistiana (from June to Sept).
 
@@ -72,15 +74,15 @@ from Galielo Guesthouse.
 
 [Miramare Castle](https://miramare.cultura.gov.it/en/tickets/). Next to ICTP, worth a visit.
 
-Museo Revoltella
+[Museo Revoltella](https://museorevoltella.it/english/). Modern art gallery in the city center.
 
-Immaginario Scientifico <i class="fa fa-child"></i>
+[Immaginario Scientifico](https://www.immaginarioscientifico.it/eng-page). Interactive science museum in the old Port (easily reachable with bus 6) <i class="fa fa-child"></i>
 
-Playgrounds <i class="fa fa-child"></i>
+<!--Playgrounds <i class="fa fa-child"></i>-->
 
-Grotta Gigante
+[Grotta Gigante](https://www.grottagigante.it/en/home/). A giant cave on Karst (reachable with bus 42 from piazza Oberdan)
 
-Risiera di San Sabba
+[Risiera di San Sabba](https://risierasansabba.it/san-sabba-rice-mill-national-monument-and-museum/). This was the only Nazi concentration camp on Italian territory, which has now become a museum (reachable with bus 10 from piazza Goldoni).
 
 ### Outside Trieste
 
@@ -90,21 +92,30 @@ Risiera di San Sabba
 Was a very important Roman center and is one of the main archeological sites in northern Italy. <br>
 Reachable by train (40mins) + bus (15mins).
 
-Ljubliana
+[Ljubliana](https://www.visitljubljana.com/en/visitors/). The beautiful capital of Slovenia.<br>
+There is a train, but the most efficient way is by bus (flixbus, ~1.5hours)
 
-Venice
+Venice. <br>
+Several trains a day.
 
-Tarvisio
+[Tarvisio](https://www.turismofvg.it/en/mountain365/tarvisio?LangSetCMS=en). Mountains (ski in the winter, hiking and biking in the summer).<br>
+Direct train from Trieste (~2.5hours)
 
 
 #### with a car
 
 
-
+... updating
 
 
 ### Hiking / Walking
 
+From Galileo Guesthouse to [Monte Grisa](https://www.discover-trieste.it/code/17480/Marian-Sanctuary-in-Monte-Grisa) (best panoramic point on the gulf). [Panoramic](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.70239%2C13.72858&point=45.701542%2C13.733381&point=45.70295%2C13.736313&point=45.699576%2C13.739018&point=45.69757%2C13.742692&point=45.695057%2C13.745828&point=45.694123%2C13.749735&point=45.692766%2C13.750058&profile=foot&layer=Omniscale) anand [fastest](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.705667%2C13.727728&point=45.705765%2C13.728871&point=45.70295%2C13.736313&point=45.698628%2C13.741027&point=45.694123%2C13.749735&point=45.692766%2C13.750058&profile=foot&layer=Omniscale)
+<br>
+[]This](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.705667%2C13.727728&point=45.705765%2C13.728871&point=45.70295%2C13.736313&point=45.698628%2C13.741027&point=45.698411%2C13.741209&profile=foot&layer=Omniscale)
+is the fastest way from Galileo Guesthouse to [Napoleonica](https://www.discover-trieste.it/code/16325/Napoleonic-Way) <br> 
+
+...more soon
 
 ### Biking
 
@@ -112,7 +123,7 @@ There are a couple of bike rentals in the center ([this](https://maps.app.goo.gl
 There is also a bike sharing program [Bits](https://mobilitasostenibile.comune.trieste.it/) 
 
 
-Pista ciclabile
+[Giordano Cottur Cycling Path](https://www.discover-trieste.it/en/15841/The-Giordano-Cottur-walking-cycling-path). From San Giacomo (close to the center) up to the Karst, with great overlooking on Rosandra Valley.
 
 
 If you have several days: Parenzana (or a portion of it).
@@ -122,7 +133,7 @@ If you have several days: Parenzana (or a portion of it).
 <br>
 The first part (from Trieste city-center to Muggia) is not very nice for bikes. The suggestion is to take the ferry from the city center to Muggia (you can bring bikes on the ferry).
 
-
+...more soon
 
 ### Running
 
@@ -133,6 +144,7 @@ If you want to run flat on concrete the best is to run [from/to Miramare caste t
 
 Still on concrete, but a bit more hilly, you can start [from behind the Galileo Guesthouse and stay on via Plinio / via del Pucino](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.735412%2C13.682695&profile=foot&layer=Omniscale).
 
+...more soon
 
 <!--...where/what I typically run is on [<i class="fab fa-strava"></i> Strava](https://www.strava.com/athletes/49472118)-->
 
@@ -148,5 +160,6 @@ Snorkeling. Riserva Miramare
 
 Ski
 
+...more details soon
 
 
