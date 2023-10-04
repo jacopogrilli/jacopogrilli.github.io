@@ -110,6 +110,8 @@ Direct train from Trieste (~2.5hours)
 
 ### Hiking / Walking
 
+(you can export *.gpx* files from the links below. These files can be opened with several phone app... Komoot, Wikiloc, AllTrails, Strava, etc)
+
 From Galileo Guesthouse to [Monte Grisa](https://www.discover-trieste.it/code/17480/Marian-Sanctuary-in-Monte-Grisa) (best panoramic point on the gulf). [Panoramic](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.70239%2C13.72858&point=45.701542%2C13.733381&point=45.70295%2C13.736313&point=45.699576%2C13.739018&point=45.69757%2C13.742692&point=45.695057%2C13.745828&point=45.694123%2C13.749735&point=45.692766%2C13.750058&profile=foot&layer=Omniscale) and the [fastest](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.705667%2C13.727728&point=45.705765%2C13.728871&point=45.70295%2C13.736313&point=45.698628%2C13.741027&point=45.694123%2C13.749735&point=45.692766%2C13.750058&profile=foot&layer=Omniscale)
 <br>
 [This](https://graphhopper.com/maps/?point=45.703859%2C13.719922&point=45.705667%2C13.727728&point=45.705765%2C13.728871&point=45.70295%2C13.736313&point=45.698628%2C13.741027&point=45.698411%2C13.741209&profile=foot&layer=Omniscale)
@@ -138,7 +140,9 @@ The first part (from Trieste city-center to Muggia) is not very nice for bikes. 
 ### Running
 
 
-(you can export *.gpx* files from the links below, check the distances... some are one-way other are loops / include return)
+(you can export *.gpx* files from the links below. These files can be opened with several phone app... Komoot, Wikiloc, AllTrails, Strava, etc)
+
+(check the distances... some are one-way other are loops / include return.)
 
 If you want to run flat on concrete the best is to run [from/to Miramare caste to/from piazza Unità d'Italia](https://graphhopper.com/maps/?point=45.701552%2C13.718453&point=45.67334%2C13.757296&point=45.656739%2C13.770399&point=45.645852%2C13.75959&profile=foot&layer=Omniscale). There are plenty of water fountains on the way. 
 
