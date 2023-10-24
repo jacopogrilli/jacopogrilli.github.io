@@ -66,8 +66,8 @@
   email: onofrio.mazzarisi@gmail.com
   description: "My background is in theoretical physics and my PhD focused on nonequilibrium statistical mechanics. While I keep an active interest in the fundamentals and methods of statistical physics, the focus of my research mostly shifted to its interface with ecology and evolution. I am currently focusing on links between population dynamics and macro-ecological patterns, microbial ecology and physiology and analysis of stochastic time series. "
   number_educ: 4
-  education4: Postdoc with Daniel Reuman, University of Kansas, Lawrence, KS, USA
-  education3: Postdoc with Matteo Smerlak, Max Planck Institute for Mathematics in the Sciences, Leipzig, Germany
+  education4: Postdoc with D. Reuman, University of Kansas, Lawrence, KS, USA
+  education3: Postdoc with M. Smerlak, Max Planck Institute for Mathematics in the Sciences, Leipzig, Germany
   education2: Ph.D. in Physics with Federico Corberi, Università di Salerno, Fisciano, Italy
   education1: B.Sc. and M.Sc. in Physics, Università di Bologna, Bologna, Italy 
   twitterusername: 
@@ -205,7 +205,7 @@ data-driven approach in combination with models."
   fromlongitude: -47.89058707838147
   website: https://vitormmarquioni.blogspot.com/
   photo: vmonteiro.jpg
-  info: Ph.D. Student at UNICAMP with <a href="https://sites.ifi.unicamp.br/aguiar/en/">M. de Aguiar</a> and Visiting Student at ICTP, March 2022 - March 2023
+  info: Ph.D. Student at UNICAMP with <a href="https://sites.ifi.unicamp.br/aguiar/en/">M. de Aguiar</a> and ICTP Visiting Student, March 2022 - March 2023
   email: vimarqmon@gmail.com
   description: "I am a physicist mainly interested in describing biological phenomena in mathematical ways. My goal is to achieve analytical results in Individual-Based Models (currently, applied to evolution and species formation). To this aim, I use techniques from dynamical systems, stochastic processes and statistical mechanics, but since these are very broad theoretical fields, my interests may spread over other IBMs whenever I am able to apply this toolkit."
   number_educ: 2
