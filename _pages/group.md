@@ -89,8 +89,7 @@ permalink: /group/
 
 
 <br/>
-<br/>
-<br/>
+
 
 &nbsp;
 
