@@ -1,6 +1,26 @@
-- title: TBA
-  what: 0
+- title: "TLQS Workshop on Limits to Collective Agency"
+  what: 1
   upcoming: 1
+  type: Workshop
+  date: May 6 - May 10, 2024
+  place: ICTP
+  location: ictp
+  url: https://indico.ictp.it/event/10475
+  slides:
+
+- title: "Spring College on the Physics of Complex Systems"
+  what: 1
+  upcoming: 1
+  type: School
+  date: February 19 - March 15, 2024
+  place: ICTP
+  location: ictp
+  url: https://indico.ictp.it/event/10459
+  slides:
+
+- title: "Non-catastrophic shifts in the human gut microbiome"
+  what: 0
+  upcoming: 0
   type: Invited Talk
   date: October 19, 2023
   place: Workshop on New Frontiers in Modelling Ecology and Evolution of Microbiomes, Friedrich Schiller University
@@ -11,7 +31,7 @@
 
 - title: "Advanced School on Quantitative Principles in Microbial Physiology: from Single Cells to Cell Communities"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Workshop
   date: October 2 - October 13, 2023
   place: ICTP
@@ -75,7 +95,17 @@
   slides: 
   video: 
 
-### SPRING COLLEGE
+- title: "Spring College on the Physics of Complex Systems"
+  what: 1
+  upcoming: 0
+  type: School
+  date: February 20 - March 17, 2023
+  place: ICTP
+  location: ictp
+  url: https://indico.ictp.it/event/10059
+  slides:
+
+
 
 - title: "What is typical in microbial communities?"
   what: 0
