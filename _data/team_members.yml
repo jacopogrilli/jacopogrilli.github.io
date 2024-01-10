@@ -149,31 +149,6 @@ data-driven approach in combination with models."
 
 
 
-- name: Xiaotian Zhou
-  country: chn
-  fromlatitude: 32.071447955255756
-  fromlongitude: 118.80770662015016
-  photo: xzhou.jpg
-  info: Ph.D. student at HHU, China, co-supervised with <a href="https://XXX">Jiyang Wang</a> and <a href="https://XXX">Aidong Ruan</a>, started Sept 2019
-  email: xzhou@ictp.it
-  description: "I am a PhD student studying hydrology and ecology. I have a keen interest in linking macroecological theory to microbial biodiversity using multidisciplinary approaches. My current research primarily focuses on applying the well-ordered sediment microbial community as a model system to test and develop theories on species abundance distribution (SAD). I aim to pursue the generality of community patterns and assembly processes from empirical data in a statistical, emergent and non-reductionist way."
-  number_educ: 2
-  education1: B.Sc. in Geoscience, Hohai University, Nanjing, China 
-  education2: PhD candidate in Hydrology, Hohai University, Nanjing, China 
-  twitterusername: 
-  githubusername:  "bluecheongsam"
-  scholarusername: 
-  resgateusername: "Xiaotian-Zhou-7"
-  orcidusername: "0000-0002-6214-4494" 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: "cv_xtzhou.pdf"
-  past: 1
-
 - name: Dario Sergo
   country: ita
   fromlatitude: 45.649021424947875
@@ -198,6 +173,33 @@ data-driven approach in combination with models."
   stravausername: 
   cv: 
   past: 0
+
+
+
+- name: Xiaotian Zhou
+  country: chn
+  fromlatitude: 32.071447955255756
+  fromlongitude: 118.80770662015016
+  photo: xzhou.jpg
+  info: Ph.D. student at HHU, China, supervised by <a href="https://XXX">Jiyang Wang</a> and <a href="https://XXX">Aidong Ruan</a>, Visiting Sept 2022 - Nov 2023
+  email: xzhou@ictp.it
+  description: "I am a PhD student studying hydrology and ecology. I have a keen interest in linking macroecological theory to microbial biodiversity using multidisciplinary approaches. My current research primarily focuses on applying the well-ordered sediment microbial community as a model system to test and develop theories on species abundance distribution (SAD). I aim to pursue the generality of community patterns and assembly processes from empirical data in a statistical, emergent and non-reductionist way."
+  number_educ: 2
+  education1: B.Sc. in Geoscience, Hohai University, Nanjing, China 
+  education2: PhD candidate in Hydrology, Hohai University, Nanjing, China 
+  twitterusername: 
+  githubusername:  "bluecheongsam"
+  scholarusername: 
+  resgateusername: "Xiaotian-Zhou-7"
+  orcidusername: "0000-0002-6214-4494" 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: "cv_xtzhou.pdf"
+  past: 1
 
 
 - name: Richmond Crisostomo
