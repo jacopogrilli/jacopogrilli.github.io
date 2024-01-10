@@ -172,15 +172,15 @@ data-driven approach in combination with models."
   mendeleyusername: 
   stravausername: 
   cv: "cv_xtzhou.pdf"
-  past: 0
+  past: 1
 
 - name: Dario Sergo
   country: ita
   fromlatitude: 45.649021424947875
   fromlongitude: 13.78530828983773
-  photo: dsergo.jpg
+  photo: dsergo.jpeg
   info: Internship, started Oct 2023
-  email: xzhou@ictp.it
+  email: 
   description: "I am a BSc physics student interested in the physics of complex systems. I am currently studying the behavior of a population of individuals with different fitness and mutation rates, employing techniques from computational physics (and stochastic mechanics). In particular I am interested in understanding when (and under which conditions) a variable mutation rate could give to an organism an evolutionary advantage."
   number_educ: 0
   education1: 
