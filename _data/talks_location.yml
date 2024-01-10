@@ -1,7 +1,28 @@
-- location: jena
-  country: Jena
+- location: diep
+  country: Netherlands
   state: 
-  city: Germany
+  city: Amsterdam
+  latitude: 52.354868181527024
+  longitude: 4.956417226963539
+
+- location: gulbenkian
+  country: Portugal
+  state: 
+  city: Oeiras
+  latitude: 38.69076321874084
+  longitude: -9.315460222578245
+
+- location: aps24
+  country: USA
+  state: MN
+  city: Minneapolis
+  latitude: 44.96879635169538 
+  longitude: -93.27411715792275
+
+- location: jena
+  country: Germany
+  state: 
+  city: Jena
   latitude: 50.92957938770758
   longitude: 11.584626698855692
 

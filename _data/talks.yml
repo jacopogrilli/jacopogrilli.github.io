@@ -1,3 +1,19 @@
+##
+# Wien?
+# Zurich?
+# Cuba
+# Bangalore?
+
+- title: "International Physics of Living Systems (POLS)"
+  what: 1
+  upcoming: 1
+  type: Conference
+  date: June 3 - June 7, 2024
+  place: ICTP
+  location: ictp
+  url: https://indico.ictp.it/event/10560/overview
+  slides:
+
 - title: "TLQS Workshop on Limits to Collective Agency"
   what: 1
   upcoming: 1
@@ -8,6 +24,39 @@
   url: https://indico.ictp.it/event/10475
   slides:
 
+- title: "TBA"
+  what: 0
+  upcoming: 1
+  type: Invited Seminar
+  date: April 18, 2024
+  place: Dutch Institute for Emergent Phenomena
+  location: diep
+  url: https://www.d-iep.org/talks
+  slides:
+
+
+- title: "TBA"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: March 20-23, 2024
+  place: Biology Across Scales Symposium, Instituto Gulbenkian de Ciência
+  location: gulbenkian
+  url: https://gulbenkian.pt/ciencia/agenda/biology-across-scales-symposium/
+  slides:
+
+
+- title: "Microbial community dynamics in-silico, in-vitro, and in-vivo"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: March 3, 2024
+  place: APS March Meeting 2024
+  location: aps24
+  url: https://meetings.aps.org/Meeting/MAR24/Session/G37.1
+  slides:
+
+
 - title: "Spring College on the Physics of Complex Systems"
   what: 1
   upcoming: 1
@@ -17,6 +66,18 @@
   location: ictp
   url: https://indico.ictp.it/event/10459
   slides:
+
+
+- title: "What is typical in microbial communities?"
+  what: 0
+  upcoming: 1
+  type: Invited Seminar
+  date: January 25, 2024
+  place: Slovenian Microbiological Society Online Seminars
+  location: remotely
+  url: https://www.tickettailor.com/events/slovenianmicrobiologicalsociety/1106324?
+  slides: 
+  video: 
 
 - title: "Non-catastrophic shifts in the human gut microbiome"
   what: 0
