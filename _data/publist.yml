@@ -1,3 +1,76 @@
+- title: Investigating macroecological patterns in coarse-grained microbial communities using the stochastic logistic model of growth
+  authors: W.R. Shoemaker, J. Grilli
+  journal: eLife
+  journalshort: eLife
+  reference:  12:RP89650
+  year: 2024
+  doi: 10.7554/eLife.89650.3
+  arxiv:
+  biorxiv: 10.1101/2023.03.02.530804
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+
+- title: "Quantitative Human Ecology: Data, Models and Challenges for Sustainability"
+  authors: E Omodei, J Grilli, M Marsili, G Sanguinetti
+  journal: "Quantitative Sustainability: Interdisciplinary Research for Sustainable Development Goals" [book chapter]
+  journalshort: 
+  reference:  
+  year: 2024
+  doi:
+  arxiv: 
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
+- title: The effect of demographic stochasticity on predatory-prey oscillations
+  authors: S. Golmohammadi, M. Zarei, J. Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2024
+  doi:
+  arxiv: 2310.20575
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: Metacommunity structure preserves genome diversity in the presence of gene-specific selective sweeps under moderate rates of horizontal gene transfer
+  authors: S. Pompei, E. Bella, J.S. Weitz, J. Grilli, M. Cosentino Lagomarsino
+  journal: Plos Computational Biology
+  journalshort: PlosCB
+  reference:  19 (10), e1011532
+  year: 2023
+  doi: 10.1371/journal.pcbi.1011532
+  arxiv:
+  biorxiv: 10.1101/2023.01.17.524383
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: Environmental fluctuations explain the universal decay of species-abundance correlations with phylogenetic distance
   authors: M. Sireci, M.A. Muñoz, and J. Grilli
   journal: Proceedings of the National Academy of Sciences
@@ -91,41 +164,9 @@
   preprint: 0
   highlight: 0
 
-- title: Macroecological patterns in coarse-grained microbial communities
-  authors: W.R. Shoemaker, J. Grilli
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2023
-  doi: 10.1101/2023.03.02.530804
-  arxiv:
-  biorxiv: 10.1101/2023.03.02.530804
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
 
-- title: Metacommunity Structure Preserves Genome Diversity in the Presence of Gene-specific Selective Sweeps
-  authors: S. Pompei, E. Bella, J.S. Weitz, J. Grilli, M. Cosentino Lagomarsino
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2023
-  doi: 10.1101/2023.01.17.524383
-  arxiv:
-  biorxiv: 10.1101/2023.01.17.524383
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
+
 
 - title: Intrinsic dimension estimation for discrete metrics
   authors: I. Macocco, A. Glielmo, J. Grilli, A. Laio

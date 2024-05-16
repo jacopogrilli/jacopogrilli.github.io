@@ -1,22 +1,56 @@
 ##
-# Wien?
-# Zurich?
-# Cuba
-# Bangalore?
+# Zurich? https://www.eawag.ch/en/department/eco/events/
 
-- title: "International Physics of Living Systems (POLS)"
+
+- title: "ICTP-ICTS Winter School on Quantitative Systems Biology"
+  what: 1
+  upcoming: 1
+  type: School
+  date: January 6 - January 17, 2025
+  place: NCBS
+  location: ncbs
+  url: https://www.icts.res.in/program/qsb2024
+  slides:
+
+
+
+
+
+- title: "Hands-On Quantitative Biology School"
+  what: 1
+  upcoming: 1
+  type: School
+  date: November 4 - November 15, 2024
+  place: University of Havana
+  location: havana
+  url: https://indico.ictp.it/event/10517
+  slides:
+
+
+- title: "ICTP-ICTS Winter School on Quantitative Systems Biology"
+  what: 0
+  upcoming: 1
+  type: Conference
+  date: August 30, 2024
+  place: Annual Meeting of the Swiss Society for Microbiology
+  location: kursaalbern
+  url: https://sginf2024.congress-imk.ch/frontend/index.php?page_id=10028&v=List&do=0&day=612
+  slides:
+
+
+- title: "Annual meeting of the Physics of Living Systems (PoLS) Student Research Network"
   what: 1
   upcoming: 1
   type: Conference
   date: June 3 - June 7, 2024
   place: ICTP
   location: ictp
-  url: https://indico.ictp.it/event/10560/overview
+  url: http://pols_italy.unimi.it/pols2024/
   slides:
 
 - title: "TLQS Workshop on Limits to Collective Agency"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Workshop
   date: May 6 - May 10, 2024
   place: ICTP
@@ -24,20 +58,20 @@
   url: https://indico.ictp.it/event/10475
   slides:
 
-- title: "TBA"
+- title: "Competition without contingency and functional convergence"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Seminar
   date: April 18, 2024
   place: Dutch Institute for Emergent Phenomena
   location: diep
-  url: https://www.d-iep.org/talks
+  url: https://ias.uva.nl/content/events/2024/04/diep-seminar-series---competition-without-contingency-and-functional-convergence.html
   slides:
 
 
-- title: "TBA"
+- title: "High-dimensional microbial community dynamics"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Talk
   date: March 20-23, 2024
   place: Biology Across Scales Symposium, Instituto Gulbenkian de Ciência
@@ -48,18 +82,28 @@
 
 - title: "Microbial community dynamics in-silico, in-vitro, and in-vivo"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Talk
-  date: March 3, 2024
+  date: March 5, 2024
   place: APS March Meeting 2024
   location: aps24
   url: https://meetings.aps.org/Meeting/MAR24/Session/G37.1
   slides:
 
+- title: "Competition without contingency and functional convergence"
+  what: 0
+  upcoming: 0
+  type: Invited Talk
+  date: March 1, 2024
+  place: Physics of Living System
+  location: mitpls
+  url: 
+  slides:
+
 
 - title: "Spring College on the Physics of Complex Systems"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: School
   date: February 19 - March 15, 2024
   place: ICTP
@@ -70,7 +114,7 @@
 
 - title: "What is typical in microbial communities?"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Seminar
   date: January 25, 2024
   place: Slovenian Microbiological Society Online Seminars

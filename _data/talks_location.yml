@@ -1,3 +1,24 @@
+- location: ncbs
+  country: India
+  state: 
+  city: Bangalore
+  latitude: 13.07147537973798
+  longitude: 77.58075537328669
+
+- location: kursaalbern
+  country: Switzerland
+  state: 
+  city: Bern
+  latitude: 46.95335670065935
+  longitude: 7.448634411178738
+
+- location: havana
+  country: Cuba
+  state: 
+  city: Havana
+  latitude: 23.13538564543509
+  longitude: -82.38311261864428
+
 - location: diep
   country: Netherlands
   state: 
@@ -18,6 +39,14 @@
   city: Minneapolis
   latitude: 44.96879635169538 
   longitude: -93.27411715792275
+
+- location: mitpls
+  country: USA
+  state: MA
+  city: Boston
+  latitude: 42.35937319082721
+  longitude: -71.09097735376834
+
 
 - location: jena
   country: Germany
