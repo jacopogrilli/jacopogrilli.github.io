@@ -27,7 +27,7 @@
   slides:
 
 
-- title: "ICTP-ICTS Winter School on Quantitative Systems Biology"
+- title: TBA
   what: 0
   upcoming: 1
   type: Conference
@@ -40,13 +40,14 @@
 
 - title: "Annual meeting of the Physics of Living Systems (PoLS) Student Research Network"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Conference
   date: June 3 - June 7, 2024
   place: ICTP
   location: ictp
   url: http://pols_italy.unimi.it/pols2024/
   slides:
+  video: https://www.youtube.com/playlist?list=PLRwcSE2bmyBxNPrsJ9vZem5tEhNBOve2o
 
 - title: "TLQS Workshop on Limits to Collective Agency"
   what: 1
