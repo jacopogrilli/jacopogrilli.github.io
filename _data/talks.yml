@@ -1,8 +1,6 @@
 ##
 # Zurich? https://www.eawag.ch/en/department/eco/events/
-
-
-- title: "ICTP-ICTS Winter School on Quantitative Systems Biology"
+- title: 'ICTP-ICTS Winter School on Quantitative Systems Biology'
   what: 1
   upcoming: 1
   type: School
@@ -11,9 +9,6 @@
   location: ncbs
   url: https://www.icts.res.in/program/qsb2024
   slides:
-
-
-
 
 
 - title: "Hands-On Quantitative Biology School"
@@ -36,6 +31,17 @@
   location: kursaalbern
   url: https://sginf2024.congress-imk.ch/frontend/index.php?page_id=10028&v=List&do=0&day=612
   slides:
+  
+
+- title: "What is a macroecological law?"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: June 10, 2024
+  place: "Workshop on Naturam totam complectari animo: Towards a relational ecology, Pontificial University of the Holy Cross"
+  location: pontificial
+  url: https://www.relationalontology.org/wp-content/uploads/2024/05/Naturam-totam-complectari-animo.pdf
+  slides:
 
 
 - title: "Annual meeting of the Physics of Living Systems (PoLS) Student Research Network"
@@ -47,7 +53,7 @@
   location: ictp
   url: http://pols_italy.unimi.it/pols2024/
   slides:
-  video: https://www.youtube.com/playlist?list=PLRwcSE2bmyBxNPrsJ9vZem5tEhNBOve2o
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBxNPrsJ9vZem5tEhNBOve2o
 
 - title: "TLQS Workshop on Limits to Collective Agency"
   what: 1
@@ -58,6 +64,7 @@
   location: ictp
   url: https://indico.ictp.it/event/10475
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBxtPixbEMq3r7zleQxGzgh4
 
 - title: "Competition without contingency and functional convergence"
   what: 0
@@ -111,6 +118,7 @@
   location: ictp
   url: https://indico.ictp.it/event/10459
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBwoUajAzSWRXG6jfVzKSba4
 
 
 - title: "What is typical in microbial communities?"
@@ -144,6 +152,7 @@
   location: ictp
   url: https://indico.ictp.it/event/10213
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyByPnSauvAJNKhbR87BbK8mB
 
 - title: Deep Dive on linking models and data
   what: 0
@@ -187,6 +196,7 @@
   location: ictp
   url: https://indico.ictp.it/event/10164
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBxjDRU1Y_8Zip8xne7zxMCm
 
 
 
@@ -210,6 +220,7 @@
   location: ictp
   url: https://indico.ictp.it/event/10059
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBzKizh7OrOrR4Gv0nFVzPhJ
 
 
 
@@ -259,6 +270,7 @@
   location: ictp
   url: https://indico.ictp.it/event/9818/
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBzcAHrcq06DsiorJQbPeIg5
 
 
 
@@ -379,6 +391,7 @@
   location: remotely
   url: http://indico.ictp.it/event/9511/
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyByUNbMggqm01qZwInk3DeHJ
 
 
 - title: "Quantitative Approaches in Ecosystem Ecology"
@@ -389,7 +402,7 @@
   place: ICTP
   location: remotely
   url: http://indico.ictp.it/event/9131/
-  video: https://www.youtube.com/watch?v=UjJJR5NKu60&list=PLRwcSE2bmyBzuq2WD2MoyRFofIZ68McLF&index=1&t=2s
+  youtube: https://www.youtube.com/playlist?list=PLRwcSE2bmyBzuq2WD2MoyRFofIZ68McLF
   slides:
 
 - title: "What is typical in microbial communities?"
@@ -437,7 +450,7 @@
   location: remotely
   url: http://livingtheory.emory.edu/programs/conferences-symposiums.html
   slides: 
-  video: https://www.youtube.com/watch?v=LeMLeHIAzTQ
+  youtube: https://www.youtube.com/watch?v=LeMLeHIAzTQ
 
 
 - title: "Laws of diversity and variation in microbial communities"
@@ -493,7 +506,7 @@
   location: ictp-saifr
   url: https://www.ictp-saifr.org/community-ecology-from-patterns-to-principles/
   slides: 
-  video: https://youtu.be/PwUEZdZdFKw
+  youtube: https://youtu.be/PwUEZdZdFKw
 
 - title: "Community Ecology: from patterns to principles"
   what: 1
@@ -504,6 +517,7 @@
   location: ictp-saifr
   url: https://www.ictp-saifr.org/community-ecology-from-patterns-to-principles/
   slides:
+  youtube: https://www.youtube.com/playlist?list=PLg0_ydgtbHGGZqL1RQszIGH3upc36noew
 
 - title: "Laws of diversity and variation in microbial communities"
   what: 0

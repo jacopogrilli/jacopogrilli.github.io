@@ -1,3 +1,10 @@
+- location: pontificial
+  country: Italy
+  state: 
+  city: Rome
+  latitude: 41.90061055297441
+  longitude: 12.47387826663126
+
 - location: ncbs
   country: India
   state: 
