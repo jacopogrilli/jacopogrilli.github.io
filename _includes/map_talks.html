@@ -19,7 +19,7 @@ var upcoming = 0;
                     description_talk = description_talk.concat('<br><br>')
                 {% endif %}
                 {% assign number_talk = number_talk | plus: 1 %}
-                description_talk = description_talk.concat('<i class="fa fa-comment" aria-hidden="true" style="color:#ffb778"></i> <i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }} @ {{talk.place}}');
+                description_talk = description_talk.concat('<i>~ {{ talk.date }} ~</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }} @ {{talk.place}}');
             {% if talk.upcoming == 1 %}
                 upcoming = 1;
             {% endif %}

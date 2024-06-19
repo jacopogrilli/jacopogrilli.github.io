@@ -16,10 +16,10 @@ var upcoming = 0;
         {% if talk.location == loc.location %}
             {% if talk.what == 1 %}
                 {% if number_talk > 0 %}
-                    description_talk = description_talk.concat('<br><br>')
+                    description_talk = description_talk.concat('')
                 {% endif %}
                 {% assign number_talk = number_talk | plus: 1 %}
-                description_talk = description_talk.concat('<i>{{ talk.date }}</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }}{% if talk.place %} @ {{talk.place}}{% endif %}');
+                description_talk = description_talk.concat('<i>~ {{ talk.date }} ~</i><br><a style="display:inline;"  target="_blank" href="{{ talk.url }}" >{{ talk.title }}</a><br>{{ talk.type }}{% if talk.place %} @ {{talk.place}}{% endif %}<br><br>');
             {% if talk.upcoming == 1 %}
                 upcoming = 1;
             {% endif %}
