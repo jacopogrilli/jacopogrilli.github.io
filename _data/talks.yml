@@ -32,10 +32,23 @@
   url: https://sginf2024.congress-imk.ch/frontend/index.php?page_id=10028&v=List&do=0&day=612
   slides:
   
+- title: Some unanswered and unasked questions in microbial ecology
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: July 1, 2024
+  place: IX Mediterrenean School of Complex Networks
+  location: grado
+  url: https://mediterraneanschoolcomplex.net/index.html
+  slides:
+
+
+  
+
 
 - title: "What is a macroecological law?"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Talk
   date: June 10, 2024
   place: "Workshop on Naturam totam complectari animo: Towards a relational ecology, Pontificial University of the Holy Cross"

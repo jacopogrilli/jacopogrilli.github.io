@@ -1,3 +1,10 @@
+- location: grado
+  country: Italy
+  state: 
+  city: Grado
+  latitude: 45.68249433657324 
+  longitude: 13.37937582733118
+
 - location: pontificial
   country: Italy
   state: 

@@ -1,14 +1,14 @@
 ---
-title: "Jacopo Grilli - Talks"
+title: "Jacopo Grilli - Organized Activities"
 layout: textlay
-excerpt: "Jacopo Grilli -- Talks"
+excerpt: "Jacopo Grilli -- Organized Activities"
 sitemap: false
-permalink: /talks/
+permalink: /organized/
 ---
 
-{% include map_talks.html %}
+{% include map_org.html %}
 
-# Talks
+# Organized Worshops, School, and Conferences
 
 <head>
 <style>
@@ -34,8 +34,8 @@ permalink: /talks/
 <!--count the number of upcoming talks-->
 {% assign number_upc = 0 %}
 {% for publi in site.data.talks %}
-  {% if publi.what == 0 %}
 {% if publi.upcoming == 1 %}
+  {% if publi.what == 1 %}
   {% assign number_upc = number_upc | plus: 1 %}
 {% endif %}
 {% endif %}
@@ -43,7 +43,7 @@ permalink: /talks/
 
 
 <div class="map" markdown="0">
-<div id="talkMaps" class="templatemo-map"></div>
+<div id="orgMaps" class="templatemo-map"></div>
 </div>
 
 
@@ -52,7 +52,9 @@ permalink: /talks/
 ]
 {% endif %}
 
+
   {% if number_upc > 0 %}<h2 id="upcoming">Upcoming</h2>{% endif %}
+
 
 
 {% for publi in site.data.talks %}
@@ -64,8 +66,10 @@ permalink: /talks/
 
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
-  {% if publi.what == 0 %}
-  <em>~ {{ publi.date }} ~</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}
+  {% if publi.what == 1 %}
+  <em>~ {{ publi.date }} ~</em><br>
+  <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
+{{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}
   {% endif %}
   {% endif %}
   {% endfor %}
@@ -74,6 +78,7 @@ permalink: /talks/
 {% endif %}
 
 {% endfor %}
+
 
 
   {% if number_upc > 0 %}<h2 id="past">Past</h2>{% endif %}
@@ -91,9 +96,12 @@ permalink: /talks/
 
   {% for loc in site.data.talks_location %}
   {% if loc.location == publi.location %}
-  {% if publi.what == 0 %}
-  <em>~ {{ publi.date }} ~</em><br>{% if publi.title %}<a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>{% endif %}{{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> video</a><br>{% endif %}
-  {% if publi.youtube %}<br><a style="display:inline;"  target="_blank" href="{{ publi.youtube }}" ><i class="fa fa-youtube" aria-hidden="true"  ></i> video</a><br>{% endif %}
+
+  {% if publi.what == 1 %}
+  <em>~ {{ publi.date }} ~</em><br>
+  <a style="display:inline;"  target="_blank" href="{{ publi.url }}" >{{ publi.title }}</a><br>
+  {{ publi.type }} @ {{publi.place}}, {{ loc.city }}{% if loc.state %}, {{ loc.state }}{% endif %}{% if loc.country %}, {{ loc.country }}{% endif %}{% if publi.video %}<br><a style="display:inline;"  target="_blank" href="{{ publi.video }}" ><i class="fa fa-play" aria-hidden="true"  ></i> Talks' recordings</a><br>{% endif %}
+  {% if publi.youtube %}<br><a style="display:inline;"  target="_blank" href="{{ publi.youtube }}" ><i class="fa fa-youtube" aria-hidden="true"  ></i> Talks' recordings</a><br>{% endif %}
   {% endif %}
   {% endif %}
   {% endfor %}
