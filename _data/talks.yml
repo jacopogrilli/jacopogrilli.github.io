@@ -31,14 +31,24 @@
   url: https://indico.ictp.it/event/10517
   slides:
 
-- title: "Who's the fittest? Non-trivial insights from simple models"
+#- title: "Who's the fittest? Non-trivial insights from simple models"
+#  what: 0
+#  upcoming: 1
+#  type: Guest Lecture
+#  date: September 9, 2024
+#  place: IICII Summer School in Quantitative Biology
+#  location: ifom
+#  url: https://www.ifom.eu/events/2024-summerschool-quantitative-biology/
+#  slides:
+
+- title: Some unanswered and unasked questions in microbial ecology
   what: 0
-  upcoming: 1
-  type: Guest Lecture
-  date: September 9, 2024
-  place: IICII Summer School in Quantitative Biology
+  upcoming: 0
+  type: Invited Talk
+  date: July 1, 2024
+  place: IX Mediterrenean School of Complex Networks
   location: ifom
-  url: https://www.ifom.eu/events/2024-summerschool-quantitative-biology/
+  url: https://mediterraneanschoolcomplex.net/index.html
   slides:
 
 
