@@ -5,6 +5,14 @@
   latitude: 34.41439408673569
   longitude: -119.840335992083
 
+- location: ifom
+  country: Italy
+  state: 
+  city: Milan
+  latitude: 45.44175785694312
+  longitude: 9.202905859161229
+
+
 - location: grado
   country: Italy
   state: 
