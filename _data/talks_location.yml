@@ -1,3 +1,10 @@
+- location: kitp
+  country: USA
+  state: 
+  city: Santa Barbara
+  latitude: 34.41439408673569
+  longitude: -119.840335992083
+
 - location: grado
   country: Italy
   state: 
