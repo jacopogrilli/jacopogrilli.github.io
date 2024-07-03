@@ -31,11 +31,9 @@
   url: https://indico.ictp.it/event/10517
   slides:
 
-# 
-
 - title: Who's the fittest? Non-trivial insights from simple models
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Guest Lecture
   date: September 9, 2024
   place: IICII Summer School in Quantitative Biology
