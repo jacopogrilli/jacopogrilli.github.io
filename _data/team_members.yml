@@ -85,6 +85,37 @@
   past: 0
 
 
+- name: Mihael Špacapan
+  country: slo
+  fromlatitude: 
+  fromlongitude: 
+  website: 
+  photo: 
+  info: Postdoc, started October 2024
+  email: mihael.spacapan@gmail.com
+  description: "I am a microbiologist with extensive laboratory experience in bacterial genetics andphysiology.   My   research   has   mostly   been   focused   on   bacterial   cell-to-cellcommunication. Now I am working on generating experimental data to construct andtest mathematical models."
+  number_educ: 4
+  education4: ICGEB Arturo Falaschi Fellow, postdoc with  dr. Vittorio Venturi at ICGEB, Trieste, Italy
+  education3: Postdoc with prof. dr. Ines Mandić-Mulec
+  education2: PhD in Biotechnology, Biotechnical faculty, University of Ljubljana, Slovenia
+  education1: B.Sc. and M.Sc. in Microbiology, Biotechnical faculty, University of Ljubljana, Slovenia
+  twitterusername: 
+  githubusername:  
+  scholarusername: 1JU2SygAAAAJ
+  resgateusername: Mihael-Spacapan
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: znanstvenikpan/
+  mendeleyusername: 
+  stravausername: 
+  cv:  spacapan.pdf
+  past: 0
+
+
+
+
 - name: Annamaria Bupu
   country: idn
   fromlatitude: -6.920817339564152
@@ -144,6 +175,58 @@ data-driven approach in combination with models."
   cv: sgolmohammadi_cv.pdf
   past: 0
 
+  name: Roaa Mohmmed Yagb Omer
+  country: sdn
+  fromlatitude: 12.146390709720864
+  fromlongitude: 24.89669550239758
+  photo: romer.jpg
+  info: "Ph.D. student at SISSA (joint ICTP-SISSA), started Oct 2023"
+  email: romer@sissa.it
+  description: "I am a physics student with a keen interest in studying and modeling biological systems, particularly bacterial cell physiology. My current research focuses on understanding how microbes make decisions in uncertain environments by employing techniques from quantitative physiology and evolutionary dynamics. I aim to explore microbial adaptation, characterizing phenotypic heterogeneity, and determining the roles of bet-hedging and diverse phenotypes in fluctuating environments."
+  number_educ: 3
+  education1: B.Sc. Scientific Laboratories(Physics), Sudan University of Sciences and Technology, Sudan.
+  education2: M.Sc. In Mathematical Sciences, African Institute for Mathematical Sciences, Cameroon.
+  education3: QLS Diploma Program student at ICTP, September 2021 - August 2022
+  education4: 
+  twitterusername: 
+  githubusername: 
+  scholarusername:
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: Roaa_Mohammed_s_CV.pdf
+  past: 0
+
+- name: Ricardo Garcia
+  country: ita
+  fromlatitude: 
+  fromlongitude: 
+  photo: rgarcia.jpg
+  info: M.Sc. Student in Physics of Complex Systems at Politecnico di Torino, Internship, started Oct 2024
+  email: 
+  description: "I am a physics student interested in expanding my point of view on complex systems by studying its applications to ecology. My Master's thesis will explore the mechanisms of interaction arising in a fluctuating environment, focusing on the emergence and stability of cooperation among agents that can share information and wealth."
+  number_educ: 1
+  education1: "B.Sc. in Physical Engineering, Politecnico di Torino, Torino, Italy"
+  education2: 
+  twitterusername: 
+  githubusername:  
+  scholarusername: 
+  resgateusername: 
+  orcidusername:  
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: ricardo-garcia-8a124a144
+  mendeleyusername: 
+  stravausername: 
+  cv: 
+  past: 1
+
 
 
 
@@ -172,7 +255,7 @@ data-driven approach in combination with models."
   mendeleyusername: 
   stravausername: 
   cv: 
-  past: 0
+  past: 1
 
 
 
@@ -290,14 +373,6 @@ data-driven approach in combination with models."
   linkedinusername: rian-fritz-jalandoni-0ab7b7190
   past: 1  
 
-- name: Roaa Mohmmed Yagb Omer
-  country: sdn
-  fromlatitude: 12.146390709720864
-  fromlongitude: 24.89669550239758
-  photo: 
-  info: QLS Diploma Program student at ICTP, September 2022 - August 2023
-  linkedinusername:
-  past: 1  
 
 - name: Patricia Lazo Paravicini
   country: bol
