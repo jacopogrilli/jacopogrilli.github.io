@@ -86,11 +86,11 @@
 
 
 - name: Mihael Špacapan
-  country: slo
+  country: svn
   fromlatitude: 
   fromlongitude: 
   website: 
-  photo: 
+  photo: mspacapan.jpg
   info: Postdoc, started October 2024
   email: mihael.spacapan@gmail.com
   description: "I am a microbiologist with extensive laboratory experience in bacterial genetics andphysiology.   My   research   has   mostly   been   focused   on   bacterial   cell-to-cellcommunication. Now I am working on generating experimental data to construct andtest mathematical models."
@@ -225,7 +225,7 @@ data-driven approach in combination with models."
   mendeleyusername: 
   stravausername: 
   cv: 
-  past: 1
+  past: 0
 
 
 
