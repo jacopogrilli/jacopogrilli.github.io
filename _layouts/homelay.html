@@ -2,7 +2,19 @@
 layout: default
 ---
 
-  <div id="homeid" class="col-sm-8">
+
+
+<!-- OLD version with news -->
+
+  <div id="homeid" class="col-sm-12">
+<div style="text-align: justify">
+	{{ content }}
+</div>
+
+
+<!--
+## without news 
+<div id="homeid" class="col-sm-8">
 <div style="text-align: justify">
 	{{ content }}
 </div>
@@ -10,3 +22,5 @@ layout: default
   <div id="newsid" class="col-sm-4" >
 	{% include news.html %}
   </div>
+
+ -->

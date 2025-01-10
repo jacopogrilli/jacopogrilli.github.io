@@ -87,8 +87,8 @@
 
 - name: Mihael Špacapan
   country: svn
-  fromlatitude: 
-  fromlongitude: 
+  fromlatitude: 45.954369514481975
+  fromlongitude:  13.649299968181905
   website: 
   photo: mspacapan.jpg
   info: Postdoc, started October 2024
@@ -114,6 +114,34 @@
   past: 0
 
 
+- name: Akari Matsuki
+  country: jpn
+  fromlatitude:  35.68154481516878
+  fromlongitude:  139.7793501475874
+  website: https://sites.google.com/view/akarimatsuki-en/home
+  photo: amatsuki.jpg
+  info: Postdoc, started December 2024
+  email: akarimatsuki114@gmail.com
+  description: "My background is in nonlinear physics, and my recent focus is on interacting microbial communities, which exhibit non-trivial and sometimes complex ecological and evolutionary dynamics. Through theoretical model analysis, I aim to understand the system by extracting the essence.  I also work on deciphering data from experiments and environmental samples to elucidate the mechanisms behind them."
+  number_educ: 4
+  education4: "Postdoctoral fellow at Laboratory of Mathematical Biology, Faculty of Advanced Life Science, Hokkaido University, Japan"
+  education3: "Ph.D. in Information Science and Technology, The University of Tokyo"
+  education2: "M.S. in Information Science and Technology, The University of Tokyo"
+  education1: "B.S. in Engineering, The University of Tokyo"
+  twitterusername: treepine_akari
+  githubusername:  AkariMatsuki
+  scholarusername: ckN4gZYAAAAJ
+  resgateusername: 
+  orcidusername: 0009-0003-8786-9189
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv:  matsuki_cv.pdf
+  past: 0
+
 
 
 - name: Annamaria Bupu
@@ -123,11 +151,7 @@
   photo: abupu.jpg
   info: Ph.D. student at SISSA (joint ICTP-SISSA), started Oct 2022
   email: anna.bupu@gmail.com
-  description: "I am a physics student interested in biological systems, especially in the 
-variation of the composition of microbial communities and their relation with 
-ecological function. My current research centers on investigating the 
-reproducibility of microbial communities at various taxonomical levels using a 
-data-driven approach in combination with models."
+  description: "I am a physics student interested in biological systems, especially in the  variation of the composition of microbial communities and their relation with  ecological function. My current research centers on investigating the  reproducibility of microbial communities at various taxonomical levels using a  data-driven approach in combination with models."
   number_educ: 2
   education1: M.Sc. in Physics, Universitas Indonesia, Depok Indonesia
   education2: B.Sc. in Physics, Universitas Indonesia, Depok, Indonesia
@@ -146,7 +170,6 @@ data-driven approach in combination with models."
   stravausername: 
   cv: abupu_cv.pdf
   past: 0
-
 
 - name: Solmaz Golmohammadi
   country: irn
@@ -175,7 +198,9 @@ data-driven approach in combination with models."
   cv: sgolmohammadi_cv.pdf
   past: 0
 
-  name: Roaa Mohmmed Yagb Omer
+
+
+- name: Roaa Mohmmed Yagb Omer
   country: sdn
   fromlatitude: 12.146390709720864
   fromlongitude: 24.89669550239758

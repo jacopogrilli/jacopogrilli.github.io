@@ -40,6 +40,9 @@ map_apikey: "AIzaSyD3OqSEPg5iyHcriIfz-776IahCE3DhxZY"
 include:
   - .htaccess
   - _pages
+keep_files:
+  - websitenotes
+  - lib ## needed for obsidian
 
 
 
