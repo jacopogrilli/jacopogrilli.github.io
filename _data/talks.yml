@@ -1,5 +1,8 @@
-##
-# Zurich? https://www.eawag.ch/en/department/eco/events/
+
+## School ICTP september
+## Talk StatPhys
+## Talk APS
+
 - title: "Coarse-graining Microbial Ecology: from Genes to Physiological Strategies to Communities across Environments"
   what: 1
   upcoming: 1
@@ -23,7 +26,7 @@
 
 - title: "Hands-On Quantitative Biology School"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: School
   date: November 4 - November 15, 2024
   place: University of Havana
@@ -43,7 +46,7 @@
 
 - title: "Who is the fittest? Non-trivial insights from simple models"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Guest Lecture
   date: September 9, 2024
   place: IICII Summer School in Quantitative Biology
@@ -52,9 +55,9 @@
   slides:
 
 
-- title: TBA
+- title: Simplifying complex microbial community dynamics
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Talk
   date: August 30, 2024
   place: Annual Meeting of the Swiss Society for Microbiology
