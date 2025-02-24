@@ -15,13 +15,15 @@
 
 - title: 'ICTP-ICTS Winter School on Quantitative Systems Biology'
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: School
   date: January 6 - January 17, 2025
   place: NCBS
   location: ncbs
   url: https://www.icts.res.in/program/qsb2024
   slides:
+
+
 
 
 - title: "Hands-On Quantitative Biology School"
