@@ -1,7 +1,7 @@
 
 ## School ICTP september
 ## Talk StatPhys
-## Talk APS
+
 
 - title: "Coarse-graining Microbial Ecology: from Genes to Physiological Strategies to Communities across Environments"
   what: 1
@@ -12,6 +12,37 @@
   location: kitp
   url: https://www.kitp.ucsb.edu/activities/microeco26
   slides:
+
+- title: "TBA"
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: March 18, 2025
+  place: StatPhys29
+  location: statphys29
+  url: https://statphys29.org/plenary-and-invited-speakers/
+  slides:
+
+- title: "The statistical structure of alternative stable states in microbial communities"
+  what: 0
+  upcoming: 1
+  type: Contributed Talk
+  date: March 18, 2025
+  place: APS March Meeting 2025
+  location: aps25
+  url: https://summit.aps.org/events/MAR-J65/3
+  slides:
+
+- title: "Microbial community dynamics in-silico, in-vitro, and in-vivo"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: February 12, 2025
+  place: Theory of Living Matter Seminar Series
+  location: remotely
+  url: https://tlmcambridge.blog/
+  slides: 
+  video: https://youtu.be/xsSGGG_aN6A?si=lxpfxprWeQLTKVJE
 
 - title: 'ICTP-ICTS Winter School on Quantitative Systems Biology'
   what: 1
@@ -24,6 +55,15 @@
   slides:
 
 
+- title: Stochasticity and Randomness in Ecology
+  what: 0
+  upcoming: 0
+  type: Lecturer
+  date: January 6 - January 17, 2025
+  place: ICTP-ICTS Winter School on Quantitative Systems Biology, NCBS
+  location: ncbs
+  url: https://www.icts.res.in/program/qsb2024
+  video: https://youtube.com/playlist?list=PLR7JXULNjPfw7ErSHDq-peO9vSU9Q0gPo&si=OiVsFkFWBb626On2
 
 
 - title: "Hands-On Quantitative Biology School"
@@ -36,15 +76,6 @@
   url: https://indico.ictp.it/event/10517
   slides:
 
-#- title: "Who's the fittest? Non-trivial insights from simple models"
-#  what: 0
-#  upcoming: 1
-#  type: Guest Lecture
-#  date: September 9, 2024
-#  place: IICII Summer School in Quantitative Biology
-#  location: ifom
-#  url: https://www.ifom.eu/events/2024-summerschool-quantitative-biology/
-#  slides:
 
 - title: "Who is the fittest? Non-trivial insights from simple models"
   what: 0

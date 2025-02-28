@@ -5,6 +5,20 @@
   latitude: 34.41439408673569
   longitude: -119.840335992083
 
+- location: statphys29
+  country: Italy
+  state: 
+  city: Florence
+  latitude: 43.77816229446287
+  longitude: 11.249906924539678
+
+- location: aps25
+  country: USA
+  state: CA
+  city: Anheim
+  latitude: 33.80048906455332
+  longitude: -117.9183494258596
+
 - location: ifom
   country: Italy
   state: 
