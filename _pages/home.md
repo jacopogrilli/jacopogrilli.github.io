@@ -8,7 +8,7 @@ permalink: /
 
 ## Quantitative Ecology and Evolution
 
-[We]({{ site.url }}{{ site.baseurl }}/group) are a small group at the [Abdus Salam International Centre for Theoretical Physics](http://www.ictp.it). Our main goal is to explore and understand how diversity is generated, organized, and mantained in ecological communities. 
+[We]({{ site.url }}{{ site.baseurl }}/group) are a group at the [Abdus Salam International Centre for Theoretical Physics](http://www.ictp.it). Our main goal is to explore and understand how diversity is generated, organized, and mantained in ecological communities. 
  
 
 
