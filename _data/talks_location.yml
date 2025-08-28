@@ -1,3 +1,10 @@
+- location: icts
+  country: India
+  state: 
+  city: Bangalore
+  latitude: 13.145304779890303
+  longitude: 77.51423909271828
+
 - location: kitp
   country: USA
   state: 
