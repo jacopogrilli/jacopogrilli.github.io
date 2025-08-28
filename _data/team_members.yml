@@ -144,6 +144,35 @@
 
 
 
+
+- name: Emanuele Pigani
+  country: ita
+  fromlatitude:  45.40894632656116
+  fromlongitude:  11.877689959649704
+  website: https://epigani.github.io/
+  photo: epigani.jpeg
+  info: Postdoc, started May 2025
+  email: epigani@ictp.it
+  description: "I am a statistical physicist by training, with broad interests in applications of statistical mechanics. During my PhD, I developed and applied theoretical frameworks to investigate emergent properties in microbial communities, using phytoplankton as a case study. My research combines theoretical modeling with data-driven approaches to link fundamental principles to ecological dynamics, with particular interest in the functional organization and stability of microbial systems."
+  number_educ: 2
+  education2: "Ph.D. in Natural Sciences within Laboratory of Interdisciplinary Physics, Padua, and Stazione Zoologica Napoli, Naples"
+  education1: "B.Sc. and M.Sc. in Physics, Università degli Studi di Padova, Padua, Italy"
+  twitterusername: 
+  githubusername:  
+  scholarusername: W3FqR7AAAAAJ
+  resgateusername: 
+  orcidusername: 
+  publonsusername: 
+  arxivusername: 
+  biorxivusername: 
+  linkedinusername: 
+  mendeleyusername: 
+  stravausername: 
+  cv: 
+  past: 0
+
+
+
 - name: Annamaria Bupu
   country: idn
   fromlatitude: -6.920817339564152
