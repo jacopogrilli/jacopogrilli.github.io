@@ -68,8 +68,8 @@ We are part of the [Quantitative Life Sciences](https://www.ictp.it/research/qls
  
 <!--We are grateful for funding from Leiden University and [NWO](www.nwo.nl) ([Vidi talent grant](http://www.nwo.nl/en/research-and-results/programmes/Talent+Scheme) and the [Frontiers in Nanoscience program](https://www.universiteitleiden.nl/en/research/research-projects/science/frontiers-of-nanoscience-nanofront)).-->
 
-<!--<figure class="third">-->
-<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_Leiden.jpg" style="width: 200px">-->
-<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_Nanofront.jpg" style="width: 160px">-->
-<!--  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_NWO.jpg" style="width: 160px">-->
-<!--</figure>-->
+<figure class="third">
+<img src="{{ site.url }}{{ site.baseurl }}/images/logopic/ictp.png" style="height: 200px">
+ <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/fis.png" style="height: 160px">
+ <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/hfsp.png" style="height: 160px">
+</figure>

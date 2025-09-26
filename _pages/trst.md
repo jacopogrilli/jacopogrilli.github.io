@@ -27,7 +27,8 @@ Magazine about Trieste in Italy
 
 
 
-Google Maps is quite accurate for [public buses](https://www.triestetrasporti.it/en/time-schedule-and-routes/lines-and-timetables/) (you can get the ticket at ICTP).
+Google Maps is quite accurate for public buses ([official timetable](https://www.triestetrasporti.it/en/time-schedule-and-routes/lines-and-timetables/), you can get the ticket at ICTP).
+
 The buses to different villages on Karst are 42, 43 and 44.
 
 
@@ -158,9 +159,12 @@ Climbing
 
 Caving
 
-Swimming
+Swimming. Remember that swimming inside the Miramare Reserve (yellow buoys) is prohibited.
+[This](https://graphhopper.com/maps/?point=&point=45.705299%2C13.710872&profile=car&layer=Omniscale) is the closest entry point from Adriatico (no shower, over the rocks, stay on the left of yellow buoys).
+[This](https://graphhopper.com/maps/?point=&point=45.699282%2C13.725484&profile=car&layer=Omniscale) has a stair access and free cold shower.
+You can access [this](https://maps.app.goo.gl/5zHz7D6e2khwUfea8) for an entrance fee (it has a swimming pool, hot shower, bar, stairs to access sea).
 
-Snorkeling. Riserva Miramare
+Snorkeling. You can [reserve](https://www.ampmiramare.it/en/seawatching-en/) a guided snorkeling tour at [Riserva Miramare](https://www.ampmiramare.it/en) from end of June / mid September.
 
 Ski
 
