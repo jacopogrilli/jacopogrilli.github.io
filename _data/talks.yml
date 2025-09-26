@@ -13,7 +13,7 @@
   slides:
 
 - title: "Hands-On School in Quantitative Biology"
-  upcoming: 1
+  upcoming: 0
   type: Program
   date: September 8 - September 19, 2025
   place: ICTP
@@ -41,7 +41,18 @@
   url: https://statphys29.org/plenary-and-invited-speakers/
   slides:
 
-##LJUBLIANA!
+
+- title: "Microbial community dynamics in-silico, in-vitro, and in-vivo"
+  what: 0
+  upcoming: 0
+  type: Invited Talk
+  date: June 12, 2025
+  place: 20th CFGBC Symposium
+  location: ljubljana_med
+  url: http://cfgbc.mf.uni-lj.si/events/2025cfgbcsym20/
+  slides:
+
+
 
 - title: "The statistical structure of alternative stable states in microbial communities"
   what: 0

@@ -5,6 +5,13 @@
   latitude: 13.145304779890303
   longitude: 77.51423909271828
 
+- location: ljubljana_med
+  country: Slovenia
+  state: 
+  city: Ljubljana
+  latitude: 46.0544369524581
+  longitude: 14.523003198766219
+
 - location: kitp
   country: USA
   state: 
