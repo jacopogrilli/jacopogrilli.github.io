@@ -72,7 +72,7 @@ We are grateful for the support of [ICTP](www.ictp.it) and the funding of [Fondo
 [Human Frontier Science Program](https://www.hfsp.org/)
 
 <figure class="third">
-<img src="{{ site.url }}{{ site.baseurl }}/images/logopic/ictp.jpg" style="height: 100px"> &nbsp
-<img src="{{ site.url }}{{ site.baseurl }}/images/logopic/fis.jpg" style="height: 100px"> &nbsp  
+<img src="{{ site.url }}{{ site.baseurl }}/images/logopic/ictp.jpg" style="height: 100px">&nbsp
+<img src="{{ site.url }}{{ site.baseurl }}/images/logopic/fis.jpg" style="height: 100px">&nbsp  
 <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/HFSP.jpg" style="height: 100px">
 </figure>
