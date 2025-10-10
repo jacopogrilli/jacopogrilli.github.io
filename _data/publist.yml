@@ -1,3 +1,97 @@
+- title: Evolutionary learning of microbial populations in partially predictable environments
+  authors: R.M. Yagb Omer, O. Mazzarisi, M. Dal Bello, J. Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/2025.07.08.663423
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Longitudinal dynamics of ethanol-resistant microbes and sporulation in the human gut
+  authors: U. Miklavcic, A. Mahnic, W.R. Shoemaker, J. Grilli, S. Janezic, M. Rupnik
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/2025.07.08.663423
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Label invariance: a guiding principle for ecological models
+  authors: T Gibbs, O Mazzarisi, L Fant, R An, J Grilli, G Barabás, C Song
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/2025.07.15.664968
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: The macroecological dynamics of sojourn trajectories in the human gut microbiome
+  authors: W.R. Shoemaker, J Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv:
+  biorxiv: 10.1101/ 2025.06.27.661930
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+
+- title: Macroecological laws in experimental microbial systems
+  authors: W.R. Shoemaker, A. Sanchez, J. Grilli
+  journal: PLOS Computational Biology
+  journalshort: PlosCB
+  reference:  21 (5), e1013044
+  year: 2025
+  doi: 10.1371/journal.pcbi.1013044
+  arxiv:
+  biorxiv: 10.1101/2023.07.24.550281
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: Investigating macroecological patterns in coarse-grained microbial communities using the stochastic logistic model of growth
   authors: W.R. Shoemaker, J. Grilli
   journal: eLife
@@ -37,11 +131,11 @@
 
 - title: The effect of demographic stochasticity on predatory-prey oscillations
   authors: S. Golmohammadi, M. Zarei, J. Grilli
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2024
-  doi:
+  journal: The European Physical Journal Plus
+  journalshort: EPJ+
+  reference:  140 (8), 781
+  year: 2025
+  doi: 10.1140/epjp/s13360-025-06713-2
   arxiv: 2310.20575
   biorxiv: 
   news: 
@@ -50,7 +144,7 @@
   mendeley: 
   researchgate: 
   pmid: 
-  preprint: 1
+  preprint: 0
   highlight: 0
 
 - title: Metacommunity structure preserves genome diversity in the presence of gene-specific selective sweeps under moderate rates of horizontal gene transfer
@@ -108,23 +202,7 @@
   highlight: 0
 
 
-- title: Macroecological laws in experimental microbial systems
-  authors: W.R. Shoemaker, A. Sanchez, J. Grilli
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2023
-  doi: 10.1101/2023.07.24.550281
-  arxiv:
-  biorxiv: 10.1101/2023.07.24.550281
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
+
 
 
 - title: Stable cooperation emerges in stochastic multiplicative growth
