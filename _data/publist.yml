@@ -1,3 +1,95 @@
+- title: A balance between environmental filtering and competitive exclusion modulates the macroecology of alternative stable states in microbial communities
+  authors: A. Bupu, W.R. Shoemaker, O. Mazzarisi, J. Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv: 
+  biorxiv: 10.64898/2025.12.19.695337
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Resource ratio fluctuations drive the evolution of microbial metabolic strategies
+  authors: Z. Wang, J. Grilli, A. Goyal, S. Maslov
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv: 
+  biorxiv: 10.64898/2025.12.18.695187
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+
+- title: Unifying Theories in High-Dimensional Biology: Approaches, Challenges and Opportunities
+  authors: M. Bauer, A. Goyal, S. Goyal, G. Reddy, S. Chakrabarti, M.M. Desai, W. Gilpin, J. Grilli, K. Husain, S. Jain, M. Kumar Jolly, K. Kawaguchi, A. Koseska, M. Lin, L. Narlikar, S. Pigolotti, A. Raju, K. Shrinivas, R. Siddharthan, G.J. Stephens, A. Tiffeau-Mayer, S. Vaikuntanathan
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv: 2512.10111
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: Modeling Spatial Synchronization of Predator-Prey Oscillations via the XY Model under Demographic Stochasticity and Migration
+  authors: S. Golmohammadi, M. Zarei, J. Grilli
+  journal: 
+  journalshort: 
+  reference:  
+  year: 2025
+  doi: 
+  arxiv: 2511.13501
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 1
+  highlight: 0
+
+- title: Incoherent feedback from coupled amino acids and ribosome pools generates damped oscillations in growing E. coli
+  authors: R. Droghetti, P. Fuchs, I. Iuliani, V. Firmano, G. Tallarico, L. Calabrese, J. Grilli, B. Sclavi, L. Ciandrini, M. Cosentino Lagomarsino 
+  journal: Nature Communications
+  journalshort: 
+  reference:  16, 3063
+  year: 2025
+  doi: 10.1038/s41467-025-57789-4
+  arxiv:
+  biorxiv: 10.1101/2023.10.25.563923
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 40157904
+  preprint: 0
+  highlight: 0
+
 - title: Evolutionary learning of microbial populations in partially predictable environments
   authors: R.M. Yagb Omer, O. Mazzarisi, M. Dal Bello, J. Grilli
   journal: 
@@ -92,6 +184,24 @@
   preprint: 0
   highlight: 0
 
+- title: The effect of demographic stochasticity on predatory-prey oscillations
+  authors: S. Golmohammadi, M. Zarei, J. Grilli
+  journal: The European Physical Journal Plus
+  journalshort: EPJ+
+  reference:  140 (8), 781
+  year: 2025
+  doi: 10.1140/epjp/s13360-025-06713-2
+  arxiv: 2310.20575
+  biorxiv: 
+  news: 
+  description: 
+  image: 
+  mendeley: 
+  researchgate: 
+  pmid: 
+  preprint: 0
+  highlight: 0
+
 - title: Investigating macroecological patterns in coarse-grained microbial communities using the stochastic logistic model of growth
   authors: W.R. Shoemaker, J. Grilli
   journal: eLife
@@ -109,6 +219,8 @@
   pmid: 
   preprint: 0
   highlight: 0
+
+
 
 
 - title: 'Quantitative Human Ecology: Data, Models and Challenges for Sustainability'
@@ -129,23 +241,7 @@
   preprint: 0
   highlight: 0
 
-- title: The effect of demographic stochasticity on predatory-prey oscillations
-  authors: S. Golmohammadi, M. Zarei, J. Grilli
-  journal: The European Physical Journal Plus
-  journalshort: EPJ+
-  reference:  140 (8), 781
-  year: 2025
-  doi: 10.1140/epjp/s13360-025-06713-2
-  arxiv: 2310.20575
-  biorxiv: 
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 0
-  highlight: 0
+
 
 - title: Metacommunity structure preserves genome diversity in the presence of gene-specific selective sweeps under moderate rates of horizontal gene transfer
   authors: S. Pompei, E. Bella, J.S. Weitz, J. Grilli, M. Cosentino Lagomarsino
