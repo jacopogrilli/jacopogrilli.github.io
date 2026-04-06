@@ -133,10 +133,12 @@ firstp {
     box-shadow: none !important;
 }
 
-.templatemo-map img {
-    border-radius: 0;
-    margin: 0;
-    box-shadow: none;
+.templatemo-map img,
+.templatemo-map canvas,
+.templatemo-map div {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
 }
 
 
