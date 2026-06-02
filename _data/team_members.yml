@@ -28,6 +28,7 @@
 
 
 
+
 - name: Will Shoemaker
   country: usa
   fromlatitude: 39.11488884951013
@@ -173,6 +174,66 @@
 
 
 
+
+- name: Giuseppe Giuliani
+  country: usa
+  fromlatitude: 39.9612
+  fromlongitude: -82.9988
+  photo:    ggiuliani.jpeg
+  info: "Postdoc student, started January 2026"  
+  email: giuseppe.juice@gmail.com
+  description:             "My interests lie in the application of mathematical and computational methods to biologically or ecologically significant problems. My thesis research broadly focused on the analyzing clinically relevant data and developing mechanistic models to explore how immune-cancer cell interactions in a spatial context affect tumor progression. I am currently exploring how bacterial cell physiology mediates growth trade-offs in fluctuating environments through mathematical modeling and data analysis."
+  number_educ:
+  education1:
+  education2:
+  education3:
+  education4:
+  twitterusername:
+  githubusername:
+  scholarusername: DPSz_XwAAAAJ
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv: "Giuseppe_Giuliani_CV_31.05.2026.pdf"
+  past: 0
+
+
+
+- name: Javier Aguilar
+  country: esp
+  fromlatitude: 36.7213
+  fromlongitude: -4.4214
+  photo:   javi.jpeg
+  info: "Postdoc, started April 2026"   
+  email: jvrglrschz@gmail.com
+  description:  "My research focuses on tackling interdisciplinary problems from the perspective of theoretical physics: using minimal models to explore how robust macroscopic patterns emerge from plausible microscopic processes. I currently investigate the impact of empirical procedures in ecology — how data acquisition affects interaction measures and model inference, and how minimal models can inform experimental design."
+  number_educ:
+  education1:
+  education2:
+  education3:
+  education4:
+  twitterusername:
+  githubusername:
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv:
+  past: 0
+
+
+
+
 - name: Annamaria Bupu
   country: idn
   fromlatitude: -6.920817339564152
@@ -205,8 +266,8 @@
   fromlatitude: 36.684376080846924
   fromlongitude: 48.50902938973805
   photo: solmaz.jpg
-  info: Ph.D. student at IASBS, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019
-  email: golmohammadi@iasbs.ac.ir
+  info: Postdoc at Ko&ccedil; University, Turkey (previously Ph.D. student at IASBS, Iran and <a href="https://www.ictp.it/programmes/step.aspx">STEP</a> student at ICTP, co-supervised with <a href="https://scholar.google.com/citations?user=DKUuSzMAAAAJ&hl=en">M. Zarei</a>, started Oct 2019)
+  email: solmaz.gl.un@gmail.com
   description: "I am a physics student interested in studying nature from the complex systems perspective, using network science, nonlinear dynamics, statistical physics and stochastic analysis.  My thesis will be specifically focused on spatial synchrony in ecology, which is a fundamental feature of population dynamics."
   number_educ: 1
   education1: B.Sc. Institute for Advanced Studies in Basic Sciences (IASBS), Zanjan, Iran
@@ -214,18 +275,18 @@
   education3: 
   education4: 
   twitterusername: solmaazam
-  githubusername: Solmaaz 
-  scholarusername:
+  githubusername: Solmaaz
+  scholarusername: PPxxc2IAAAAJ
   resgateusername: Solmaz-Golmohammadi
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: solmaz-golmohammadi-0a04b6171
-  mendeleyusername: 
-  stravausername: 
-  cv: sgolmohammadi_cv.pdf
-  past: 0
+  mendeleyusername:
+  stravausername:
+  cv: sgolmohammadi_cv.pdf   # TODO old CV is confusing recruiters per her 29 Apr 2026 email — replace with updated file
+  past: 1
 
 
 
@@ -279,7 +340,7 @@
   mendeleyusername: 
   stravausername: 
   cv: 
-  past: 0
+  past: 1
 
 
 

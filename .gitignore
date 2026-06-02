@@ -3,3 +3,19 @@ _site
 .jekyll-metadata
 
 createsite.sh
+
+# macOS / editor junk
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+.Rhistory

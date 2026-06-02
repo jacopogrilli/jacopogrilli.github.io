@@ -1,0 +1,1139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+%\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% euro symbol
+\usepackage{eurosym}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+% fancy symbols
+%\usepackage{marvosym}
+
+\usepackage[none]{hyphenat} 
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+%\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=1.2in,     % Length of section titles
+%            marginparsep=.05in,       % Space between titles and text
+%            margin=1in,               % 1 inch margins
+%            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+\usepackage[paper=a4paper,
+%            includefoot, % Uncomment to put page number above margin
+            marginparwidth=30.5mm,    % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=25mm,              % 25mm margins
+            includemp
+	]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+% Simpler bibsections for CV sections
+% (thanks to natbib for inspiration)
+%
+% * For lists of references with hanging indents and no numbers:
+%
+%   \begin{bibsection}
+%       \item ...
+%   \end{bibsection}
+%
+% * For numbered lists of references (with hanging indents):
+%
+%   \begin{bibenum}
+%       \item ...
+%   \end{bibenum}
+%
+%   Note that bibenum numbers continuously throughout. To reset the
+%   counter, use
+%
+%   \restartlist{bibenum}
+%
+%   at the place where you want the numbering to reset.
+
+\usepackage{graphicx}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\,
+%\hfill
+ \centering{ \arabic{page} of \protect\pageref*{LastPage} }  % +LP
+%                    \arabic{page}                               % -LP
+%			\hfill
+                     \,}
+}
+
+
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+%\definecolor{darkblue}{rgb}{0.45,0.0,0.0}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% HEADING AT TOP OF CURRICULUM VITAE
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+ %  \makeheading[\includegraphics[height=1.5in]{jacopo}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+\newcommand{\lineOO}{\hspace*{-\marginparsep minus \marginparwidth}
+\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}
+\rule{\columnwidth}{1pt}\end{minipage}}
+
+\newcommand{\lineOa}{\hspace*{-\marginparsep minus \marginparwidth}
+\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}
+\rule{\columnwidth}{0.5pt}\end{minipage}}
+
+
+%%% SECTION HEADINGS
+
+% The section headings. Flush left in small caps down pseudo-margin.
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+
+
+%%% LISTS
+
+% This macro alters a list by removing some of the space that follows the list
+% (is used by lists below)
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+% These macros help ensure that items in outer-type lists do not get
+% separated from the next line by a page break
+% (they are used by lists below)
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\csname preFixOuterList#1\endcsname\let\oldItem\item\def\item{\pagebreak[2]\oldItem}}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+% An itemize-style list with lots of space between items
+%
+% Usage:
+%   \begin{outerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{outerlist}
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{lonelist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{lonelist}
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+
+% An itemize-style list with little space between items
+%
+% Usage:
+%   \begin{innerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{innerlist}
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{loneinnerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{loneinnerlist}
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+%%% EXTRA SPACE
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+%%% FORMATTING MACROS
+
+%% my name for paper
+\newcommand\JG{\underline{J.~Grilli}}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% Uses hyperref to link PMID
+\newcommand\pmidlink[1]{\href{http://www.ncbi.nlm.nih.gov/pubmed?term=#1}{#1}}
+\newcommand\pmid[1]{pmid:\pmidlink{#1}}
+
+% Uses hyperref to link PMID
+\newcommand\arxivlink[1]{\href{http://arxiv.org/abs/#1}{#1}}
+\newcommand\arxiv[1]{arXiv:\arxivlink{#1}}
+
+% Uses hyperref to link PMID
+\newcommand\bioarxivlink[1]{\href{http://biorxiv.org/content/early/#1}{#1}}
+\newcommand\bioarxiv[1]{bioRxiv:\bioarxivlink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+% Custom hyphenation rules for words that LaTeX has trouble with
+\hyphenation{bio-mim-ic-ry bio-in-spi-ra-tion re-us-a-ble pro-vid-er}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\makeheading{Jacopo~Grilli}
+
+\nohyphens
+
+\section{Contact Information}
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table. Table is one row made up of three parboxes. The left
+%       parbox has address info, the middle parbox has a vertical bar,
+%       and the right parbox has phone and electronic contact
+%       information.
+%
+% MACROS: \rcollength is the width of the right column of the table
+%             (adjust it to your liking; default is 1.85in).
+%         \spacewidth is width of area between left and right boxes.
+%         \spacechar is character used to produce perforated vertical
+%             boundary between boxes.
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.7in}% %1.85 default
+\newlength{\spacewidth}\setlength{\spacewidth}{20pt}
+\newcommand\spacechar{$|$}
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
+
+% Address box
+%\parbox{\textwidth-\rcollength-\spacewidth}{%
+%Graduate Student\\
+%\href{http://www.pd.infn.it/~maritan/index.html}{LIPh - Laboratory of Interdisciplinary Physics}\\
+%\href{http://www.fisica.unipd.it/}{Department of Physics and Astronomy G.~Galilei}\\
+%\href{http://www.unipd.it/index_en.htm}{Universit\`a degli Studi di Padova}\\
+%via Marzolo 8, 35131 Padova, Italy 
+%}
+
+\parbox{\textwidth-\rcollength-\spacewidth}{%
+Research Scientist\\
+\href{https://www.ictp.it}{Abdus Salam International Centre for
+Theoretical Physics (ICTP)}\\
+Strada Costiera, 11 \\
+34151, Trieste, Italy 
+}
+
+% Cheesy perforated vertical bar between boxes
+% Shorten by removing \spacechar's
+& \parbox{\spacewidth}{\centering \spacechar\\\spacechar\\\spacechar\\\spacechar\\\spacechar} &
+
+% Non-snail-mail contact information
+\parbox{\rcollength}{%
+%\textit{Phone:} +39-049-827-7243 \\
+\textit{Work:} +39-040-224-0148 \\
+%\textit{Fax:} +1-614-292-2911 \\
+ \email{grilli.jacopo@gmail.com} \\
+%\includegraphics[height=1.1in]{jacopo_bn}
+ \href{http://jacopogrilli.github.io}{jacopogrilli.github.io}
+}
+
+
+
+
+\end{tabular}
+
+
+
+%\hspace*{-\marginparsep minus \marginparwidth}
+
+    
+
+   
+%%
+%% In modern CV's, it seems like ``Objective'' is frowned upon. Instead,
+%% incorporate it into a well-constructed cover letter. The ``More
+%% information'' can go at the end of the CV, but it should not distract
+%% from the section giving references available to contact.
+%%
+%
+% \section{Objective}
+%
+% Placement in an academic position (i.e., faculty, postdoctoral, or
+% research scientist) that allows for advanced research in distributed
+% complex adaptive systems (i.e., modeling, analysis, design, and
+% verification) with a particular focus on the control of engineered
+% agents (e.g., for communications, control, software, electronics, and
+% sustainability) and the analysis of biological phenomena (e.g.,
+% self-organization, ecological rationality)
+% \begin{innerlist}
+% \item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
+% \end{innerlist}
+
+%\section{Research Interests}
+
+%\textbf{I'm a theoretical physicist with a background in statistical mechanics
+%and a strong interest in biological and ecological
+%problems. Keywords:} statistical mechanics, stochastic processes, evolution, spatial organization
+%of ecosystems, competition for resources, dynamics and stability of ecosystems, food-webs, genomes evolution
+
+
+
+%\section{Personal}
+
+%Born in Milan, July 22,~1987. Italian citizen. % Married, one children.
+
+\lineOO
+
+%\section{Research Interests}
+
+%Statistical mechanics, stochastic processes, complex networks, evolution, spatial ecology,
+%food-webs, quantitative genomics.
+
+%\halfblankline
+
+%\lineOa
+
+%\section{Curriculum Vit\ae}
+
+\section{Vita}
+
+\begin{outerlist}
+
+\item November 2023 to present \\
+	\href{https://www.ictp.it/research/qls/members.aspx}{Research Scientist}
+	at Quantitative Life Sciences, 
+	\href{https://www.ictp.it}{ICTP}, Trieste, Italy.
+
+
+\item May 2019 to November 2023 \\
+	\href{https://www.ictp.it/research/qls/members.aspx}{Associate Research Officer}
+	at Quantitative Life Sciences, 
+	\href{https://www.ictp.it}{ICTP}, Trieste, Italy.
+
+
+\item January 2018 to April 2019 \\
+	\href{https://www.santafe.edu/research/fellowships/omidyar}{Omidyar Postdoctoral Fellow}
+	at
+	\href{https://www.santafe.edu}{Santa Fe Institute}, Santa Fe, NM, USA.
+
+
+\item January 2015 to December 2017 \\
+	Postdoctoral Scholar
+	at
+	\href{http://pondside.uchicago.edu/ecol-evol/}{Department of Ecology and Evolution},
+    \href{http://www.uchicago.edu/}{University of Chicago}, Chicago, IL, USA.\\
+	Advisor: \href{http://allesinalab.uchicago.edu/}{S.~Allesina}
+
+\item January 2012 to February 2015 \\
+	Ph.D. in \href{http://www.fisica.unipd.it/index.php?id=142ppwquyznra}{Physics}
+	at
+	\href{http://www.unipd.it/index_en.htm}{Universit\`a degli Studi di Padova}, Padova, Italy. \\
+	Advisor: \href{http://www.pd.infn.it/~maritan/index.html}{A.~Maritan}. \\
+	Ph.D. awarded 27 February 2015
+
+\item October 2011 to December 2011 \\
+	Post-Master Scholarship `ex 60\%' 2011 at
+	\href{http://www.fisica.unipd.it/}{Department of Physics and Astronomy G.~Galilei},
+	\href{http://www.unipd.it/index_en.htm}{Universit\`a degli Studi di Padova}, Padova, Italy.
+%        under the supervision of
+%    Advisor: \href{http://www.pd.infn.it/~maritan/index.html}{A.~Maritan}.
+%        Project title: \emph{Field theory for ecological modeling}.
+
+\item October 2009 to July 2011 \\
+	M.S. in \href{http://www.ccdfis.unimi.it/en/corsiDiStudio/2012/F95/index.html}{Theoretical Physics} at
+	\href{http://www.unimi.it/ENG/}{Universit\`a degli Studi di Milano}.   \\
+%	after the defense of the thesis	\emph{\href{http://dl.dropbox.com/u/2794177/cv_attachment/thesis_MS.pdf}{A Physics Approach to Biogeography Modeling}},
+%        under the supervision of
+    Advisors:
+              \href{http://www.pd.infn.it/~maritan/index.html} 
+                   {A.~Maritan} and 
+              \href{http://wwwteor.mi.infn.it/~bassetti/index.html} 
+                   {B.~Bassetti}. 
+	Final grade \emph{110/110 cum Laude}.
+
+\item October 2006 to October 2009 \\
+	B.S. in \href{http://www.ccdfis.unimi.it/en/corsiDiStudio/2012/F63/index.html}{Physics} at
+	\href{http://www.unimi.it/ENG/}{Universit\`a degli Studi di Milano}.\\
+    %after the defense of the thesis \emph{\href{http://dl.dropbox.com/u/2794177/cv_attachment/thesis_BS.pdf}{Functional content of genomes, multi-scaling laws and Chinese Restaurant Process}} under the supervision of 
+    Advisors: \href{http://wwwteor.mi.infn.it/~bassetti/index.html}{B.~Bassetti} and \href{http://www.lgm.upmc.fr/mcl/}{M.~Cosentino~Lagomarsino}. 
+	Final grade \emph{110/110 cum Laude}.
+\end{outerlist}
+
+\halfblankline
+
+\lineOa
+
+
+\section{Editor}
+
+\begin{outerlist}
+	\item[] \emph{Plos Computational Biology} (Associate Editor, 2019- )
+	\item[] \emph{Oikos} (Editorial board, 2018- )
+	\item[] \emph{Royal Society Open Science} (Associate Editor, 2021- )
+	\item[] \emph{Plos Computational Biology} (Guest Editor, 2018-2019 )
+	\item[] \emph{Complexity} (Special issue ``Scales and Complexity in Ecological Communities: Models, Methods, and Predictions'', 2018)
+\end{outerlist}
+
+
+
+
+\section{Reviewer}
+
+\begin{outerlist}
+	\item[] Grants: \emph{European Research Council (EU)}, \emph{National Science Foundation (USA)}, \emph{Swiss National Science Foundation (Switzerland)}, \emph{Israel Science Foundation (Israel)}
+
+	\item[] Journals: \emph{
+	    Nature,
+        Science,
+        Nature Ecology and Evolution,
+        Nature Communications,
+        Science Advances,
+        PNAS,
+        eLife,
+        Physical Review Letters,
+        Plos Computational Biology, %1
+        Physical Review X,
+        Ecology Letters,
+        The ISME Journal,
+        American Naturalist, %1
+		Proceedings of the Royal Society B, %% 1
+        Proceedings of the Royal Society A,
+		Journal of Statistical Mechanics, %% 2
+        Journal of Statistical Physics,
+        Physical Review E, %% 1
+        Frontiers in Ecology and Evolution, %1
+        Scientific Reports, %1
+		Plos One, %% 2
+        npj Systems Biology and Applications,
+        Methods in Ecology and Evolution, %1
+		Journal of Theoretical Biology, %2
+		Oikos, %% 2+
+		Entropy,
+		Journal of Biogeography, %% 1
+        Journal of Complex Networks, %% 1
+        Functional Ecology,
+		Communications in Nonlinear Science and Numerical Simulation %% 1
+		}\\
+        Publons ID \href{https://publons.com/author/558637/}{558637}
+
+\end{outerlist}
+
+\halfblankline
+
+\lineOa
+
+
+%\halfblankline
+
+%\lineOa
+
+%\section{Research Interests}
+
+%Broadly, I am interested in explaining and understanding complex phenomena starting from simple rules and minimal assumptions. I use methods borrowed from statistical mechanics, stochastic processes and random matrix theory. I enjoy both theoretical problems and data-driven projects and I like to collaborate with people with very heterogeneous backgrounds. My research focuses on different problems in theoretical ecology, quantitative biology and statistical mechanics.
+
+%\begin{description} 
+%\item[Aging as the approaching to a critical transition.]
+%While the environmental and molecular drivers of aging in C. elegans are well known, a quantitative understanding is still lacking.
+%Our goal is to study aging (both at a behavioral and a molecular level) as the approaching to a bifurcation point. I have been involved
+%in both the design of the experiments and the analysis of the preliminary data.
+% \\
+%\textit{Main collaborators: S. Allesina (Ecologist, USA), K. Jovic and J. Kammenga (Biologists, The Netherlands)}
+%\item[Stability and persistence of large biological systems.] 
+%Ecosystems are typically composed of a large number of interacting individuals and species. Using random matrix techniques, we study and quantify the relevant properties of interactions that determine the stability of ecosystems and their persistence in time. \\
+%\textit{Main collaborators: A. Maritan, S. Suweis (Physicists, Italy), S. Allesina (Ecologist, USA) } 
+%\item[Statistical laws in genomes evolution.]
+%Life populates almost every corner of this planet, with striking differences of forms and shapes, that reflect unique evolutionary histories. Despite the contingency of the processes shaping genomes, remarkable regularities and patterns can be found across organisms. We study how these patterns can be quantitatively translated into fundamental evolutionary constraints. \\
+%\textit{Main collaborators: M. Cosentino Lagomarsino (Physicist, France), S. Maslov (Physicist, USA)}
+%\item[Stochastic processes and models in spatial ecology.]
+%Macroscopic phenomena are intrinsically stochastic and noise strongly affects the species composition and diversity of ecosystems. We study how to connect empirically observed macroecological patterns with simple, yet predictive, models. \\
+%\textit{Main collaborators: A. Maritan, S. Suweis (Physicists, Italy), S. Azaele (Physicist, UK), J.R. Banavar (Physicist, USA)}
+%\item[Paths to criticality without fine-tuning.]
+%Scale-free phenomena are quite common in biological and social systems. We proposed a general framework, based on information theory, able to show how criticality can emerge without fine-tuning but as a consequence of evolution and adaptation. \\
+%\textit{Main collaborators: A. Maritan, S. Suweis (Physicists, Italy), J. Hidalgo, M. Mu\~noz (Physicists, Spain)}
+%\item[Cell size control.]
+%The dream of every cell is to become two cells. We study quantitatively how cells control
+%their size under different conditions using simple models and scaling arguments.  \\
+%\textit{Main collaborators: M. Osella (Physicist, Italy), M. Cosentino Lagomarsino (Physicist, France)}
+
+%\end{description}
+
+
+
+\section{Organized conferences and workshops}
+
+\begin{outerlist}
+
+\input{tex/organized.tex}
+
+\end{outerlist}
+
+
+\section{Seminars at Institutions}
+
+\begin{outerlist}
+
+\input{tex/seminars.tex}
+
+\end{outerlist}
+
+
+\section{Talks at meetings}
+
+\begin{outerlist}
+
+\input{tex/meetings.tex}
+
+\end{outerlist}
+
+
+\section{Scientific visits}
+
+\begin{outerlist}
+
+    \item November 18,~2013 to May 30,~2014 \\
+	 Visiting Student at
+	\href{http://pondside.uchicago.edu/ecol-evol/}{Department of Ecology and Evolution},
+        \href{http://www.uchicago.edu/}{The University of Chicago}, Chicago, IL, USA. 
+
+    \item July 22,~2013 to August 3,~2013 \\
+	 Visiting Student at
+	\href{http://ergodic.ugr.es/efm/}{Departamento de Electromagnetismo y F\'isica de la Materia},
+        \href{http://www.ugr.es}{Universitad de Granada}, Granada, Spain. 
+
+    \item February 20,~2012 to March 31,~2012 \\
+	 Visiting Student at
+	\href{http://www.lgm.upmc.fr/drupal/?q=node/82}{Genomic Physics Group},
+ 	\href{http://www.lgm.upmc.fr/}{Genomique des Microorganismes}, UMR 7238 CNRS -
+        \href{http://www.upmc.fr/en/index.html}{Universit\'e Pierre et Marie Curie}, Paris, France. 
+        
+    \item June 1,~2010 to June 28,~2010 \\
+	Summer Internship under the supervision of \href{http://www.cmth.bnl.gov/~maslov/}{S.~Maslov}
+	at \href{http://www.bnl.gov/cmpmsd/}{Department of Condensed Matter Physics},
+	\href{http://www.bnl.gov/world/}{Brookhaven National Laboratory}, Upton, NY, USA. 
+\end{outerlist}
+\halfblankline
+
+\lineOa
+
+
+
+
+%\section{ALL}
+%\begin{outerlist}
+
+%    \item May 2,~2017 \\
+%	International Centre for Theoretical Physics, Trieste, Italy.\\
+%	$\diamond$ \emph{Invited seminar: 
+%	\textbf{Higher-order interactions stabilize the dynamics of ecological communities}. % 30min
+%	}
+
+%    \item February 27,~2017 \\
+%	 \href{http://www.science-of-science-chicago.org/}{Second Science of Science Meeting}, Chicago, IL, USA.\\
+%	$\diamond$ \emph{Invited talk: 
+%	\textbf{What's in a Last Name? Mobility, Gender Imbalance and Nepotism across Academic Systems}} % 30 min
+
+%    \item January 26,~2017 \\
+%	 Santa Fe Institute, Santa Fe, NM, USA.\\
+%	$\diamond$ \emph{Invited seminar: 
+%	\textbf{Higher-order interactions stabilize the dynamics of ecological communities}. % 60min
+%	}
+
+%    \item April 15,~2016 \\
+%	 Laboratory of Computational and Quantitative Biology, Paris, France.\\
+%	$\diamond$ \emph{Invited seminar: 
+%	\textbf{Coexistence in large ecosystems: from structure to function}. % 30min
+%	}
+
+%    \item April 12,~2016 \\
+%	International Centre for Theoretical Physics, Trieste, Italy.\\
+%	$\diamond$ \emph{Invited seminar: 
+%	\textbf{Coexistence in large ecosystems: from structure to function}. % 30min
+%	}
+
+%    \item August 9 - August 14,~2015 \\
+%	 \href{http://esa.org/baltimore/}{100th ESA Conference}, Baltimore, MD, USA.\\
+%	$\diamond$ \emph{Contributed talk: 
+%	\textbf{Feasibility and stability of large ecosystems}. % 20 min
+%	}
+
+%    \item June 15 - June 19,~2015 \\
+%	 \href{http://ergodic.ugr.es/cp/}{Granada Seminar}, La Herradura, Spain.\\
+%	$\diamond$ \emph{Contributed talk: 
+%	\textbf{Persistence of a population in randomly fragmented landscapes}. % 15 min
+%	}
+
+%    \item May 26,~2015 \\
+%	 The University of Chicago, Chicago, USA.\\
+%	$\diamond$ \emph{Seminar: 
+%	\textbf{Stability and feasibility of large ecosystems}. % 60min
+%	}
+%    \item March 26,~2015 \\
+%	 Wageningen University, Wageningen, The Neatherlands.\\
+%	$\diamond$ \emph{Invited seminar: 
+%	\textbf{On the stability of large ecosystems}. % 30min
+%	}
+%    \item December 18,~2014 \\
+%	 \href{http://www.pd.infn.it/~orlandin/Workshops/padova_phd_2014.html}{Workshop on Physics of Complex Systems}, Padova, Italy.\\
+%	$\diamond$ \emph{Invited talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/Padova2014.pdf}{
+%	\textbf{Emergence of criticality in communities of living systems}}} % 15 min
+
+%    \item November 3,~2014 \\
+%	 Department of Environmental Systems Science, ETH, Z\"urich, Switzerland.\\
+%	$\diamond$ \emph{Invited seminar: \href{http://dl.dropbox.com/u/2794177/cv_attachment/14zurich.pdf}{
+%	\textbf{Spatial aggregation and spatial fragmentation: simple random models for spatial ecology}}. % 1h
+%	}
+
+%    \item October 6,~2014 \\
+%	 Dipartimento di Fisica, Universit\`a di Torino, Torino, Italy.\\
+%	$\diamond$ \emph{Invited seminar: \href{http://dl.dropbox.com/u/2794177/cv_attachment/14torino.pdf}{
+%	\textbf{Scaling laws in genome evolution}}. % 40 min
+%	}
+
+
+%    \item September 22 - September 26,~2014 \\
+%	 \href{http://www.eccs14.eu/}{ECCS 2014, European Conference on Complex Systems}, Lucca, Italy.\\
+%	$\diamond$ \emph{Contributed talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/14lucca.pdf}{
+%	\textbf{Persistence of a population in randomly fragmented landscapes}}. % 15 min
+%	}
+
+
+%    \item December 17,~2013 \\
+%	 University of Illinois at Urbana-Champaign, Urbana-Champaign, IL, USA.\\
+%	$\diamond$ \emph{Invited seminar: \href{http://dl.dropbox.com/u/2794177/cv_attachment/13barcelona.pdf}{
+%	\textbf{Emergence of criticality in living systems through adaptation and evolution: Practice Makes Critical}}. % 40 min
+%	}
+
+
+%    \item September 16 - September 20,~2013 \\
+%	 \href{http://www.eccs13.eu/}{ECCS 2013, European Conference on Complex Systems}, Barcelona, Spain.\\
+%	$\diamond$ \emph{Contributed talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/13barcelona.pdf}{
+%	\textbf{Emergence of criticality in living systems through adaptation and evolution: Practice Makes Critical}}. % 20 min
+%	}
+
+%    \item June 27 - July 5,~2013 \\
+%	 \href{http://www.complexcomolake.it/quantitativelaws/}{Workshop on Quantitative Laws of Genome Evolution}, Como, Italy.\\
+%	$\diamond$ \emph{Contributed talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/13como.pdf}{
+%	\textbf{Universal properties of ecological interactions and stability of ecosystems}}. % 20 min
+%	\underline{Awarded as F1000 Best Young Presentation.}	
+%	}
+
+%    \item March 13 - 15,~2013 \\
+%	 \href{http://complenet.org/CompleNet_2013/Home.html}{CompleNet 2013, IV Workshop on Complex Networks}, Berlin, Germany.\\
+%	$\diamond$ \emph{Contributed poster: \href{http://dl.dropbox.com/u/2794177/cv_attachment/13berlin.pdf}{
+%	\textbf{Complexity-stability relation in ecological networks}}}
+
+%    \item December 20,~2012 \\
+%	 \href{http://www.pd.infn.it/~orlandin/Workshops/padova_phd_2012.html}{Workshop on Physics of Complex Systems}, Padova, Italy.\\
+%	$\diamond$ \emph{Invited talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/Padova2012.pdf}{
+%	\textbf{Growth or Reproduction? Emergence of a Strategy}}} % 15 min
+
+%    \item November 26 - December 7,~2012 \\
+%	 \href{http://cdsagenda5.ictp.trieste.it/full_display.php?ida=a11262}{Winter School on Quantitative Systems Biology}, Trieste, Italy.
+
+%    \item November 9,~2012 \\
+%	 \href{http://dl.dropbox.com/u/2794177/cv_attachment/locandinaBBday.pdf}{Scientific day in honor of Bruno Bassetti}, Milan, Italy.\\
+%	$\diamond$ \emph{Invited talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/BBday2012.pdf}{
+%	\textbf{Growth or Reproduction? Emergence of a Strategy}}} % 20 min
+
+%    \item July 23 - August 3,~2012 \\
+%	 \href{http://homepages.warwick.ac.uk/~phscz/cargese2012/}{Summer School ``Emergent Order in Biology''}, Cargese, France.\\
+%	$\diamond$ \emph{Contributed poster: \href{http://dl.dropbox.com/u/2794177/cv_attachment/12cargese.pdf}{
+%	\textbf{Emergence of scaling laws in functional and evolutionary partitioning of genomes}}}
+
+
+%    \item June 20 - 22,~2012 \\
+%	 \href{http://www.fis.unipr.it/stat/PARMA2012/welcome2012_E.htm}{XVII Conference on Statistical Physics
+%	and Complex Systems}, Parma, Italy.\\
+%	$\diamond$ \emph{Contributed talk: \href{http://dl.dropbox.com/u/2794177/cv_attachment/parma2012.pdf}{
+%	\textbf{Spatial distribution of	species across scales}}} % 20 min
+%\end{outerlist}
+
+
+%\halfblankline
+%\lineOa
+
+
+\section{Publications}
+
+\begin{bibenum}
+
+\input{tex/published.tex}
+
+\end{bibenum}
+
+
+\section{Preprints}
+
+\begin{bibenum}
+
+\input{tex/preprint.tex}
+
+\end{bibenum}
+
+
+\section{Teaching Experience}
+
+\begin{outerlist}
+
+
+
+    \item[] April-May~2020, 2021, 2022, 2023 \\
+	\emph{Scientific Storytelling and Critical Thinking}.
+    Diploma in Quantitative Life Science, ICTP (16 hours).
+
+    \item[] November-December~2020, 2021 \\
+	\emph{Communication of epidemics}. (with R. Villa)
+    Master in Comunicazione della Scienza, SISSA  (10 hours).
+
+
+    \item[] October-December~2019, 2020, 2021, 2022 \\
+	\emph{Introduction to Ecology and Evolution}.
+    Diploma in Quantitative Life Science, ICTP and Master in Physics of Complex Systems (52 hours).
+
+    \item[] November~2017 \\
+	\emph{Advanced topics in stochastic processes - Random Matrix Theory} (with A. Maritan \& S. Suweis). 
+    Ph.D. School in Physics, Universit\`a degli Studi di Padova. (8 hours)
+
+    \item[] 9~November~2017 \\
+	Lecture on \emph{neutral theory} during the class \emph{An Introduction to Stochastic Processes in Continuous Time} (held by D. Alonso). 
+    Ph.D. program in Ecology\&Evolution, University of Chicago. (2 hours)
+
+    \item[] October~2014 \\
+	Introduction to Complex Systems (with S. Suweis). 
+    Master in Scientific Communication, Universit\`a degli Studi di Padova. (2 hours)
+
+    \item[] September~2014 \\
+	 \emph{Tutor} at ESTAGE, internship for high-school students at Department of Physics and Astronomy,
+    Universit\`a degli Studi di Padova. (8 hours)
+
+    \item[] November~2012 - June~2013 \\
+	 \emph{Tutor Junior} at Universit\`a degli Studi di Padova\\
+	Mathematics (for 1st year Geology students),
+	Mathematical Analysis and Linear Algebra (for 1st year Physics students). 
+
+\end{outerlist}
+
+
+\section{Supervision Current}
+
+\begin{outerlist}
+
+\item W.R. Shoemaker, Postdoc 2022-, ICTP, Trieste, Italy.
+%I. Macocco, Ph.D. Student 2020-, SISSA, Trieste, Italy (with A. Laio).
+\item R. Crisostomo, Master Student, 2023-,QBio at U. of Montpellier, France
+\item X. Zhoum, Visiting Ph.D. Student, 2022-, HHU, China
+\item S. Golmohammadi, Ph.D. Student, 2019-present, IASBS, Iran and STEP Program, ICTP, Italy (with M. Zarei)
+\end{outerlist}
+
+
+\section{Supervision Past}
+
+
+\begin{outerlist}
+% ROaa
+% Fritz
+% Patricia
+\item J. M. Camacho Mateu, Visiting Ph.D. Student 2023, Carlos III University of Madrid, Madrid, Spain.
+\item V. Monteiro Marquioni, Visiting Ph.D. Student 2022-2023, Universidade Estadual de Campinas, Campinas, Brazil.
+\item S. Lipani, M.Sc. Student 2022, University of Padova, Padova, Italy.
+\item M. Sireci, Ph.D. Student 2019-2023, University of Granada, Granada, Spain (with M.A. Mun\~oz). 
+\item M. Vasquez Ibarra, QLS Diploma Student 2021-2022, ICTP, Trieste, Italy.
+\item S. Farrag, QLS Diploma Student 2021-2022, ICTP, Trieste, Italy.
+\item S. Zaoli, Postdoc 2020-2022, ICTP, Trieste, Italy.
+\item L. Fant, Ph.D. Student 2019-2022, SISSA and ICTP, Trieste, Italy.
+\item A. Valsecchi, M.Sc. Student 2021-2022, University of Milan, Milan, Italy.
+\item A. Saleem, QLS Diploma Student 2020-2021, ICTP, Trieste, Italy.
+\item I. Rondon, QLS Diploma Student 2020-2021, ICTP, Trieste, Italy.
+\item M.H. Ming, MATH Diploma Student 2020-2021, ICTP, Trieste, Italy.
+\item M. Corigliano, M.Sc. Student 2020-2021, University of Milan, Milan, Italy.
+\item N. Dorilas, Research Experience for Undergraduates 2018, Santa Fe Institute, US (with A. Rominger). 
+\item T. Gibbs, Undergraduate Student 2016-2017, Ecology \& Evolution, Chicago, US (with S. Allesina).
+\item R. Satterwhite, Ph.D. Student (rotation) 2015, Ecology \& Evolution, Chicago, US (with S. Allesina).
+\item M. Adorisio, M.Sc. in Physics 2014, Padova, Italy (with A. Maritan and S. Suweis). 
+\item M. Insolia, B.Sc. in Physics 2014, Padova, Italy (with A. Maritan). 
+\item E. De Lazzari, M.Sc. in Physics 2013, Padova, Italy (with A. Maritan and S. Suweis). 
+
+\end{outerlist}
+
+
+\section{Ph.D. panels and commitees}
+
+\begin{outerlist}
+
+\item Malyon Bimler, Ph.D. in Ecology, University of Queensland, Australia (2020)
+\item Lana Descheemaeker, Ph.D. in Applied Physics, Vrije University of Brussels, Belgium (2020)
+\item Samuele Stivanello, Ph.D. in Mathematics, University of Padova, Italy (2021)
+\item Leonardo Miele, Ph.D. in Mathematics, University of Leeds, UK (2021)
+\item Rafael Menezes, Ph.D. program in Ecology, Universidade de S\~ao Paulo, Brazil (2021-)
+\item Francesco Camaglia, Ph.D. in Physics, LPENS, Paris, France (2023) 
+
+\end{outerlist}
+
+
+\lineOa
+
+
+\halfblankline
+
+
+
+\section{Grants, Fellowships and Awards}
+
+\begin{outerlist}
+
+    \item July 2019 \\
+      \href{http://italy.cssociety.org/index.php/ccs-italy-2019/}{css/italy} young scientist award % \\
+%   Omidyar Fellowship}, Santa Fe Institute.
+
+    \item January 2018 to December 2019 \\
+    \href{http://samoa.santafe.edu/omidyar-fellowship/}{Omidyar Fellowship}, Santa Fe Institute.
+
+    \item January 2014 \\
+	Fellowship sponsored by the Ing. Aldo Gini private foundation in Padua, funding a visit of 6 months at the University of Chicago [$4.8k$\euro].
+
+    \item January 2012 to December 2014 \\
+	Three years fellowship for Ph.D. studies from \href{http://www.unipd.it/index_en.htm}{Universit\`a degli Studi di Padova}.%%% ($\sim 40kE$).
+
+    \item October 2011 to December 2011 \\
+	Post-master scholarship `ex 60\%' 2011. % from ??? . %%%($\sim 4kE$).
+
+\end{outerlist}
+
+
+\section{Habilitations}
+
+\begin{outerlist}
+
+    \item August 8, 2018 to August 8, 2028 \\
+    \href{https://asn16.cineca.it/pubblico/miur/esito/02\%252FB2/2/5}{Italian National Scientific Habilitation as Associate Professor in Theoretical
+    Physics of Matter} (ASN, 02/B2 II Fascia).
+
+    \item September 12, 2018 to September 12, 2028 \\
+    \href{https://asn16.cineca.it/pubblico/miur/esito/02\%252FD1/2/5}{Italian National Scientific Habilitation as Associate Professor in Applied Physics} (ASN, 02/D1 II Fascia).
+
+   \item October 8, 2018 to October 8, 2028 \\
+    \href{https://asn16.cineca.it/pubblico/miur/esito/05\%252FC1/2/5}{Italian National Scientific Habilitation as Associate Professor in Ecology} (ASN, 05/C1 II Fascia).
+
+
+\end{outerlist}
+
+
+
+
+
+
+
+\section{Other}
+
+\begin{outerlist}
+    \item[] Languages \\
+	 Italian (native speaker), English (fluent) and Spanish (good)
+
+
+	\item[] Member of  \href{http://www.aps.org}{American Physical Society} (2014,2018)
+    Member of  \href{http://www.esa.org/esa/}{Ecological Society of America} (2015),
+    Member of  \href{http://www.ccs.com}{Complex System Society} (2013-2014), 
+
+
+\end{outerlist}
+
+%\begin{outerlist}
+%    \item[] Analytical \\
+%	 Stochastic Processes and SDE, Equilibrium Statistical Mechanics, Random Matrix theory
+%\end{outerlist}
+
+%\begin{outerlist}
+%    \item[] Computational \\
+%	 OS: \emph{Linux}, Programming and Scripting: \emph{C/C++}, \emph{Python}, \emph{R}, \emph{Bash}, \emph{Awk}, \\
+%	 Scientific Softwares: \emph{Grace}, \emph{Latex}, \emph{Mathematica},
+%	Image Editing: \emph{Inkscape}
+%\end{outerlist}
+
+
+
+
+
+%\halfblankline
+
+%\lineOa
+
+%\section{References}
+
+%\href
+%{http://allesinalab.uchicago.edu/} %CHANGE
+%{\textbf{Stefano Allesina}} \\
+%Professor,
+%\href{http://pondside.uchicago.edu/ecol-evol/}{Department of Ecology \& Evolution} and \href{http://www.ci.anl.gov/}{Computation Institute},
+%\href{http://www.uchicago.edu/}{The University of Chicago}, 1101 E 57th, Chicago, IL 60637 Chicago, USA \\
+%e-mail:~\href{mailto:sallesina@uchicago.edu}{sallesina@uchicago.edu}; phone:~+1-(773)-702-7825
+
+%\halfblankline
+
+%\href
+%{http://www.pd.infn.it/~maritan/index.html} %CHANGE
+%{\textbf{Amos Maritan}} \\
+%Professor,
+%\href{http://www.fisica.unipd.it/}{Department of Physics and Astronomy G.~Galilei},
+%\href{http://www.unipd.it/index_en.htm}{Universit\`a degli Studi di Padova}, Via Marzolo 8, 35131 Padova, Italy \\
+%e-mail:~\href{mailto:amos.maritan@pd.infn.it}{amos.maritan@pd.infn.it}; phone:~+39-049-827-7175
+%%
+%%\begin{innerlist}
+%%    \item[$\diamond$] \emph{Amos~Maritan was my supervisor during my M.S. thesis and is currently my PhD advisor.}
+%%\end{innerlist}
+
+%\halfblankline
+
+%\href
+%{http://www.lgm.upmc.fr/mcl/}
+%{\textbf{Marco~Cosentino~Lagomarsino}} \\
+%CNRS Researcher (DR2), 
+%        \href{http://www.lgm.upmc.fr/}{UMR 7238 Genomique des Microorganismes},
+%        \href{http://www.upmc.fr/en/index.html}{Universit\'e Pierre et Marie Curie},
+%	Group Leader of the \href{http://www.lgm.upmc.fr/drupal/?q=node/82}{Genomic Physics Group},
+%	Laboratory of Computational and Quantitative Biology,
+%	Place Jussieu 4, 75005 Paris, France \\
+%e-mail:~\href{mailto:marco.cosentino-lagomarsino@upmc.fr}{marco.cosentino-lagomarsino@upmc.fr}; phone:~+33-(0)1-44277341
+%\begin{innerlist}
+%    \item[$\diamond$] \emph{Marco Cosentino Lagomarsino was my supervisor during my B.S. thesis. I currently collaborate with him.}
+%\end{innerlist}
+
+%\href
+%{http://wwwteor.mi.infn.it/~bassetti/index.html}
+%{\textbf{Bruno~Bassetti}} \\
+%Researcher, 
+%	\href{http://www.fisica.unimi.it/}{Department of Physics} and \href{http://wwwteor.mi.infn.it/}{INFN},
+%	\href{http://www.unimi.it/ENG/}{Universit\`a degli Studi di Milano},
+%	via Celoria 16, 20133 Milan, Italy \\
+%e-mail:~\href{mailto:bruno.bassetti@mi.infn.it}{bruno.bassetti@mi.infn.it}; phone:~+39-02-50317-477
+%\begin{innerlist}
+%    \item[$\diamond$] \emph{Bruno Bassetti was my supervisor during both my BS and MS thesis. I currently collaborate with him.}
+%\end{innerlist}
+
+
+
+%\section{Other collaborators}
+
+%Jayanth R. Banavar \\
+
+%Miguel A. Mu\~noz \\
+
+%Sergei Maslov \\
+
+%Federico Bassetti \\
+
+%Samir Suweis \\
+
+
+
+\halfblankline
+
+\lineOa
+
+\begin{flushright}
+\emph{Last update: \today}
+\end{flushright}
+
+
+% The ``More Info'' section may not be necessary; make sure it's short
+% so it doesn't prevent people from seeing references available to
+% contact.
+
+%\section{More Information}
+
+%More information and auxiliary documents can be found at\\%
+%\url{http://www.tedpavlic.com/facjobsearch/}.
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------%
+% The following is copyright and licensing information for
+% redistribution of this LaTeX source code; it also includes a liability
+% statement. If this source code is not being redistributed to others,
+% it may be omitted. It has no effect on the function of the above code.
+%----------------------------------------------------------------------%
+% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
+%
+% Unless otherwise expressly stated, this work is licensed under the
+% Creative Commons Attribution-Noncommercial 3.0 United States License. To
+% view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
+% Creative Commons, 171 Second Street, Suite 300, San Francisco,
+% California, 94105, USA.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%----------------------------------------------------------------------%
+

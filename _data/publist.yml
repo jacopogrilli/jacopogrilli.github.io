@@ -1,11 +1,30 @@
-- title: "A balance between environmental filtering and competitive exclusion modulates the macroecology of alternative stable states in microbial communities"
+- title: "Leveraging DNA and RNA oscillatory dynamics to investigate the ecology and physiology of a freshwater microbial community"
+  authors: W.R. Shoemaker, M. Dal Bello, J. Grilli
+  journal:
+  journalshort:
+  reference:
+  year: 2026
+  doi:
+  arxiv:
+  biorxiv: 10.64898/2026.02.24.707719
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 1
+  highlight: 0
+
+
+- title: "Population growth is primarily inhibited by processes other than resource depletion, leaving a sublinear signature across species"
   authors: O. Mazzarisi, R. Droghetti, H. Carmichael, L. Ciandrini, M. Cosentino Lagomarsino, M. Dal Bello, L. Fant, G. Ghedini, J. Grilli, G. Yvon-Durocher, D.C. Reuman
-  journal: 
-  journalshort: 
-  reference:  
+  journal:
+  journalshort:
+  reference:
   year: 2025
-  doi: 
-  arxiv: 
+  doi:
+  arxiv:
   biorxiv: 10.64898/2025.12.30.697033
   news: 
   description: 
@@ -72,42 +91,42 @@
   preprint: 1
   highlight: 0
 
-- title: "Cultural tightness and social cohesion under evolving norms"
+- title: "Cultural tightness and social cohesion under coevolving beliefs, behaviors, and preferences"
   authors: F. Zimmaro, J. Grilli, M. Galesic, A.J. Stewart
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2025
-  doi: 
+  journal: Proceedings of the National Academy of Sciences
+  journalshort:
+  reference: 123(14):e2525139123
+  year: 2026
+  doi: 10.1073/pnas.2525139123
   arxiv: 2509.01848
-  biorxiv: 
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
+  biorxiv:
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 0
   highlight: 0
 
 
 
 - title: Modeling Spatial Synchronization of Predator-Prey Oscillations via the XY Model under Demographic Stochasticity and Migration
   authors: S. Golmohammadi, M. Zarei, J. Grilli
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2025
-  doi: 
+  journal: Physical Review E
+  journalshort:
+  reference:
+  year: 2026
+  doi: 10.1103/78jb-mtnq
   arxiv: 2511.13501
-  biorxiv: 
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
+  biorxiv:
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 0
   highlight: 0
 
 - title: Incoherent feedback from coupled amino acids and ribosome pools generates damped oscillations in growing E. coli
@@ -130,13 +149,13 @@
 
 - title: Evolutionary learning of microbial populations in partially predictable environments
   authors: R.M. Yagb Omer, O. Mazzarisi, M. Dal Bello, J. Grilli
-  journal: 
-  journalshort: 
-  reference:  
+  journal:
+  journalshort:
+  reference:
   year: 2025
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2025.07.08.663423
+  doi:
+  arxiv: 2508.00527
+  biorxiv:
   news: 
   description: 
   image: 
@@ -185,21 +204,21 @@
   highlight: 0
 
 - title: The macroecological dynamics of sojourn trajectories in the human gut microbiome
-  authors: W.R. Shoemaker, J Grilli
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2025
-  doi: 
+  authors: W.R. Shoemaker, J. Grilli
+  journal: mSystems
+  journalshort:
+  reference:
+  year: 2026
+  doi: 10.1128/msystems.01221-25
   arxiv:
-  biorxiv: 10.1101/ 2025.06.27.661930
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
+  biorxiv: 10.1101/2025.06.27.661930
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 0
   highlight: 0
 
 
@@ -1199,10 +1218,10 @@ fluctuation of species presence and abundance across microbial communities and o
   reference: "2(3):163-167"
   year: 2012
   doi: 10.4161/mge.21112
-  arxiv: 1209.3591
+  arxiv:
   biorxiv:
-  news: 
-  description: 
+  news:
+  description:
   image: dummy.png
   mendeley: research-papers/largescale-dynamics-horizontal-transfers
   pmid: 23061026
