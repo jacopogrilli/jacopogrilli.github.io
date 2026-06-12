@@ -258,3 +258,87 @@ firstp {
 }
 
 
+
+/* ===================================================================
+   Team page — member cards, role sections & past-members carousel
+   (added with the role-grouping / carousel redesign)
+   =================================================================== */
+
+/* Current-member headshot: subtle rounded corners, capped width so very
+   large source images don't dominate the card. */
+.team-photo {
+    border-radius: 6px;
+    max-width: 220px;
+    margin-right: 20px;
+}
+
+/* "Past Members" section heading */
+#gridid h2 {
+    margin-top: 30px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Role sub-headings within Past Members (Postdocs / PhD Students / ...) */
+#gridid h3 {
+    margin-top: 22px;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+/* ---- Past-members marquee (continuous auto-scrolling photo flow) ---- */
+/* Viewport: hides the off-screen part of the track; the side gradient mask
+   fades thumbnails in/out at the edges for a seamless "flow". */
+.past-marquee {
+    overflow: hidden;
+    width: 100%;
+    margin: 16px 0 30px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+/* The track holds TWO copies of the photo set and slides left by exactly one
+   copy (-50%), so the loop is seamless. Pauses on hover. */
+.past-marquee-track {
+    display: flex;
+    width: max-content;
+    animation-name: past-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.past-marquee:hover .past-marquee-track { animation-play-state: paused; }
+
+@keyframes past-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Respect users who prefer no motion: stop the animation. */
+@media (prefers-reduced-motion: reduce) {
+    .past-marquee-track { animation: none; }
+}
+
+.past-marquee .past-thumb {
+    flex: 0 0 auto;
+    width: 150px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* Circular, uniformly-cropped headshots — overrides the global `img`
+   rule (border-radius:2% + vertical margins) for the marquee only. */
+.past-marquee .past-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #eee;
+    margin: 0 auto 8px;
+    display: block;
+}
+
+.past-name { font-weight: 600; font-size: 0.9em; line-height: 1.2; }
+.past-role { color: #888;   font-size: 0.8em; }
+
+/* Compact spacing for the full alumni text list below the carousel */
+.past-list p { margin-bottom: 6px; }

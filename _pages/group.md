@@ -10,103 +10,71 @@ permalink: /group/
 
 # Group
 
-<!-- **We are  looking for new PhD students, Postdocs, and Master students to join the team** [(see openings)]({{ site.url }}{{ site.baseurl }}/vacancies) **!**-->
+<!-- **We are looking for new PhD students, Postdocs, and Master students to join the team** [(see openings)]({{ site.url }}{{ site.baseurl }}/vacancies) **!**-->
 
-
-<!--Jump to [staff](#staff), [master and bachelor students](#master-and-bachelor-students), [alumni](#alumni), [administrative support](#administrative-support), [lab visitors](#lab-visitors).-->
-
-<!--## Staff-->
-{% assign number_printed = 0 %}
-{% for member in site.data.team_members %}
-
-{% if member.past == 0 %}
-
-<!--{% assign even_odd = number_printed | modulo: 2 %}-->
-
-<!--{% if even_odd == 0 %}-->
-<div class="row">
-<!--{% endif %}-->
-
-<div class="col-sm-12 clearfix">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="25%" style="float: left" />
-  <h4>{{ member.name }} {% if member.website %}<a target="_blank" href="{{ member.website }}">
-<i class="fa fa-external-link"></i></a>{% endif %}
-</h4>
-  <i>{{ member.info }} - <span class="flag-icon flag-icon-{{ member.country }}"></span>
-<br>email: <{{ member.email }}></i>
-  <ul style="overflow: hidden">
-  
-  {% if member.number_educ == 1 %}
-  <li> {{ member.education1 }} </li>
-  {% endif %}
-  
-  {% if member.number_educ == 2 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  {% endif %}
-  
-  {% if member.number_educ == 3 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  {% endif %}
-  
-  {% if member.number_educ == 4 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  <li> {{ member.education4 }} </li>
-  {% endif %}
-  
-  </ul>
-
-  <p style="text-align: justify">
-  {{ member.description }}
-  </p>
-
-
-
-<!-- CUSTOMIZE --->
-
-
-<p>
-{% if member.cv %} <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/images/teamcv/{{ member.cv }}">
-<i class="fa fa-file-pdf-o"></i>  Download cv</a> - {% endif %} {% if member.scholarusername %} <a target="_blank" href="http://scholar.google.com/citations?user={{ member.scholarusername }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" data-tooltip="google scholar" ><i class="ai ai-google-scholar"></i></a> - {% endif %} {% if member.resgateusername %} <a target="_blank" href="http://www.researchgate.net/profile/{{ member.resgateusername }}" class="waves-effect waves-teal btn-flat my-researchgate-link" data-tooltip="researchgate" ><i class="ai ai-researchgate"></i> </a> - {% endif %} {% if member.mendeleyusername %}<a target="_blank" href="https://www.mendeley.com/profiles/{{ member.mendeleyusername }}" class="waves-effect waves-teal btn-flat my-mendeley-link" data-tooltip="mendeley" ><i class="ai ai-mendeley"></i></a> -  {% endif %} {% if  member.orcidusername %}<a target="_blank" href="http://orcid.org/{{ member.orcidusername }}" class="waves-effect waves-teal btn-flat my-orcid-link" data-tooltip="orcid"><i class="ai ai-orcid"></i></a> - {% endif %} {% if member.publonsusername %}<a target="_blank" href="https://publons.com/a/{{ member.publonsusername }}" class="waves-effect waves-teal btn-flat my-publons-link" data-tooltip="publons"><i class="ai ai-publons"></i></a> - {% endif %} {% if member.twitterusername %}<a target="_blank" href="https://twitter.com/{{ member.twitterusername }}" class="waves-effect waves-teal btn-flat my-twitter-link" data-tooltip="twitter"><i class="fa fa-twitter"></i></a> - {% endif %} {% if member.githubusername %}<a target="_blank" href="https://githun.com/{{ member.githubusername }}" class="waves-effect waves-teal btn-flat my-github-link" data-tooltip="github"><i class="fa fa-github"></i></a> - {% endif %} {% if member.spotifyusername  %}<a target="_blank" href="https://open.spotify.com/artist/{{ member.spotifyusername }}" class="waves-effect waves-teal btn-flat my-spotify-link"  data-tooltip="spotify"><i class="fab fa-spotify"></i></a> - {% endif %} {% if member.linkedinusername %}<a target="_blank" href="http://www.linkedin.com/in/{{ member.linkedinusername }}" class="waves-effect waves-teal btn-flat my-linkedin-link" data-tooltip="linkedin"><i class="fa fa-linkedin"></i></a> -  {% endif %} {% if member.stravausername  %}<a target="_blank" href="https://www.strava.com/athletes/{{ member.stravausername }}" class="waves-effect waves-teal btn-flat my-strava-link"  data-tooltip="strava"><i class="fab fa-strava"></i></a> {% endif %} 
-</p>
-
-</div>
-
-<!--{% assign number_printed = number_printed | plus: 1 %}-->
-
-<!--{% if even_odd == 1 %}-->
-</div>
-<!--{% endif %}-->
-
-
-{% endif %}
-{% endfor %}
-
+<!--
+  CURRENT members: a single flat list (Jacopo first, then everyone with past == 0,
+  in data order). No role sub-headings here — role headings are used only for the
+  PAST members below. Member markup lives in _includes/member_card.html.
+-->
+{% for member in site.data.team_members %}{% if member.past == 0 %}{% include member_card.html member=member %}{% endif %}{% endfor %}
 
 
 <br/>
 
-
 &nbsp;
 
-### Past Members
+## Past Members
 
-{% for member in site.data.team_members %}
+<!--
+  PAST members: first the continuously-scrolling photo flow (just under the
+  title), then the role-grouped text lists, then the map at the very bottom.
+  Roles (set in _data/team_members.yml): postdoc, phd, master/undergrad/diploma,
+  visiting. The social-icon row is shared with the cards via member_links.html.
+-->
 
-{% if member.past == 1 %}
+{%- comment %} Continuous photo flow of alumni with a headshot (_includes/past_carousel.html) {% endcomment %}
+{% include past_carousel.html %}
 
-{{ member.name }}{% if member.website %}<a target="_blank" href="http://{{ member.website }}">
-<i class="fa fa-external-link"></i></a>{% endif %}, {{ member.info }}. {% if member.scholarusername %} <a target="_blank" href="http://scholar.google.com/citations?user={{ member.scholarusername }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" data-tooltip="google scholar" ><i class="ai ai-google-scholar"></i></a> - {% endif %} {% if member.resgateusername %} <a target="_blank" href="http://www.researchgate.net/profile/{{ member.resgateusername }}" class="waves-effect waves-teal btn-flat my-researchgate-link" data-tooltip="researchgate" ><i class="ai ai-researchgate"></i> </a> - {% endif %} {% if member.mendeleyusername %}<a target="_blank" href="https://www.mendeley.com/profiles/{{ member.mendeleyusername }}" class="waves-effect waves-teal btn-flat my-mendeley-link" data-tooltip="mendeley" ><i class="ai ai-mendeley"></i></a> -  {% endif %} {% if  member.orcidusername %}<a target="_blank" href="http://orcid.org/{{ member.orcidusername }}" class="waves-effect waves-teal btn-flat my-orcid-link" data-tooltip="orcid"><i class="ai ai-orcid"></i></a> - {% endif %} {% if member.publonsusername %}<a target="_blank" href="https://publons.com/a/{{ member.publonsusername }}" class="waves-effect waves-teal btn-flat my-publons-link" data-tooltip="publons"><i class="ai ai-publons"></i></a> - {% endif %} {% if member.twitterusername %}<a target="_blank" href="https://twitter.com/{{ member.twitterusername }}" class="waves-effect waves-teal btn-flat my-twitter-link" data-tooltip="twitter"><i class="fa fa-twitter"></i></a> - {% endif %} {% if member.githubusername %}<a target="_blank" href="https://githun.com/{{ member.githubusername }}" class="waves-effect waves-teal btn-flat my-github-link" data-tooltip="github"><i class="fa fa-github"></i></a> - {% endif %} {% if member.spotifyusername  %}<a target="_blank" href="https://open.spotify.com/artist/{{ member.spotifyusername }}" class="waves-effect waves-teal btn-flat my-spotify-link"  data-tooltip="spotify"><i class="fab fa-spotify"></i></a> - {% endif %} {% if member.linkedinusername %}<a target="_blank" href="http://www.linkedin.com/in/{{ member.linkedinusername }}" class="waves-effect waves-teal btn-flat my-linkedin-link" data-tooltip="linkedin"><i class="fa fa-linkedin"></i></a> -  {% endif %} {% if member.stravausername  %}<a target="_blank" href="https://www.strava.com/athletes/{{ member.stravausername }}" class="waves-effect waves-teal btn-flat my-strava-link"  data-tooltip="strava"><i class="fab fa-strava"></i></a> {% endif %}<span class="flag-icon flag-icon-{{ member.country }}"></span>
-
-
+{%- comment %} ---- Past postdocs ---- {% endcomment %}
+{% assign past_postdocs = site.data.team_members | where: "past", 1 | where: "role", "postdoc" %}
+{% if past_postdocs.size > 0 %}
+### Postdocs
+<div class="past-list">
+{% for member in past_postdocs %}<p>{{ member.name }}{% if member.website %} <a target="_blank" href="{{ member.website }}"><i class="fa fa-external-link"></i></a>{% endif %}, {{ member.info }}. {% include member_links.html member=member %}<span class="flag-icon flag-icon-{{ member.country }}"></span></p>
+{% endfor %}
+</div>
 {% endif %}
 
-
+{%- comment %} ---- Past PhD students ---- {% endcomment %}
+{% assign past_phds = site.data.team_members | where: "past", 1 | where: "role", "phd" %}
+{% if past_phds.size > 0 %}
+### PhD Students
+<div class="past-list">
+{% for member in past_phds %}<p>{{ member.name }}{% if member.website %} <a target="_blank" href="{{ member.website }}"><i class="fa fa-external-link"></i></a>{% endif %}, {{ member.info }}. {% include member_links.html member=member %}<span class="flag-icon flag-icon-{{ member.country }}"></span></p>
 {% endfor %}
+</div>
+{% endif %}
+
+{%- comment %} ---- Past master / undergraduate / diploma students ---- {% endcomment %}
+{% assign past_students = site.data.team_members | where: "past", 1 | where_exp: "m", "m.role == 'master' or m.role == 'undergrad' or m.role == 'diploma'" %}
+{% if past_students.size > 0 %}
+### Master &amp; Undergraduate Students
+<div class="past-list">
+{% for member in past_students %}<p>{{ member.name }}{% if member.website %} <a target="_blank" href="{{ member.website }}"><i class="fa fa-external-link"></i></a>{% endif %}, {{ member.info }}. {% include member_links.html member=member %}<span class="flag-icon flag-icon-{{ member.country }}"></span></p>
+{% endfor %}
+</div>
+{% endif %}
+
+{%- comment %} ---- Past visiting students ---- {% endcomment %}
+{% assign past_visitors = site.data.team_members | where: "past", 1 | where: "role", "visiting" %}
+{% if past_visitors.size > 0 %}
+### Visiting Students
+<div class="past-list">
+{% for member in past_visitors %}<p>{{ member.name }}{% if member.website %} <a target="_blank" href="{{ member.website }}"><i class="fa fa-external-link"></i></a>{% endif %}, {{ member.info }}. {% include member_links.html member=member %}<span class="flag-icon flag-icon-{{ member.country }}"></span></p>
+{% endfor %}
+</div>
+{% endif %}
 
 <div class="map" markdown="0" box-shadow="none">
 <div id="groupMaps" class="templatemo-map" box-shadow="none"></div>
@@ -115,6 +83,4 @@ permalink: /group/
 and
 <span style="color:#419794">**past**</span>) ---
 
- <!--TO CREATE MAP https://developers.google.com/chart/interactive/docs/gallery/geochart?csw=1#Example-->
-
-
+<!--TO CREATE MAP https://developers.google.com/chart/interactive/docs/gallery/geochart?csw=1#Example-->

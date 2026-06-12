@@ -1,0 +1,41 @@
+{%- comment %}
+  member_card.html — one current group member, rendered as a full-width card
+  (photo on the left, name / role-info / education / description / links on the
+  right). Used by the role-grouped sections in group.md.
+
+  Usage:  {% include member_card.html member=member %}
+
+  Improvements over the old inline markup:
+    - alt text on the photo (accessibility) and loading="lazy" (perf: defer the
+      long list of headshots until they scroll into view).
+    - education list driven by a loop instead of four copy-pasted if-blocks.
+    - social/CV links delegated to member_links.html (single source of truth).
+{% endcomment -%}
+{%- assign m = include.member -%}
+<div class="row">
+<div class="col-sm-12 clearfix">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ m.photo }}"
+       alt="{{ m.name }}" loading="lazy"
+       class="img-responsive team-photo" width="25%" style="float: left" />
+  <h4>{{ m.name }}
+    {%- if m.website %} <a target="_blank" href="{{ m.website }}"><i class="fa fa-external-link"></i></a>{% endif %}
+  </h4>
+  <i>{{ m.info }} - <span class="flag-icon flag-icon-{{ m.country }}"></span>
+  {%- if m.email %}<br>email: &lt;{{ m.email }}&gt;{% endif %}</i>
+
+  {%- comment %} education entries 1..number_educ (was four hard-coded if-blocks) {% endcomment -%}
+  {% if m.number_educ %}
+  <ul style="overflow: hidden">
+    {% for i in (1..m.number_educ) %}
+    {%- capture key %}education{{ i }}{% endcapture -%}
+    {% assign edu = m[key] %}
+    {% if edu %}<li> {{ edu }} </li>{% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <p style="text-align: justify">{{ m.description }}</p>
+
+  <p>{% include member_links.html member=m cv=true %}</p>
+</div>
+</div>

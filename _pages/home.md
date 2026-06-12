@@ -24,22 +24,25 @@ permalink: /
     </ol>
 
     <!-- Items -->
+    <!-- NOTE: image src uses {{ site.url }}{{ site.baseurl }} (absolute).
+         Previously this was a stray dev-server literal {{ http://127.0.0.1:4000/ }}
+         which is invalid Liquid and rendered empty. -->
     <div class="carousel-inner" markdown="0">
 
         <div class="item active">
-            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/ictpmiramare.jpg" alt="Slide 1" width="100%" />
+            <img src="{{ site.url }}{{ site.baseurl }}/images/homeslide/ictpmiramare.jpg" alt="Slide 1" width="100%" />
         </div>
         <div class="item">
-            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/popchemostatmazzob.jpg" alt="Slide 2" width="100%" />
+            <img src="{{ site.url }}{{ site.baseurl }}/images/homeslide/popchemostatmazzob.jpg" alt="Slide 2" width="100%" />
         </div>
         <div class="item">
-            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/ecoli.jpg" alt="Slide 3" width="100%"/>
+            <img src="{{ site.url }}{{ site.baseurl }}/images/homeslide/ecoli.jpg" alt="Slide 3" width="100%"/>
         </div>
         <div class="item">
-            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 4" width="100%" />
+            <img src="{{ site.url }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 4" width="100%" />
         </div>
 <!--        <div class="item">-->
-<!--            <img src="{{ http://127.0.0.1:4000/ }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 5" width="100%" />-->
+<!--            <img src="{{ site.url }}{{ site.baseurl }}/images/homeslide/fant.jpg" alt="Slide 5" width="100%" />-->
 <!--        </div>-->
     </div> 
   <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">

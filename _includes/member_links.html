@@ -1,0 +1,26 @@
+{%- comment %}
+  member_links.html — row of social / academic profile icons for one team member.
+
+  Usage:  {% include member_links.html member=member %}
+          {% include member_links.html member=member cv=true %}
+
+  Extracted from the two near-identical copies that used to live inline in
+  group.md (current-member cards and the past-members list). Edit icons here once
+  and both places update. Pass `cv=true` to prepend a "Download cv" link.
+
+  `include.member` is the team_members.yml entry; only the username fields that
+  are set render an icon.
+{% endcomment -%}
+{%- assign m = include.member -%}
+{% if include.cv and m.cv %}<a target="_blank" href="{{ site.url }}{{ site.baseurl }}/images/teamcv/{{ m.cv }}"><i class="fa fa-file-pdf-o"></i>  Download cv</a> - {% endif %}
+{%- if m.scholarusername %}<a target="_blank" href="https://scholar.google.com/citations?user={{ m.scholarusername }}" class="my-google-scholar-link" data-tooltip="google scholar"><i class="ai ai-google-scholar"></i></a> - {% endif %}
+{%- if m.resgateusername %}<a target="_blank" href="https://www.researchgate.net/profile/{{ m.resgateusername }}" class="my-researchgate-link" data-tooltip="researchgate"><i class="ai ai-researchgate"></i></a> - {% endif %}
+{%- if m.mendeleyusername %}<a target="_blank" href="https://www.mendeley.com/profiles/{{ m.mendeleyusername }}" class="my-mendeley-link" data-tooltip="mendeley"><i class="ai ai-mendeley"></i></a> - {% endif %}
+{%- if m.orcidusername %}<a target="_blank" href="https://orcid.org/{{ m.orcidusername }}" class="my-orcid-link" data-tooltip="orcid"><i class="ai ai-orcid"></i></a> - {% endif %}
+{%- if m.publonsusername %}<a target="_blank" href="https://publons.com/a/{{ m.publonsusername }}" class="my-publons-link" data-tooltip="publons"><i class="ai ai-publons"></i></a> - {% endif %}
+{%- if m.twitterusername %}<a target="_blank" href="https://twitter.com/{{ m.twitterusername }}" class="my-twitter-link" data-tooltip="twitter"><i class="fa fa-twitter"></i></a> - {% endif %}
+{%- comment %} fixed typo: was githun.com {% endcomment -%}
+{%- if m.githubusername %}<a target="_blank" href="https://github.com/{{ m.githubusername }}" class="my-github-link" data-tooltip="github"><i class="fa fa-github"></i></a> - {% endif %}
+{%- if m.spotifyusername %}<a target="_blank" href="https://open.spotify.com/artist/{{ m.spotifyusername }}" class="my-spotify-link" data-tooltip="spotify"><i class="fab fa-spotify"></i></a> - {% endif %}
+{%- if m.linkedinusername %}<a target="_blank" href="https://www.linkedin.com/in/{{ m.linkedinusername }}" class="my-linkedin-link" data-tooltip="linkedin"><i class="fa fa-linkedin"></i></a> - {% endif %}
+{%- if m.stravausername %}<a target="_blank" href="https://www.strava.com/athletes/{{ m.stravausername }}" class="my-strava-link" data-tooltip="strava"><i class="fab fa-strava"></i></a> {% endif -%}

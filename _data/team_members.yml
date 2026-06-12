@@ -1,4 +1,5 @@
 - name: Jacopo Grilli
+  role: pi
   photo: jgrilli.jpg
   country: ita
   fromlatitude: 45.37320623211329
@@ -12,7 +13,7 @@
   education1: B.Sc. and M.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
   description: I am a biological physicist, with a background in statistical physics. Broadly speaking, I am interested in understanding complex phenomena starting from simple rules and minimal assumptions. Most of my research is at the interface between statistical physics and ecology, with a particular focus on coexistence, stability, and variability. I also work on different problems in genomics and cell physiology.
   twitterusername: jacrickets
-  githubusername:  jacopogrilli
+  githubusername: jacopogrilli
   scholarusername: "P2V3b3QAAAAJ"
   resgateusername: "Jacopo_Grilli"
   orcidusername: "0000-0002-8235-5803"
@@ -30,6 +31,7 @@
 
 
 - name: Will Shoemaker
+  role: postdoc
   country: usa
   fromlatitude: 39.11488884951013
   fromlongitude: -77.56478484405119
@@ -40,24 +42,25 @@
   description: "I study the ecological and evolutionary dynamics of microbial communities. Though I am a biologist by training, I am fascinated with views of biological systems that are grounded in statistical physics. At ICTP I am working to build a physicist's intuition of microbial ecology and evolution through empirical and theoretical means. My current research is focused on connecting macroecological predictions to experimental data and the application of macroecological principles to patterns of genetic diversity in the human gut microbiome."
   number_educ: 3
   education3: Postdoc with Nandita Garud, Dept. of Eco. and Evo. Biology, UCLA, Los Angeles, USA
-  education2: Ph.D. in Biology, Indiana University, Bloomington, Indiana, USA 
-  education1: B.Sc. in Biology, James Madison University, Harrisonburg, Virginia, USA 
+  education2: Ph.D. in Biology, Indiana University, Bloomington, Indiana, USA
+  education1: B.Sc. in Biology, James Madison University, Harrisonburg, Virginia, USA
   twitterusername: ShoeStrapped
-  githubusername:  
+  githubusername:
   scholarusername: 92HwU5EAAAAJ
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv:
   past: 0
 
 
 - name: Onofrio Mazzarisi
+  role: postdoc
   country: ita
   fromlatitude: 40.848728167840996
   fromlongitude: 17.124873481689537
@@ -70,27 +73,28 @@
   education4: Postdoc with D. Reuman, University of Kansas, Lawrence, KS, USA
   education3: Postdoc with M. Smerlak, Max Planck Institute for Mathematics in the Sciences, Leipzig, Germany
   education2: Ph.D. in Physics with Federico Corberi, Università di Salerno, Fisciano, Italy
-  education1: B.Sc. and M.Sc. in Physics, Università di Bologna, Bologna, Italy 
-  twitterusername: 
-  githubusername:  
+  education1: B.Sc. and M.Sc. in Physics, Università di Bologna, Bologna, Italy
+  twitterusername:
+  githubusername:
   scholarusername: G1WQQN4AAAAJ
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
   stravausername: 40079808
-  cv: 
+  cv:
   past: 0
 
 
 - name: Mihael Špacapan
+  role: postdoc
   country: svn
   fromlatitude: 45.954369514481975
-  fromlongitude:  13.649299968181905
-  website: 
+  fromlongitude: 13.649299968181905
+  website:
   photo: mspacapan.jpg
   info: Postdoc, started October 2024
   email: mihael.spacapan@gmail.com
@@ -100,25 +104,26 @@
   education3: Postdoc with prof. dr. Ines Mandić-Mulec
   education2: PhD in Biotechnology, Biotechnical faculty, University of Ljubljana, Slovenia
   education1: B.Sc. and M.Sc. in Microbiology, Biotechnical faculty, University of Ljubljana, Slovenia
-  twitterusername: 
-  githubusername:  
+  twitterusername:
+  githubusername:
   scholarusername: 1JU2SygAAAAJ
   resgateusername: Mihael-Spacapan
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: znanstvenikpan/
-  mendeleyusername: 
-  stravausername: 
-  cv:  spacapan.pdf
+  mendeleyusername:
+  stravausername:
+  cv: spacapan.pdf
   past: 0
 
 
 - name: Akari Matsuki
+  role: postdoc
   country: jpn
-  fromlatitude:  35.68154481516878
-  fromlongitude:  139.7793501475874
+  fromlatitude: 35.68154481516878
+  fromlongitude: 139.7793501475874
   website: https://sites.google.com/view/akarimatsuki-en/home
   photo: amatsuki.jpg
   info: Postdoc, started December 2024
@@ -130,26 +135,27 @@
   education2: "M.S. in Information Science and Technology, The University of Tokyo"
   education1: "B.S. in Engineering, The University of Tokyo"
   twitterusername: treepine_akari
-  githubusername:  AkariMatsuki
+  githubusername: AkariMatsuki
   scholarusername: ckN4gZYAAAAJ
-  resgateusername: 
+  resgateusername:
   orcidusername: 0009-0003-8786-9189
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv:  matsuki_cv.pdf
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv: matsuki_cv.pdf
   past: 0
 
 
 
 
 - name: Emanuele Pigani
+  role: postdoc
   country: ita
-  fromlatitude:  45.40894632656116
-  fromlongitude:  11.877689959649704
+  fromlatitude: 45.40894632656116
+  fromlongitude: 11.877689959649704
   website: https://epigani.github.io/
   photo: epigani.jpeg
   info: Postdoc, started May 2025
@@ -158,31 +164,32 @@
   number_educ: 2
   education2: "Ph.D. in Natural Sciences within Laboratory of Interdisciplinary Physics, Padua, and Stazione Zoologica Napoli, Naples"
   education1: "B.Sc. and M.Sc. in Physics, Università degli Studi di Padova, Padua, Italy"
-  twitterusername: 
-  githubusername:  
+  twitterusername:
+  githubusername:
   scholarusername: W3FqR7AAAAAJ
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv:
   past: 0
 
 
 
 
 - name: Giuseppe Giuliani
+  role: postdoc
   country: usa
   fromlatitude: 39.9612
   fromlongitude: -82.9988
-  photo:    ggiuliani.jpeg
-  info: "Postdoc student, started January 2026"  
+  photo: ggiuliani.jpeg
+  info: "Postdoc student, started January 2026"
   email: giuseppe.juice@gmail.com
-  description:             "My interests lie in the application of mathematical and computational methods to biologically or ecologically significant problems. My thesis research broadly focused on the analyzing clinically relevant data and developing mechanistic models to explore how immune-cancer cell interactions in a spatial context affect tumor progression. I am currently exploring how bacterial cell physiology mediates growth trade-offs in fluctuating environments through mathematical modeling and data analysis."
+  description: "My interests lie in the application of mathematical and computational methods to biologically or ecologically significant problems. My thesis research broadly focused on the analyzing clinically relevant data and developing mechanistic models to explore how immune-cancer cell interactions in a spatial context affect tumor progression. I am currently exploring how bacterial cell physiology mediates growth trade-offs in fluctuating environments through mathematical modeling and data analysis."
   number_educ:
   education1:
   education2:
@@ -205,13 +212,14 @@
 
 
 - name: Javier Aguilar
+  role: postdoc
   country: esp
   fromlatitude: 36.7213
   fromlongitude: -4.4214
-  photo:   javi.jpeg
-  info: "Postdoc, started April 2026"   
+  photo: javi.jpeg
+  info: "Postdoc, started April 2026"
   email: jvrglrschz@gmail.com
-  description:  "My research focuses on tackling interdisciplinary problems from the perspective of theoretical physics: using minimal models to explore how robust macroscopic patterns emerge from plausible microscopic processes. I currently investigate the impact of empirical procedures in ecology — how data acquisition affects interaction measures and model inference, and how minimal models can inform experimental design."
+  description: "My research focuses on tackling interdisciplinary problems from the perspective of theoretical physics: using minimal models to explore how robust macroscopic patterns emerge from plausible microscopic processes. I currently investigate the impact of empirical procedures in ecology — how data acquisition affects interaction measures and model inference, and how minimal models can inform experimental design."
   number_educ:
   education1:
   education2:
@@ -235,6 +243,7 @@
 
 
 - name: Annamaria Bupu
+  role: phd
   country: idn
   fromlatitude: -6.920817339564152
   fromlongitude: 107.62353863735886
@@ -245,23 +254,24 @@
   number_educ: 2
   education1: M.Sc. in Physics, Universitas Indonesia, Depok Indonesia
   education2: B.Sc. in Physics, Universitas Indonesia, Depok, Indonesia
-  education3: 
-  education4: 
-  twitterusername: 
-  githubusername: 
+  education3:
+  education4:
+  twitterusername:
+  githubusername:
   scholarusername:
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   cv: abupu_cv.pdf
   past: 0
 
 - name: Solmaz Golmohammadi
+  role: phd
   country: irn
   fromlatitude: 36.684376080846924
   fromlongitude: 48.50902938973805
@@ -271,9 +281,9 @@
   description: "I am a physics student interested in studying nature from the complex systems perspective, using network science, nonlinear dynamics, statistical physics and stochastic analysis.  My thesis will be specifically focused on spatial synchrony in ecology, which is a fundamental feature of population dynamics."
   number_educ: 1
   education1: B.Sc. Institute for Advanced Studies in Basic Sciences (IASBS), Zanjan, Iran
-  education2: 
-  education3: 
-  education4: 
+  education2:
+  education3:
+  education4:
   twitterusername: solmaazam
   githubusername: Solmaaz
   scholarusername: PPxxc2IAAAAJ
@@ -291,6 +301,7 @@
 
 
 - name: Roaa Mohmmed Yagb Omer
+  role: phd
   country: sdn
   fromlatitude: 12.146390709720864
   fromlongitude: 24.89669550239758
@@ -302,44 +313,45 @@
   education1: B.Sc. Scientific Laboratories(Physics), Sudan University of Sciences and Technology, Sudan.
   education2: M.Sc. In Mathematical Sciences, African Institute for Mathematical Sciences, Cameroon.
   education3: QLS Diploma Program student at ICTP, September 2021 - August 2022
-  education4: 
-  twitterusername: 
-  githubusername: 
+  education4:
+  twitterusername:
+  githubusername:
   scholarusername:
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   cv: Roaa_Mohammed_s_CV.pdf
   past: 0
 
 - name: Ricardo Garcia
+  role: master
   country: ita
-  fromlatitude: 
-  fromlongitude: 
+  fromlatitude:
+  fromlongitude:
   photo: rgarcia.jpg
   info: M.Sc. Student in Physics of Complex Systems at Politecnico di Torino, Internship, started Oct 2024
-  email: 
+  email:
   description: "I am a physics student interested in expanding my point of view on complex systems by studying its applications to ecology. My Master's thesis will explore the mechanisms of interaction arising in a fluctuating environment, focusing on the emergence and stability of cooperation among agents that can share information and wealth."
   number_educ: 1
   education1: "B.Sc. in Physical Engineering, Politecnico di Torino, Torino, Italy"
-  education2: 
-  twitterusername: 
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername:  
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  education2:
+  twitterusername:
+  githubusername:
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: ricardo-garcia-8a124a144
-  mendeleyusername: 
-  stravausername: 
-  cv: 
+  mendeleyusername:
+  stravausername:
+  cv:
   past: 1
 
 
@@ -348,6 +360,7 @@
 
 
 - name: Dario Sergo
+  role: master
   country: ita
   fromlatitude: 45.649021424947875
   fromlongitude: 13.78530828983773
@@ -356,25 +369,26 @@
   email: dariosergo0112@gmail.com
   description: "I am a BSc physics student interested in the physics of complex systems. I am currently studying the behavior of a population of individuals with different fitness and mutation rates, employing techniques from computational physics (and stochastic mechanics). In particular I am interested in understanding when (and under which conditions) a variable mutation rate could give to an organism an evolutionary advantage."
   number_educ: 0
-  education1: 
-  education2: 
-  twitterusername: 
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername:  
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: 
+  education1:
+  education2:
+  twitterusername:
+  githubusername:
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv:
   past: 1
 
 
 
 - name: Xiaotian Zhou
+  role: visiting
   country: chn
   fromlatitude: 32.071447955255756
   fromlongitude: 118.80770662015016
@@ -383,24 +397,25 @@
   email: xzhou@ictp.it
   description: "I am a PhD student studying hydrology and ecology. I have a keen interest in linking macroecological theory to microbial biodiversity using multidisciplinary approaches. My current research primarily focuses on applying the well-ordered sediment microbial community as a model system to test and develop theories on species abundance distribution (SAD). I aim to pursue the generality of community patterns and assembly processes from empirical data in a statistical, emergent and non-reductionist way."
   number_educ: 2
-  education1: B.Sc. in Geoscience, Hohai University, Nanjing, China 
-  education2: PhD candidate in Hydrology, Hohai University, Nanjing, China 
-  twitterusername: 
-  githubusername:  "bluecheongsam"
-  scholarusername: 
+  education1: B.Sc. in Geoscience, Hohai University, Nanjing, China
+  education2: PhD candidate in Hydrology, Hohai University, Nanjing, China
+  twitterusername:
+  githubusername: "bluecheongsam"
+  scholarusername:
   resgateusername: "Xiaotian-Zhou-7"
-  orcidusername: "0000-0002-6214-4494" 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  orcidusername: "0000-0002-6214-4494"
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   cv: "cv_xtzhou.pdf"
   past: 1
 
 
 - name: Richmond Crisostomo
+  role: master
   country: phl
   fromlatitude: 14.649338821260542
   fromlongitude: 121.09885335614611
@@ -411,20 +426,21 @@
   number_educ: 1
   education1: B.Sc. in Applied Physics, University of the Philippines, Diliman
   twitterusername: rmcrisostomo
-  githubusername:  
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  githubusername:
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: richmond-crisostomo-76402017b
-  mendeleyusername: 
-  stravausername: 
+  mendeleyusername:
+  stravausername:
   cv: "rcrisostomo.pdf"
   past: 1
 
 - name: Vitor Monteiro Marquioni
+  role: visiting
   country: bra
   fromlatitude: -22.009235120645137
   fromlongitude: -47.89058707838147
@@ -436,23 +452,24 @@
   number_educ: 2
   education1: B.Sc and M.Sc in Physics at Universidade de São Paulo, IFSC, USP, Brazil
   education2: PhD candidate in Physics at Universidade Estadual de Campinas, UNICAMP, Brazil
-  education3: 
-  education4: 
+  education3:
+  education4:
   twitterusername: VitorMarquioni
-  githubusername: 
+  githubusername:
   scholarusername: FyyhlpYAAAAJ
   resgateusername: Vitor-Marquioni
   orcidusername: 0000-0002-8904-0230
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   cv: vmonteiro_cv.pdf
   past: 1
 
 - name: Matteo Sireci
+  role: phd
   country: ita
   fromlatitude: 45.40628993380715
   fromlongitude: 11.877327743691996
@@ -463,71 +480,75 @@
   number_educ: 2
   education1: B.Sc in Physics, Università degli Studi di Padova, Padova, Italy
   education2: M.Sc. in Physics, Ludwig Maximilians Univerisity, Munich, Germany
-  twitterusername: 
-  githubusername:  
+  twitterusername:
+  githubusername:
   scholarusername: _X7tfNMAAAAJ
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   cv: "cv_sireci.pdf"
   past: 1
 
 
 
 - name: Rian Fritz Jalandoni
+  role: diploma
   country: phl
   fromlatitude: 10.72013743522088
   fromlongitude: 122.56407692405666
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2022 - August 2023
   linkedinusername: rian-fritz-jalandoni-0ab7b7190
-  past: 1  
+  past: 1
 
 
 - name: Patricia Lazo Paravicini
+  role: diploma
   country: bol
   fromlatitude: -16.488421018782336
   fromlongitude: -68.12237431596978
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2022 - August 2023
   linkedinusername:
-  past: 1    
+  past: 1
 
 - name: José M. Camacho Mateu
+  role: visiting
   country: esp
   fromlatitude: 38.02130812807731
   fromlongitude: -1.0948620356248788
-  website: 
+  website:
   photo: jcamacho.png
-  info: Visiting Student at ICTP January 2023 - May 2023 (Ph.D. student Carlos III University of Madrid) 
+  info: Visiting Student at ICTP January 2023 - May 2023 (Ph.D. student Carlos III University of Madrid)
   email: joscamac@math.uc3m.es
   description: "As a PhD student, I am fascinated by the complex role that microbial interactions play in the structure and function of microbial communities. The significance of microbial interactions cannot be overstated, particularly in the context of debilitating conditions such as different types of cancer, Crohn's disease or cystic fibrosis. My ultimate goal is to contribute to the development of a theoretical framework for understanding the dynamics of the microbiome, enabling us to predict the efficacy of microbiome-based medical treatments."
   number_educ: 2
   education1: M.Sc. in Physics and Math, Universidad de Granada, Granada, Spain
   education2: B.Sc. in Physics, Universidad de Granada, Granada, Spain
-  education3: 
-  education4: 
+  education3:
+  education4:
   twitterusername: physgon
-  githubusername: 
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
-  cv: 
+  githubusername:
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
+  cv:
   past: 1
 
 
 - name: Lorenzo Fant
+  role: phd
   country: ita
   fromlatitude: 45.444019266151216
   fromlongitude: 12.327901997254894
@@ -535,26 +556,27 @@
   photo: lfant.jpg
   info: PhD student at SISSA, Sept 2019 - Feb 2022
   email: lorenzofant@gmail.com
-  description: 
+  description:
   number_educ: 2
   education2: M.Sc. Physics, Università di Trieste, Trieste, Italy
-  education1: B.Sc. Physics, Università di Trento, Trento, Italy 
+  education1: B.Sc. Physics, Università di Trento, Trento, Italy
   twitterusername: "lorenzo_fant"
-  githubusername:  
+  githubusername:
   scholarusername: Fqnde5sAAAAJ
   resgateusername: "Lorenzo-Fant"
   orcidusername: "0000-0002-0258-1107"
   publonsusername: "4364025"
-  arxivusername: 
-  biorxivusername: 
+  arxivusername:
+  biorxivusername:
   linkedinusername: "lorenzo-fant"
-  mendeleyusername: 
+  mendeleyusername:
   stravausername: "58651578"
   cv: "lfant_cv.pdf"
   past: 1
 
-  
+
 - name: Samuele Lipani
+  role: master
   country: ita
   fromlatitude: 37.49015635434264
   fromlongitude: 14.060243192226524
@@ -564,43 +586,46 @@
   description: "I am a physics student currently working on data science and population dynamics and ecology. I am really interested in biological physics and its application in ecology and quantitative life sciences. As a data scientist I usually compute physical models in Python, R, Julia or Matlab by exploiting network science tools and complex systems environments."
   number_educ: 1
   education1: B.Sc. in Physics, Università di Catania, Catania, Italy
-  twitterusername: 
-  githubusername:  samuelelipani
-  scholarusername: 
-  resgateusername: 
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  twitterusername:
+  githubusername: samuelelipani
+  scholarusername:
+  resgateusername:
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: samuele-lipani-03656a229/
-  mendeleyusername: 
-  stravausername: 
+  mendeleyusername:
+  stravausername:
   cv: slipani_cv.pdf
   past: 1
 
 
 
 - name: Manuel Vasquez Ibarra
+  role: diploma
   country: gtm
   fromlatitude: 14.710375441929187
   fromlongitude: -90.43237868022162
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2021 - August 2022
   linkedinusername: manuel-a-vasquez-ibarra-77a2b1125
   past: 1
 
 
 - name: Sahar Farrag
+  role: diploma
   country: egy
   fromlatitude: 27.18590506702392
   fromlongitude: 31.187170830102225
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2021 - August 2022
   linkedinusername: sahar-farrag-64b8b61a6
   past: 1
 
 
 - name: Adalberto Valsecchi
+  role: master
   country: ita
   fromlatitude: 46.16986622826677
   fromlongitude: 9.877608103021835
@@ -610,32 +635,34 @@
   description: "I am interested in statistical physics and its interdisciplinary applications (e.g. in Computer Science, in Biology and in Linguistics); I used its tools to study artificial neural networks and I am currently approaching eco-evolutionary microbiology challenges. I am also fascinated by theoretical physics because of its weird and amazing way to represent Nature."
   number_educ: 1
   education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
-  twitterusername: 
-  githubusername:  
+  twitterusername:
+  githubusername:
   scholarusername:
   resgateusername: Adalberto_Valsecchi
-  orcidusername: 
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
-  linkedinusername: 
-  mendeleyusername: 
-  stravausername: 
+  orcidusername:
+  publonsusername:
+  arxivusername:
+  biorxivusername:
+  linkedinusername:
+  mendeleyusername:
+  stravausername:
   spotifyusername: 0QywAgoqmactggMU0Vfwf0
   cv: cv_avalsecchi.pdf
   past: 1
 
 
 - name: Aamna Saleem
+  role: diploma
   country: pak
   fromlatitude: 31.670489405949482
   fromlongitude: 73.69331185619717
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2020 - December 2021
   linkedinusername:
   past: 1
 
 - name: Silvia Zaoli
+  role: postdoc
   country: ita
   fromlatitude: 44.068377980873066
   fromlongitude: 12.570919868854308
@@ -645,43 +672,46 @@
   email: silvia.zaoli@gmail.com
   description: "I am a physicist who became fascinated with ecology. My research is driven by the curiosity to understand how the macroscopic patterns and behaviours that we observe in ecosystems emerge from the complex interactions of a large number of entities. I am especially interested in understanding the roles of interactions, environmental fluctuations and trait heterogeneity in shaping communities, their composition and their variability."
   number_educ: 3
-  education3: Postdoc with <a href="https://fabriziolillo.wordpress.com/">Fabrizio Lillo</a>, Department of Mathematics, Università di Bologna, Bologna, Italy 
-  education2: PhD in Environmental Engineering with <a href="https://www.epfl.ch/labs/echo/">Andrea Rinaldo</a> at EPFL, Lausanne, Switzerland 
+  education3: Postdoc with <a href="https://fabriziolillo.wordpress.com/">Fabrizio Lillo</a>, Department of Mathematics, Università di Bologna, Bologna, Italy
+  education2: PhD in Environmental Engineering with <a href="https://www.epfl.ch/labs/echo/">Andrea Rinaldo</a> at EPFL, Lausanne, Switzerland
   education1: B.Sc and M.Sc in Physics at Università di Padova, Padova, Italy
-  twitterusername: 
-  githubusername:  
+  twitterusername:
+  githubusername:
   scholarusername: aPZha4cAAAAJ
   resgateusername: Silvia-Zaoli
   orcidusername: 0000-0001-6619-0984
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: silviazaoli
-  mendeleyusername: 
-  stravausername: 
+  mendeleyusername:
+  stravausername:
   cv: "szaoli_cv.pdf"
   past: 1
 
 - name: Ivana Rondon
+  role: diploma
   country: ven
   fromlatitude: 8.570607303925312
   fromlongitude: -71.18068280022997
-  photo: 
+  photo:
   info: QLS Diploma Program student at ICTP, September 2020 - August 2021
   linkedinusername: ivana-rondon-08b362116
   past: 1
 
 - name: Min Hao Ling
+  role: diploma
   country: mys
   fromlatitude: 5.414082760799222
   fromlongitude: 100.3312336321657
-  photo: 
+  photo:
   info: MATH Diploma Program student at ICTP, September 2020 - August 2021
   linkedinusername: ling-min-hao-1b6521135
   past: 1
 
 
 - name: Mattia Corigliano
+  role: master
   country: ita
   fromlatitude: 45.61888547993196
   fromlongitude: 9.207953148641618
@@ -689,23 +719,23 @@
 #  info: Master Student at University of Milan, Italy, co-cupervised with <a href="https://www.ifom.eu/en/cancer-research/researchers/marco-cosentino-lagomarsino.php">Marco Cosentino Lagomarsino</a>, Started October 2020
   info: Master Student at University of Milan, Italy, October 2020 - July 2021
   email: mcorigliano96@gmail.com
-  description: 
+  description:
   number_educ: 1
   education1: B.Sc. in Physics, Università degli Studi di Milano, Milan, Italy
   twitterusername: MCorigliano_
-  githubusername:  
+  githubusername:
   scholarusername: HhvKKzQAAAAJ
   resgateusername: Mattia-Corigliano
   orcidusername: 0000-0002-6645-6778
-  publonsusername: 
-  arxivusername: 
-  biorxivusername: 
+  publonsusername:
+  arxivusername:
+  biorxivusername:
   linkedinusername: mattia-corigliano-b05407203/
-  mendeleyusername: 
-  stravausername: 
+  mendeleyusername:
+  stravausername:
   cv: cv_corigliano.pdf
   past: 1
- 
+
 #- name: "This could be you !"
 #  photo: rock.jpg
 #  info: See <a href="http://www.allanlab.org/vacancies">openings</a> for more info
