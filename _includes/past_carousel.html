@@ -3,43 +3,36 @@
 
   Usage:  {% include past_carousel.html %}
 
-  Built from _data/team_members.yml: alumni = members with past == 1 AND a
-  non-blank photo. The thumbnails scroll horizontally in a seamless, automatic
-  loop (CSS marquee) — no manual controls. To make the loop seamless the set is
-  rendered TWICE and the track is translated by -50%; pausing on hover and
-  respecting prefers-reduced-motion are handled in css/main.scss.
+  alumni = members with past == 1 AND a non-blank photo. The thumbnails scroll
+  horizontally in a seamless automatic loop (CSS marquee in css/main.scss); the
+  set is rendered TWICE and the track translated -50% for a seamless wrap.
 
-  Animation duration scales with the number of alumni (≈3s each) so the speed
-  stays constant as people are added.
+  IMPORTANT: every emitted HTML line is flush-left (column 0). This page is
+  Markdown processed by kramdown, which turns any line indented 4+ spaces into a
+  <pre><code> block — indenting this markup would render the tags as literal text.
 {% endcomment -%}
-
-{%- comment %} alumni with a non-blank photo; counted with a loop (no where_exp,
-  which Jekyll 3.x can't use for a bare-truthiness test reliably) {% endcomment -%}
 {%- assign alumni = site.data.team_members | where: "past", 1 -%}
 {%- assign photo_count = 0 -%}
 {%- for m in alumni %}{% if m.photo and m.photo != "" %}{% assign photo_count = photo_count | plus: 1 %}{% endif %}{% endfor -%}
 {%- assign dur = photo_count | times: 3 -%}
-
 {% if photo_count > 0 %}
 <div class="past-marquee" aria-label="Photos of former group members">
-  <div class="past-marquee-track" style="animation-duration: {{ dur }}s;">
-    {%- comment %} two identical copies back-to-back → seamless wrap {% endcomment -%}
-    {% for dup in (1..2) %}{% for m in alumni %}{% if m.photo and m.photo != "" %}
-      {%- case m.role -%}
-        {%- when "postdoc" %}{% assign role_label = "Postdoc" %}
-        {%- when "phd" %}{% assign role_label = "PhD student" %}
-        {%- when "master" %}{% assign role_label = "Master student" %}
-        {%- when "diploma" %}{% assign role_label = "Diploma student" %}
-        {%- when "visiting" %}{% assign role_label = "Visiting student" %}
-        {%- else %}{% assign role_label = "" %}
-      {%- endcase -%}
-      <div class="past-thumb"{% if dup == 2 %} aria-hidden="true"{% endif %}>
-        <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ m.photo }}"
-             alt="{{ m.name }}" loading="lazy" class="past-photo" />
-        <div class="past-name">{{ m.name }}</div>
-        {% if role_label != "" %}<div class="past-role">{{ role_label }} <span class="flag-icon flag-icon-{{ m.country }}"></span></div>{% endif %}
-      </div>
-    {% endif %}{% endfor %}{% endfor %}
-  </div>
+<div class="past-marquee-track" style="animation-duration: {{ dur }}s;">
+{% for dup in (1..2) %}{% for m in alumni %}{% if m.photo and m.photo != "" -%}
+{%- case m.role -%}
+{%- when "postdoc" %}{% assign role_label = "Postdoc" %}
+{%- when "phd" %}{% assign role_label = "PhD student" %}
+{%- when "master" %}{% assign role_label = "Master student" %}
+{%- when "diploma" %}{% assign role_label = "Diploma student" %}
+{%- when "visiting" %}{% assign role_label = "Visiting student" %}
+{%- else %}{% assign role_label = "" %}
+{%- endcase -%}
+<div class="past-thumb"{% if dup == 2 %} aria-hidden="true"{% endif %}>
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ m.photo }}" alt="{{ m.name }}" loading="lazy" class="past-photo" />
+<div class="past-name">{{ m.name }}</div>
+{% if role_label != "" %}<div class="past-role">{{ role_label }} <span class="flag-icon flag-icon-{{ m.country }}"></span></div>{% endif %}
+</div>
+{% endif %}{% endfor %}{% endfor %}
+</div>
 </div>
 {% endif %}
