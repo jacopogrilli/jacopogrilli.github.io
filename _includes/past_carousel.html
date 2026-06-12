@@ -13,14 +13,18 @@
   stays constant as people are added.
 {% endcomment -%}
 
-{%- assign alumni = site.data.team_members | where: "past", 1 | where_exp: "p", "p.photo" -%}
-{%- assign dur = alumni.size | times: 3 -%}
+{%- comment %} alumni with a non-blank photo; counted with a loop (no where_exp,
+  which Jekyll 3.x can't use for a bare-truthiness test reliably) {% endcomment -%}
+{%- assign alumni = site.data.team_members | where: "past", 1 -%}
+{%- assign photo_count = 0 -%}
+{%- for m in alumni %}{% if m.photo and m.photo != "" %}{% assign photo_count = photo_count | plus: 1 %}{% endif %}{% endfor -%}
+{%- assign dur = photo_count | times: 3 -%}
 
-{% if alumni.size > 0 %}
+{% if photo_count > 0 %}
 <div class="past-marquee" aria-label="Photos of former group members">
   <div class="past-marquee-track" style="animation-duration: {{ dur }}s;">
     {%- comment %} two identical copies back-to-back → seamless wrap {% endcomment -%}
-    {% for dup in (1..2) %}{% for m in alumni %}
+    {% for dup in (1..2) %}{% for m in alumni %}{% if m.photo and m.photo != "" %}
       {%- case m.role -%}
         {%- when "postdoc" %}{% assign role_label = "Postdoc" %}
         {%- when "phd" %}{% assign role_label = "PhD student" %}
@@ -35,7 +39,7 @@
         <div class="past-name">{{ m.name }}</div>
         {% if role_label != "" %}<div class="past-role">{{ role_label }} <span class="flag-icon flag-icon-{{ m.country }}"></span></div>{% endif %}
       </div>
-    {% endfor %}{% endfor %}
+    {% endif %}{% endfor %}{% endfor %}
   </div>
 </div>
 {% endif %}

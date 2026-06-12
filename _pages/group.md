@@ -56,8 +56,13 @@ permalink: /group/
 </div>
 {% endif %}
 
-{%- comment %} ---- Past master / undergraduate / diploma students ---- {% endcomment %}
-{% assign past_students = site.data.team_members | where: "past", 1 | where_exp: "m", "m.role == 'master' or m.role == 'undergrad' or m.role == 'diploma'" %}
+{%- comment %} ---- Past master / undergraduate / diploma students ----
+  Built by concatenating three single `where` filters; Jekyll 3.x `where_exp`
+  does not accept compound `or` conditions. {% endcomment %}
+{% assign ps_master = site.data.team_members | where: "past", 1 | where: "role", "master" %}
+{% assign ps_undergrad = site.data.team_members | where: "past", 1 | where: "role", "undergrad" %}
+{% assign ps_diploma = site.data.team_members | where: "past", 1 | where: "role", "diploma" %}
+{% assign past_students = ps_master | concat: ps_undergrad | concat: ps_diploma %}
 {% if past_students.size > 0 %}
 ### Master &amp; Undergraduate Students
 <div class="past-list">
