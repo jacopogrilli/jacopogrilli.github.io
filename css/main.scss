@@ -313,10 +313,10 @@ firstp {
     to   { transform: translateX(-50%); }
 }
 
-/* Respect users who prefer no motion: stop the animation. */
-@media (prefers-reduced-motion: reduce) {
-    .past-marquee-track { animation: none; }
-}
+/* NOTE: intentionally NOT gated behind prefers-reduced-motion — the continuous
+   flow is an explicitly requested feature, and gating it made the strip freeze
+   into a clipped, broken-looking state on machines with "Reduce motion" on
+   (a common macOS setting). It always scrolls; hover pauses it. */
 
 .past-marquee .past-thumb {
     flex: 0 0 auto;
