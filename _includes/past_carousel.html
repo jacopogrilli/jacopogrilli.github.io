@@ -16,7 +16,11 @@
 {%- for m in alumni %}{% if m.photo and m.photo != "" %}{% assign photo_count = photo_count | plus: 1 %}{% endif %}{% endfor -%}
 {%- assign dur = photo_count | times: 3 -%}
 {% if photo_count > 0 %}
-<div class="past-marquee" aria-label="Photos of former group members">
+{%- comment %} markdown="0" stops kramdown from parsing the inner HTML as
+  Markdown (which otherwise inserts <p> wrappers and orphans the nested </div>s,
+  breaking the flex layout). Same mechanism the home-page carousel and the map
+  use. {% endcomment -%}
+<div class="past-marquee" markdown="0" aria-label="Photos of former group members">
 <div class="past-marquee-track" style="animation-duration: {{ dur }}s;">
 {% for dup in (1..2) %}{% for m in alumni %}{% if m.photo and m.photo != "" -%}
 {%- case m.role -%}
