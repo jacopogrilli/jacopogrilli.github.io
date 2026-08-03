@@ -91,6 +91,24 @@
   preprint: 1
   highlight: 0
 
+- title: Eco-evolutionary dynamics lead to functionally robust and redundant communities
+  authors: L. Fant, I. Macocco, J. Grilli
+  journal: PLOS Computational Biology
+  journalshort: PlosCB
+  reference: 22 (7), e1014437
+  year: 2026
+  doi: 10.1371/journal.pcbi.1014437
+  arxiv:
+  biorxiv: 10.1101/2021.04.02.438173
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 0
+  highlight: 0
+
 - title: "Cultural tightness and social cohesion under coevolving beliefs, behaviors, and preferences"
   authors: F. Zimmaro, J. Grilli, M. Galesic, A.J. Stewart
   journal: Proceedings of the National Academy of Sciences
@@ -223,7 +241,7 @@
 
 
 
-- title: Macroecological laws in experimental microbial systems
+- title: Macroecological patterns in experimental microbial communities
   authors: W.R. Shoemaker, A. Sanchez, J. Grilli
   journal: PLOS Computational Biology
   journalshort: PlosCB
@@ -232,12 +250,12 @@
   doi: 10.1371/journal.pcbi.1013044
   arxiv:
   biorxiv: 10.1101/2023.07.24.550281
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid: 40341906
   preprint: 0
   highlight: 0
 
@@ -595,24 +613,6 @@
 
 
 
-
-- title: Eco-evolutionary dynamics lead to functionally robust and redundant communities
-  authors: L. Fant, I. Macocco, J. Grilli
-  journal: 
-  journalshort: 
-  reference: 
-  year: 2021
-  doi: 
-  arxiv:
-  biorxiv: 10.1101/2021.04.02.438173
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
-  highlight: 0
 
 
 

@@ -2,9 +2,29 @@
 ## EAWAG Nov
 
 
+- title: "Theoretical Ecology and the Physics of Life: Upscaling Biodiversity in a Changing World"
+  what: 0
+  upcoming: 1
+  type: Lecturer
+  date: January 18 - 29, 2027
+  place: ICTP-SAIFR
+  location: ictp-saifr
+  url: https://www.ictp-saifr.org/2027-activities/
+  slides:
+
+- title: "Macroecology of alternative stable states in microbial community assembly"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: June 26, 2026
+  place: Department of Ecology and Evolution, University of Chicago
+  location: uchicago_ecology
+  url:
+  slides:
+
 - title: "Coarse-graining Microbial Ecology: from Genes to Physiological Strategies to Communities across Environments"
   what: 1
-  upcoming: 1
+  upcoming: 0
   type: Program
   date: May 18 - June 18, 2026
   place: KITP
