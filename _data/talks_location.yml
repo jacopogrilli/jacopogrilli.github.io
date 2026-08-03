@@ -1,3 +1,10 @@
+- location: um6p
+  country: Morocco
+  state:
+  city: Ben Guerir
+  latitude: 32.2188
+  longitude: -7.9355
+
 - location: icts
   country: India
   state: 
