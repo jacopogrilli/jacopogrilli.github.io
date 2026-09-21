@@ -6,14 +6,20 @@
     python3 scripts/publish_notes.py ecoevo2026 --push      # build, then git commit + push
 
 Source: <vault>/WebsiteNotes/<course>/*.md. The vault is only read, never written.
-Output: websitenotes/<course>/<name>.html, one page per top-level note, file names
+Only notes whose `publish` property is true are published: tick the checkbox in
+Obsidian's Properties, or put `publish: true` in the front matter. A page that this
+script made earlier for a note that is no longer published is deleted.
+In the index, lines that link to an unpublished note of the course are hidden, so
+the index can list every lecture and only the ready ones appear online.
+
+Output: websitenotes/<course>/<name>.html, one page per published note, file names
 lower-cased as in the Obsidian "Webpage HTML Export" used for bg2025/qsb2024/sc2025.
 Needs pandoc (brew install pandoc). Math is typeset in the browser by MathJax 4.
 
 Obsidian syntax handled
   [[Note]], [[Note|alias]], [[Note#Heading|alias]], [[#Heading]]
-      -> links to pages of this course or of a course already under websitenotes/;
-         anything else becomes plain text and is reported as unresolved.
+      -> links to published pages of this course, or of a course already under
+         websitenotes/; anything else becomes plain text (reported).
   ![[file.pdf]], ![[image.png]], ![[image.png|300]]
       -> file copied to websitenotes/<course>/material/, then linked (pdf) or shown.
   > [!type] Title, > [!type]- Title (callouts) -> box, or collapsible <details>.
@@ -38,17 +44,37 @@ SITE = Path(__file__).resolve().parent.parent
 VAULT = Path.home() / "Documents" / "WORKNOTES_remote"
 NOTES_DIR = "WebsiteNotes"
 TEMPLATE = SITE / "scripts" / "notes_template.html"
+GENERATOR_TAG = '<meta name="generator" content="publish_notes.py">'  # must match the template
 PRIVATE_SECTIONS = {"Material", "Differences from the old notes", "Where the material lives"}
 PLACEHOLDER = "*to be made*"
 PANDOC_FROM = ("markdown+tex_math_dollars+pipe_tables+hard_line_breaks+autolink_bare_uris"
                "-yaml_metadata_block-implicit_figures")
+MATHJAX = "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"  # v4 breaks long formulas
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
-MATHJAX = "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"  # v4 breaks long in-line formulas
 
+FRONTMATTER_RE = re.compile(r"\A---[ \t]*\n(.*?)\n---[ \t]*(?:\n|\Z)", re.S)
 CALLOUT_RE = re.compile(r"^>\s*\[!(?P<type>[\w-]+)\](?P<fold>[+-]?)\s*(?P<title>.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 WIKILINK_RE = re.compile(r"(!?)\[\[([^\]|#\\]*)(#[^\]|\\]*)?(?:\\?\|([^\]]*))?\]\]")
 PROTECT_RE = re.compile(r"(\$\$.*?\$\$|\$[^$\n]+?\$|`[^`\n]+`)", re.S)
+
+
+def split_frontmatter(text):
+    """(properties, body). Only flat `key: value` lines are read."""
+    m = FRONTMATTER_RE.match(text)
+    if not m:
+        return {}, text
+    props = {}
+    for line in m[1].splitlines():
+        key, sep, value = line.partition(":")
+        if sep and not line[:1].isspace() and not line.startswith("-"):
+            props[key.strip()] = value.strip().strip("'\"")
+    return props, text[m.end():]
+
+
+def is_published(note):
+    props, _ = split_frontmatter(note.read_text(encoding="utf-8"))
+    return props.get("publish", "").lower() in {"true", "yes", "1"}
 
 
 def web_name(stem):
@@ -73,8 +99,9 @@ def plain(text):
 
 
 class Page:
-    def __init__(self, course, src_dir, out_dir, note):
+    def __init__(self, course, src_dir, out_dir, note, published):
         self.course, self.src, self.out, self.note = course, src_dir, out_dir, note
+        self.published = published  # stems of the notes published in this course
         self.log, self.copies = [], []
 
     # ---- private content -------------------------------------------------
@@ -101,6 +128,27 @@ class Page:
                 self.log.append(f"removed placeholder line: {line.strip()[:60]}")
                 continue
             out.append(line)
+        return out
+
+    def hide_unpublished(self, lines):
+        """In the index only: drop lines that link to a note of this course that is not published."""
+        if self.note.stem != "index":
+            return lines
+        out = []
+        for line in lines:
+            hidden = None
+            for m in WIKILINK_RE.finditer(line):
+                if m[1]:
+                    continue
+                target = m[2].strip()
+                parts = (target[:-3] if target.endswith(".md") else target).split("/")
+                same_course = len(parts) == 1 or (len(parts) >= 3 and parts[:2] == [NOTES_DIR, self.course])
+                if same_course and (self.src / f"{parts[-1]}.md").exists() and parts[-1] not in self.published:
+                    hidden = parts[-1]
+            if hidden:
+                self.log.append(f"hid index line (links unpublished {hidden}): {line.strip()[:50]}")
+            else:
+                out.append(line)
         return out
 
     # ---- callouts --------------------------------------------------------
@@ -167,13 +215,15 @@ class Page:
         if course is None and len(parts) == 1 and (self.src / f"{name}.md").exists():
             course = self.course
         href = None
-        if course == self.course and (self.src / f"{name}.md").exists():
-            href = f"{web_name(name)}.html"
+        if course == self.course:
+            if name in self.published:
+                href = f"{web_name(name)}.html"
         elif course and (SITE / "websitenotes" / course / f"{web_name(name)}.html").exists():
             href = f"../{course}/{web_name(name)}.html"
         text = alias or (name if course in (None, self.course) else f"{course} {name}")
         if href is None:
-            self.log.append(f"unresolved link, kept as text: [[{target}]]")
+            why = "not published" if course == self.course else "not on the site"
+            self.log.append(f"link kept as text ({why}): [[{target}]]")
             return text
         return f"[{text}]({href}{'#' + heading_id(anchor) if anchor else ''})"
 
@@ -192,8 +242,8 @@ class Page:
         return "".join(p if k % 2 else WIKILINK_RE.sub(sub, p) for k, p in enumerate(pieces))
 
     def markdown(self):
-        text = self.note.read_text(encoding="utf-8")
-        return self.wikilinks(self.callouts(self.strip_private(text)))
+        _, text = split_frontmatter(self.note.read_text(encoding="utf-8"))
+        return self.wikilinks(self.callouts(self.hide_unpublished(self.strip_private(text))))
 
 
 def check_html(html_file):
@@ -230,16 +280,24 @@ def main():
         sys.exit(f"no notes in {src}")
     if shutil.which("pandoc") is None:
         sys.exit("pandoc not found (brew install pandoc)")
+    published = [n for n in notes if is_published(n)]
+    for note in notes:
+        if note not in published:
+            print(f"{note.name}: not published (publish is not true)")
+    if not published:
+        sys.exit("no note has publish: true")
+    stems = {n.stem for n in published}
 
     index = src / "index.md"
     course_title = args.course
     if index.exists():
-        h1 = next((l[2:] for l in index.read_text(encoding="utf-8").splitlines() if l.startswith("# ")), None)
+        _, body = split_frontmatter(index.read_text(encoding="utf-8"))
+        h1 = next((l[2:] for l in body.splitlines() if l.startswith("# ")), None)
         course_title = plain(h1) if h1 else course_title
 
     built = []
-    for note in notes:
-        page = Page(args.course, src, out, note)
+    for note in published:
+        page = Page(args.course, src, out, note, stems)
         md = page.markdown()
         h1 = next((l[2:] for l in md.splitlines() if l.startswith("# ")), note.stem)
         target = out / f"{web_name(note.stem)}.html"
@@ -254,26 +312,35 @@ def main():
             d.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(s, d)
             print(f"    copied {s.name} -> {d.relative_to(SITE)}")
-        subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}", "--standalone",
-                        "--template", str(TEMPLATE),
+        subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}",
+                        "--standalone", "--template", str(TEMPLATE),
                         "-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
                         "-o", str(target)], input=md, text=True, check=True)
         built.append(target)
+
+    # pages of notes that are no longer published: delete the ones this script made
+    expected = {f"{web_name(n.stem)}.html" for n in published}
+    for f in sorted(out.glob("*.html")) if out.exists() else []:
+        if f.name in expected:
+            continue
+        if GENERATOR_TAG not in f.read_text(encoding="utf-8"):
+            print(f"left in place, not made by this script: {f.relative_to(SITE)}")
+        elif args.dry_run:
+            print(f"would delete {f.relative_to(SITE)} (note not published)")
+        else:
+            f.unlink()
+            print(f"deleted {f.relative_to(SITE)} (note not published)")
 
     ok = True
     for target in built:  # after the whole build, so links between new pages resolve
         for p in check_html(target):
             ok = False
             print(f"PROBLEM in {target.name}: {p}")
-
-    stale = sorted({p.name for p in out.glob("*.html")} - {f"{web_name(n.stem)}.html" for n in notes}) if out.exists() else []
-    if stale:
-        print(f"not produced by this run (left in place): {', '.join(stale)}")
     if not ok:
         sys.exit("problems found: fix before publishing")
     if args.push and not args.dry_run:
         rel = str(out.relative_to(SITE))
-        subprocess.run(["git", "-C", str(SITE), "add", rel], check=True)
+        subprocess.run(["git", "-C", str(SITE), "add", "-A", rel], check=True)
         if subprocess.run(["git", "-C", str(SITE), "diff", "--cached", "--quiet"]).returncode == 0:
             print("nothing to commit")
             return
