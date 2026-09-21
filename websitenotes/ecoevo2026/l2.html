@@ -294,7 +294,24 @@ Using<br />
 <span class="math display">\[
 \frac{d\langle n\rangle}{dt} = (b-d)\langle n\rangle
 \]</span><br />
-we can write</p>
+we can write<br />
+<span class="math display">\[
+\frac{d}{dt}\langle n_D(t)\rangle = \frac{d}{b-d}\,\frac{d\langle
+n(t)\rangle}{dt}
+\quad\Longrightarrow\quad
+\langle n_D(t)\rangle = \frac{d}{b-d}\bigl(\langle n(t)\rangle -
+n_0\bigr) = \frac{d\,n_0}{b-d}\left(e^{(b-d)t}-1\right)
+\]</span><br />
+(for <span class="math inline">\(b=d\)</span>, <span
+class="math inline">\(\langle n_D(t)\rangle = d\,n_0\,t\)</span>). For
+<span class="math inline">\(b&gt;d\)</span>, at long times there are
+<span class="math inline">\(d/(b-d)\)</span> deaths per living
+individual: the ratio of living to dead tends to <span
+class="math inline">\((b-d)/d = R_0-1\)</span>, with <span
+class="math inline">\(R_0=b/d\)</span> the mean number of offspring per
+lifetime. This is the continuous-time version of the <span
+class="math inline">\(k-1\)</span> found in <a
+href="l1.html">L1</a>.</p>
 <h2 id="extinction-probability">Extinction probability</h2>
 <p><span class="math display">\[
 P(0,t) = g(0,t) = \left( \frac{d - d\,e^{(d-b)t}}{b - d\,e^{(d-b)t}}
