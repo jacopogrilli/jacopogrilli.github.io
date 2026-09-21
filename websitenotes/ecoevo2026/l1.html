@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<title>Lecture 1. Exponential growth · Ecology &amp; Evolution
+2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<h1 id="lecture-1.-exponential-growth">Lecture 1. Exponential
+growth</h1>
+<p>Back to <a href="index.html">index</a></p>
+<p>colab <a
+href="https://colab.research.google.com/drive/1oJmU4YZhS-WltA5BNnOWMuyMgZ5ZkI_e?usp=sharing"
+class="uri">https://colab.research.google.com/drive/1oJmU4YZhS-WltA5BNnOWMuyMgZ5ZkI_e?usp=sharing</a></p>
+<hr />
+<h2 id="why-we-write-models-at-all">Why we write models at all</h2>
+<p>Ecology and evolution deal with objects — individuals — that are
+absurdly complicated, in numbers that range from a handful to <span
+class="math inline">\(10^{30}\)</span>. No model of a population is a
+faithful description of its parts. A model is useful when it captures a
+<em>tendency of motion</em>: what happens to a quantity we can measure,
+under assumptions we can state.</p>
+<p>Levins’ point (<a href="https://www.jstor.org/stable/27836590">Levins
+1966</a>) is that one cannot simultaneously maximise
+<strong>generality</strong>, <strong>realism</strong> and
+<strong>precision</strong>, so model building is the choice of which one
+to sacrifice. In this course we mostly sacrifice realism and precision:
+we look for the simplest dynamical rule compatible with a biological
+mechanism, and we ask what it predicts qualitatively and, when possible,
+quantitatively.</p>
+<h2 id="what-we-model">What we model</h2>
+<p>We restrict ourselves to systems described by</p>
+<p><span class="math display">\[
+\frac{d n_i(t)}{dt} = f_i\bigl( n_1(t), \dots, n_S(t) \bigr) ,
+\qquad i=1,\dots,S ,
+\]</span></p>
+<p>where <span class="math inline">\(n_i\)</span> is the
+<strong>abundance</strong> of population <span
+class="math inline">\(i\)</span> and <span
+class="math inline">\(S\)</span> the number of populations. Writing this
+down already fixes a lot:</p>
+<ul>
+<li>the <strong>identity</strong> of a population is entirely contained
+in the function <span class="math inline">\(f_i\)</span> (in the
+simplest case, in a couple of parameters);</li>
+<li>there is <strong>no explicit time dependence</strong>: no
+seasonality, no changing environment;</li>
+<li>the dynamics is <strong>deterministic</strong>: no demographic noise
+(lifted in <a href="l2.html">L2</a>);</li>
+<li>there is <strong>no space</strong>: we do not track <span
+class="math inline">\(n_i(\vec x,t)\)</span>;</li>
+<li><strong>individuals of the same species are identical</strong> and
+species do not change: no evolution (lifted in <a
+href="l3.html">L3</a>).</li>
+</ul>
+<p>The focus is not on trajectories but on the long-term behaviour,
+<span class="math inline">\(\lim_{t\to\infty} n_i(t)\)</span>.</p>
+<h2 id="the-minimal-model-birth-and-death">The minimal model: birth and
+death</h2>
+<p>Take <span class="math inline">\(S=1\)</span>. Over a short interval
+<span class="math inline">\(\Delta t\)</span>, the number of individuals
+changes by births and deaths, each proportional to the number of
+individuals present:</p>
+<p><span class="math display">\[
+n(t+\Delta t) = n(t) + \underbrace{b\,\Delta t\, n(t)}_{\text{births}} -
+\underbrace{d\,\Delta t\, n(t)}_{\text{deaths}} .
+\]</span></p>
+<p>Here <span class="math inline">\(b\)</span> and <span
+class="math inline">\(d\)</span> are <strong>per-capita rates</strong>,
+with units of <span class="math inline">\(1/\text{time}\)</span>: <span
+class="math inline">\(b\,\Delta t\)</span> is the probability that a
+given individual reproduces in <span class="math inline">\(\Delta
+t\)</span> (this reading is what we will take seriously in <a
+href="l2.html">L2</a>). Taking <span class="math inline">\(\Delta t \to
+0\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dn}{dt} = (b-d)\, n = r\, n\ }
+\qquad
+n(t) = n(0)\, e^{rt} ,
+\]</span></p>
+<p>with <strong>growth rate</strong> <span
+class="math inline">\(r=b-d\)</span>. The population grows if <span
+class="math inline">\(r&gt;0\)</span> and declines if <span
+class="math inline">\(r&lt;0\)</span>. Only the difference <span
+class="math inline">\(b-d\)</span> appears: growth is degenerate with
+respect to the <em>turnover</em> <span
+class="math inline">\(b+d\)</span>. Demographic noise (<a
+href="l2.html">L2</a>) breaks this degeneracy.</p>
+<p>Two derived quantities are more useful than <span
+class="math inline">\(r\)</span> itself:</p>
+<p><span class="math display">\[
+t_{\text{double}} = \frac{\log 2}{r} ,
+\qquad
+\text{$e$-folding time} = \frac 1r .
+\]</span></p>
+<h3 id="discrete-generations">Discrete generations</h3>
+<p>Exponential growth is not an artefact of continuous time. Suppose
+instead that all individuals reproduce synchronously every <span
+class="math inline">\(t_r\)</span>, each leaving <span
+class="math inline">\(k\)</span> offspring (and then dying —
+non-overlapping generations). Then</p>
+<p><span class="math display">\[
+n\bigl((g+1)t_r\bigr) = k\, n(g\,t_r)
+\quad\Longrightarrow\quad
+n(t=g\,t_r) = n(0)\, k^{\,g} = n(0)\, k^{\,t/t_r} = n(0)\,e^{rt} ,
+\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[
+\boxed{\ r = \frac{\log k}{t_r}\ }
+\]</span></p>
+<p>In the ecological literature <span class="math inline">\(k\)</span>
+is the <strong>basic reproductive number</strong> <span
+class="math inline">\(R_0\)</span> (expected offspring per individual
+per generation) and <span class="math inline">\(t_r\)</span> the
+generation time <span class="math inline">\(T\)</span>, so <span
+class="math inline">\(r=\log R_0 / T\)</span>. Note <span
+class="math inline">\(R_0 &gt; 1 \iff r &gt; 0\)</span>: the two
+criteria for growth agree, but they are <em>not</em> the same number,
+and they rank populations differently unless generation times are equal.
+We will meet this ambiguity again when we ask what fitness is (L8,
+L14).</p>
+<h3 id="orders-of-magnitude">Orders of magnitude</h3>
+<p><span class="math inline">\(E.\ coli\)</span> in good conditions:
+<span class="math inline">\(r \approx 2\ \mathrm{h^{-1}}\)</span>,
+i.e. a doubling time of <span class="math inline">\(\log 2/2 \approx
+20\)</span> min. Starting from a single cell,</p>
+<p><span class="math display">\[
+n(6\,\mathrm{h}) = e^{2\cdot 6} \approx 1.6\times 10^{5} ,
+\qquad
+n(12\,\mathrm{h}) \approx 2.6\times 10^{10} .
+\]</span></p>
+<p>Humans: the growth rate of the world population is currently <span
+class="math inline">\(r\approx 0.015\ \mathrm{yr^{-1}}\)</span> (1.5%
+per year), so</p>
+<p><span class="math display">\[
+t_{\text{double}} = \frac{\log 2}{0.015\ \mathrm{yr^{-1}}} \approx 46\
+\text{years} .
+\]</span></p>
+<h2 id="what-fraction-of-all-humans-ever-born-is-alive-today">What
+fraction of all humans ever born is alive today?</h2>
+<p>A calculation that looks like arithmetic and is actually a test of a
+model. Take the discrete-generation picture, <span
+class="math inline">\(n(g) = k^g\)</span>, starting from <span
+class="math inline">\(n(0)=1\)</span>. The number of individuals that
+ever lived, up to and including the present generation <span
+class="math inline">\(g\)</span>, is</p>
+<p><span class="math display">\[
+n_{\text{tot}} = \sum_{h=0}^{g} k^{h} = \frac{k^{\,g+1}-1}{k-1} ,
+\qquad n_{\text{now}} = k^{\,g} .
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{n_{\text{now}}}{n_{\text{tot}}} = \frac{k^{\,g}(k-1)}{k^{\,g+1}-1}
+\ \xrightarrow[\ g\gg 1\ ]{}\
+\boxed{\ \frac{k-1}{k}\ }
+\]</span></p>
+<p>and, equivalently, for every ancestor who ever lived there are</p>
+<p><span class="math display">\[
+\frac{n_{\text{now}}}{n_{\text{tot}}-n_{\text{now}}} =
+\frac{k^{\,g}(k-1)}{k^{\,g}-1} \xrightarrow[\ g\gg1\ ]{} k-1
+\]</span></p>
+<p>individuals alive today. The result is independent of the number of
+generations: under exponential growth a <strong>finite fraction</strong>
+of everyone who ever lived is alive right now. With <span
+class="math inline">\(k=2\)</span> it would be one half.</p>
+<p>Now the data. Estimates put the number of <em>Homo sapiens</em> ever
+born at <span class="math inline">\(\approx 117\)</span> billion,
+against <span class="math inline">\(\approx 8\)</span> billion alive (<a
+href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/">PRB</a>),
+so</p>
+<p><span class="math display">\[
+\frac{n_{\text{now}}}{n_{\text{tot}}} \approx 0.07
+\quad\Longrightarrow\quad
+k \approx 1.07 .
+\]</span></p>
+<p>Reproduction barely above replacement, averaged over 200,000 years.
+The current <span class="math inline">\(r\)</span> is <em>not</em>
+representative of human history: for almost all of it, growth was nearly
+flat, and the exponential we measure today is a recent anomaly (see the
+world population data on <a
+href="https://ourworldindata.org/grapher/population?yScale=log&amp;country=~OWID_WRL">Our
+World in Data</a>). The model is not wrong — it is being applied over a
+window where its parameters are not constant.</p>
+<h2 id="does-anything-actually-grow-exponentially">Does anything
+actually grow exponentially?</h2>
+<p>Across an enormous range of sizes, generation times and
+abundances:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>size</th>
+<th>generation time</th>
+<th>abundance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bacteria</td>
+<td><span class="math inline">\(10^{-6}\)</span> m</td>
+<td><span class="math inline">\(10^{3\text{–}4}\)</span> s</td>
+<td><span class="math inline">\(10^{9}/\)</span>ml (<span
+class="math inline">\(10^{30}\)</span> on Earth)</td>
+</tr>
+<tr>
+<td>Mussels</td>
+<td><span class="math inline">\(10^{-1}\)</span> m</td>
+<td><span class="math inline">\(10^{7}\)</span> s</td>
+<td><span class="math inline">\(10^{4}/\mathrm{m^2}\)</span> (<span
+class="math inline">\(10^{15}\)</span> on Earth)</td>
+</tr>
+<tr>
+<td>Sheep</td>
+<td><span class="math inline">\(10^{0}\)</span> m</td>
+<td><span class="math inline">\(10^{8}\)</span> s</td>
+<td>(<span class="math inline">\(10^{9}\)</span> on Earth)</td>
+</tr>
+</tbody>
+</table>
+<p>the same minimal model works whenever the population is
+unchecked:</p>
+<ul>
+<li><strong>Bacteria.</strong> <span class="math inline">\(E.\
+coli\)</span> in a test tube with food: straight line on a log scale,
+over several decades, until the food runs out.</li>
+<li><strong>Mussels.</strong> Zebra mussels invading the Great Lakes
+grow exponentially over years, despite sexual reproduction (<a
+href="https://doi.org/10.3391/bir.2020.9.4.12">Jones &amp; Montz
+2020</a>).</li>
+<li><strong>Sheep.</strong> Exponential growth with sexual reproduction
+<em>and</em> small numbers (<a
+href="https://doi.org/10.5132/eec.2013.01.011">Flynn &amp; Pereira
+2013</a>).</li>
+<li><strong>Humans.</strong> Malthus (1798) made exactly this
+observation, and drew the conclusion that growth would be checked by
+war, famine and disease — the <em>Malthusian catastrophe</em>.</li>
+</ul>
+<blockquote>
+<p>When unchecked, virtually any reproducing population grows
+exponentially. The interesting question is therefore not <em>why
+exponential</em> but <strong>what checks it</strong> — which is L4.</p>
+</blockquote>
+<h2 id="numerics-integrating-dot-n-fn">Numerics: integrating <span
+class="math inline">\(\dot n = f(n)\)</span></h2>
+<p>The one equation in this course whose exact solution we know, which
+makes it the right place to learn how to integrate the ones we do
+not.</p>
+<p><strong>Euler.</strong> Expand to first order:</p>
+<p><span class="math display">\[
+x(t+\Delta t) = x(t) + f\bigl(x(t)\bigr)\Delta t + O(\Delta t^2) .
+\]</span></p>
+<p>The local error per step is <span class="math inline">\(O(\Delta
+t^2)\)</span>; over <span class="math inline">\(t/\Delta t\)</span>
+steps the <strong>global</strong> error is <span
+class="math inline">\(O(\Delta t)\)</span>: first-order accuracy. For
+<span class="math inline">\(\dot n = rn\)</span> the scheme gives <span
+class="math inline">\(n_{j+1}=(1+r\Delta t)n_j\)</span>, i.e. <span
+class="math inline">\(n(t) = n(0)(1+r\Delta t)^{t/\Delta t}\)</span>,
+which converges to <span class="math inline">\(n(0)e^{rt}\)</span> only
+as <span class="math inline">\(\Delta t\to0\)</span> — and undershoots
+it for finite <span class="math inline">\(\Delta t\)</span>.</p>
+<p><strong>Runge–Kutta 4.</strong> Sample the slope four times inside
+the step:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\kappa_1 &amp;= f\bigl(x(t)\bigr)\Delta t, &amp;
+\kappa_2 &amp;= f\bigl(x(t)+\tfrac12 \kappa_1\bigr)\Delta t, \\
+\kappa_3 &amp;= f\bigl(x(t)+\tfrac12 \kappa_2\bigr)\Delta t, &amp;
+\kappa_4 &amp;= f\bigl(x(t)+\kappa_3\bigr)\Delta t,
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+x(t+\Delta t) = x(t) + \tfrac16\bigl(\kappa_1 + 2\kappa_2 + 2\kappa_3 +
+\kappa_4\bigr) + O(\Delta t^5) ,
+\]</span></p>
+<p>with global error <span class="math inline">\(O(\Delta
+t^4)\)</span>.</p>
+<p><strong>In practice</strong>, use
+<code>scipy.integrate.solve_ivp</code>, which chooses <span
+class="math inline">\(\Delta t\)</span> adaptively from an error
+estimate. The point of coding Euler and RK4 by hand once is to know what
+the adaptive step is adapting.</p>
+<h2 id="notebook">Notebook</h2>
+<ol type="1">
+<li>Integrate <span class="math inline">\(\dot n = rn\)</span> with
+Euler, RK4 and <code>solve_ivp</code>. Plot the error against <span
+class="math inline">\(\Delta t\)</span> on log–log axes and read off the
+slopes 1 and 4.</li>
+<li>Fit <span class="math inline">\(r\)</span> on windows of the world
+population series (Our World in Data) and show that it is not constant:
+exponential growth with a drifting rate.</li>
+<li>Under piecewise-exponential growth, recompute the fraction of humans
+ever born who are alive, and compare with 7%.</li>
+</ol>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>A population doubles every 20 minutes. How long until a single cell
+reaches the mass of the Earth (<span
+class="math inline">\(6\times10^{24}\)</span> kg, cell mass <span
+class="math inline">\(\sim 10^{-15}\)</span> kg)? This is the number
+that makes “unchecked growth” concrete.</li>
+<li>Show that <span class="math inline">\(r=\log R_0/T\)</span>, and
+construct two populations for which <span
+class="math inline">\(R_0\)</span> and <span
+class="math inline">\(r\)</span> give opposite rankings.</li>
+<li>Two populations grow exponentially with rates <span
+class="math inline">\(r_1&gt;r_2\)</span> from <span
+class="math inline">\(n_1(0)\ll n_2(0)\)</span>. Compute the time at
+which the first overtakes the second, and show it depends only
+logarithmically on the initial ratio.</li>
+<li>Suppose the per-capita rates are not constant but periodic, <span
+class="math inline">\(r(t) = r_0 + A\cos(\omega t)\)</span>. Solve
+exactly and show that the long-run growth rate is <span
+class="math inline">\(r_0\)</span>: periodic fluctuations average out.
+(Random fluctuations do not: see <a href="../bg2025/l1.html">bg2025
+L1</a>.)</li>
+<li>With discrete non-overlapping generations and <span
+class="math inline">\(k\)</span> offspring, what fraction of all
+individuals ever born belongs to the last <span
+class="math inline">\(j\)</span> generations?</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>Strogatz, ch. 1–2 (up to flows on the line, which we need in
+L4).</li>
+<li>Growth in a randomly fluctuating environment — average vs typical
+trajectory, ergodicity breaking — is worked out in <a
+href="../bg2025/l1.html">bg2025 L1</a>. Not needed for the exam, but it
+is the cleanest example of why <span class="math inline">\(\langle
+n\rangle\)</span> can be a misleading summary of a stochastic
+process.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>R. Levins, <a href="https://www.jstor.org/stable/27836590">The
+strategy of model building in population biology</a>, <em>Am. Sci.</em>
+<strong>54</strong>, 421 (1966).</li>
+<li>T. R. Malthus, <em>An Essay on the Principle of Population</em>
+(1798).</li>
+<li>L. A. Jones, G. Montz, <a
+href="https://doi.org/10.3391/bir.2020.9.4.12">Population increase and
+associated effects of zebra mussels</a>, <em>BioInvasions Records</em>
+<strong>9</strong>, 772 (2020).</li>
+<li>M. N. Flynn, W. R. L. S. Pereira, <a
+href="https://doi.org/10.5132/eec.2013.01.011">Population approach in
+ecotoxicology</a>, <em>Ecotox. Environ. Contam.</em> <strong>8</strong>,
+75 (2013).</li>
+<li>S. Strogatz, <em>Nonlinear Dynamics and Chaos</em>, ch. 1–2.</li>
+</ul>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>

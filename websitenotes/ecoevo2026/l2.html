@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<title>Lecture 2. Demographic noise and extinction · Ecology &amp;
+Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<h1 id="lecture-2.-demographic-noise-and-extinction">Lecture 2.
+Demographic noise and extinction</h1>
+<p>Back to <a href="index.html">index</a></p>
+<hr />
+<h2 id="the-observation">The observation</h2>
+<p>Put a population with <span class="math inline">\(b&gt;d\)</span> in
+a favourable environment and the deterministic model of <a
+href="l1.html">L1</a> says it grows, without qualification. Experiments
+say otherwise.</p>
+<ul>
+<li><strong>Stochastic clearance.</strong> Treat a bacterial population
+with a bactericidal antibiotic at a fixed concentration and the outcome
+is not deterministic: replicate populations either clear or survive, and
+the fraction that clears is quantitatively captured by a birth–death
+process with a killing rate. Extinction is a <em>probability</em>, not a
+threshold (<a href="https://doi.org/10.7554/eLife.32976">Coates et
+al. 2018</a>).</li>
+<li><strong>Establishment of resistance.</strong> A single
+antibiotic-resistant cell, in a drug concentration well below its own
+MIC, has a probability of outgrowth below 5% — most nascent resistant
+lineages die out by chance before they are anything (<a
+href="https://doi.org/10.1073/pnas.1919672117">Alexander &amp; MacLean
+2020</a>).</li>
+</ul>
+<p>So the question of this lecture: <strong>a population with <span
+class="math inline">\(b&gt;d\)</span> can go extinct — with what
+probability, and how does that depend on how many individuals we started
+with?</strong> The answer is also the answer to “does a beneficial
+mutation take over?”, which is why this lecture is the technical basis
+of L9 and L10.</p>
+<h2 id="what-a-rate-is">What a rate is</h2>
+<p>A rate is a <strong>probability per unit time</strong>. For small
+enough <span class="math inline">\(\Delta t\)</span>, the three possible
+outcomes are</p>
+<p><span class="math display">\[
+n(t+\Delta t) =
+\begin{cases}
+n(t)+1 &amp; \text{w.p.}\quad b\,n(t)\,\Delta t \\[2pt]
+n(t)-1 &amp; \text{w.p.}\quad d\,n(t)\,\Delta t \\[2pt]
+n(t)   &amp; \text{w.p.}\quad 1-(b+d)\,n(t)\,\Delta t
+\end{cases}
+\]</span></p>
+<p>“Small enough” means small enough that two events in the same
+interval have probability <span class="math inline">\(O(\Delta
+t^2)\)</span> and can be dropped.</p>
+<h3 id="master-equation">Master equation</h3>
+<p>In general, for configurations <span class="math inline">\(C\)</span>
+with transition rates <span class="math inline">\(W_{C\to
+C&#39;}\)</span>,</p>
+<p><span class="math display">\[
+P(C,t+\Delta t) = P(C,t) + \Delta t \sum_{C&#39;} \Bigl[ P(C&#39;,t)
+W_{C&#39;\to C} - P(C,t) W_{C\to C&#39;} \Bigr]
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\ \frac{\partial P(C,t)}{\partial t} = \sum_{C&#39;} P(C&#39;,t)
+W_{C&#39;\to C} - P(C,t) W_{C\to C&#39;}\ }
+\]</span></p>
+<p>gain minus loss. For the birth–death process, <span
+class="math inline">\(C=n\in\mathbb{N}\)</span> and <span
+class="math inline">\(W_{n\to n+1}=bn\)</span>, <span
+class="math inline">\(W_{n\to n-1}=dn\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial P(n,t)}{\partial t} = b(n-1)P(n-1,t) + d(n+1)P(n+1,t) -
+(b+d)\,n\,P(n,t) ,
+\qquad n\ge 1
+\]</span></p>
+<p>This is incomplete: <span class="math inline">\(n=0\)</span> needs
+its own equation, because there is no transition <em>out</em> of it,</p>
+<p><span class="math display">\[
+\frac{\partial P(0,t)}{\partial t} = d\,P(1,t) .
+\]</span></p>
+<p><span class="math inline">\(n=0\)</span> is an <strong>absorbing
+state</strong>. This single boundary condition is the whole content of
+the lecture: without it the process would be a random walk in <span
+class="math inline">\(\log n\)</span> and nothing interesting would
+happen.</p>
+<h3 id="the-mean-obeys-the-deterministic-equation">The mean obeys the
+deterministic equation</h3>
+<p>Multiply by <span class="math inline">\(n\)</span> and sum (or take
+the average of the three-outcome rule directly):</p>
+<p><span class="math display">\[
+\langle n(t+\Delta t)\rangle = \langle n(t)\rangle + b\,\langle
+n(t)\rangle \Delta t - d\,\langle n(t)\rangle \Delta t
+\ \Longrightarrow\
+\frac{d\langle n\rangle}{dt} = (b-d)\langle n\rangle ,
+\]</span></p>
+<p><span class="math display">\[
+\langle n(t)\rangle = n_0\, e^{(b-d)t} .
+\]</span></p>
+<p>The average reproduces <a href="l1.html">L1</a> exactly. This is a
+special feature of <strong>linear</strong> rates, not a general rule: as
+soon as <span class="math inline">\(W\)</span> is nonlinear in <span
+class="math inline">\(n\)</span>, the equation for <span
+class="math inline">\(\langle n \rangle\)</span> involves <span
+class="math inline">\(\langle n^2\rangle\)</span> and the deterministic
+equation is only an approximation. Keep this in mind for L4 onwards.</p>
+<p>And the average is about to turn out to be a poor description of any
+single trajectory.</p>
+<h2 id="probability-generating-function">Probability generating
+function</h2>
+<p>Define</p>
+<p><span class="math display">\[
+g(z,t) = \sum_{n=0}^{\infty} P(n,t)\, z^n ,
+\]</span></p>
+<p>the <strong>probability generating function</strong> (pgf). It is a
+bookkeeping device: <span class="math inline">\(P(n,t)\)</span> is the
+coefficient of <span class="math inline">\(z^n\)</span>, and derivatives
+at <span class="math inline">\(z=1\)</span> give factorial moments,</p>
+<p><span class="math display">\[
+\left.\frac{\partial g}{\partial z}\right|_{z=1} = \langle n \rangle ,
+\qquad
+\left.\frac{\partial^2 g}{\partial z^2}\right|_{z=1} = \langle
+n^2\rangle - \langle n\rangle ,
+\qquad
+g(0,t) = P(0,t) ,
+\]</span></p>
+<p>the last one being the extinction probability. Normalisation is <span
+class="math inline">\(g(1,t)=1\)</span>.</p>
+<p>Now turn the master equation into an equation for <span
+class="math inline">\(g\)</span>. Multiply by <span
+class="math inline">\(z^n\)</span> and sum, treating the three terms
+separately:</p>
+<p><span class="math display">\[
+d\sum_{n\ge0} z^{n}(n+1)P(n+1,t)
+= d\,\frac{\partial}{\partial z}\sum_{n\ge0} z^{n+1} P(n+1,t)
+= d\,\frac{\partial g}{\partial z} ,
+\]</span></p>
+<p><span class="math display">\[
+b\sum_{n\ge1} z^{n}(n-1)P(n-1,t)
+= b z^2 \frac{\partial}{\partial z}\sum_{n\ge1} z^{n-1}P(n-1,t)
+= b z^2 \frac{\partial g}{\partial z} ,
+\]</span></p>
+<p><span class="math display">\[
+(b+d)\sum_{n\ge0} z^n n P(n,t) = (b+d)\, z\, \frac{\partial g}{\partial
+z} .
+\]</span></p>
+<p>The <span class="math inline">\(n=0\)</span> boundary term <span
+class="math inline">\(d\,P(1,t)\)</span> is exactly what makes the first
+sum start at <span class="math inline">\(n=0\)</span>, so it is already
+included. Adding up,</p>
+<p><span class="math display">\[
+\frac{\partial g}{\partial t} = \bigl( d + b z^2 - (b+d)z
+\bigr)\frac{\partial g}{\partial z}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\ \frac{\partial g}{\partial t} = (z-1)(bz-d)\,\frac{\partial
+g}{\partial z} \ }
+\]</span></p>
+<p>A first-order linear PDE, with initial condition <span
+class="math inline">\(P(n,0)=\delta_{n,n_0}\)</span>, i.e.</p>
+<p><span class="math display">\[
+g(z,0) = z^{n_0} .
+\]</span></p>
+<h2 id="solution-by-characteristics">Solution by characteristics</h2>
+<p>Write the PDE as <span class="math inline">\(\partial_t g =
+H(z)\,\partial_z g\)</span> with <span
+class="math inline">\(H(z)=(z-1)(bz-d)\)</span>. Look for curves <span
+class="math inline">\(\bigl(z(s),t(s)\bigr)\)</span> in the <span
+class="math inline">\((z,t)\)</span> plane along which <span
+class="math inline">\(g\)</span> is constant:</p>
+<p><span class="math display">\[
+0 = \frac{dg}{ds} = \frac{\partial g}{\partial t}\frac{dt}{ds} +
+\frac{\partial g}{\partial z}\frac{dz}{ds}
+= \frac{\partial g}{\partial z}\left( H(z)\frac{dt}{ds} + \frac{dz}{ds}
+\right) .
+\]</span></p>
+<p>Choosing <span class="math inline">\(t=s\)</span> (so <span
+class="math inline">\(dt/ds=1\)</span>) leaves an ODE for the
+characteristic:</p>
+<p><span class="math display">\[
+\frac{dz}{ds} = -H(z) = -(z-1)(bz-d) .
+\]</span></p>
+<p>Separating variables and using <span
+class="math inline">\(\dfrac{1}{(z-1)(bz-d)} = \dfrac{1}{b-d}\left(
+\dfrac{b}{bz-d} - \dfrac{1}{z-1}\right)\)</span>,</p>
+<p><span class="math display">\[
+\log\left( \frac{z(s)-1}{b z(s)-d} \right) = \log\left( \frac{z_0-1}{b
+z_0 - d} \right) + (b-d)s .
+\]</span></p>
+<p>Since <span class="math inline">\(g\)</span> is constant along the
+characteristic and <span
+class="math inline">\(g(z_0,0)=z_0^{n_0}\)</span>, we only need to
+invert this for <span class="math inline">\(z_0\)</span> at <span
+class="math inline">\(s=t\)</span>:</p>
+<p><span class="math display">\[
+\frac{z-1}{bz-d} = \frac{z_0-1}{bz_0-d}\,e^{(b-d)t}
+\quad\Longrightarrow\quad
+z_0 = \frac{(bz-d)e^{(d-b)t} - d(z-1)}{(bz-d)e^{(d-b)t} - b(z-1)} ,
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\ g(z,t) = \left( \frac{(bz-d)\,e^{(d-b)t} -
+d(z-1)}{(bz-d)\,e^{(d-b)t} - b(z-1)} \right)^{n_0}\ }
+\]</span></p>
+<p>The <span class="math inline">\(n_0\)</span>-th power is the
+statement that the <span class="math inline">\(n_0\)</span> initial
+lineages are independent.</p>
+<h2 id="moments">Moments</h2>
+<p>Differentiating at <span class="math inline">\(z=1\)</span>:</p>
+<p><span class="math display">\[
+\langle n(t)\rangle = n_0 e^{(b-d)t} ,
+\qquad
+\langle n^2\rangle - \langle n\rangle^2 = n_0\,\frac{b+d}{b-d}\,
+e^{(b-d)t}\left( e^{(b-d)t}-1 \right) .
+\]</span></p>
+<p>Three regimes:</p>
+<ul>
+<li><span class="math inline">\(b&gt;d\)</span>: at long times <span
+class="math inline">\(\operatorname{var} n \simeq n_0 \frac{b+d}{b-d}
+e^{2(b-d)t}\)</span>, so the <strong>squared coefficient of variation is
+constant</strong>,<br />
+<span class="math display">\[
+\frac{\operatorname{var} n}{\langle n\rangle^2} \
+\xrightarrow[t\to\infty]{}\ \frac{1}{n_0}\,\frac{b+d}{b-d} .
+\]</span><br />
+Relative fluctuations do not decay: the noise is not averaged away by
+growth, it is <em>frozen in</em> by it. What happens early, when <span
+class="math inline">\(n\)</span> is small, sets the trajectory
+forever.</li>
+<li><span class="math inline">\(b&lt;d\)</span>: mean and variance both
+<span class="math inline">\(\to 0\)</span>.</li>
+<li><span class="math inline">\(b=d\)</span> (critical): <span
+class="math inline">\(\langle n\rangle = n_0\)</span> for all times,
+while <span class="math inline">\(\operatorname{var} n =
+n_0(b+d)t\)</span> grows without bound. The mean is a useless
+summary.</li>
+</ul>
+<p>Note that <span class="math inline">\(b+d\)</span> — the
+<strong>turnover</strong>, invisible in <a href="l1.html">L1</a> —
+controls all of the fluctuations. Two populations with the same <span
+class="math inline">\(r\)</span> and different <span
+class="math inline">\(b+d\)</span> are different populations.</p>
+<h2 id="extinction-probability">Extinction probability</h2>
+<p><span class="math display">\[
+P(0,t) = g(0,t) = \left( \frac{d - d\,e^{(d-b)t}}{b - d\,e^{(d-b)t}}
+\right)^{n_0}
+= \left( \frac{d\left( e^{(b-d)t}-1\right)}{b\,e^{(b-d)t}-d}
+\right)^{n_0} .
+\]</span></p>
+<p>Long times:</p>
+<p><span class="math display">\[
+\lim_{t\to\infty} P(0,t) =
+\begin{cases}
+1 &amp; d \ge b \\[4pt]
+\left( \dfrac{d}{b}\right)^{n_0} &amp; d &lt; b
+\end{cases}
+\]</span></p>
+<p>Even with <span class="math inline">\(b&gt;d\)</span>, extinction has
+<strong>finite probability</strong>, decaying exponentially in the
+initial population size. Equivalently, the probability of
+<strong>establishment</strong> is</p>
+<p><span class="math display">\[
+\boxed{\ P_{\text{est}} = 1 - \left(\frac{d}{b}\right)^{n_0} \
+\xrightarrow[n_0=1]{}\ \frac{b-d}{b} = \frac{r}{b}\ }
+\]</span></p>
+<p>For a population starting from one cell with a small advantage, <span
+class="math inline">\(b=1+s\)</span>, <span
+class="math inline">\(d=1\)</span>: <span
+class="math inline">\(P_{\text{est}} = s/(1+s)\approx s\)</span>. Most
+beneficial mutants are lost. This is the single most consequential
+number in population genetics and we will use it again in L9 and
+L10.</p>
+<h3 id="the-same-answer-in-one-line">The same answer in one line</h3>
+<p>The generating-function machinery is worth learning, but the result
+also follows from a branching argument. Let <span
+class="math inline">\(q\)</span> be the probability that the descendants
+of <strong>one</strong> individual eventually go extinct. The first
+event is a birth with probability <span
+class="math inline">\(b/(b+d)\)</span> or a death with probability <span
+class="math inline">\(d/(b+d)\)</span>. If it is a death, we are done;
+if it is a birth, we now have two independent lineages, each of which
+must die out:</p>
+<p><span class="math display">\[
+q = \frac{d}{b+d} + \frac{b}{b+d}\, q^2
+\quad\Longrightarrow\quad
+b q^2 - (b+d) q + d = 0
+\quad\Longrightarrow\quad
+q \in \left\{ 1,\ \frac{d}{b} \right\} ,
+\]</span></p>
+<p>and the relevant root is the smaller one, <span
+class="math inline">\(q=d/b\)</span> when <span
+class="math inline">\(b&gt;d\)</span>. Starting from <span
+class="math inline">\(n_0\)</span> independent individuals, <span
+class="math inline">\(q^{n_0}\)</span>.</p>
+<p>In general <span class="math inline">\(q\)</span> solves the
+fixed-point equation <span class="math inline">\(q = \phi(q)\)</span>,
+where <span class="math inline">\(\phi\)</span> is the pgf of the
+<strong>offspring distribution</strong>. Which distribution that is
+depends on the life cycle — and it matters: for a slightly beneficial
+mutant with advantage <span class="math inline">\(s\)</span> and
+offspring variance <span class="math inline">\(\sigma^2\)</span>, <span
+class="math inline">\(P_{\text{est}}\approx 2s/\sigma^2\)</span>. The
+birth–death process has <span class="math inline">\(\sigma^2=2\)</span>,
+giving <span class="math inline">\(s\)</span>; Wright–Fisher (Poisson
+offspring, <span class="math inline">\(\sigma^2=1\)</span>) gives
+Haldane’s <span class="math inline">\(2s\)</span>. Same biology, factor
+two, depending on the model of reproduction. We will be careful about
+this in L9.</p>
+<h2 id="the-full-distribution-and-what-survivors-look-like">The full
+distribution, and what survivors look like</h2>
+<p>For <span class="math inline">\(n_0=1\)</span>, write <span
+class="math inline">\(u=e^{-(b-d)t}\)</span>; then <span
+class="math inline">\(g\)</span> is a Möbius function of <span
+class="math inline">\(z\)</span>,</p>
+<p><span class="math display">\[
+g(z,t) = \frac{d(1-u) + z\,(bu-d)}{\bigl(b-du\bigr) - z\,b(1-u)} ,
+\]</span></p>
+<p>which expanded in powers of <span class="math inline">\(z\)</span>
+gives a <strong>geometric</strong> distribution on <span
+class="math inline">\(n\ge1\)</span>:</p>
+<p><span class="math display">\[
+P(0,t) = \alpha = \frac{d\left(e^{rt}-1\right)}{b\,e^{rt}-d} ,
+\qquad
+P(n,t) = (1-\alpha)(1-\beta)\,\beta^{\,n-1} \ \ (n\ge1) ,
+\qquad
+\beta = \frac{b\left(e^{rt}-1\right)}{b\,e^{rt}-d} .
+\]</span></p>
+<p>So the distribution is a growing delta at <span
+class="math inline">\(n=0\)</span> plus a broad, roughly exponential
+bulk — never a peak around <span class="math inline">\(\langle
+n\rangle\)</span>.</p>
+<p>Conditioning on survival: since extinct trajectories contribute
+nothing to the mean,</p>
+<p><span class="math display">\[
+\langle n(t)\rangle = 0\cdot P(0,t) + \bigl(1-P(0,t)\bigr)\,\langle
+n(t)\rangle_{\text{NE}} ,
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\ \langle n(t)\rangle_{\text{NE}} = \frac{\langle
+n(t)\rangle}{1-P(0,t)}
+\ \xrightarrow[t\to\infty]{}\ \frac{n_0\,e^{rt}}{1-(d/b)^{n_0}}\ }
+\]</span></p>
+<p>For <span class="math inline">\(n_0=1\)</span> this is <span
+class="math inline">\((b/r)\,e^{rt}\)</span>: <strong>survivors grow
+with the same rate but a larger amplitude</strong>. The populations we
+observe are, by construction, the ones that did not go extinct, so they
+look systematically “better” than the model predicts. This is a
+survivorship bias in a two-parameter model — worth remembering whenever
+a fitted growth curve looks too good.</p>
+<h2 id="escaping-the-absorbing-state-migration">Escaping the absorbing
+state: migration</h2>
+<p>Add immigration at rate <span class="math inline">\(m\)</span>,
+independent of <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+W_{n\to n+1} = b n + m , \qquad W_{n\to n-1} = d n .
+\]</span></p>
+<p>Now <span class="math inline">\(n=0\)</span> is no longer absorbing,
+and for <span class="math inline">\(d&gt;b\)</span> there is a
+stationary distribution. The mean obeys</p>
+<p><span class="math display">\[
+\frac{d\langle n\rangle}{dt} = m + (b-d)\langle n\rangle
+\quad\Longrightarrow\quad
+\langle n\rangle^* = \frac{m}{d-b} \quad (d&gt;b) .
+\]</span></p>
+<p>For the full distribution, set <span class="math inline">\(\partial_t
+P = 0\)</span> and write the stationary master equation as the
+difference of two <strong>probability currents</strong>,</p>
+<p><span class="math display">\[
+0 = \frac{\partial P^*}{\partial t} = j^*(n) - j^*(n-1) ,
+\qquad
+j^*(n) = d(n+1)P^*(n+1) - (m+bn)P^*(n) .
+\]</span></p>
+<p>So <span class="math inline">\(j^*(n)\)</span> is a constant;
+normalisability (<span class="math inline">\(nP^*(n)\to0\)</span>)
+forces that constant to be zero. <strong>Detailed balance holds
+automatically in one dimension</strong> — this is why 1D stationary
+distributions are always solvable and higher-dimensional ones are not
+(in 2D one can have stationary probability currents circulating, and we
+will).</p>
+<p>From <span class="math inline">\(j^*=0\)</span>,</p>
+<p><span class="math display">\[
+P^*(n+1) = \frac{m+bn}{d(n+1)}\, P^*(n)
+\quad\Longrightarrow\quad
+P^*(n) = P^*(0) \left(\frac{b}{d}\right)^{n} \frac{\Gamma(n +
+m/b)}{n!\;\Gamma(m/b)} ,
+\]</span></p>
+<p>using <span class="math inline">\(\prod_{i=0}^{n-1}(m+bi) = b^n
+\Gamma(n+m/b)/\Gamma(m/b)\)</span>. The sum converges only for <span
+class="math inline">\(b&lt;d\)</span>, and then</p>
+<p><span class="math display">\[
+\boxed{\ P^*(n) = \binom{n+k-1}{n}\,p^{\,n}(1-p)^{k} ,
+\qquad k = \frac{m}{b} , \quad p = \frac{b}{d}\ }
+\]</span></p>
+<p>a <strong>negative binomial</strong>. Two limits are worth
+checking:</p>
+<ul>
+<li><span class="math inline">\(m\to0\)</span> at fixed <span
+class="math inline">\(b,d\)</span>: <span
+class="math inline">\(k\to0\)</span> and <span
+class="math inline">\(P^*(n)\propto p^n/n\)</span> for <span
+class="math inline">\(n\ge1\)</span> — the log-series distribution. We
+will meet exactly this again as the species abundance distribution of
+neutral theory (L20; <a href="../qsb2024/l2.html">qsb2024 L2</a>).</li>
+<li><span class="math inline">\(b,d\to\infty\)</span> at fixed <span
+class="math inline">\(r=b-d\)</span> and <span
+class="math inline">\(n\gg1\)</span>: the negative binomial becomes a
+<strong>Gamma</strong> distribution. This is the stationary distribution
+of the corresponding Langevin equation, and the reason abundance
+distributions with demographic noise are so often Gamma-shaped.</li>
+</ul>
+<h2 id="simulating-exactly-gillespie">Simulating exactly: Gillespie</h2>
+<p>Do not discretise time — sample the events. In state <span
+class="math inline">\(n\)</span>, the total event rate is <span
+class="math inline">\(R(n) = (b+d)n\ (+\,m)\)</span>. The probability
+that <em>nothing</em> happens in <span
+class="math inline">\([t,t+\tau]\)</span> is</p>
+<p><span class="math display">\[
+P_{\text{no event}}(\tau) = \lim_{\Delta t\to0}\bigl(1 - R\Delta
+t\bigr)^{\tau/\Delta t} = e^{-R\tau} ,
+\]</span></p>
+<p>so the waiting time to the next event is exponential with rate <span
+class="math inline">\(R\)</span>, and the event that happens is chosen
+with probability proportional to its own rate:</p>
+<ol type="1">
+<li>draw <span class="math inline">\(\tau \sim
+\text{Exp}(R(n))\)</span>, set <span class="math inline">\(t \leftarrow
+t+\tau\)</span>;</li>
+<li>with probability <span class="math inline">\(bn/R\)</span> set <span
+class="math inline">\(n\leftarrow n+1\)</span>, otherwise <span
+class="math inline">\(n \leftarrow n-1\)</span>;</li>
+<li>stop when <span class="math inline">\(n=0\)</span> or <span
+class="math inline">\(t&gt;t_{\max}\)</span>.</li>
+</ol>
+<p>This is <strong>exact</strong>: no time-step error, unlike the ODE
+integrators of <a href="l1.html">L1</a>. The cost is that the algorithm
+slows down as <span class="math inline">\(n\)</span> grows, which is
+exactly when the deterministic description becomes accurate.</p>
+<h2 id="notebook">Notebook</h2>
+<ol type="1">
+<li>Gillespie simulation of the birth–death process. Overlay 100
+trajectories with <span class="math inline">\(\langle
+n(t)\rangle\)</span> and with <span class="math inline">\(\langle
+n(t)\rangle_{\text{NE}}\)</span>; show that the average describes
+neither the survivors nor the extinct.</li>
+<li>Measure <span class="math inline">\(P(0,t)\)</span> from <span
+class="math inline">\(10^4\)</span> runs and compare with <span
+class="math inline">\((d/b)^{n_0}\)</span> as a function of <span
+class="math inline">\(n_0\)</span> and of <span
+class="math inline">\(d/b\)</span>.</li>
+<li>Histogram of <span class="math inline">\(n(t)\)</span> at fixed
+<span class="math inline">\(t\)</span> against the geometric
+prediction.</li>
+<li><strong>Data.</strong> Take the fraction of replicate populations
+that cleared, at each antibiotic concentration (<a
+href="https://doi.org/10.7554/eLife.32976">Coates et al. 2018</a>), and
+fit <span class="math inline">\(b\)</span> and <span
+class="math inline">\(d\)</span> by matching <span
+class="math inline">\(1-(d/b)^{n_0}\)</span>. Then predict the outcome
+at a concentration you did not fit.</li>
+</ol>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Show directly from the master equation (without the pgf) that <span
+class="math inline">\(\frac{d}{dt}\langle n^2 \rangle = 2(b-d)\langle
+n^2\rangle + (b+d)\langle n\rangle\)</span>, and recover the
+variance.</li>
+<li>Pure death process (<span class="math inline">\(b=0\)</span>): solve
+the master equation exactly and show <span
+class="math inline">\(P(n,t)\)</span> is binomial. Interpret.</li>
+<li>Compute the mean time to extinction for <span
+class="math inline">\(d&gt;b\)</span> starting from <span
+class="math inline">\(n_0\)</span> individuals. (It scales like <span
+class="math inline">\(\log n_0\)</span>: extinction is quick for small
+populations and only logarithmically slower for large ones — <a
+href="https://doi.org/10.1086/285580">Lande 1993</a>.)</li>
+<li>Redo the branching argument with a general offspring distribution
+and show <span class="math inline">\(q=\phi(q)\)</span>, with <span
+class="math inline">\(q&lt;1\)</span> iff <span
+class="math inline">\(\phi&#39;(1)=R_0&gt;1\)</span>.</li>
+<li>Show that the survival probability of a <em>critical</em> process
+(<span class="math inline">\(b=d\)</span>) decays as <span
+class="math inline">\(2/[(b+d)t]\)</span>, and explain why this makes
+neutral evolution slow rather than static.</li>
+<li>Negative binomial: compute <span class="math inline">\(\langle
+n\rangle^*\)</span> and <span class="math inline">\(\operatorname{var}
+n^*\)</span> and verify <span class="math inline">\(\langle
+n\rangle^*=m/(d-b)\)</span>. Show the variance-to-mean ratio is <span
+class="math inline">\(1/(1-b/d)\)</span>, and that it is <span
+class="math inline">\(1\)</span> (Poisson) only when <span
+class="math inline">\(b=0\)</span>.</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>Master equations and generating functions in general: Van Kampen
+ch. 5–6, Gardiner ch. 3; <a href="../qsb2024/l2.html">qsb2024 L2</a> for
+a worked stationary-distribution calculation with the same current
+argument.</li>
+<li>The method of characteristics for first-order PDEs (any
+methods-of-physics text).</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>D. A. Coates et al., <a
+href="https://doi.org/10.7554/eLife.32976">Antibiotic-induced population
+fluctuations and stochastic clearance of bacteria</a>, <em>eLife</em>
+<strong>7</strong>, e32976 (2018).</li>
+<li>H. K. Alexander, R. C. MacLean, <a
+href="https://doi.org/10.1073/pnas.1919672117">Stochastic bacterial
+population dynamics restrict the establishment of antibiotic
+resistance</a>, <em>PNAS</em> <strong>117</strong>, 19455 (2020).</li>
+<li>B. A. Melbourne, A. Hastings, <a
+href="https://doi.org/10.1038/nature06922">Extinction risk depends
+strongly on factors contributing to stochasticity</a>, <em>Nature</em>
+<strong>454</strong>, 100 (2008).</li>
+<li>D. T. Gillespie, <a href="https://doi.org/10.1021/j100540a008">Exact
+stochastic simulation of coupled chemical reactions</a>, <em>J. Phys.
+Chem.</em> <strong>81</strong>, 2340 (1977).</li>
+<li>N. G. Van Kampen, <a
+href="https://www.sciencedirect.com/book/9780444529657/stochastic-processes-in-physics-and-chemistry"><em>Stochastic
+Processes in Physics and Chemistry</em></a>.</li>
+<li>C. Gardiner, <a
+href="https://link.springer.com/book/9783540707127"><em>Stochastic
+Methods</em></a>.</li>
+</ul>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>
