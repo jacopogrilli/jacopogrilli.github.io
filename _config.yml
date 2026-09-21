@@ -41,7 +41,8 @@ include:
   - .htaccess
   - _pages
 keep_files:
-  - websitenotes
+  - notes
+  - websitenotes  # redirects to notes/
   - lib ## needed for obsidian
 
 

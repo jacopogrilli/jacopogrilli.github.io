@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Publish a course folder of Obsidian notes as static HTML pages on this site.
 
-    python3 scripts/publish_notes.py ecoevo2026             # build websitenotes/ecoevo2026/
+    python3 scripts/publish_notes.py ecoevo2026             # build notes/ecoevo2026/
     python3 scripts/publish_notes.py ecoevo2026 --dry-run   # report only, write nothing
     python3 scripts/publish_notes.py ecoevo2026 --push      # build, then git commit + push
 
@@ -12,16 +12,16 @@ script made earlier for a note that is no longer published is deleted.
 In the index, lines that link to an unpublished note of the course are hidden, so
 the index can list every lecture and only the ready ones appear online.
 
-Output: websitenotes/<course>/<name>.html, one page per published note, file names
+Output: notes/<course>/<name>.html, one page per published note, file names
 lower-cased as in the Obsidian "Webpage HTML Export" used for bg2025/qsb2024/sc2025.
 Needs pandoc (brew install pandoc). Math is typeset in the browser by MathJax 4.
 
 Obsidian syntax handled
   [[Note]], [[Note|alias]], [[Note#Heading|alias]], [[#Heading]]
       -> links to published pages of this course, or of a course already under
-         websitenotes/; anything else becomes plain text (reported).
+         notes/; anything else becomes plain text (reported).
   ![[file.pdf]], ![[image.png]], ![[image.png|300]]
-      -> file copied to websitenotes/<course>/material/, then linked (pdf) or shown.
+      -> file copied to notes/<course>/material/, then linked (pdf) or shown.
   > [!type] Title, > [!type]- Title (callouts) -> box, or collapsible <details>.
   single newlines -> line breaks (Obsidian default, "strict line breaks" off).
 
@@ -42,7 +42,8 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 VAULT = Path.home() / "Documents" / "WORKNOTES_remote"
-NOTES_DIR = "WebsiteNotes"
+NOTES_DIR = "WebsiteNotes"  # vault folder
+SITE_DIR = "notes"          # site folder: https://jacopogrilli.github.io/notes/<course>/
 TEMPLATE = SITE / "scripts" / "notes_template.html"
 GENERATOR_TAG = '<meta name="generator" content="publish_notes.py">'  # must match the template
 PRIVATE_SECTIONS = {"Material", "Differences from the old notes", "Where the material lives"}
@@ -218,7 +219,7 @@ class Page:
         if course == self.course:
             if name in self.published:
                 href = f"{web_name(name)}.html"
-        elif course and (SITE / "websitenotes" / course / f"{web_name(name)}.html").exists():
+        elif course and (SITE / SITE_DIR / course / f"{web_name(name)}.html").exists():
             href = f"../{course}/{web_name(name)}.html"
         text = alias or (name if course in (None, self.course) else f"{course} {name}")
         if href is None:
@@ -274,7 +275,7 @@ def main():
     args = ap.parse_args()
 
     src = args.vault / NOTES_DIR / args.course
-    out = SITE / "websitenotes" / args.course
+    out = SITE / SITE_DIR / args.course
     notes = sorted(src.glob("*.md"))
     if not notes:
         sys.exit(f"no notes in {src}")
