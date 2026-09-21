@@ -24,3 +24,6 @@ __pycache__/
 *.out
 *.toc
 .Rhistory
+
+# local working notes for Claude (see STATE.md)
+STATE.md
