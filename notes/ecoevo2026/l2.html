@@ -131,8 +131,8 @@ state</strong>. This single boundary condition is the whole content of
 the lecture: without it the process would be a random walk in <span
 class="math inline">\(\log n\)</span> and nothing interesting would
 happen.</p>
-<h3 id="the-mean-obeys-the-deterministic-equation">The mean obeys the
-deterministic equation</h3>
+<h2 id="the-mean-obeys-the-deterministic-equation">The mean obeys the
+deterministic equation</h2>
 <p>Multiply by <span class="math inline">\(n\)</span> and sum (or take
 the average of the three-outcome rule directly):</p>
 <p><span class="math display">\[
@@ -153,8 +153,196 @@ class="math inline">\(\langle n^2\rangle\)</span> and the deterministic
 equation is only an approximation.</p>
 <p>And the average is about to turn out to be a poor description of any
 single trajectory.</p>
-<h2 id="probability-generating-function">Probability generating
-function</h2>
+<h2 id="the-second-moment-and-the-variance">The second moment and the
+variance</h2>
+<p>The same bookkeeping gives the second moment. In a short interval
+<span class="math inline">\(\Delta t\)</span>, <span
+class="math inline">\(n^2\)</span> becomes <span
+class="math inline">\((n+1)^2=n^2+2n+1\)</span> with probability <span
+class="math inline">\(b\,n\,\Delta t\)</span>, becomes <span
+class="math inline">\((n-1)^2=n^2-2n+1\)</span> with probability <span
+class="math inline">\(d\,n\,\Delta t\)</span>, and stays <span
+class="math inline">\(n^2\)</span> otherwise:</p>
+<p><span class="math display">\[
+\langle n^2(t+\Delta t)\rangle = \langle n^2\rangle + b\,\langle
+(2n+1)\,n\rangle\,\Delta t + d\,\langle (1-2n)\,n\rangle\,\Delta t
+\ \Longrightarrow\
+\frac{d\langle n^2\rangle}{dt} = 2(b-d)\langle n^2\rangle + (b+d)\langle
+n\rangle .
+\]</span></p>
+<p>The equation for <span class="math inline">\(\langle
+n^2\rangle\)</span> involves only <span class="math inline">\(\langle
+n^2\rangle\)</span> and <span class="math inline">\(\langle
+n\rangle\)</span>: the hierarchy closes, again because the rates are
+linear. For the variance <span class="math inline">\(\operatorname{var}
+n=\langle n^2\rangle-\langle n\rangle^2\)</span>,</p>
+<p><span class="math display">\[
+\frac{d\operatorname{var} n}{dt} = \frac{d\langle n^2\rangle}{dt} -
+2\langle n\rangle\frac{d\langle n\rangle}{dt} = 2(b-d)\operatorname{var}
+n + (b+d)\,\langle n\rangle ,
+\]</span></p>
+<p>a linear equation driven by <span class="math inline">\((b+d)\langle
+n(t)\rangle=(b+d)\,n_0e^{(b-d)t}\)</span>, with <span
+class="math inline">\(\operatorname{var} n=0\)</span> at <span
+class="math inline">\(t=0\)</span>. Its solution is</p>
+<p><span class="math display">\[
+\operatorname{var} n(t) = (b+d)\,n_0\int_0^t
+e^{2(b-d)(t-s)}\,e^{(b-d)s}\,ds
+= n_0\,\frac{b+d}{b-d}\,e^{(b-d)t}\left(e^{(b-d)t}-1\right) .
+\]</span></p>
+<p>Three regimes:</p>
+<ul>
+<li><span class="math inline">\(b&gt;d\)</span>: at long times <span
+class="math inline">\(\operatorname{var} n \simeq n_0 \frac{b+d}{b-d}
+e^{2(b-d)t}\)</span>, so the <strong>squared coefficient of variation is
+constant</strong>,<br />
+<span class="math display">\[
+\frac{\operatorname{var} n}{\langle n\rangle^2} \
+\xrightarrow[t\to\infty]{}\ \frac{1}{n_0}\,\frac{b+d}{b-d} .
+\]</span><br />
+Relative fluctuations do not decay: the noise is not averaged away by
+growth, it is <em>frozen in</em> by it. What happens early, when <span
+class="math inline">\(n\)</span> is small, sets the trajectory
+forever.</li>
+<li><span class="math inline">\(b&lt;d\)</span>: mean and variance both
+<span class="math inline">\(\to 0\)</span>.</li>
+<li><span class="math inline">\(b=d\)</span> (critical): <span
+class="math inline">\(\langle n\rangle = n_0\)</span> for all times,
+while <span class="math inline">\(\operatorname{var} n =
+n_0(b+d)t\)</span> grows without bound. The mean is a useless
+summary.</li>
+</ul>
+<p>Note that <span class="math inline">\(b+d\)</span> — the
+<strong>turnover</strong>, invisible in <a href="l1.html">L1</a> —
+controls all of the fluctuations.</p>
+<h2 id="expected-number-of-deaths">Expected number of deaths</h2>
+<p>The per-capita death rate is <span class="math inline">\(d\)</span>,
+and therefore the expected number of death cells is<br />
+<span class="math display">\[
+\frac{d}{dt }\langle n_D(t) \rangle = d \langle n(t)\rangle
+\]</span><br />
+Using<br />
+<span class="math display">\[
+\frac{d\langle n\rangle}{dt} = (b-d)\langle n\rangle
+\]</span><br />
+we can write<br />
+<span class="math display">\[
+\frac{d}{dt}\langle n_D(t)\rangle = \frac{d}{b-d}\,\frac{d\langle
+n(t)\rangle}{dt}
+\quad\Longrightarrow\quad
+\langle n_D(t)\rangle = \frac{d}{b-d}\bigl(\langle n(t)\rangle -
+n_0\bigr) = \frac{d\,n_0}{b-d}\left(e^{(b-d)t}-1\right)
+\]</span><br />
+(for <span class="math inline">\(b=d\)</span>, <span
+class="math inline">\(\langle n_D(t)\rangle = d\,n_0\,t\)</span>). For
+<span class="math inline">\(b&gt;d\)</span>, at long times there are
+<span class="math inline">\(d/(b-d)\)</span> deaths per living
+individual</p>
+<h2 id="extinction-probability">Extinction probability</h2>
+<p><span class="math inline">\(n=0\)</span> is absorbing: once there,
+the population stays there. The simplest way to compute the probability
+of ending up there is to look at the first event.</p>
+<p>Let <span class="math inline">\(q\)</span> be the probability that
+all the descendants of one individual eventually go extinct. The first
+event is a birth with probability <span
+class="math inline">\(b/(b+d)\)</span> or a death with probability <span
+class="math inline">\(d/(b+d)\)</span>. If it is a death, we are done;
+if it is a birth, we now have two independent lineages, each of which
+must die out:</p>
+<p><span class="math display">\[
+q = \frac{d}{b+d} + \frac{b}{b+d}\, q^2
+\quad\Longrightarrow\quad
+b q^2 - (b+d) q + d = 0
+\quad\Longrightarrow\quad
+q \in \left\{ 1,\ \frac{d}{b} \right\} .
+\]</span></p>
+<p>Which root? Count generations of this split-or-die process: the
+probability <span class="math inline">\(q_k\)</span> of dying out within
+<span class="math inline">\(k\)</span> generations obeys <span
+class="math inline">\(q_{k+1}=\frac{d}{b+d}+\frac{b}{b+d}\,q_k^2\)</span>
+with <span class="math inline">\(q_0=0\)</span>, so it increases with
+<span class="math inline">\(k\)</span> and converges to the first root
+it meets: <span class="math inline">\(q=1\)</span> for <span
+class="math inline">\(d\ge b\)</span>, <span
+class="math inline">\(q=d/b\)</span> for <span
+class="math inline">\(b&gt;d\)</span>. The <span
+class="math inline">\(n_0\)</span> initial lineages are independent,
+so</p>
+<p><span class="math display">\[
+P_{\text{ext}} = \lim_{t\to\infty} P(0,t) =
+\begin{cases}
+1 &amp; d \ge b \\[4pt]
+\left( \dfrac{d}{b}\right)^{n_0} &amp; d &lt; b
+\end{cases}
+\]</span></p>
+<p>Even with <span class="math inline">\(b&gt;d\)</span>, extinction has
+<strong>finite probability</strong>, decaying exponentially in the
+initial population size. Equivalently, the probability of
+<strong>establishment</strong> is</p>
+<p><span class="math display">\[
+\boxed{\ P_{\text{est}} = 1 - \left(\frac{d}{b}\right)^{n_0} \
+\xrightarrow[n_0=1]{}\ \frac{b-d}{b} = \frac{r}{b}\ }
+\]</span></p>
+<p>For a population starting from one cell with a small advantage, <span
+class="math inline">\(b=1+s\)</span>, <span
+class="math inline">\(d=1\)</span>: <span
+class="math inline">\(P_{\text{est}} = s/(1+s)\approx s\)</span>.</p>
+<h3 id="what-survivors-look-like">What survivors look like</h3>
+<p>Conditioning on survival: since extinct trajectories contribute
+nothing to the mean,</p>
+<p><span class="math display">\[
+\langle n(t)\rangle = 0\cdot P(0,t) + \bigl(1-P(0,t)\bigr)\,\langle
+n(t)\rangle_{\text{NE}} ,
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\ \langle n(t)\rangle_{\text{NE}} = \frac{\langle
+n(t)\rangle}{1-P(0,t)}
+\ \xrightarrow[t\to\infty]{}\ \frac{n_0\,e^{rt}}{1-(d/b)^{n_0}}\ }
+\]</span></p>
+<p>For <span class="math inline">\(n_0=1\)</span> this is <span
+class="math inline">\((b/r)\,e^{rt}\)</span>: <strong>survivors grow
+with the same rate but a larger amplitude</strong>. The populations we
+observe are, by construction, the ones that did not go extinct, so they
+look systematically “better” than the model predicts. This is a
+survivorship bias in a two-parameter model — worth remembering whenever
+a fitted growth curve looks too good.</p>
+<h2 id="simulating-exactly-gillespie">Simulating exactly: Gillespie</h2>
+<p>Do not discretise time — sample the events. In state <span
+class="math inline">\(n\)</span>, the total event rate is <span
+class="math inline">\(R(n) = (b+d)n\)</span>. The probability that
+<em>nothing</em> happens in <span
+class="math inline">\([t,t+\tau]\)</span> is</p>
+<p><span class="math display">\[
+P_{\text{no event}}(\tau) = \lim_{\Delta t\to0}\bigl(1 - R\Delta
+t\bigr)^{\tau/\Delta t} = e^{-R\tau} ,
+\]</span></p>
+<p>so the waiting time to the next event is exponential with rate <span
+class="math inline">\(R\)</span>, and the event that happens is chosen
+with probability proportional to its own rate:</p>
+<ol type="1">
+<li>draw <span class="math inline">\(\tau \sim
+\text{Exp}(R(n))\)</span>, set <span class="math inline">\(t \leftarrow
+t+\tau\)</span>;</li>
+<li>with probability <span class="math inline">\(bn/R\)</span> set <span
+class="math inline">\(n\leftarrow n+1\)</span>, otherwise <span
+class="math inline">\(n \leftarrow n-1\)</span>;</li>
+<li>stop when <span class="math inline">\(n=0\)</span> or <span
+class="math inline">\(t&gt;t_{\max}\)</span>.</li>
+</ol>
+<p>This is <strong>exact</strong>: no time-step error, unlike the ODE
+integrators of <a href="l1.html">L1</a>. The cost is that the algorithm
+slows down as <span class="math inline">\(n\)</span> grows, which is
+exactly when the deterministic description becomes accurate.</p>
+<h2 id="appendix.-exact-solution-with-the-generating-function">Appendix.
+Exact solution with the generating function</h2>
+<p><em>Not covered in class.</em> The master equation can also be solved
+exactly. The probability generating function turns the infinite set of
+equations for <span class="math inline">\(P(n,t)\)</span> into a single
+partial differential equation, whose solution gives back the moments and
+the extinction probability found above, the extinction probability at
+any time, and the full distribution.</p>
+<h3 id="probability-generating-function">Probability generating
+function</h3>
 <p>Define</p>
 <p><span class="math display">\[
 g(z,t) = \sum_{n=0}^{\infty} P(n,t)\, z^n ,
@@ -208,7 +396,7 @@ class="math inline">\(P(n,0)=\delta_{n,n_0}\)</span>, i.e.</p>
 <p><span class="math display">\[
 g(z,0) = z^{n_0} .
 \]</span></p>
-<h2 id="solution-by-characteristics">Solution by characteristics</h2>
+<h3 id="solution-by-characteristics">Solution by characteristics</h3>
 <p>Write the PDE as <span class="math inline">\(\partial_t g =
 H(z)\,\partial_z g\)</span> with <span
 class="math inline">\(H(z)=(z-1)(bz-d)\)</span>. Look for curves <span
@@ -251,117 +439,31 @@ d(z-1)}{(bz-d)\,e^{(d-b)t} - b(z-1)} \right)^{n_0}\ }
 <p>The <span class="math inline">\(n_0\)</span>-th power is the
 statement that the <span class="math inline">\(n_0\)</span> initial
 lineages are independent.</p>
-<h2 id="moments">Moments</h2>
-<p>Differentiating at <span class="math inline">\(z=1\)</span>:</p>
+<h3 id="moments-and-extinction-probability-at-any-time">Moments and
+extinction probability at any time</h3>
+<p>Differentiating at <span class="math inline">\(z=1\)</span> gives
+back the mean and the variance:</p>
 <p><span class="math display">\[
 \langle n(t)\rangle = n_0 e^{(b-d)t} ,
 \qquad
 \langle n^2\rangle - \langle n\rangle^2 = n_0\,\frac{b+d}{b-d}\,
 e^{(b-d)t}\left( e^{(b-d)t}-1 \right) .
 \]</span></p>
-<p>Three regimes:</p>
-<ul>
-<li><span class="math inline">\(b&gt;d\)</span>: at long times <span
-class="math inline">\(\operatorname{var} n \simeq n_0 \frac{b+d}{b-d}
-e^{2(b-d)t}\)</span>, so the <strong>squared coefficient of variation is
-constant</strong>,<br />
-<span class="math display">\[
-\frac{\operatorname{var} n}{\langle n\rangle^2} \
-\xrightarrow[t\to\infty]{}\ \frac{1}{n_0}\,\frac{b+d}{b-d} .
-\]</span><br />
-Relative fluctuations do not decay: the noise is not averaged away by
-growth, it is <em>frozen in</em> by it. What happens early, when <span
-class="math inline">\(n\)</span> is small, sets the trajectory
-forever.</li>
-<li><span class="math inline">\(b&lt;d\)</span>: mean and variance both
-<span class="math inline">\(\to 0\)</span>.</li>
-<li><span class="math inline">\(b=d\)</span> (critical): <span
-class="math inline">\(\langle n\rangle = n_0\)</span> for all times,
-while <span class="math inline">\(\operatorname{var} n =
-n_0(b+d)t\)</span> grows without bound. The mean is a useless
-summary.</li>
-</ul>
-<p>Note that <span class="math inline">\(b+d\)</span> — the
-<strong>turnover</strong>, invisible in <a href="l1.html">L1</a> —
-controls all of the fluctuations.</p>
-<h2 id="expected-number-of-deaths">Expected number of deaths</h2>
-<p>The per-capita death rate is <span class="math inline">\(d\)</span>,
-and therefore the expected number of death cells is<br />
-<span class="math display">\[
-\frac{d}{dt }\langle n_D(t) \rangle = d \langle n(t)\rangle
-\]</span><br />
-Using<br />
-<span class="math display">\[
-\frac{d\langle n\rangle}{dt} = (b-d)\langle n\rangle
-\]</span><br />
-we can write<br />
-<span class="math display">\[
-\frac{d}{dt}\langle n_D(t)\rangle = \frac{d}{b-d}\,\frac{d\langle
-n(t)\rangle}{dt}
-\quad\Longrightarrow\quad
-\langle n_D(t)\rangle = \frac{d}{b-d}\bigl(\langle n(t)\rangle -
-n_0\bigr) = \frac{d\,n_0}{b-d}\left(e^{(b-d)t}-1\right)
-\]</span><br />
-(for <span class="math inline">\(b=d\)</span>, <span
-class="math inline">\(\langle n_D(t)\rangle = d\,n_0\,t\)</span>). For
-<span class="math inline">\(b&gt;d\)</span>, at long times there are
-<span class="math inline">\(d/(b-d)\)</span> deaths per living
-individual: the ratio of living to dead tends to <span
-class="math inline">\((b-d)/d = R_0-1\)</span>, with <span
-class="math inline">\(R_0=b/d\)</span> the mean number of offspring per
-lifetime. This is the continuous-time version of the <span
-class="math inline">\(k-1\)</span> found in <a
-href="l1.html">L1</a>.</p>
-<h2 id="extinction-probability">Extinction probability</h2>
+<p>Setting <span class="math inline">\(z=0\)</span> gives the
+probability that the population is extinct at time <span
+class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[
 P(0,t) = g(0,t) = \left( \frac{d - d\,e^{(d-b)t}}{b - d\,e^{(d-b)t}}
 \right)^{n_0}
 = \left( \frac{d\left( e^{(b-d)t}-1\right)}{b\,e^{(b-d)t}-d}
 \right)^{n_0} .
 \]</span></p>
-<p>Long times:</p>
-<p><span class="math display">\[
-\lim_{t\to\infty} P(0,t) =
-\begin{cases}
-1 &amp; d \ge b \\[4pt]
-\left( \dfrac{d}{b}\right)^{n_0} &amp; d &lt; b
-\end{cases}
-\]</span></p>
-<p>Even with <span class="math inline">\(b&gt;d\)</span>, extinction has
-<strong>finite probability</strong>, decaying exponentially in the
-initial population size. Equivalently, the probability of
-<strong>establishment</strong> is</p>
-<p><span class="math display">\[
-\boxed{\ P_{\text{est}} = 1 - \left(\frac{d}{b}\right)^{n_0} \
-\xrightarrow[n_0=1]{}\ \frac{b-d}{b} = \frac{r}{b}\ }
-\]</span></p>
-<p>For a population starting from one cell with a small advantage, <span
-class="math inline">\(b=1+s\)</span>, <span
-class="math inline">\(d=1\)</span>: <span
-class="math inline">\(P_{\text{est}} = s/(1+s)\approx s\)</span>.</p>
-<h3 id="the-same-answer-in-one-line">The same answer in one line</h3>
-<p>The generating-function machinery is worth learning, but the result
-also follows from a branching argument. Let <span
-class="math inline">\(q\)</span> be the probability that all the
-descendants of one individual eventually go extinct. The first event is
-a birth with probability <span class="math inline">\(b/(b+d)\)</span> or
-a death with probability <span class="math inline">\(d/(b+d)\)</span>.
-If it is a death, we are done; if it is a birth, we now have two
-independent lineages, each of which must die out:</p>
-<p><span class="math display">\[
-q = \frac{d}{b+d} + \frac{b}{b+d}\, q^2
-\quad\Longrightarrow\quad
-b q^2 - (b+d) q + d = 0
-\quad\Longrightarrow\quad
-q \in \left\{ 1,\ \frac{d}{b} \right\} ,
-\]</span></p>
-<p>and the relevant root is the smaller one, <span
-class="math inline">\(q=d/b\)</span> when <span
-class="math inline">\(b&gt;d\)</span>. Starting from <span
-class="math inline">\(n_0\)</span> independent individuals, <span
-class="math inline">\(q^{n_0}\)</span>.</p>
-<h2 id="the-full-distribution-and-what-survivors-look-like">The full
-distribution, and what survivors look like</h2>
+<p>It tends to <span class="math inline">\(1\)</span> for <span
+class="math inline">\(d\ge b\)</span> and to <span
+class="math inline">\((d/b)^{n_0}\)</span> for <span
+class="math inline">\(d&lt;b\)</span>, as found with the first-event
+argument.</p>
+<h3 id="the-full-distribution">The full distribution</h3>
 <p>For <span class="math inline">\(n_0=1\)</span>, write <span
 class="math inline">\(u=e^{-(b-d)t}\)</span>; then <span
 class="math inline">\(g\)</span> is a function of <span
@@ -383,57 +485,16 @@ P(n,t) = (1-\alpha)(1-\beta)\,\beta^{\,n-1} \ \ (n\ge1) ,
 class="math inline">\(n=0\)</span> plus a broad, roughly exponential
 bulk — never a peak around <span class="math inline">\(\langle
 n\rangle\)</span>.</p>
-<p>Conditioning on survival: since extinct trajectories contribute
-nothing to the mean,</p>
-<p><span class="math display">\[
-\langle n(t)\rangle = 0\cdot P(0,t) + \bigl(1-P(0,t)\bigr)\,\langle
-n(t)\rangle_{\text{NE}} ,
-\]</span></p>
-<p><span class="math display">\[
-\boxed{\ \langle n(t)\rangle_{\text{NE}} = \frac{\langle
-n(t)\rangle}{1-P(0,t)}
-\ \xrightarrow[t\to\infty]{}\ \frac{n_0\,e^{rt}}{1-(d/b)^{n_0}}\ }
-\]</span></p>
-<p>For <span class="math inline">\(n_0=1\)</span> this is <span
-class="math inline">\((b/r)\,e^{rt}\)</span>: <strong>survivors grow
-with the same rate but a larger amplitude</strong>. The populations we
-observe are, by construction, the ones that did not go extinct, so they
-look systematically “better” than the model predicts. This is a
-survivorship bias in a two-parameter model — worth remembering whenever
-a fitted growth curve looks too good.</p>
-<h2 id="simulating-exactly-gillespie">Simulating exactly: Gillespie</h2>
-<p>Do not discretise time — sample the events. In state <span
-class="math inline">\(n\)</span>, the total event rate is <span
-class="math inline">\(R(n) = (b+d)n\ (+\,m)\)</span>. The probability
-that <em>nothing</em> happens in <span
-class="math inline">\([t,t+\tau]\)</span> is</p>
-<p><span class="math display">\[
-P_{\text{no event}}(\tau) = \lim_{\Delta t\to0}\bigl(1 - R\Delta
-t\bigr)^{\tau/\Delta t} = e^{-R\tau} ,
-\]</span></p>
-<p>so the waiting time to the next event is exponential with rate <span
-class="math inline">\(R\)</span>, and the event that happens is chosen
-with probability proportional to its own rate:</p>
-<ol type="1">
-<li>draw <span class="math inline">\(\tau \sim
-\text{Exp}(R(n))\)</span>, set <span class="math inline">\(t \leftarrow
-t+\tau\)</span>;</li>
-<li>with probability <span class="math inline">\(bn/R\)</span> set <span
-class="math inline">\(n\leftarrow n+1\)</span>, otherwise <span
-class="math inline">\(n \leftarrow n-1\)</span>;</li>
-<li>stop when <span class="math inline">\(n=0\)</span> or <span
-class="math inline">\(t&gt;t_{\max}\)</span>.</li>
-</ol>
-<p>This is <strong>exact</strong>: no time-step error, unlike the ODE
-integrators of <a href="l1.html">L1</a>. The cost is that the algorithm
-slows down as <span class="math inline">\(n\)</span> grows, which is
-exactly when the deterministic description becomes accurate.</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
-<li>Show directly from the master equation (without the pgf) that <span
-class="math inline">\(\frac{d}{dt}\langle n^2 \rangle = 2(b-d)\langle
-n^2\rangle + (b+d)\langle n\rangle\)</span>, and recover the
-variance.</li>
+<li>Derive the equations for <span class="math inline">\(\langle
+n\rangle\)</span> and <span class="math inline">\(\langle
+n^2\rangle\)</span> directly from the master equation: multiply it by
+<span class="math inline">\(n\)</span> (or <span
+class="math inline">\(n^2\)</span>), sum over <span
+class="math inline">\(n\)</span> and shift the summation index. Check
+that the equation for <span class="math inline">\(P(0,t)\)</span> does
+not change the result.</li>
 <li>Pure death process (<span class="math inline">\(b=0\)</span>): solve
 the master equation exactly and show <span
 class="math inline">\(P(n,t)\)</span> is binomial. Interpret.</li>
@@ -448,8 +509,8 @@ deterministically)</li>
 <ul>
 <li>Master equations and generating functions in general: Van Kampen
 ch. 5–6, Gardiner ch. 3; <a href="../qsb2024/l2.html">qsb2024 L2</a> for
-a worked stationary-distribution calculation with the same current
-argument.</li>
+the stationary distribution of a birth–death process with immigration
+(neutral theory).</li>
 <li>The method of characteristics for first-order PDEs (any
 methods-of-physics text).</li>
 </ul>
