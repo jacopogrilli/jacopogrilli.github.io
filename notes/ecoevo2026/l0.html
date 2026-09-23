@@ -118,6 +118,68 @@ quantitatively.</p>
 <p><a
 href="http://www.autodidactproject.org/other/sn-nabi2.html">Generality
 vs realism?</a></p>
+<h2 id="what-we-will-write-and-what-it-leaves-out">What we will write,
+and what it leaves out</h2>
+<p>Most of this course is about equations of the form</p>
+<p><span class="math display">\[
+\frac{dn_i}{dt} = f_i(\vec n, \vec E) ,
+\qquad
+\frac{dE_k}{dt} = g_k(\vec n, \vec E) .
+\]</span></p>
+<p><span class="math inline">\(n_i\)</span> is the abundance of
+population <span class="math inline">\(i\)</span>. <span
+class="math inline">\(\vec E\)</span> is the environment (resources,
+temperature, pH, …), which in general is itself changed by the
+populations: food is eaten. The same form also describes the structure
+<em>within</em> a population (genotypes, phenotypes), and that is how
+evolution enters.</p>
+<p>The form looks general, but it hides several assumptions. Most of
+them are dropped somewhere in the course.</p>
+<ul>
+<li><strong>First order in time.</strong> Not a real restriction: a
+second-order equation is a system of two first-order ones.</li>
+<li><strong>Well mixed.</strong> There is no space: where an individual
+sits does not matter. Space comes back towards the end of the
+course.</li>
+<li><strong>Continuous numbers and continuous time.</strong> Individuals
+are discrete and are born at discrete times. This is a good
+approximation for large populations that reproduce all the time. It
+fails for small populations, and for populations that reproduce once a
+year, like annual plants. Discrete generations are in <a
+href="l1.html#discrete-generations">L1</a>; discrete individuals in <a
+href="l2.html">L2</a>.</li>
+<li><strong>Deterministic.</strong> The initial condition fixes the
+whole trajectory. Demographic noise is in <a href="l2.html">L2</a>,
+random mutations in <a href="l3.html">L3</a>.</li>
+<li><strong>Autonomous.</strong> There is no explicit time dependence:
+no seasons, no fluctuating environment. A changing environment can be
+put back through <span class="math inline">\(\vec E\)</span>, if we know
+how to write its dynamics.</li>
+<li><strong>Well-defined types.</strong> All individuals of type <span
+class="math inline">\(i\)</span> are equivalent, with the same birth and
+death rates. Paint half of them red and half blue, and the two halves
+behave the same. What a species is, and whether this holds, is not
+obvious in many contexts. Mutations create new types (<a
+href="l3.html">L3</a>).</li>
+</ul>
+<p>Two things that are <em>not</em> assumed. The total population <span
+class="math inline">\(\sum_i n_i\)</span> is not fixed: it will be fixed
+only in some models of evolution, by construction. The initial condition
+matters, but we will mostly be interested in what happens long after it,
+once its memory is lost.</p>
+<h2 id="books">Books</h2>
+<ul>
+<li>Strogatz, <em>Nonlinear Dynamics and Chaos</em> — flows,
+bifurcations, phase plane, chaos.</li>
+<li>Murray, <em>Mathematical Biology I</em>.</li>
+<li>Van Kampen, <em>Stochastic Processes in Physics and Chemistry</em>;
+Gardiner, <em>Stochastic Methods</em>.</li>
+<li>Weitz, <a
+href="https://press.princeton.edu/books/paperback/9780691181516/quantitative-biosciences"><em>Quantitative
+Biosciences</em></a> — case studies with code.</li>
+<li>Nowak, <em>Evolutionary Dynamics</em>; Otto &amp; Day, <em>A
+Biologist’s Guide to Mathematical Modeling</em>.</li>
+</ul>
 <h2 id="references">References</h2>
 <ul>
 <li>J. L. Borges, “On Exactitude in Science”, in <em>Collected
