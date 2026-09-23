@@ -2,15 +2,4 @@
 
 What we covered in each class, with links to the corresponding sections of the notes.
 
-**Tue 22/9**
-- Logistics and exam.
-- [L0: What we will write, and what it leaves out](l0.html#what-we-will-write-and-what-it-leaves-out)
-- [L1: The simplest scenario birth and death](l1.html#the-simplest-scenario-birth-and-death)
-- [L1: Discrete generations](l1.html#discrete-generations)
-- [L1: Orders of magnitude](l1.html#orders-of-magnitude)
-- [L1: What fraction of all humans ever born is alive today?](l1.html#what-fraction-of-all-humans-ever-born-is-alive-today)
-- [L2: The observation](l2.html#the-observation)
-- [L2: What a rate is](l2.html#what-a-rate-is)
-- [L2: The mean obeys the deterministic equation](l2.html#the-mean-obeys-the-deterministic-equation)
-- [L2: Master equation](l2.html#master-equation)
-- [L2: Probability generating function](l2.html#probability-generating-function) (only the idea, not derived)
+**Tue 22/9** — Logistics and exam, then the shape of the whole course: [what we will write, and what it leaves out](l0.html#what-we-will-write-and-what-it-leaves-out). We built exponential growth from [the simplest scenario, birth and death](l1.html#the-simplest-scenario-birth-and-death), saw the same thing in [discrete generations](l1.html#discrete-generations), and put numbers on it — [orders of magnitude](l1.html#orders-of-magnitude) and [what fraction of all humans ever born is alive today](l1.html#what-fraction-of-all-humans-ever-born-is-alive-today). The rest of the class was about why identical cultures do not grow identically: [the observation](l2.html#the-observation), [what a rate is](l2.html#what-a-rate-is), and the fact that [the mean obeys the deterministic equation](l2.html#the-mean-obeys-the-deterministic-equation). We wrote the [master equation](l2.html#master-equation), and of the [probability generating function](l2.html#probability-generating-function) only the idea, not the derivation.
