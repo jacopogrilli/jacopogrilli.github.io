@@ -29,6 +29,17 @@ header.site {
 }
 header.site a { color: var(--muted); text-decoration: none; }
 header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
 main { padding-bottom: 3rem; }
 h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
 h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
@@ -64,13 +75,19 @@ footer.site a { color: var(--muted); }
   <a href="/">Jacopo Grilli</a>
 </header>
 <main>
+<div class="pagenav top">
+  <span></span>
+  <a class="download" href="index.md" download>&darr; Markdown</a>
+</div>
 <h1 id="ecology-evolution-2026">Ecology &amp; Evolution 2026</h1>
 <p>Lecture notes for <em>Ecology and Evolution</em>, Physics of Complex
 Systems master and ICTP QLS diploma, 2026.</p>
 <h2 id="lectures">Lectures</h2>
 <p>Intro <a href="l0.html">L0</a></p>
 <p>Lecture 1, Exponential growth <a href="l1.html">L1</a><br />
-Lecture 2, Demographic noise and extinction <a href="l2.html">L2</a></p>
+Lecture 2, Demographic noise and extinction <a
+href="l2.html">L2</a><br />
+Lecture 3, Mutations: Luria–Delbrück <a href="l3.html">L3</a></p>
 <h2 id="books">Books</h2>
 <ul>
 <li>Strogatz, <em>Nonlinear Dynamics and Chaos</em> — flows,

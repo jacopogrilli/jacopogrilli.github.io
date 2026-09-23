@@ -25,7 +25,11 @@ Obsidian syntax handled
   > [!type] Title, > [!type]- Title (callouts) -> box, or collapsible <details>.
   single newlines -> line breaks (Obsidian default, "strict line breaks" off).
 
-Private content, removed from the public pages
+Each page gets a "Markdown" link to the sanitized source, written next to it as
+notes/<course>/<name>.md, and (except on the index) a link back to the index; the
+"Back to [[index]]" line of the note itself is removed, the page chrome carries it.
+
+Private content, removed from the public pages and from the published markdown
   %% comments %%;
   callouts whose title starts with "Written by Claude";
   sections whose title is in PRIVATE_SECTIONS (down to the next heading of the same
@@ -55,6 +59,7 @@ IMAGE_EXT = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
 
 FRONTMATTER_RE = re.compile(r"\A---[ \t]*\n(.*?)\n---[ \t]*(?:\n|\Z)", re.S)
 CALLOUT_RE = re.compile(r"^>\s*\[!(?P<type>[\w-]+)\](?P<fold>[+-]?)\s*(?P<title>.*)$")
+BACKLINK_RE = re.compile(r"^\s*back to \[\[[^\]]*index[^\]]*\]\]\s*$", re.I)
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 WIKILINK_RE = re.compile(r"(!?)\[\[([^\]|#\\]*)(#[^\]|\\]*)?(?:\\?\|([^\]]*))?\]\]")
 PROTECT_RE = re.compile(r"(\$\$.*?\$\$|\$[^$\n]+?\$|`[^`\n]+`)", re.S)
@@ -110,10 +115,16 @@ class Page:
         text, n = re.subn(r"%%.*?%%", "", text, flags=re.S)
         if n:
             self.log.append(f"removed {n} %%comment%%")
-        out, skip_level, in_code = [], None, False
+        out, skip_level, in_code, in_claude = [], None, False, False
         for line in text.split("\n"):
             if line.lstrip().startswith("```"):
                 in_code = not in_code
+            if in_claude and not in_code:
+                if line.startswith(">"):
+                    continue
+                in_claude = False
+                if not line.strip():
+                    continue
             m = None if in_code else HEADING_RE.match(line)
             if m:
                 level, title = len(m[1]), m[2]
@@ -124,6 +135,14 @@ class Page:
                     self.log.append(f"removed section: {title}")
                     continue
             if skip_level is not None:
+                continue
+            c = None if in_code else CALLOUT_RE.match(line)
+            if c and c["title"].strip().startswith("Written by Claude"):
+                self.log.append("removed callout: Written by Claude")
+                in_claude = True
+                continue
+            if not in_code and BACKLINK_RE.match(line):
+                self.log.append("removed back-to-index line (the page chrome links it)")
                 continue
             if PLACEHOLDER in line:
                 self.log.append(f"removed placeholder line: {line.strip()[:60]}")
@@ -167,11 +186,7 @@ class Page:
                 j += 1
             kind, fold = m["type"].lower(), m["fold"]
             title = m["title"].strip() or kind.capitalize()
-            if title.startswith("Written by Claude"):
-                self.log.append("removed callout: Written by Claude")
-                if j < len(lines) and not lines[j].strip():
-                    j += 1
-            elif fold:
+            if fold:
                 opened = " open" if fold == "+" else ""
                 out += ["", f'<details class="callout callout-{kind}"{opened}>',
                         f"<summary>{title}</summary>", "", *body, "", "</details>", ""]
@@ -243,8 +258,14 @@ class Page:
         return "".join(p if k % 2 else WIKILINK_RE.sub(sub, p) for k, p in enumerate(pieces))
 
     def markdown(self):
+        """Sanitized markdown, as published for download: Obsidian callouts kept, links resolved."""
         _, text = split_frontmatter(self.note.read_text(encoding="utf-8"))
-        return self.wikilinks(self.callouts(self.hide_unpublished(self.strip_private(text))))
+        md = self.wikilinks(self.hide_unpublished(self.strip_private(text)))
+        return re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"  # close the gaps left by the cuts
+
+    def for_pandoc(self, md):
+        """The same markdown with callouts turned into what pandoc understands."""
+        return "\n".join(self.callouts(md.split("\n")))
 
 
 def check_html(html_file):
@@ -301,9 +322,11 @@ def main():
         page = Page(args.course, src, out, note, stems)
         md = page.markdown()
         h1 = next((l[2:] for l in md.splitlines() if l.startswith("# ")), note.stem)
+        is_index = note.stem == "index"
         target = out / f"{web_name(note.stem)}.html"
-        title = course_title if note.stem == "index" else f"{plain(h1)} · {course_title}"
-        print(f"{note.name} -> {target.relative_to(SITE)}")
+        md_target = out / f"{web_name(note.stem)}.md"
+        title = course_title if is_index else f"{plain(h1)} · {course_title}"
+        print(f"{note.name} -> {target.relative_to(SITE)}, {md_target.name}")
         for entry in page.log:
             print(f"    {entry}")
         if args.dry_run:
@@ -313,10 +336,14 @@ def main():
             d.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(s, d)
             print(f"    copied {s.name} -> {d.relative_to(SITE)}")
+        md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
+        meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
+                "-M", f"markdown-file={md_target.name}"]
+        if not is_index:
+            meta += ["-M", "index-link=index.html"]
         subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}",
-                        "--standalone", "--template", str(TEMPLATE),
-                        "-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
-                        "-o", str(target)], input=md, text=True, check=True)
+                        "--standalone", "--template", str(TEMPLATE), *meta,
+                        "-o", str(target)], input=page.for_pandoc(md), text=True, check=True)
         built.append(target)
 
     # pages of notes that are no longer published: delete the ones this script made
@@ -327,10 +354,22 @@ def main():
         if GENERATOR_TAG not in f.read_text(encoding="utf-8"):
             print(f"left in place, not made by this script: {f.relative_to(SITE)}")
         elif args.dry_run:
-            print(f"would delete {f.relative_to(SITE)} (note not published)")
+            print(f"would delete {f.relative_to(SITE)} and its markdown (note not published)")
         else:
             f.unlink()
-            print(f"deleted {f.relative_to(SITE)} (note not published)")
+            f.with_suffix(".md").unlink(missing_ok=True)
+            print(f"deleted {f.relative_to(SITE)} and its markdown (note not published)")
+
+    # markdown left over from an earlier run, with no page of its own any more
+    expected_md = {f"{web_name(n.stem)}.md" for n in published}
+    for f in sorted(out.glob("*.md")) if out.exists() else []:
+        if f.name in expected_md or f.with_suffix(".html").exists():
+            continue
+        if args.dry_run:
+            print(f"would delete {f.relative_to(SITE)} (no page)")
+        else:
+            f.unlink()
+            print(f"deleted {f.relative_to(SITE)} (no page)")
 
     ok = True
     for target in built:  # after the whole build, so links between new pages resolve

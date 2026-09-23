@@ -30,6 +30,17 @@ header.site {
 }
 header.site a { color: var(--muted); text-decoration: none; }
 header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
 main { padding-bottom: 3rem; }
 h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
 h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
@@ -67,9 +78,12 @@ type="text/javascript"></script>
   <a href="/">Jacopo Grilli</a>
 </header>
 <main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l1.md" download>&darr; Markdown</a>
+</div>
 <h1 id="lecture-1.-deterministic-exponential-growth">Lecture 1.
 Deterministic exponential growth</h1>
-<p>Back to <a href="index.html">index</a></p>
 <p><a
 href="https://colab.research.google.com/drive/17b8pZ7ySXn7BRdd6GJLYDzh2BdZUbokV?usp=sharing">Colab
 notebook</a></p>
@@ -110,8 +124,10 @@ class="math inline">\(r\)</span> itself:</p>
 t_{\text{double}} = \frac{\log 2}{r}
 \]</span></p>
 <h3 id="discrete-generations">Discrete generations</h3>
-<p>Exponential growth is not an artefact of continuous time. Suppose
-instead that all individuals reproduce synchronously every <span
+<p><a
+href="https://en.wikipedia.org/wiki/Exponential_growth">Exponential
+growth</a> is not an artefact of continuous time. Suppose instead that
+all individuals reproduce synchronously every <span
 class="math inline">\(t_r\)</span>, each leaving <span
 class="math inline">\(k\)</span> offspring (and then dying —
 non-overlapping generations). Then</p>
@@ -125,16 +141,18 @@ n(t=g\,t_r) = n(0)\, k^{\,g} = n(0)\, k^{\,t/t_r} = n(0)\,e^{rt} ,
 \boxed{\ r = \frac{\log k}{t_r}\ }
 \]</span></p>
 <p>In the ecological literature <span class="math inline">\(k\)</span>
-is the <em>basic reproductive number</em> <span
-class="math inline">\(R_0\)</span> (expected offspring per individual
-per generation) and <span class="math inline">\(t_r\)</span> the
-generation time <span class="math inline">\(T\)</span>, so <span
-class="math inline">\(r=\log R_0 / T\)</span>.</p>
+is the <em><a
+href="https://en.wikipedia.org/wiki/Basic_reproduction_number">basic
+reproductive number</a></em> <span class="math inline">\(R_0\)</span>
+(expected offspring per individual per generation) and <span
+class="math inline">\(t_r\)</span> the generation time, so <span
+class="math inline">\(r=\log R_0 / t_r\)</span>.</p>
 <h3 id="orders-of-magnitude">Orders of magnitude</h3>
 <p><span class="math inline">\(E.\ coli\)</span> in good conditions:
 <span class="math inline">\(r \approx 2\ \mathrm{h^{-1}}\)</span>,
-i.e. a doubling time of <span class="math inline">\(\log 2/2 \approx
-20\)</span> min. Starting from a single cell,</p>
+i.e. a <a href="https://en.wikipedia.org/wiki/Doubling_time">doubling
+time</a> of <span class="math inline">\(\log 2/2 \approx 20\)</span>
+min. Starting from a single cell,</p>
 <p><span class="math display">\[
 n(6\,\mathrm{h}) = e^{2\cdot 6} \approx 1.6\times 10^{5} ,
 \qquad
@@ -200,7 +218,9 @@ class="math inline">\(\dot n = f(n)\)</span></h2>
 <p>The one equation in this course whose exact solution we know, which
 makes it the right place to learn how to integrate the ones we do
 not.</p>
-<p><strong>Euler.</strong> Expand to first order:</p>
+<p><strong><a
+href="https://en.wikipedia.org/wiki/Euler_method">Euler</a>.</strong>
+Expand to first order:</p>
 <p><span class="math display">\[
 x(t+\Delta t) = x(t) + f\bigl(x(t)\bigr)\Delta t + O(\Delta t^2) .
 \]</span></p>
@@ -214,8 +234,9 @@ class="math inline">\(n(t) = n(0)(1+r\Delta t)^{t/\Delta t}\)</span>,
 which converges to <span class="math inline">\(n(0)e^{rt}\)</span> only
 as <span class="math inline">\(\Delta t\to0\)</span> — and undershoots
 it for finite <span class="math inline">\(\Delta t\)</span>.</p>
-<p><strong>Runge–Kutta 4.</strong> Sample the slope four times inside
-the step:</p>
+<p><strong><a
+href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge–Kutta
+4</a>.</strong> Sample the slope four times inside the step:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \kappa_1 &amp;= f\bigl(x(t)\bigr)\Delta t, &amp;
@@ -230,11 +251,11 @@ x(t+\Delta t) = x(t) + \tfrac16\bigl(\kappa_1 + 2\kappa_2 + 2\kappa_3 +
 \]</span></p>
 <p>with global error <span class="math inline">\(O(\Delta
 t^4)\)</span>.</p>
-<p><strong>In practice</strong>, use
-<code>scipy.integrate.solve_ivp</code>, which chooses <span
-class="math inline">\(\Delta t\)</span> adaptively from an error
-estimate. The point of coding Euler and RK4 by hand once is to know what
-the adaptive step is adapting.</p>
+<p><strong>In practice</strong>, use <a
+href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code>scipy.integrate.solve_ivp</code></a>,
+which chooses <span class="math inline">\(\Delta t\)</span> adaptively
+from an error estimate. The point of coding Euler and RK4 by hand once
+is to know what the adaptive step is adapting.</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li>A population doubles every 20 minutes. How long until a single cell
@@ -272,6 +293,10 @@ href="https://doi.org/10.5132/eec.2013.01.011">Population approach in
 ecotoxicology</a>, <em>Ecotox. Environ. Contam.</em> <strong>8</strong>,
 75 (2013).</li>
 </ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l1.md" download>&darr; Markdown</a>
+</div>
 </main>
 <footer class="site">
   Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
