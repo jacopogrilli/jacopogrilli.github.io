@@ -12,6 +12,10 @@ script made earlier for a note that is no longer published is deleted.
 In the index, lines that link to an unpublished note of the course are hidden, so
 the index can list every lecture and only the ready ones appear online.
 
+Slides: a PDF named after the note (L1.pdf for L1.md) in the course's printed_slides
+folder is copied to notes/<course>/slides/ and linked from the page chrome. Drop the
+next lecture's PDF there and re-run; nothing in the note has to change.
+
 Output: notes/<course>/<name>.html, one page per published note, file names
 lower-cased as in the Obsidian "Webpage HTML Export" used for bg2025/qsb2024/sc2025.
 Needs pandoc (brew install pandoc). Math is typeset in the browser by MathJax 4.
@@ -47,6 +51,8 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 VAULT = Path.home() / "Documents" / "WORKNOTES_remote"
 NOTES_DIR = "WebsiteNotes"  # vault folder
+# printed slides, outside the vault: <dir>/<note stem>.pdf, e.g. printed_slides/L1.pdf
+SLIDES = {"ecoevo2026": Path.home() / "Dropbox/Fisica/Corsi/ICTP/2026-EcoEvo/printed_slides"}
 SITE_DIR = "notes"          # site folder: https://jacopogrilli.github.io/notes/<course>/
 TEMPLATE = SITE / "scripts" / "notes_template.html"
 GENERATOR_TAG = '<meta name="generator" content="publish_notes.py">'  # must match the template
@@ -291,6 +297,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("course", help="folder name under WebsiteNotes/, e.g. ecoevo2026")
     ap.add_argument("--vault", type=Path, default=VAULT)
+    ap.add_argument("--slides", type=Path, help="folder holding <note>.pdf printed slides")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--push", action="store_true", help="git commit + push after building")
     args = ap.parse_args()
@@ -309,6 +316,11 @@ def main():
     if not published:
         sys.exit("no note has publish: true")
     stems = {n.stem for n in published}
+
+    slides_dir = args.slides or SLIDES.get(args.course)
+    if slides_dir and not slides_dir.is_dir():
+        print(f"no slides folder at {slides_dir}")
+        slides_dir = None
 
     index = src / "index.md"
     course_title = args.course
@@ -339,6 +351,16 @@ def main():
         md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
         meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
                 "-M", f"markdown-file={md_target.name}"]
+        slides = slides_dir / f"{note.stem}.pdf" if slides_dir else None
+        if slides and slides.is_file():
+            dest = out / "slides" / f"{web_name(note.stem)}.pdf"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            if not (dest.exists() and dest.stat().st_size == slides.stat().st_size
+                    and dest.stat().st_mtime >= slides.stat().st_mtime):
+                shutil.copy2(slides, dest)
+                print(f"    copied slides {slides.name} -> {dest.relative_to(SITE)}"
+                      f" ({slides.stat().st_size / 1e6:.1f} MB)")
+            meta += ["-M", f"slides-file=slides/{dest.name}"]
         if not is_index:
             meta += ["-M", "index-link=index.html"]
         subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}",

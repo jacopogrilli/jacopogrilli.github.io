@@ -36,6 +36,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
 .pagenav a { color: var(--muted); text-decoration: none; }
 .pagenav a:hover { color: var(--accent); }
+.pagenav .links { display: flex; gap: .5rem; flex-wrap: wrap; }
 a.download {
   border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
   white-space: nowrap;
@@ -80,7 +81,10 @@ type="text/javascript"></script>
 <main>
 <div class="pagenav top">
   <span><a href="index.html">&larr; Back to index</a></span>
-  <a class="download" href="l2.md" download>&darr; Markdown</a>
+  <span class="links">
+    <a class="download" href="slides/l2.pdf">&#8599; Slides (pdf)</a>
+    <a class="download" href="l2.md" download>&darr; Markdown</a>
+  </span>
 </div>
 <h1 id="lecture-2.-demographic-noise-and-stochastic-extinctions">Lecture
 2. Demographic noise and stochastic extinctions</h1>
@@ -191,22 +195,72 @@ n\rangle .
 n^2\rangle\)</span> involves only <span class="math inline">\(\langle
 n^2\rangle\)</span> and <span class="math inline">\(\langle
 n\rangle\)</span>: the hierarchy closes, again because the rates are
-linear. For the variance <span class="math inline">\(\operatorname{var}
-n=\langle n^2\rangle-\langle n\rangle^2\)</span>,</p>
+linear.</p>
+<p>What we are after is the variance, <span
+class="math inline">\(\operatorname{var} n=\langle n^2\rangle-\langle
+n\rangle^2\)</span>. Differentiate it and insert the two equations we
+now have, <span class="math inline">\(d\langle n^2\rangle/dt =
+2(b-d)\langle n^2\rangle+(b+d)\langle n\rangle\)</span> and <span
+class="math inline">\(d\langle n\rangle/dt = (b-d)\langle
+n\rangle\)</span>:</p>
 <p><span class="math display">\[
-\frac{d\operatorname{var} n}{dt} = \frac{d\langle n^2\rangle}{dt} -
-2\langle n\rangle\frac{d\langle n\rangle}{dt} = 2(b-d)\operatorname{var}
-n + (b+d)\,\langle n\rangle ,
+\frac{d\operatorname{var} n}{dt}
+= \frac{d\langle n^2\rangle}{dt} - 2\langle n\rangle\frac{d\langle
+n\rangle}{dt}
+= \Bigl[ 2(b-d)\langle n^2\rangle + (b+d)\langle n\rangle \Bigr] -
+2(b-d)\langle n\rangle^2 ,
 \]</span></p>
-<p>a linear equation driven by <span class="math inline">\((b+d)\langle
-n(t)\rangle=(b+d)\,n_0e^{(b-d)t}\)</span>, with <span
-class="math inline">\(\operatorname{var} n=0\)</span> at <span
-class="math inline">\(t=0\)</span>. Its solution is</p>
+<p>and the two terms proportional to <span
+class="math inline">\(b-d\)</span> recombine into the variance
+itself:</p>
 <p><span class="math display">\[
-\operatorname{var} n(t) = (b+d)\,n_0\int_0^t
-e^{2(b-d)(t-s)}\,e^{(b-d)s}\,ds
-= n_0\,\frac{b+d}{b-d}\,e^{(b-d)t}\left(e^{(b-d)t}-1\right) .
+\boxed{\ \frac{d\operatorname{var} n}{dt} = 2(b-d)\,\operatorname{var} n
++ (b+d)\,\langle n\rangle\ }
 \]</span></p>
+<p>Two effects, one per term. Every event moves <span
+class="math inline">\(n\)</span> by one, so the total event rate <span
+class="math inline">\((b+d)\langle n\rangle\)</span> is also the rate at
+which variance is <em>injected</em> — the only place where the turnover
+enters. Whatever variance is already there is then carried along by the
+growth, at twice the rate of the mean, because the variance is quadratic
+in <span class="math inline">\(n\)</span>.</p>
+<p>The equation is linear in <span
+class="math inline">\(\operatorname{var} n\)</span> and its source is
+known, since we already solved for <span class="math inline">\(\langle
+n(t)\rangle\)</span>: writing <span
+class="math inline">\(r=b-d\)</span>, it is <span
+class="math inline">\(\dot V = 2rV + f(t)\)</span> with <span
+class="math inline">\(f(t) = (b+d)\,n_0e^{rt}\)</span>. Multiplying by
+<span class="math inline">\(e^{-2rt}\)</span> turns the left-hand side
+into a total derivative,</p>
+<p><span class="math display">\[
+\frac{d}{dt}\Bigl( e^{-2rt}\operatorname{var} n \Bigr) = e^{-2rt} f(t) ,
+\]</span></p>
+<p>which integrates from <span class="math inline">\(0\)</span> to <span
+class="math inline">\(t\)</span> with <span
+class="math inline">\(\operatorname{var} n(0)=0\)</span> — at <span
+class="math inline">\(t=0\)</span> the population is exactly <span
+class="math inline">\(n_0\)</span>, with no spread:</p>
+<p><span class="math display">\[
+\operatorname{var} n(t) = \int_0^t \! ds\ e^{2r(t-s)}\, f(s) =
+(b+d)\,n_0\int_0^t \! ds\ e^{2r(t-s)}\,e^{rs} .
+\]</span></p>
+<p>The integral is elementary — take <span
+class="math inline">\(e^{2rt}\)</span> out and integrate <span
+class="math inline">\(e^{-rs}\)</span>:</p>
+<p><span class="math display">\[
+\int_0^t \! ds\ e^{2r(t-s)}\,e^{rs} = e^{2rt}\int_0^t \! ds\ e^{-rs} =
+e^{2rt}\,\frac{1-e^{-rt}}{r} = \frac{e^{rt}\left(e^{rt}-1\right)}{r} ,
+\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[
+\boxed{\ \operatorname{var} n(t) =
+n_0\,\frac{b+d}{b-d}\,e^{(b-d)t}\left(e^{(b-d)t}-1\right)\ }
+\]</span></p>
+<p>For <span class="math inline">\(b=d\)</span> the prefactor <span
+class="math inline">\((e^{rt}-1)/r\)</span> is to be read as its limit
+<span class="math inline">\(t\)</span>, which gives the critical case
+below.</p>
 <p>Three regimes:</p>
 <ul>
 <li><span class="math inline">\(b&gt;d\)</span>: at long times <span
@@ -575,7 +629,10 @@ Methods</em></a>.</li>
 </ul>
 <div class="pagenav bottom">
   <a href="index.html">&larr; Back to index</a>
-  <a class="download" href="l2.md" download>&darr; Markdown</a>
+  <span class="links">
+    <a class="download" href="slides/l2.pdf">&#8599; Slides (pdf)</a>
+    <a class="download" href="l2.md" download>&darr; Markdown</a>
+  </span>
 </div>
 </main>
 <footer class="site">

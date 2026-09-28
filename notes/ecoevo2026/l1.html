@@ -36,6 +36,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
 .pagenav a { color: var(--muted); text-decoration: none; }
 .pagenav a:hover { color: var(--accent); }
+.pagenav .links { display: flex; gap: .5rem; flex-wrap: wrap; }
 a.download {
   border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
   white-space: nowrap;
@@ -80,7 +81,10 @@ type="text/javascript"></script>
 <main>
 <div class="pagenav top">
   <span><a href="index.html">&larr; Back to index</a></span>
-  <a class="download" href="l1.md" download>&darr; Markdown</a>
+  <span class="links">
+    <a class="download" href="slides/l1.pdf">&#8599; Slides (pdf)</a>
+    <a class="download" href="l1.md" download>&darr; Markdown</a>
+  </span>
 </div>
 <h1 id="lecture-1.-deterministic-exponential-growth">Lecture 1.
 Deterministic exponential growth</h1>
@@ -308,7 +312,10 @@ ecotoxicology</a>, <em>Ecotox. Environ. Contam.</em> <strong>8</strong>,
 </ul>
 <div class="pagenav bottom">
   <a href="index.html">&larr; Back to index</a>
-  <a class="download" href="l1.md" download>&darr; Markdown</a>
+  <span class="links">
+    <a class="download" href="slides/l1.pdf">&#8599; Slides (pdf)</a>
+    <a class="download" href="l1.md" download>&darr; Markdown</a>
+  </span>
 </div>
 </main>
 <footer class="site">

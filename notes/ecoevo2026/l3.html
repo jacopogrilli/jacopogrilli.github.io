@@ -36,6 +36,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
 .pagenav a { color: var(--muted); text-decoration: none; }
 .pagenav a:hover { color: var(--accent); }
+.pagenav .links { display: flex; gap: .5rem; flex-wrap: wrap; }
 a.download {
   border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
   white-space: nowrap;
@@ -80,7 +81,10 @@ type="text/javascript"></script>
 <main>
 <div class="pagenav top">
   <span><a href="index.html">&larr; Back to index</a></span>
-  <a class="download" href="l3.md" download>&darr; Markdown</a>
+  <span class="links">
+    
+    <a class="download" href="l3.md" download>&darr; Markdown</a>
+  </span>
 </div>
 <h1 id="lecture-3.-mutations-luriadelbrück">Lecture 3. Mutations:
 Luria–Delbrück</h1>
@@ -407,13 +411,13 @@ class="math inline">\(n-z(n-1)\simeq n(1-z)\)</span> and</li>
 G(z) = \exp\left[\,m_{\text{ev}}\,\frac{1-z}{z}\,\log(1-z)\right] ,
 \qquad m_{\text{ev}} = \mu_D N ,
 \]</span></p>
-<p>the <strong>Lea–Coulson</strong> generating function. Its logarithmic
+<p>the <em>Lea–Coulson</em> generating function. Its logarithmic
 singularity at <span class="math inline">\(z\to1\)</span> <em>is</em>
 the <span class="math inline">\(1/M^2\)</span> tail, and what keeps
 <span class="math inline">\(\langle M\rangle\)</span> finite is
 precisely the <span class="math inline">\(n-z(n-1)\)</span> we just
 dropped — the culture is finite.</p>
-<p><strong>The same result, read probabilistically.</strong> Mutational
+<p><strong>The same result, different derivation.</strong> Mutational
 events are a Poisson process along divisions, with mean <span
 class="math inline">\(m_{\text{ev}}=\mu_D N\)</span>; an event at
 population size <span class="math inline">\(n\)</span> founds a clone
@@ -595,7 +599,10 @@ effect of plating efficiency</a>, <em>Genetica</em> <strong>84</strong>,
 </ul>
 <div class="pagenav bottom">
   <a href="index.html">&larr; Back to index</a>
-  <a class="download" href="l3.md" download>&darr; Markdown</a>
+  <span class="links">
+    
+    <a class="download" href="l3.md" download>&darr; Markdown</a>
+  </span>
 </div>
 </main>
 <footer class="site">
