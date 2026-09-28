@@ -12,8 +12,14 @@ script made earlier for a note that is no longer published is deleted.
 In the index, lines that link to an unpublished note of the course are hidden, so
 the index can list every lecture and only the ready ones appear online.
 
+Colab: the notebook is linked under the note's title. The URL comes from the note's
+`colab` property, or, failing that, from the first colab.research.google.com link
+left in the note after the private content is stripped (so the "*to be made*" lines
+pointing at the old bg2025 notebooks do not count). A line that is nothing but that
+link is removed from where it sat, and rewritten under the title.
+
 Slides: a PDF named after the note (L1.pdf for L1.md) in the course's printed_slides
-folder is copied to notes/<course>/slides/ and linked from the page chrome. Drop the
+folder is copied to notes/<course>/slides/ and linked under the title. Drop the
 next lecture's PDF there and re-run; nothing in the note has to change.
 
 Output: notes/<course>/<name>.html, one page per published note, file names
@@ -68,6 +74,9 @@ CALLOUT_RE = re.compile(r"^>\s*\[!(?P<type>[\w-]+)\](?P<fold>[+-]?)\s*(?P<title>
 BACKLINK_RE = re.compile(r"^\s*back to \[\[[^\]]*index[^\]]*\]\]\s*$", re.I)
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 WIKILINK_RE = re.compile(r"(!?)\[\[([^\]|#\\]*)(#[^\]|\\]*)?(?:\\?\|([^\]]*))?\]\]")
+COLAB_RE = re.compile(r"\[([^\]]*)\]\((https://colab\.research\.google\.com/[^)\s]+)\)")
+COLAB_BARE_RE = re.compile(r"(?<![(\]])\bhttps://colab\.research\.google\.com/[^\s)<>]+")
+COLAB_ONLY_RE = re.compile(r"^\s*(?:\*\*)?(?:colab|notebook)?(?:\*\*)?\s*:?\s*$", re.I)
 PROTECT_RE = re.compile(r"(\$\$.*?\$\$|\$[^$\n]+?\$|`[^`\n]+`)", re.S)
 
 
@@ -82,6 +91,11 @@ def split_frontmatter(text):
         if sep and not line[:1].isspace() and not line.startswith("-"):
             props[key.strip()] = value.strip().strip("'\"")
     return props, text[m.end():]
+
+
+def props_of(note):
+    props, _ = split_frontmatter(note.read_text(encoding="utf-8"))
+    return props
 
 
 def is_published(note):
@@ -269,9 +283,43 @@ class Page:
         md = self.wikilinks(self.hide_unpublished(self.strip_private(text)))
         return re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"  # close the gaps left by the cuts
 
+    def colab(self, md):
+        """(markdown, url): hoist the notebook link out of the body into the page chrome."""
+        m = COLAB_RE.search(md)
+        if not m:
+            # a URL pasted bare (not inside a [text](url) link, so never one of the old
+            # bg2025 notebooks, which are always linked) survives even a stripped line
+            raw = split_frontmatter(self.note.read_text(encoding="utf-8"))[1]
+            bare = COLAB_BARE_RE.search(raw)
+            if bare:
+                self.log.append(f"notebook under the title, from a bare URL: {bare[0]}")
+                return md, bare[0]
+            return md, None
+        line = md[md.rfind("\n", 0, m.start()) + 1:]
+        line = line[:line.find("\n")] if "\n" in line else line
+        rest = (line[:line.index(m[0])] + line[line.index(m[0]) + len(m[0]):])
+        if COLAB_ONLY_RE.match(rest):  # the line is only that link: the chrome replaces it
+            md = md.replace(line + "\n", "", 1)
+            self.log.append(f"notebook link moved under the title: {m[1] or m[2]}")
+        else:
+            self.log.append(f"notebook also linked under the title: {m[1] or m[2]}")
+        return md, m[2]
+
     def for_pandoc(self, md):
         """The same markdown with callouts turned into what pandoc understands."""
         return "\n".join(self.callouts(md.split("\n")))
+
+
+def under_title(md, line):
+    """Put the slides / notebook links right below the note's title."""
+    lines = md.split("\n")
+    for i, l in enumerate(lines):
+        if l.startswith("# "):
+            j = i + 1
+            while j < len(lines) and not lines[j].strip():
+                j += 1
+            return "\n".join(lines[:i + 1] + ["", line, ""] + lines[j:])
+    return line + "\n\n" + md
 
 
 def check_html(html_file):
@@ -333,6 +381,8 @@ def main():
     for note in published:
         page = Page(args.course, src, out, note, stems)
         md = page.markdown()
+        md, colab = page.colab(md)
+        colab = props_of(note).get("colab") or colab
         h1 = next((l[2:] for l in md.splitlines() if l.startswith("# ")), note.stem)
         is_index = note.stem == "index"
         target = out / f"{web_name(note.stem)}.html"
@@ -348,9 +398,7 @@ def main():
             d.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(s, d)
             print(f"    copied {s.name} -> {d.relative_to(SITE)}")
-        md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
-        meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
-                "-M", f"markdown-file={md_target.name}"]
+        links = []
         slides = slides_dir / f"{note.stem}.pdf" if slides_dir else None
         if slides and slides.is_file():
             dest = out / "slides" / f"{web_name(note.stem)}.pdf"
@@ -360,7 +408,15 @@ def main():
                 shutil.copy2(slides, dest)
                 print(f"    copied slides {slides.name} -> {dest.relative_to(SITE)}"
                       f" ({slides.stat().st_size / 1e6:.1f} MB)")
-            meta += ["-M", f"slides-file=slides/{dest.name}"]
+            links.append(f"[Slides (pdf)](slides/{dest.name})")
+        if colab:
+            links.append(f"[Colab notebook]({colab})")
+        if links:
+            md = under_title(md, " · ".join(links))
+            print(f"    links under the title: {' · '.join(links)}")
+        md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
+        meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
+                "-M", f"markdown-file={md_target.name}"]
         if not is_index:
             meta += ["-M", "index-link=index.html"]
         subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}",
