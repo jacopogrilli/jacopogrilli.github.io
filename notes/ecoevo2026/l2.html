@@ -307,6 +307,13 @@ class="math inline">\(\langle n_D(t)\rangle = d\,n_0\,t\)</span>). For
 <span class="math inline">\(b&gt;d\)</span>, at long times there are
 <span class="math inline">\(d/(b-d)\)</span> deaths per living
 individual</p>
+<p>Plotted against <span class="math inline">\(\langle
+n(t)\rangle\)</span>, the cumulative number of deaths is a straight line
+of slope <span class="math inline">\(d/(b-d)\)</span>. With <span
+class="math inline">\(b-d\)</span> read off the growth of the mean, this
+measures the death rate <span class="math inline">\(d\)</span> from
+time-lapse movies, which is how it is done for the antibiotic
+experiments of <a href="#the-observation">the observation</a>.</p>
 <h2 id="extinction-probability">Extinction probability</h2>
 <p><span class="math inline">\(n=0\)</span> is absorbing: once there,
 the population stays there. The simplest way to compute the probability
@@ -378,7 +385,8 @@ look systematically “better” than the model predicts. This is a <a
 href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship
 bias</a> in a two-parameter model — worth remembering whenever a fitted
 growth curve looks too good.</p>
-<h2 id="simulating-exactly-gillespie">Simulating exactly: Gillespie</h2>
+<h2 id="simulating-exactly-with-gillespie">Simulating exactly with
+Gillespie</h2>
 <p>Do not discretise time — sample the events (<a
 href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie
 algorithm</a>). In state <span class="math inline">\(n\)</span>, the

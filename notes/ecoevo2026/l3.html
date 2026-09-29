@@ -94,8 +94,13 @@ culture: they are resistant, typically because the target of the drug,
 or its uptake, is altered. It is the system of <a href="l2.html">L2</a>.
 Evolution of resistance can even be watched directly in space, as fronts
 advancing across a gradient of drug concentration (<a
-href="https://doi.org/10.1126/science.aag0822">Baym et
-al. 2016</a>).</p>
+href="https://doi.org/10.1126/science.aag0822">Baym et al. 2016</a>).
+The bands of drug stay distinct for the ~11 days of the experiment
+because the plate is large (120×60 cm): diffusion over a distance <span
+class="math inline">\(L\)</span> takes a time <span
+class="math inline">\(\sim L^2/D\)</span>, while the bacterial front
+advances linearly in time. Diffusion still smooths the steps locally,
+and the bacteria take advantage of those local gradients.</p>
 <p>In principle resistance could be:<br />
 - <strong>Acquired (Lamarckian):</strong> contact with the drug
 <em>induces</em> resistance in some cells, with some small
@@ -135,8 +140,8 @@ class="math inline">\(\varepsilon\)</span> before it is used to estimate
 <span class="math inline">\(\mu\)</span> (<a
 href="https://doi.org/10.1007/bf00123984">Stewart 1991</a>; formula in
 the <a href="#appendix.-solving-the-recursion">appendix</a>).</p>
-<h2 id="hypothesis-a-acquired-resistance-lamarckian">Hypothesis A:
-acquired resistance (Lamarckian)</h2>
+<h2 id="hypothesis-a.-acquired-resistance-lamarckian">Hypothesis A.
+Acquired resistance (Lamarckian)</h2>
 <p>Each of the <span class="math inline">\(N\)</span> cells
 independently becomes resistant with probability <span
 class="math inline">\(\mu_L\)</span> upon challenge (antibiotics,
@@ -169,7 +174,7 @@ of variation</a>) is small,</p>
 differ by about 10.<br />
 The mutation rate is then estimated as <span
 class="math inline">\(\widehat\mu_L = M/N\)</span>.</p>
-<h2 id="hypothesis-b-spontaneous-mutation">Hypothesis B: spontaneous
+<h2 id="hypothesis-b.-spontaneous-mutation">Hypothesis B. Spontaneous
 mutation</h2>
 <p>Split the population into sensitive <span
 class="math inline">\(s\)</span> and mutant <span
@@ -278,7 +283,7 @@ N\)</span> because a clone cannot be bigger than the culture, and
 suppressed below <span class="math inline">\(M\sim \mu_D N\)</span>
 because the first mutation cannot be arbitrarily late.</p>
 <h3 id="moments">Moments</h3>
-<p>The tail controls everything. With the cut-offs <span
+<p>The tail controls the moments. With the cut-offs <span
 class="math inline">\(1\le M\le N\)</span>:</p>
 <p><span class="math display">\[
 \langle M\rangle = \int_1^N \! dM\; M\,P(M\mid N) \simeq N\mu_D \log N ,
@@ -350,8 +355,11 @@ later mutations matter and the exact treatment is needed — the tail
 exponent, however, is unchanged.</p>
 <h2 id="appendix.-solving-the-recursion">Appendix. Solving the
 recursion</h2>
-<p><em>Not covered in class.</em> The recursion of the main text can be
-solved with the tool of <a href="l2.html">L2</a>: a <a
+<p><em>Only mentioned in class: for <span
+class="math inline">\(n\gg1\)</span> the recursion becomes a
+differential equation, which a generating function solves.</em> The
+recursion of the main text can be solved with the tool of <a
+href="l2.html">L2</a>: a <a
 href="https://en.wikipedia.org/wiki/Probability-generating_function">generating
 function</a> turns it into a partial differential equation, and the <a
 href="https://en.wikipedia.org/wiki/Method_of_characteristics">method of
