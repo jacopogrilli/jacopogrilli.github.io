@@ -20,8 +20,8 @@ The pdf is served by this site (see Slides below). The editable decks are too bi
 the repo, so they are linked from Dropbox: put the share link of each file in the
 note. Pasting the share links bare in the body, one per line, is enough: they are
 recognised by file type, removed from where they sit, and rewritten as that one line.
-The properties `key`, `pptx`, `pdf` do the same and win over a pasted link. With no
-link for the pdf, the site serves its own copy (see Slides below). A Dropbox link ending in dl=0 is rewritten to dl=1, so the
+The properties `key`, `pptx`, `pdf` do the same and win over a pasted link. The site
+hosts no slide file of its own: a deck with no share link simply is not linked. A Dropbox link ending in dl=0 is rewritten to dl=1, so the
 file downloads instead of opening Dropbox's preview.
 
 Colab: the notebook is linked under the note's title. The URL comes from the note's
@@ -29,10 +29,6 @@ Colab: the notebook is linked under the note's title. The URL comes from the not
 left in the note after the private content is stripped (so the "*to be made*" lines
 pointing at the old bg2025 notebooks do not count). A line that is nothing but that
 link is removed from where it sat, and rewritten under the title.
-
-Slides: a PDF named after the note (L1.pdf for L1.md) in the course's publish_slides
-folder is copied to notes/<course>/slides/ and linked under the title. Drop the
-next lecture's PDF there and re-run; nothing in the note has to change.
 
 Output: notes/<course>/<name>.html, one page per published note, file names
 lower-cased as in the Obsidian "Webpage HTML Export" used for bg2025/qsb2024/sc2025.
@@ -69,8 +65,6 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 VAULT = Path.home() / "Documents" / "WORKNOTES_remote"
 NOTES_DIR = "WebsiteNotes"  # vault folder
-# printed slides, outside the vault: <dir>/<note stem>.pdf, e.g. publish_slides/L1.pdf
-SLIDES = {"ecoevo2026": Path.home() / "Dropbox/Fisica/Corsi/ICTP/2026-EcoEvo/publish_slides"}
 SITE_DIR = "notes"          # site folder: https://jacopogrilli.github.io/notes/<course>/
 TEMPLATE = SITE / "scripts" / "notes_template.html"
 GENERATOR_TAG = '<meta name="generator" content="publish_notes.py">'  # must match the template
@@ -340,8 +334,12 @@ class Page:
         self.log.append("slide files from the note: " + ", ".join(found))
         return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)), found
 
-    def for_pandoc(self, md):
-        """The same markdown with callouts turned into what pandoc understands."""
+    def for_pandoc(self, md, resources=()):
+        """The same markdown with callouts turned into what pandoc understands, and the
+        links under the title wrapped so the stylesheet can reach them."""
+        if resources:
+            block = "\n".join(resources)
+            md = md.replace(block, f"::: {{.resources}}\n{block}\n:::", 1)
         return "\n".join(self.callouts(md.split("\n")))
 
 
@@ -356,16 +354,16 @@ def direct_download(url):
     return url.replace("&dl=0", "&dl=1").replace("?dl=0", "?dl=1") if "dropbox.com" in url else url
 
 
-def under_title(md, line):
-    """Put the slides / notebook links right below the note's title."""
+def under_title(md, block):
+    """Put the slides / notebook links, one per line, right below the note's title."""
     lines = md.split("\n")
     for i, l in enumerate(lines):
         if l.startswith("# "):
             j = i + 1
             while j < len(lines) and not lines[j].strip():
                 j += 1
-            return "\n".join(lines[:i + 1] + ["", line, ""] + lines[j:])
-    return line + "\n\n" + md
+            return "\n".join(lines[:i + 1] + ["", *block, ""] + lines[j:])
+    return "\n".join(block) + "\n\n" + md
 
 
 def check_html(html_file):
@@ -391,7 +389,6 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("course", help="folder name under WebsiteNotes/, e.g. ecoevo2026")
     ap.add_argument("--vault", type=Path, default=VAULT)
-    ap.add_argument("--slides", type=Path, help="folder holding <note>.pdf printed slides")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--push", action="store_true", help="git commit + push after building")
     args = ap.parse_args()
@@ -410,11 +407,6 @@ def main():
     if not published:
         sys.exit("no note has publish: true")
     stems = {n.stem for n in published}
-
-    slides_dir = args.slides or SLIDES.get(args.course)
-    if slides_dir and not slides_dir.is_dir():
-        print(f"no slides folder at {slides_dir}")
-        slides_dir = None
 
     index = src / "index.md"
     course_title = args.course
@@ -455,23 +447,14 @@ def main():
                 print(f"    IGNORED {prop}: not a URL ({url[:40]})")
                 continue
             deck.append(f"[{label}]({direct_download(url)})")
-        slides = slides_dir / f"{note.stem}.pdf" if slides_dir else None
-        if slides and slides.is_file() and "pdf" not in props and "pdf" not in found:
-            dest = out / "slides" / f"{web_name(note.stem)}.pdf"
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            if not (dest.exists() and dest.stat().st_size == slides.stat().st_size
-                    and dest.stat().st_mtime >= slides.stat().st_mtime):
-                shutil.copy2(slides, dest)
-                print(f"    copied slides {slides.name} -> {dest.relative_to(SITE)}"
-                      f" ({slides.stat().st_size / 1e6:.1f} MB)")
-            deck.insert(0, f"[pdf](slides/{dest.name})")
         if deck:
             links.append("Slides: " + " · ".join(deck))
         if colab:
-            links.append(f"[Colab notebook]({colab})")
+            links.append(f"Notebook: [Colab]({colab})")
         if links:
-            md = under_title(md, " · ".join(links))
-            print(f"    under the title: {' · '.join(links)}")
+            md = under_title(md, links)
+            for line in links:
+                print(f"    under the title: {line}")
         md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
         meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
                 "-M", f"markdown-file={md_target.name}"]
@@ -479,7 +462,7 @@ def main():
             meta += ["-M", "index-link=index.html"]
         subprocess.run(["pandoc", "-f", PANDOC_FROM, "-t", "html5", f"--mathjax={MATHJAX}",
                         "--standalone", "--template", str(TEMPLATE), *meta,
-                        "-o", str(target)], input=page.for_pandoc(md), text=True, check=True)
+                        "-o", str(target)], input=page.for_pandoc(md, links), text=True, check=True)
         built.append(target)
 
     # pages of notes that are no longer published: delete the ones this script made
