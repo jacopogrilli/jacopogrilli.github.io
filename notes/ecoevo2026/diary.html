@@ -67,7 +67,9 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
 </head>
 <body>
 <header class="site">
@@ -102,15 +104,14 @@ href="l2.html#master-equation">master equation</a>, and of the <a
 href="l2.html#probability-generating-function">probability generating
 function</a> only the idea, not the derivation.</p>
 <p><strong>Thu 24/9</strong> — We went back to <a
-href="l2.html#the-observation">the observation</a> and asked what the
-mean misses: <a href="l2.html#the-second-moment-and-the-variance">the
-second moment and the variance</a>, the <a
+href="l2.html#the-observation">the observation</a> of stochasticity in
+trajectories and asked what the mean misses: <a
+href="l2.html#the-second-moment-and-the-variance">the second moment and
+the variance</a>, the <a
 href="l2.html#expected-number-of-deaths">expected number of deaths</a>
 and the <a href="l2.html#extinction-probability">extinction
-probability</a>, and we used the last two to read the antibiotic
-experiments: death rates measured from the movies, and extinction
-becoming certain when the death rate reaches the birth rate. We closed
-with how to simulate the process exactly, <a
+probability</a>. We derived those from birth death process and compared
+with experiment. We closed with how to simulate the process exactly, <a
 href="l2.html#simulating-exactly-with-gillespie">the Gillespie
 algorithm</a>. <a href="l2.html#what-survivors-look-like">What survivors
 look like</a> is left to the notes.</p>
@@ -128,7 +129,20 @@ approximated the distribution by following the first mutant: <a
 href="l3.html#heuristics-and-approximation-of-the-tail">heuristics and
 approximation of the tail</a> and its <a
 href="l3.html#moments">moments</a>. Same mean, very different
-fluctuations. The end was rushed and will be recapped next class.</p>
+fluctuations. The end was rushed and it will be recapped next class.</p>
+<p><strong>Mon 5/10</strong> — First a slower recap of Luria and
+Delbrück: from the <a
+href="l3.html#heuristics-and-approximation-of-the-tail">first mutant</a>
+to the <span class="math inline">\(1/M^2\)</span> tail and its <a
+href="l3.html#moments">moments</a>, checked against simulations, the
+1943 data and a modern version of the experiment with DNA barcodes. Then
+we started <a href="l4.html">limits to growth</a>: the exponential
+curves of L1 eventually flatten, <a href="l4.html#malthus">Malthus</a>’
+argument, and Verhulst’s <a
+href="l4.html#logistic-growth-as-an-effective-model">logistic
+growth</a>, solved exactly and made dimensionless. We stopped before the
+<a href="l4.html#graphical-method-for-long-term-behavior">graphical
+method</a>, where the next class starts.</p>
 <div class="pagenav bottom">
   <a href="index.html">&larr; Back to index</a>
   <a class="download" href="diary.md" download>&darr; Markdown</a>

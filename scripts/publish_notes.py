@@ -18,7 +18,7 @@ left in the note after the private content is stripped (so the "*to be made*" li
 pointing at the old bg2025 notebooks do not count). A line that is nothing but that
 link is removed from where it sat, and rewritten under the title.
 
-Slides: a PDF named after the note (L1.pdf for L1.md) in the course's printed_slides
+Slides: a PDF named after the note (L1.pdf for L1.md) in the course's publish_slides
 folder is copied to notes/<course>/slides/ and linked under the title. Drop the
 next lecture's PDF there and re-run; nothing in the note has to change.
 
@@ -57,8 +57,8 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 VAULT = Path.home() / "Documents" / "WORKNOTES_remote"
 NOTES_DIR = "WebsiteNotes"  # vault folder
-# printed slides, outside the vault: <dir>/<note stem>.pdf, e.g. printed_slides/L1.pdf
-SLIDES = {"ecoevo2026": Path.home() / "Dropbox/Fisica/Corsi/ICTP/2026-EcoEvo/printed_slides"}
+# printed slides, outside the vault: <dir>/<note stem>.pdf, e.g. publish_slides/L1.pdf
+SLIDES = {"ecoevo2026": Path.home() / "Dropbox/Fisica/Corsi/ICTP/2026-EcoEvo/publish_slides"}
 SITE_DIR = "notes"          # site folder: https://jacopogrilli.github.io/notes/<course>/
 TEMPLATE = SITE / "scripts" / "notes_template.html"
 GENERATOR_TAG = '<meta name="generator" content="publish_notes.py">'  # must match the template

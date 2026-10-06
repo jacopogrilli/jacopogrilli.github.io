@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 4. Limits to growth: finite resources · Ecology &amp;
+Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l4.md" download>&darr; Markdown</a>
+</div>
+<h1 id="lecture-4.-limits-to-growth-finite-resources">Lecture 4. Limits
+to growth: finite resources</h1>
+<hr />
+<p>In <a href="l1.html">L1</a> we looked at these curves over the window
+in which they are straight on a log scale: <em>E. coli</em> in a test
+tube, zebra mussels in the Great Lakes, sheeps. If we look over longer
+timescales, each of them eventually stops growing.</p>
+<p>What stops the growth?</p>
+<h2 id="malthus">Malthus</h2>
+<p><a
+href="https://en.wikipedia.org/wiki/An_Essay_on_the_Principle_of_Population">Malthus</a>’s
+(1798): unchecked, a population grows geometrically (=exponentially),
+while subsistence grows at best arithmetically (=lineary), so growth
+must be limited. Stated this way it is about <em>rates</em>, and it
+already contains an ambiguity we will have to take into account:<br />
+- resources can be a <em>flux</em> — something added so much per year,
+forever.<br />
+- the resource can be a <em>stock</em>, provided in batch: e.g., a
+finite amount of sugar in a test tube, to be consumed once</p>
+<p>Those are different models/settings.<br />
+First, an effective description that avoid this distinction</p>
+<h2 id="logistic-growth-as-an-effective-model">Logistic growth as an
+effective model</h2>
+<p>Verhulst’s answer (1838) is phenomenological. Do not specify what the
+limiting factor is, just require that the per-capita growth rate
+decreases with density. We want to modify<br />
+<span class="math display">\[
+\frac{dN}{dt} = N \left(r - \gamma(N) \right)
+\]</span><br />
+where <span class="math inline">\(\gamma(N)\)</span> increases with
+<span class="math inline">\(N\)</span><br />
+Simplest choice <span class="math inline">\(\gamma(N) \sim
+N\)</span></p>
+<p><span class="math display">\[
+\frac{dN}{dt} = r N \left(1-\frac{N}{N_{\max}}\right)
+\]</span><br />
+can be solved exactly by separating variables (and partial fractions,
+<span class="math inline">\(\frac{1}{N(1-N/N_{\max})} = \frac{1}{N} +
+\frac{1}{N_{\max}-N}\)</span>)<br />
+<span class="math display">\[
+\frac{dN}{N(1-N/N_{\max})} = r dt
+\]</span><br />
+integrating from <span class="math inline">\(N(0)\)</span> to N we
+get<br />
+<span class="math display">\[
+N(t) = \frac{N_0 N_{\max} e^{rt}}{(N_{\max}-N_0) + N_0 e^{rt}}
+\]</span></p>
+<p><span class="math inline">\(r\)</span> is the growth rate of <a
+href="l1.html">L1</a>, measured at low density, and <span
+class="math inline">\(N_{\max}\)</span> — the <em>carrying capacity</em>
+— is whatever density makes the growth stop.</p>
+<p>It is conveninent to make the equation adimentional, by measuring
+time in units of <span class="math inline">\(1/r\)</span> and abundances
+in units of <span class="math inline">\(N_\max\)</span><br />
+Introducing <span class="math inline">\(u=N/N_{\max}\)</span> and <span
+class="math inline">\(\tau=rt\)</span>, the model has no free
+parameters<br />
+<span class="math display">\[\frac{du}{d\tau} = u(1-u)\]</span></p>
+<h3 id="graphical-method-for-long-term-behavior">Graphical method for
+long-term behavior</h3>
+<p>For large times, if <span class="math inline">\(N(0)&gt;0\)</span>,
+<span class="math inline">\(N \to N_\max\)</span>, while if <span
+class="math inline">\(N(0)=0\)</span> it will be zero forever. We do not
+need to solve exactly the model for all times to arrive to this
+conclusion</p>
+<p>Plot the right-hand side <span class="math inline">\(dN/dt = f(N)
+=rN(1-N/N_{\max})\)</span> against <span
+class="math inline">\(N\)</span>. A parabola with <span
+class="math inline">\(f(N)=0\)</span>, in <span
+class="math inline">\(N=0\)</span> and <span
+class="math inline">\(N=N_{\max}\)</span>. Where <span
+class="math inline">\(dN/dt&gt;0\)</span> the population increases,
+where <span class="math inline">\(dN/dt&lt;0\)</span> decreases, so the
+arrows on the <span class="math inline">\(N\)</span> axis point away
+from <span class="math inline">\(0\)</span> and towards <span
+class="math inline">\(N_{\max}\)</span>:</p>
+<p>It might be useful to introduce <span
+class="math inline">\(dN/dt=N\,g(N)\)</span>, where <span
+class="math inline">\(g(N)\)</span> is the percapita growth rate.<br />
+Plot is a straight line hitting zero at <span class="math inline">\(n =
+N_\max\)</span></p>
+<h3 id="fixed-point-and-their-stability">Fixed point and their
+stability</h3>
+<p>The two points where <span class="math inline">\(f\)</span> vanishes
+are <em>fixed points</em>: put the population exactly there and it stays
+there for ever, since <span class="math inline">\(dN/dt=0\)</span>.
+Whether it stays there when it is perturbed (<em>stability</em>) is a
+different question.</p>
+<p>Write <span class="math inline">\(N(t) = N^* + \delta(t)\)</span>
+with <span class="math inline">\(\delta\)</span> small and expand, using
+<span class="math inline">\(f(N^*)=0\)</span>:</p>
+<p><span class="math display">\[
+\frac{d\delta}{dt} = f(N^*+\delta) = \underbrace{f(N^*)}_{=\,0} +
+f&#39;(N^*)\,\delta + O(\delta^2) \simeq f&#39;(N^*)\,\delta ,
+\]</span><br />
+if we keep the first order only <span class="math inline">\(\delta(t) =
+\delta(0)\,e^{f&#39;(N^*)t}\)</span>. So the sign of one number
+decides:</p>
+<ul>
+<li><span class="math inline">\(f&#39;(N^*)&lt;0\)</span>: perturbations
+decay, the fixed point is <em>stable</em>, and <span
+class="math inline">\(1/|f&#39;(N^*)|\)</span> is the time the
+population takes to come back;</li>
+<li><span class="math inline">\(f&#39;(N^*)&gt;0\)</span>: perturbations
+grow, the fixed point is <em>unstable</em> — the population leaves, and
+the linearization is only good while <span
+class="math inline">\(\delta\)</span> stays small.</li>
+</ul>
+<p>If <span class="math inline">\(f&#39;(N^*)=0\)</span> the linear term
+decides nothing and one has to look at the next order; that borderline
+is where the bifurcations of L5 live. For the logistic:</p>
+<ul>
+<li><span class="math inline">\(N^*=0\)</span> is a fixed point, and
+<span class="math inline">\(f&#39;(0)=r&gt;0\)</span> makes it
+<em>unstable</em>;</li>
+<li><span class="math inline">\(N^*=N_{\max}\)</span> is a fixed point,
+and <span class="math inline">\(f&#39;(N_{\max})=-r&lt;0\)</span> makes
+it <em>stable</em>: any perturbation decays at rate <span
+class="math inline">\(r\)</span>.</li>
+</ul>
+<p>The trajectories follow: from <span
+class="math inline">\(0&lt;N(0)&lt;N_{\max}\)</span> a sigmoid, steepest
+where <span class="math inline">\(f\)</span> is largest, at <span
+class="math inline">\(N=N_{\max}/2\)</span>; from <span
+class="math inline">\(N_0&gt;N_{\max}\)</span> a monotone decay onto
+<span class="math inline">\(N_{\max}\)</span>.<br />
+This is very general: nothing here used the logistic form, what matters
+are signs of the derivatives evaluated in the fixed point</p>
+<h2 id="growth-on-limited-resources">Growth on limited resources</h2>
+<p>The logistic says that something limits growth but does not specify
+what it is. Now let’s consider resources explicitly.</p>
+<p>We need to introduce two parameters:<br />
+- the yield <span class="math inline">\(Y\)</span>, the number of cells
+made per unit of resource (the conversion from resource to
+biomass)<br />
+- <span class="math inline">\(\phi(R)\)</span> the fraction of the
+maximum growth rate reached at concentration <span
+class="math inline">\(R\)</span>.</p>
+<h3 id="why-growth-saturates">Why growth saturates</h3>
+<p>What should <span class="math inline">\(\phi(R)\)</span> look like? A
+cell does not eat the medium directly: each resource molecule has to be
+imported by a transporter in the membrane (or processed by an enzyme).
+Say a cell has <span class="math inline">\(E\)</span> transporters. Each
+one is either <em>free</em>, waiting for a molecule, or <em>busy</em>,
+holding one:</p>
+<p><span class="math display">\[
+E_{\text{free}} + R
+\;\underset{k_-}{\overset{k_+}{\rightleftharpoons}}\; E_{\text{busy}}
+\;\xrightarrow{\;k_{\text{cat}}\;}\; E_{\text{free}} + \text{resource
+inside the cell} .
+\]</span></p>
+<p>A free transporter binds a molecule at rate <span
+class="math inline">\(k_+R\)</span> (mass action: encounters are
+proportional to the concentration), lets it go at rate <span
+class="math inline">\(k_-\)</span>, and imports it at rate <span
+class="math inline">\(k_{\text{cat}}\)</span>. The number of busy
+transporters <span class="math inline">\(C\)</span> obeys</p>
+<p><span class="math display">\[
+\frac{dC}{dt} = k_+R\,(E-C) - (k_- + k_{\text{cat}})\,C .
+\]</span></p>
+<p>These are molecular rates, fractions of a second, while the cell
+grows over hours. So <span class="math inline">\(C\)</span> is always at
+its quasi-steady state — the same adiabatic argument we use below for
+the resource:</p>
+<p><span class="math display">\[
+C^* = E\,\frac{R}{K_R+R} ,
+\qquad
+K_R = \frac{k_- + k_{\text{cat}}}{k_+} .
+\]</span></p>
+<p>The import flux per cell is then</p>
+<p><span class="math display">\[
+J(R) = k_{\text{cat}}\,C^* = J_{\max}\,\frac{R}{K_R+R} ,
+\qquad
+J_{\max} = k_{\text{cat}}E .
+\]</span></p>
+<p>Now assume this is the only limiting resource (everything else is in
+excess), so that a cell divides each time it has imported <span
+class="math inline">\(1/Y\)</span> units of it. The per-capita growth
+rate is then <span class="math inline">\(Y J(R)\)</span>. Writing <span
+class="math inline">\(b = YJ_{\max}\)</span> for the rate when the
+resource is in excess, <span class="math inline">\(b\,\phi(R) = Y
+J(R)\)</span>, which gives the hyperbola below. This is Michaelis–Menten
+enzyme kinetics (1913) applied to uptake. The two regimes now have a
+mechanism:</p>
+<ul>
+<li>At low <span class="math inline">\(R\)</span>, the transporters are
+mostly free and waiting, so growth is limited by <em>encounters</em>,
+<span class="math inline">\(\propto R\)</span>.</li>
+<li>At high <span class="math inline">\(R\)</span>, they are all busy,
+so growth is limited by the cell’s <em>handling capacity</em>,
+independent of <span class="math inline">\(R\)</span>.</li>
+</ul>
+<p>The same curve comes out of a time budget. With <span
+class="math inline">\(k_-=0\)</span>, a transporter alternates between
+waiting, on average <span class="math inline">\(1/(k_+R)\)</span>, and
+importing, <span class="math inline">\(1/k_{\text{cat}}\)</span>. So it
+imports <span
+class="math inline">\(1/\bigl(1/(k_+R)+1/k_{\text{cat}}\bigr)\)</span>
+molecules per unit time: the same hyperbola, with <span
+class="math inline">\(K_R = k_{\text{cat}}/k_+\)</span>. What produces
+the shape is a finite machinery that spends a fixed time on each item,
+not the chemistry. This is Holling’s argument for a predator that
+searches for and handles prey (the type II functional response), which
+comes back with predation in L12.</p>
+<p><a href="https://en.wikipedia.org/wiki/Monod_equation">Monod</a>
+measured in 1949</p>
+<p><span class="math display">\[
+\phi(R) = \frac{R}{K_R+R} ,
+\]</span></p>
+<p>It vanishes at <span class="math inline">\(R=0\)</span> (no food, no
+growth)<br />
+it saturates at <span class="math inline">\(\phi=1\)</span> (with food
+in excess, growth is limited by the cell, not by the medium)<br />
+and it is at half of that when <span
+class="math inline">\(R=K_R\)</span>, the <em>half-saturation
+constant</em>, which measures the affinity of the cells for the
+resource.</p>
+<p>What matters below are the two regimes it separates — <span
+class="math inline">\(\phi\simeq R/K_R\)</span>, linear, for <span
+class="math inline">\(R\ll K_R\)</span>, and <span
+class="math inline">\(\phi\simeq1\)</span>, constant, for <span
+class="math inline">\(R\gg K_R\)</span> — and those are quite generic:
+any <span class="math inline">\(\phi\)</span> that starts at zero,
+increases and saturates gives the same two limits.</p>
+<p>Note that <span class="math inline">\(\phi\)</span> is a function of
+the <em>resource concentration</em>, while the logistic is a statement
+about the <em>population density</em>. What turns one into the other is
+the resource dynamics, and it does so differently in the two cases
+below.</p>
+<h3 id="an-open-environment-a-supply-of-resource">An open environment: a
+supply of resource</h3>
+<p>Let’s consider Malthus’ quote<br />
+unchecked, a population grows geometrically, while subsistence grows at
+best arithmetically</p>
+<p>Let’s assume that a resource is supplied at a constant rate <span
+class="math inline">\(s\)</span> — the “arithmetic” growth. Population
+grow on a resource (births) and die with rate <span
+class="math inline">\(d\)</span> independent of the resource</p>
+<p><span class="math display">\[
+\frac{dN}{dt}= (b \phi(R) - d) N
+\]</span><br />
+<span class="math display">\[
+\frac{dR}{dt} = s - \frac{1}{Y} b \phi(R) N
+\]</span></p>
+<p>if the dynamics of resources is faster. Adiabatic approximation<br />
+<span class="math inline">\(dR/dt \approx 0\)</span><br />
+than resources are “at equilibrium” with the population<br />
+<span class="math display">\[
+\phi(R^*) = \frac{s Y}{b N}
+\]</span><br />
+then we get<br />
+<span class="math display">\[
+\frac{dN}{dt} \approx s Y - d N
+\]</span></p>
+<p><em>When is this allowed?</em> Only where the equilibrium exists.
+Since <span class="math inline">\(\phi\le1\)</span>, the condition <span
+class="math inline">\(\phi(R^*)=sY/(bN)\le1\)</span> means</p>
+<p><span class="math display">\[
+N \ \ge\ N_c \equiv \frac{sY}{b} ,
+\]</span></p>
+<p>the population large enough to consume the whole supply. Below <span
+class="math inline">\(N_c\)</span> there is no such balance: the
+resource accumulates, <span class="math inline">\(\phi\to1\)</span>, and
+the population grows exponentially as in <a href="l1.html">L1</a>. The
+two regimes are</p>
+<p><span class="math display">\[
+\frac{dN}{dt} \simeq (b-d)\,N \quad (N&lt;N_c) ,
+\qquad
+\frac{dN}{dt} \simeq sY - dN \quad (N&gt;N_c) ,
+\]</span></p>
+<p>at <span class="math inline">\(N=N_c\)</span> both give <span
+class="math inline">\(\dot N = sY\,(1-d/b)\)</span>.</p>
+<p>After long times, the population approaches</p>
+<p><span class="math display">\[
+\boxed{\ N^* = \frac{sY}{d}\ }
+\]</span></p>
+<p>approached at rate <span class="math inline">\(d\)</span>, since
+<span class="math inline">\(\dot N = sY-dN\)</span> is linear: <span
+class="math inline">\(N(t) = N^* + (N_0-N^*)e^{-dt}\)</span>.<br />
+Note that <span class="math inline">\(N^* &gt; N_c\)</span> whenever
+<span class="math inline">\(b&gt;d\)</span>, i.e. whenever the
+population grows when resources are abundant</p>
+<h3 id="a-closed-environment-a-batch-culture">A closed environment: a
+batch culture</h3>
+<p>Now the case the curves of the first section come from: a test tube,
+where the resource is a stock to be spent once and nothing is supplied.
+Growing populations convert resources into biomass, so</p>
+<p><span class="math display">\[
+\frac{dN}{dt}= b N \phi(R) ,
+\qquad
+\frac{dR}{dt} = - \frac{1}{Y} b \phi(R) = - \frac{1}{Y} \frac{dN}{dt}
+\]</span></p>
+<p>Deaths are neglected here: during the growth phase cells divide and
+do not die, which is what makes the second equation exact. The two
+equations say that resource is not lost, only converted, so</p>
+<p><span class="math display">\[
+R + \frac{N}{Y} = R_{\text{tot}} = \text{constant} ,
+\qquad
+N_{\max} = Y R_{\text{tot}} ,
+\]</span><br />
+then <span class="math inline">\(R = (N_\max-N)/Y\)</span><br />
+<span class="math inline">\(N_{\max}\)</span> being the population
+reached when the resource is gone. This single conservation law
+eliminates <span class="math inline">\(R\)</span> and leaves one
+equation,</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dN}{dt} = b\,N\,\phi((N_\max-N)/Y) =
+r\,N\,\frac{N_{\max}-N}{K_R Y + N_{\max}-N}\ }
+\]</span></p>
+<p>whose shape is controlled by one dimensionless number, <span
+class="math inline">\(\kappa = K_R Y/N_{\max} =
+K_R/R_{\text{tot}}\)</span>: the affinity of the cells for the resource,
+measured against how much resource there is.</p>
+<ul>
+<li><span class="math inline">\(\kappa\gg1\)</span> (<span
+class="math inline">\(R_{\text{tot}} \ll K_R\)</span>) — the resource is
+always scarce compared with <span class="math inline">\(K_R\)</span>, so
+<span class="math inline">\(\phi\)</span> is in its linear regime. Then
+<span class="math inline">\(K_RY\)</span> dominates the denominator
+and<br />
+<span class="math display">\[
+\frac{dN}{dt} \simeq
+\frac{b}{\kappa}\,N\left(1-\frac{N}{N_{\max}}\right) ,
+\]</span><br />
+<em>exactly Verhulst</em>, with growth rate <span
+class="math inline">\(rR_{\text{tot}}/K_R\)</span> and carrying capacity
+<span class="math inline">\(N_{\max}=YR_{\text{tot}}\)</span>. The
+logistic is the unsaturated limit of a consumer and its resource, and
+its <span class="math inline">\(K\)</span> is a property of the
+<em>environment</em> (how much food) and of the <em>conversion</em> (the
+yield), not of the organism alone.</li>
+<li><span class="math inline">\(\kappa\ll1\)</span> (<span
+class="math inline">\(R_{\text{tot}} \gg K_R\)</span>)) — the medium is
+saturating, <span class="math inline">\(\phi\simeq1\)</span>, and<br />
+<span class="math display">\[
+\frac{dN}{dt} \simeq = b\,N
+\]</span><br />
+until the last fraction <span class="math inline">\(\kappa\)</span> of
+the resource is left, when growth collapses within about one
+doubling.</li>
+</ul>
+<p>The per-capita rate makes the contrast visible: <span
+class="math inline">\(\dot N/N\)</span> falls linearly with <span
+class="math inline">\(N\)</span> in the first case and stays flat until
+the very end in the second. Real bacterial batch cultures are often at
+<span class="math inline">\(\kappa\ll1\)</span> — which is exactly what
+it means to say the medium is rich — and this is why the logistic is a
+poor description of them, while sigmoids with a sharper knee fit better
+(<a href="https://doi.org/10.1128/aem.56.6.1875-1881.1990">Zwietering et
+al. 1990</a>).</p>
+<h2 id="what-a-carrying-capacity-is">What a carrying capacity is</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>open (supply <span class="math inline">\(s\)</span>)</th>
+<th>closed (batch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>what limits</td>
+<td>a flux of resource</td>
+<td>a stock of resource</td>
+</tr>
+<tr>
+<td>ceiling</td>
+<td><span class="math inline">\(N^*=sY/d\)</span></td>
+<td><span class="math inline">\(N_{\max}=Y R_{\text{tot}}\)</span></td>
+</tr>
+<tr>
+<td>approach to it</td>
+<td>exponential, at rate <span class="math inline">\(d\)</span></td>
+<td>over one doubling (<span class="math inline">\(\kappa\ll1\)</span>)
+or as a sigmoid (<span class="math inline">\(\kappa\gg1\)</span>)</td>
+</tr>
+<tr>
+<td>relaxation rate after a perturbation</td>
+<td><span class="math inline">\(d\)</span></td>
+<td><span class="math inline">\(r\)</span> (logistic limit)</td>
+</tr>
+</tbody>
+</table>
+<p>So the carrying capacity is not a property of a species: it is a
+property of the species <em>and</em> its environment.</p>
+<p>Why does the logistic keep working then? Because it is the generic
+behaviour near a ceiling. Take any <span class="math inline">\(\dot N =
+N g(N)\)</span> with a stable fixed point, <span
+class="math inline">\(g(N^*)=0\)</span> and <span
+class="math inline">\(g&#39;(N^*)&lt;0\)</span>, and expand:</p>
+<p><span class="math display">\[
+\frac{dN}{dt} \simeq -g&#39;(N^*)\,N^*\;N\left(1-\frac{N}{N^*}\right) ,
+\]</span></p>
+<p>the logistic, with an effective <span
+class="math inline">\(r=-g&#39;(N^*)N^*\)</span>. Any mechanism looks
+logistic close enough to its ceiling; the mechanisms differ <em>far</em>
+from it, in the early growth — which is exactly the part of the curve a
+batch experiment measures well.</p>
+<h2 id="exctinction">Exctinction</h2>
+<p>Everything so far has been about where a population settles. Now turn
+a knob and watch the ceiling move. The knob is mortality: dilute the
+culture, harvest a fixed <em>fraction</em> per unit time, or add a drug
+that kills at rate <span class="math inline">\(\delta\)</span>. In the
+logistic, mortality enters as <span class="math inline">\(-\delta
+N\)</span>:</p>
+<p><span class="math display">\[
+\frac{dN}{dt} = r N\left(1-\frac{N}{N_{\max}}\right) - \delta N
+= N\left[\,(r-\delta) - \frac{r}{N_{\max}}\,N \right] ,
+\]</span></p>
+<p>with fixed points <span class="math inline">\(N^*=0\)</span> and
+<span class="math inline">\(N^*_+ =
+N_{\max}\left(1-\delta/r\right)\)</span>, and slopes <span
+class="math inline">\(f&#39;(0)=r-\delta\)</span> and <span
+class="math inline">\(f&#39;(N^*_+)=-(r-\delta)\)</span>: opposite
+signs, so the two exchange stability at <span
+class="math inline">\(\delta_c=r\)</span>: a <a
+href="https://en.wikipedia.org/wiki/Transcritical_bifurcation">transcritical
+bifurcation</a>, with the ceiling falling <em>linearly</em> to zero.
+Graphically it is the picture of <a
+href="#graphical-method-for-long-term-behavior">the graphical
+method</a>, with the per-capita line pushed down by <span
+class="math inline">\(\delta\)</span> until it no longer crosses
+zero.</p>
+<p>The extinction is continuous. The ceiling goes to zero as the
+threshold is approached, so the population is driven down gradually and
+a small reduction of the mortality brings it back.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Nondimensionalize the logistic with <span
+class="math inline">\(u=N/N_{\max}\)</span>, <span
+class="math inline">\(\tau=rt\)</span>, and show that the solution
+depends only on <span class="math inline">\(u_0\)</span>.</li>
+<li>Show that the logistic grows fastest at <span
+class="math inline">\(N=N_{\max}/2\)</span>, where it produces biomass
+at rate <span class="math inline">\(rN_{\max}/4\)</span>. (This is where
+the “maximum sustainable yield” of fisheries comes from, and L5 will
+show what is wrong with harvesting there.)</li>
+<li>Batch culture: derive the conservation law and the single equation
+above, take the limits <span class="math inline">\(\kappa\gg1\)</span>
+and <span class="math inline">\(\kappa\ll1\)</span>, and sketch <span
+class="math inline">\(\dot N/N\)</span> against <span
+class="math inline">\(N\)</span> in both.</li>
+<li>Check that the two regimes of the open model match at <span
+class="math inline">\(N_c=sY/b\)</span>, and find where the
+supply-limited branch would wrongly predict infinite per-capita
+growth.</li>
+<li>Integrate the open model numerically without the adiabatic
+approximation, for <span class="math inline">\(N\)</span> below and
+above <span class="math inline">\(N_c\)</span>, and compare with the two
+regimes. How fast must the resource be for the approximation to
+hold?</li>
+<li>For a general <span class="math inline">\(\dot N = N g(N)\)</span>
+with a stable <span class="math inline">\(N^*\)</span>, derive the local
+logistic above and identify the effective <span
+class="math inline">\(r\)</span>. Apply it to the supply-limited model
+and recover the relaxation rate <span
+class="math inline">\(d\)</span>.</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>Strogatz, ch. 2: flows on the line, fixed points and stability,
+nondimensionalization, and the logistic as the worked example.</li>
+<li><a href="https://doi.org/10.1146/annurev.mi.03.100149.002103">Monod
+1949</a> for the phenomenology of batch growth, and the origin of <span
+class="math inline">\(\phi(R)\)</span>.</li>
+<li>The empirical shape across species — the theta-logistic and its
+sublinear exponent (<a
+href="https://doi.org/10.1126/science.adg8488">Hatton, Mazzarisi et
+al. 2024</a>).</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>T. R. Malthus, <em>An Essay on the Principle of Population</em>
+(1798).</li>
+<li>P.-F. Verhulst, <em>Notice sur la loi que la population suit dans
+son accroissement</em>, Corr. Math. Phys. <strong>10</strong>, 113
+(1838); <a href="https://doi.org/10.1007/bf02309004">translation and
+commentary</a>, <em>J. Biol. Phys.</em> <strong>3</strong>, 183
+(1975).</li>
+<li>J. Monod, <a
+href="https://doi.org/10.1146/annurev.mi.03.100149.002103">The growth of
+bacterial cultures</a>, <em>Annu. Rev. Microbiol.</em>
+<strong>3</strong>, 371 (1949).</li>
+<li>G. F. Gause, <a
+href="https://doi.org/10.1242/jeb.9.4.389">Experimental studies on the
+struggle for existence</a>, <em>J. Exp. Biol.</em> <strong>9</strong>,
+389 (1932).</li>
+<li>L. Mühlbauer et al., <a
+href="https://doi.org/10.1002/ece3.6926">gauseR: simple methods for
+fitting Lotka–Volterra models</a>, <em>Ecol. Evol.</em>
+<strong>10</strong>, 13275 (2020).</li>
+<li>B. W. Brook, C. J. A. Bradshaw, <a
+href="https://doi.org/10.1890/0012-9658%282006%2987%5B1445%3ASOEFDD%5D2.0.CO%3B2">Strength
+of evidence for density dependence in abundance time series of 1198
+species</a>, <em>Ecology</em> <strong>87</strong>, 1445 (2006).</li>
+<li>M. H. Zwietering et al., <a
+href="https://doi.org/10.1128/aem.56.6.1875-1881.1990">Modeling of the
+bacterial growth curve</a>, <em>Appl. Environ. Microbiol.</em>
+<strong>56</strong>, 1875 (1990).</li>
+<li>R. Pearl, L. J. Reed, <a
+href="https://doi.org/10.1073/pnas.6.6.275">On the rate of growth of the
+population of the United States</a>, <em>PNAS</em> <strong>6</strong>,
+275 (1920).</li>
+<li>D. R. Klein, <a href="https://doi.org/10.2307/3798981">The
+introduction, increase, and crash of reindeer on St. Matthew Island</a>,
+<em>J. Wildl. Manage.</em> <strong>32</strong>, 350 (1968).</li>
+<li>I. A. Hatton, O. Mazzarisi et al., <a
+href="https://doi.org/10.1126/science.adg8488">Diversity begets
+stability: sublinear growth and competitive coexistence across
+ecosystems</a>, <em>Science</em> <strong>383</strong>, eadg8488
+(2024).</li>
+<li>J. M. Drake, B. D. Griffen, <a
+href="https://doi.org/10.1038/nature09389">Early warning signals of
+extinction in deteriorating environments</a>, <em>Nature</em>
+<strong>467</strong>, 456 (2010).</li>
+<li>C. I. Abreu, J. Friedman, V. L. Andersen Woltz, J. Gore, <a
+href="https://doi.org/10.1038/s41467-019-09925-0">Mortality causes
+universal changes in microbial community composition</a>, <em>Nat.
+Commun.</em> <strong>10</strong>, 2120 (2019).</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l4.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>
