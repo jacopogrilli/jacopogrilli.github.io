@@ -12,6 +12,18 @@ script made earlier for a note that is no longer published is deleted.
 In the index, lines that link to an unpublished note of the course are hidden, so
 the index can list every lecture and only the ready ones appear online.
 
+Slide decks and notebook are linked in one line under the note's title:
+
+    Slides: [pdf] · [keynote] · [powerpoint] · [Colab notebook]
+
+The pdf is served by this site (see Slides below). The editable decks are too big for
+the repo, so they are linked from Dropbox: put the share link of each file in the
+note. Pasting the share links bare in the body, one per line, is enough: they are
+recognised by file type, removed from where they sit, and rewritten as that one line.
+The properties `key`, `pptx`, `pdf` do the same and win over a pasted link. With no
+link for the pdf, the site serves its own copy (see Slides below). A Dropbox link ending in dl=0 is rewritten to dl=1, so the
+file downloads instead of opening Dropbox's preview.
+
 Colab: the notebook is linked under the note's title. The URL comes from the note's
 `colab` property, or, failing that, from the first colab.research.google.com link
 left in the note after the private content is stripped (so the "*to be made*" lines
@@ -75,6 +87,9 @@ BACKLINK_RE = re.compile(r"^\s*back to \[\[[^\]]*index[^\]]*\]\]\s*$", re.I)
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 WIKILINK_RE = re.compile(r"(!?)\[\[([^\]|#\\]*)(#[^\]|\\]*)?(?:\\?\|([^\]]*))?\]\]")
 COLAB_RE = re.compile(r"\[([^\]]*)\]\((https://colab\.research\.google\.com/[^)\s]+)\)")
+DROPBOX_RE = re.compile(r"(?<![(\]])\bhttps://(?:www\.)?dropbox\.com/[^\s)<>]+")
+DECK_EXT = {".pdf": "pdf", ".key": "keynote", ".pptx": "powerpoint"}  # label per file type
+DECK_LABEL_RE = re.compile(r"^\s*(?:\*\*)?slides?(?:\*\*)?\s*:?\s*$", re.I)
 COLAB_BARE_RE = re.compile(r"(?<![(\]])\bhttps://colab\.research\.google\.com/[^\s)<>]+")
 COLAB_ONLY_RE = re.compile(r"^\s*(?:\*\*)?(?:colab|notebook)?(?:\*\*)?\s*:?\s*$", re.I)
 PROTECT_RE = re.compile(r"(\$\$.*?\$\$|\$[^$\n]+?\$|`[^`\n]+`)", re.S)
@@ -305,9 +320,40 @@ class Page:
             self.log.append(f"notebook also linked under the title: {m[1] or m[2]}")
         return md, m[2]
 
+    def decks(self, md):
+        """(markdown, {label: url}): the Dropbox links to the slide files, pulled out of
+        the body. He pastes them bare, one per line, under a "slides" label."""
+        found, drop = {}, []
+        for line in md.split("\n"):
+            labelled = [(deck_label(u), u) for u in DROPBOX_RE.findall(line)]
+            labelled = [(lab, u) for lab, u in labelled if lab]
+            if not labelled:
+                continue
+            for lab, u in labelled:
+                found.setdefault(lab, u)
+            if not DROPBOX_RE.sub("", line).strip(" ·-"):  # the line is only those links
+                drop.append(line)
+        if not found:
+            return md, {}
+        kept = [l for l in md.split("\n")
+                if l not in drop and not DECK_LABEL_RE.match(l)]
+        self.log.append("slide files from the note: " + ", ".join(found))
+        return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)), found
+
     def for_pandoc(self, md):
         """The same markdown with callouts turned into what pandoc understands."""
         return "\n".join(self.callouts(md.split("\n")))
+
+
+def deck_label(url):
+    """keynote / powerpoint / pdf, from the file name in a share link."""
+    path = url.split("?")[0].lower()
+    return next((lab for ext, lab in DECK_EXT.items() if path.endswith(ext)), None)
+
+
+def direct_download(url):
+    """A Dropbox share link that downloads the file rather than opening its preview."""
+    return url.replace("&dl=0", "&dl=1").replace("?dl=0", "?dl=1") if "dropbox.com" in url else url
 
 
 def under_title(md, line):
@@ -398,9 +444,19 @@ def main():
             d.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(s, d)
             print(f"    copied {s.name} -> {d.relative_to(SITE)}")
-        links = []
+        props = props_of(note)
+        md, found = page.decks(md)
+        links, deck = [], []
+        for prop, label in (("pdf", "pdf"), ("key", "keynote"), ("pptx", "powerpoint")):
+            url = props.get(prop, "").strip() or found.get(label, "")
+            if not url:
+                continue
+            if not url.startswith("http"):
+                print(f"    IGNORED {prop}: not a URL ({url[:40]})")
+                continue
+            deck.append(f"[{label}]({direct_download(url)})")
         slides = slides_dir / f"{note.stem}.pdf" if slides_dir else None
-        if slides and slides.is_file():
+        if slides and slides.is_file() and "pdf" not in props and "pdf" not in found:
             dest = out / "slides" / f"{web_name(note.stem)}.pdf"
             dest.parent.mkdir(parents=True, exist_ok=True)
             if not (dest.exists() and dest.stat().st_size == slides.stat().st_size
@@ -408,12 +464,14 @@ def main():
                 shutil.copy2(slides, dest)
                 print(f"    copied slides {slides.name} -> {dest.relative_to(SITE)}"
                       f" ({slides.stat().st_size / 1e6:.1f} MB)")
-            links.append(f"[Slides (pdf)](slides/{dest.name})")
+            deck.insert(0, f"[pdf](slides/{dest.name})")
+        if deck:
+            links.append("Slides: " + " · ".join(deck))
         if colab:
             links.append(f"[Colab notebook]({colab})")
         if links:
             md = under_title(md, " · ".join(links))
-            print(f"    links under the title: {' · '.join(links)}")
+            print(f"    under the title: {' · '.join(links)}")
         md_target.write_text(md if md.endswith("\n") else md + "\n", encoding="utf-8")
         meta = ["-M", f"pagetitle={title}", "-M", f"course-title={course_title}",
                 "-M", f"markdown-file={md_target.name}"]
