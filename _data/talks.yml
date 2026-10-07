@@ -22,6 +22,36 @@
   url: https://www.ictp-saifr.org/2027-activities/
   slides:
 
+- title:
+  what: 0
+  upcoming: 1
+  type: Invited Seminar
+  date: October 26, 2026
+  place: SMAQ Seminar, Gran Sasso Science Institute
+  location: gssi
+  url:
+  slides:
+
+- title: "Patterns and constraints in the taxonomic and functional composition of microbial communities"
+  what: 0
+  upcoming: 1
+  type: Invited Seminar
+  date: October 15, 2026
+  place: Special Seminar Series, Humanitas Research Hospital
+  location: humanitas
+  url:
+  slides:
+
+- title: "Scaling patterns and stochastic constraints in the taxonomic and functional composition of microbial communities"
+  what: 0
+  upcoming: 0
+  type: Invited Seminar
+  date: October 1, 2026
+  place: Bioinformatics and Evolution Research Group, University of Helsinki
+  location: helsinki
+  url:
+  slides:
+
 - title: "Macroecology of alternative stable states in microbial community assembly"
   what: 0
   upcoming: 0

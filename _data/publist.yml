@@ -1,4 +1,23 @@
-- title: "Leveraging DNA and RNA oscillatory dynamics to investigate the ecology and physiology of a freshwater microbial community"
+- title: "Environmental history can counteract nutrient quality in shaping the evolution of bacterial growth rates"
+  authors: A.M. Dhati, J. Grilli, A. Goyal
+  journal:
+  journalshort:
+  reference:
+  year: 2026
+  doi:
+  arxiv:
+  biorxiv: 10.64898/2026.09.17.752447
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 1
+  highlight: 0
+
+
+- title: "Leveraging rDNA and rRNA dynamics to investigate the link between ecology and physiology in a freshwater microbial community"
   authors: W.R. Shoemaker, M. Dal Bello, J. Grilli
   journal:
   journalshort:
@@ -167,11 +186,11 @@
 
 - title: Evolutionary learning of microbial populations in partially predictable environments
   authors: R.M. Yagb Omer, O. Mazzarisi, M. Dal Bello, J. Grilli
-  journal:
-  journalshort:
+  journal: PRX Life
+  journalshort: PRX Life
   reference:
-  year: 2025
-  doi:
+  year: 2026
+  doi: 10.1103/rqj5-pqvt
   arxiv: 2508.00527
   biorxiv:
   news: 
@@ -180,7 +199,7 @@
   mendeley: 
   researchgate: 
   pmid: 
-  preprint: 1
+  preprint: 0
   highlight: 0
 
 

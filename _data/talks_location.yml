@@ -1,3 +1,24 @@
+- location: helsinki
+  country: Finland
+  state:
+  city: Helsinki
+  latitude: 60.2272
+  longitude: 25.0176
+
+- location: humanitas
+  country: Italy
+  state:
+  city: Pieve Emanuele
+  latitude: 45.3486
+  longitude: 9.2297
+
+- location: gssi
+  country: Italy
+  state:
+  city: L'Aquila
+  latitude: 42.3550
+  longitude: 13.4000
+
 - location: um6p
   country: Morocco
   state:
