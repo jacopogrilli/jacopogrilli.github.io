@@ -99,14 +99,14 @@ to growth: finite resources</h1>
 <hr />
 <p>In <a href="l1.html">L1</a> we looked at these curves over the window
 in which they are straight on a log scale: <em>E. coli</em> in a test
-tube, zebra mussels in the Great Lakes, sheeps. If we look over longer
+tube, zebra mussels in the Great Lakes, sheep. If we look over longer
 timescales, each of them eventually stops growing.</p>
 <p>What stops the growth?</p>
 <h2 id="malthus">Malthus</h2>
 <p><a
 href="https://en.wikipedia.org/wiki/An_Essay_on_the_Principle_of_Population">Malthus</a>’s
 (1798): unchecked, a population grows geometrically (=exponentially),
-while subsistence grows at best arithmetically (=lineary), so growth
+while subsistence grows at best arithmetically (=linearly), so growth
 must be limited. Stated this way it is about <em>rates</em>, and it
 already contains an ambiguity we will have to take into account:<br />
 - resources can be a <em>flux</em> — something added so much per year,
@@ -114,7 +114,7 @@ forever.<br />
 - the resource can be a <em>stock</em>, provided in batch: e.g., a
 finite amount of sugar in a test tube, to be consumed once</p>
 <p>Those are different models/settings.<br />
-First, an effective description that avoid this distinction</p>
+First, an effective description that avoids this distinction</p>
 <h2 id="logistic-growth-as-an-effective-model">Logistic growth as an
 effective model</h2>
 <p>Verhulst’s answer (1838) is phenomenological. Do not specify what the
@@ -136,8 +136,8 @@ can be solved exactly by separating variables (and partial fractions,
 <span class="math display">\[
 \frac{dN}{N(1-N/N_{\max})} = r dt
 \]</span><br />
-integrating from <span class="math inline">\(N(0)\)</span> to N we
-get<br />
+integrating from <span class="math inline">\(N(0)\)</span> to <span
+class="math inline">\(N\)</span> we get<br />
 <span class="math display">\[
 N(t) = \frac{N_0 N_{\max} e^{rt}}{(N_{\max}-N_0) + N_0 e^{rt}}
 \]</span></p>
@@ -145,7 +145,7 @@ N(t) = \frac{N_0 N_{\max} e^{rt}}{(N_{\max}-N_0) + N_0 e^{rt}}
 href="l1.html">L1</a>, measured at low density, and <span
 class="math inline">\(N_{\max}\)</span> — the <em>carrying capacity</em>
 — is whatever density makes the growth stop.</p>
-<p>It is conveninent to make the equation adimentional, by measuring
+<p>It is convenient to make the equation dimensionless, by measuring
 time in units of <span class="math inline">\(1/r\)</span> and abundances
 in units of <span class="math inline">\(N_\max\)</span><br />
 Introducing <span class="math inline">\(u=N/N_{\max}\)</span> and <span
@@ -157,7 +157,7 @@ long-term behavior</h3>
 <p>For large times, if <span class="math inline">\(N(0)&gt;0\)</span>,
 <span class="math inline">\(N \to N_\max\)</span>, while if <span
 class="math inline">\(N(0)=0\)</span> it will be zero forever. We do not
-need to solve exactly the model for all times to arrive to this
+need to solve exactly the model for all times to arrive at this
 conclusion</p>
 <p>Plot the right-hand side <span class="math inline">\(dN/dt = f(N)
 =rN(1-N/N_{\max})\)</span> against <span
@@ -172,10 +172,10 @@ from <span class="math inline">\(0\)</span> and towards <span
 class="math inline">\(N_{\max}\)</span>:</p>
 <p>It might be useful to introduce <span
 class="math inline">\(dN/dt=N\,g(N)\)</span>, where <span
-class="math inline">\(g(N)\)</span> is the percapita growth rate.<br />
+class="math inline">\(g(N)\)</span> is the per-capita growth rate.<br />
 Plot is a straight line hitting zero at <span class="math inline">\(N =
 N_\max\)</span></p>
-<h3 id="fixed-point-and-their-stability">Fixed point and their
+<h3 id="fixed-points-and-their-stability">Fixed points and their
 stability</h3>
 <p>The two points where <span class="math inline">\(f\)</span> vanishes
 are <em>fixed points</em>: put the population exactly there and it stays
@@ -246,7 +246,7 @@ E_{\text{free}} + R
 inside the cell} .
 \]</span></p>
 <p><span class="math inline">\(E_{\text{busy}}\)</span> can be thought
-as a bound state between <span class="math inline">\(E\)</span> and
+of as a bound state between <span class="math inline">\(E\)</span> and
 <span class="math inline">\(R\)</span></p>
 <p>A free transporter/enzyme binds a molecule at rate <span
 class="math inline">\(k_+R\)</span> (mass action: encounters are
@@ -402,7 +402,7 @@ supply of resource</h3>
 unchecked, a population grows geometrically, while subsistence grows at
 best arithmetically</p>
 <p>Let’s assume that a resource is supplied at a constant rate <span
-class="math inline">\(s\)</span> — the “arithmetic” growth. Population
+class="math inline">\(s\)</span> — the “arithmetic” growth. Populations
 grow on a resource (births) and die with rate <span
 class="math inline">\(d\)</span> independent of the resource</p>
 <p><span class="math display">\[
@@ -411,9 +411,9 @@ class="math inline">\(d\)</span> independent of the resource</p>
 <span class="math display">\[
 \frac{dR}{dt} = s - \frac{1}{Y} b \phi(R) N
 \]</span></p>
-<p>if the dynamics of resources is faster. Adiabatic approximation<br />
+<p>If the dynamics of resources is faster. Adiabatic approximation<br />
 <span class="math inline">\(dR/dt \approx 0\)</span><br />
-than resources are “at equilibrium” with the population<br />
+then resources are “at equilibrium” with the population<br />
 <span class="math display">\[
 \phi(R^*) = \frac{s Y}{b N}
 \]</span><br />
@@ -502,7 +502,7 @@ class="math inline">\(r=-g&#39;(N^*)N^*\)</span>. Any mechanism looks
 logistic close enough to its ceiling; the mechanisms differ <em>far</em>
 from it, in the early growth — which is exactly the part of the curve a
 batch experiment measures well.</p>
-<h2 id="exctinction">Exctinction</h2>
+<h2 id="extinction">Extinction</h2>
 <p>Everything so far has been about where a population settles. What
 happens if we change parameters? For instance we could increase
 mortality (e.g. add a drug that kills at rate <span
