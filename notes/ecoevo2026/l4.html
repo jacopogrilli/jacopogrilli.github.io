@@ -173,7 +173,7 @@ class="math inline">\(N_{\max}\)</span>:</p>
 <p>It might be useful to introduce <span
 class="math inline">\(dN/dt=N\,g(N)\)</span>, where <span
 class="math inline">\(g(N)\)</span> is the percapita growth rate.<br />
-Plot is a straight line hitting zero at <span class="math inline">\(n =
+Plot is a straight line hitting zero at <span class="math inline">\(N =
 N_\max\)</span></p>
 <h3 id="fixed-point-and-their-stability">Fixed point and their
 stability</h3>
@@ -235,9 +235,9 @@ class="math inline">\(R\)</span>.</p>
 <h3 id="why-growth-saturates">Why growth saturates</h3>
 <p>What should <span class="math inline">\(\phi(R)\)</span> look like? A
 cell does not eat the medium directly: each resource molecule has to be
-imported by a transporter in the membrane (or processed by an enzyme).
+imported by a transporter in the membrane and processed by an enzyme.
 Say a cell has <span class="math inline">\(E\)</span> transporters /
-enzyme. Each one is either <em>free</em>, waiting for a molecule, or
+enzymes. Each one is either <em>free</em>, waiting for a molecule, or
 <em>busy</em>, holding one:</p>
 <p><span class="math display">\[
 E_{\text{free}} + R
@@ -245,26 +245,32 @@ E_{\text{free}} + R
 \;\xrightarrow{\;k_{\text{cat}}\;}\; E_{\text{free}} + \text{resource
 inside the cell} .
 \]</span></p>
-<p>A free transporter binds a molecule at rate <span
+<p><span class="math inline">\(E_{\text{busy}}\)</span> can be thought
+as a bound state between <span class="math inline">\(E\)</span> and
+<span class="math inline">\(R\)</span></p>
+<p>A free transporter/enzyme binds a molecule at rate <span
 class="math inline">\(k_+R\)</span> (mass action: encounters are
 proportional to the concentration), lets it go at rate <span
 class="math inline">\(k_-\)</span>, and imports it at rate <span
 class="math inline">\(k_{\text{cat}}\)</span>. The number of busy
-transporters <span class="math inline">\(C\)</span> obeys</p>
+transporters <span class="math inline">\(E_{\text{busy}}\)</span>
+obeys</p>
 <p><span class="math display">\[
-\frac{dC}{dt} = k_+R\,(E-C) - (k_- + k_{\text{cat}})\,C .
+\frac{dE_{\text{busy}}}{dt} = k_+R\,(E-E_{\text{busy}}) - (k_- +
+k_{\text{cat}})\,E_{\text{busy}} .
 \]</span></p>
 <p>These are molecular rates, fractions of a second, while the cell
-grows over hours. So <span class="math inline">\(C\)</span> is always at
-its quasi-steady state (adiabaic approximation)</p>
+grows over hours. So <span
+class="math inline">\(E_{\text{busy}}\)</span> is always at its
+quasi-steady state (adiabatic approximation)</p>
 <p><span class="math display">\[
-C^* = E\,\frac{R}{K_R+R} ,
+E_{\text{busy}}^* = E\,\frac{R}{K_R+R} ,
 \qquad
 K_R = \frac{k_- + k_{\text{cat}}}{k_+} .
 \]</span></p>
 <p>The import flux per cell is then</p>
 <p><span class="math display">\[
-J(R) = k_{\text{cat}}\,C^* = J_{\max}\,\frac{R}{K_R+R} ,
+J(R) = k_{\text{cat}}\,E_{\text{busy}}^* = J_{\max}\,\frac{R}{K_R+R} ,
 \qquad
 J_{\max} = k_{\text{cat}}E .
 \]</span></p>
@@ -274,34 +280,34 @@ class="math inline">\(1/Y\)</span> units of it. The per-capita growth
 rate is then <span class="math inline">\(Y J(R)\)</span>. Writing <span
 class="math inline">\(b = YJ_{\max}\)</span> for the rate when the
 resource is in excess, <span class="math inline">\(b\,\phi(R) = Y
-J(R)\)</span>, which gives the hyperbola below. This is Michaelis–Menten
-enzyme kinetics (1913) applied to uptake. The two regimes now have a
-mechanism:</p>
-<ul>
-<li>At low <span class="math inline">\(R\)</span>, the transporters are
-mostly free and waiting, so growth is limited by <em>encounters</em>,
-<span class="math inline">\(\propto R\)</span>.</li>
-<li>At high <span class="math inline">\(R\)</span>, they are all busy,
-so growth is limited by the cell’s <em>handling capacity</em>,
-independent of <span class="math inline">\(R\)</span>.</li>
-</ul>
-<p>The same curve comes out of a time budget. With <span
+J(R)\)</span>, which gives the hyperbola below. This is <a
+href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">Michaelis–Menten</a>
+enzyme kinetics (1913) applied to uptake.</p>
+<p>The two regimes:<br />
+- At low <span class="math inline">\(R\)</span>, the
+transporters/enzymes are mostly free and waiting, so growth is limited
+by <em>encounters</em>, <span class="math inline">\(\propto
+R\)</span>.<br />
+- At high <span class="math inline">\(R\)</span>, they are all busy, so
+growth is limited by the cell’s <em>handling capacity</em>, independent
+of <span class="math inline">\(R\)</span>.</p>
+<p>We can think at this mechanism a budget for limited time. With <span
 class="math inline">\(k_-=0\)</span>, a transporter alternates between
 waiting, on average <span class="math inline">\(1/(k_+R)\)</span>, and
 importing, <span class="math inline">\(1/k_{\text{cat}}\)</span>. So it
 imports <span
 class="math inline">\(1/\bigl(1/(k_+R)+1/k_{\text{cat}}\bigr)\)</span>
-molecules per unit time: the same hyperbola, with <span
-class="math inline">\(K_R = k_{\text{cat}}/k_+\)</span>. What produces
-the shape is a finite machinery that spends a fixed time on each item,
-not the chemistry. This is Holling’s argument for a predator that
-searches for and handles prey (the type II functional response), which
-comes back with predation in L12.</p>
+molecules per unit time. What produces the shape is a finite machinery
+that spends a fixed time on each process.</p>
 <p><a href="https://en.wikipedia.org/wiki/Monod_equation">Monod</a>
-measured in 1949</p>
+measured in 1949 the growth rate of bacteria on different
+concentrations</p>
 <p><span class="math display">\[
 \phi(R) = \frac{R}{K_R+R} ,
-\]</span></p>
+\]</span><br />
+(as Monod himself noticed is surprising that this applies to the growth
+rate as the growth rate is determined by a complex combination of
+factors)</p>
 <p>It vanishes at <span class="math inline">\(R=0\)</span> (no food, no
 growth)<br />
 it saturates at <span class="math inline">\(\phi=1\)</span> (with food
@@ -322,6 +328,74 @@ the <em>resource concentration</em>, while the logistic is a statement
 about the <em>population density</em>. What turns one into the other is
 the resource dynamics, and it does so differently in the two cases
 below.</p>
+<h3 id="a-closed-environment-a-batch-culture">A closed environment: a
+batch culture</h3>
+<p>Now the case of the curves of the first section: a test tube, where
+the resource is a stock to be consumed once and nothing is supplied.
+Growing populations convert resources into biomass, so</p>
+<p><span class="math display">\[
+\frac{dN}{dt}= b N \phi(R) ,
+\qquad
+\frac{dR}{dt} = - \frac{1}{Y} b \phi(R) N = - \frac{1}{Y} \frac{dN}{dt}
+\]</span></p>
+<p>Deaths are neglected here: during the growth phase cells divide and
+do not die, which is what makes the second equation exact. The two
+equations say that resource is not lost, only converted, so</p>
+<p><span class="math display">\[
+R + \frac{N}{Y} = R_{\text{tot}} = \text{constant} ,
+\qquad
+N_{\max} = Y R_{\text{tot}} ,
+\]</span><br />
+then <span class="math inline">\(R = (N_\max-N)/Y\)</span><br />
+<span class="math inline">\(N_{\max}\)</span> being the population
+reached when the resource is gone. This single conservation law
+eliminates <span class="math inline">\(R\)</span> and leaves one
+equation,</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dN}{dt} = b\,N\,\phi((N_\max-N)/Y) =
+b\,N\,\frac{N_{\max}-N}{K_R Y + N_{\max}-N}\ }
+\]</span></p>
+<p>whose shape is controlled by one dimensionless number, <span
+class="math inline">\(\kappa = K_R Y/N_{\max} =
+K_R/R_{\text{tot}}\)</span>: the affinity of the cells for the resource,
+measured against how much resource there is.</p>
+<ul>
+<li><span class="math inline">\(\kappa\gg1\)</span> (<span
+class="math inline">\(R_{\text{tot}} \ll K_R\)</span>) — the resource is
+always scarce compared with <span class="math inline">\(K_R\)</span>, so
+<span class="math inline">\(\phi\)</span> is in its linear regime. Then
+<span class="math inline">\(K_RY\)</span> dominates the denominator
+and<br />
+<span class="math display">\[
+\frac{dN}{dt} \simeq
+\frac{b}{\kappa}\,N\left(1-\frac{N}{N_{\max}}\right) ,
+\]</span><br />
+<em>exactly Verhulst</em>, with growth rate <span
+class="math inline">\(bR_{\text{tot}}/K_R\)</span> and carrying capacity
+<span class="math inline">\(N_{\max}=YR_{\text{tot}}\)</span>. The
+logistic is the unsaturated limit of a consumer and its resource, and
+its <span class="math inline">\(N_{\max}\)</span> is a property of the
+<em>environment</em> (how much food) and of the <em>conversion</em> (the
+yield), not of the organism alone.</li>
+<li><span class="math inline">\(\kappa\ll1\)</span> (<span
+class="math inline">\(R_{\text{tot}} \gg K_R\)</span>) — the medium is
+saturating, <span class="math inline">\(\phi\simeq1\)</span>, and<br />
+<span class="math display">\[
+\frac{dN}{dt} \simeq b\,N
+\]</span><br />
+until the last fraction <span class="math inline">\(\kappa\)</span> of
+the resource is left, when growth collapses within about one
+doubling.</li>
+</ul>
+<p>The per-capita rate makes the contrast visible: <span
+class="math inline">\(\dot N/N\)</span> falls linearly with <span
+class="math inline">\(N\)</span> in the first case and stays flat until
+the very end in the second. Real bacterial batch cultures are often at
+<span class="math inline">\(\kappa\ll1\)</span> and this is why the
+logistic is a poor description of them, while sigmoids with a sharper
+knee fit better (<a
+href="https://doi.org/10.1128/aem.56.6.1875-1881.1990">Zwietering et
+al. 1990</a>).</p>
 <h3 id="an-open-environment-a-supply-of-resource">An open environment: a
 supply of resource</h3>
 <p>Let’s consider Malthus’ quote<br />
@@ -375,80 +449,12 @@ class="math inline">\(N(t) = N^* + (N_0-N^*)e^{-dt}\)</span>.<br />
 Note that <span class="math inline">\(N^* &gt; N_c\)</span> whenever
 <span class="math inline">\(b&gt;d\)</span>, i.e. whenever the
 population grows when resources are abundant</p>
-<h3 id="a-closed-environment-a-batch-culture">A closed environment: a
-batch culture</h3>
-<p>Now the case the curves of the first section come from: a test tube,
-where the resource is a stock to be spent once and nothing is supplied.
-Growing populations convert resources into biomass, so</p>
-<p><span class="math display">\[
-\frac{dN}{dt}= b N \phi(R) ,
-\qquad
-\frac{dR}{dt} = - \frac{1}{Y} b \phi(R) = - \frac{1}{Y} \frac{dN}{dt}
-\]</span></p>
-<p>Deaths are neglected here: during the growth phase cells divide and
-do not die, which is what makes the second equation exact. The two
-equations say that resource is not lost, only converted, so</p>
-<p><span class="math display">\[
-R + \frac{N}{Y} = R_{\text{tot}} = \text{constant} ,
-\qquad
-N_{\max} = Y R_{\text{tot}} ,
-\]</span><br />
-then <span class="math inline">\(R = (N_\max-N)/Y\)</span><br />
-<span class="math inline">\(N_{\max}\)</span> being the population
-reached when the resource is gone. This single conservation law
-eliminates <span class="math inline">\(R\)</span> and leaves one
-equation,</p>
-<p><span class="math display">\[
-\boxed{\ \frac{dN}{dt} = b\,N\,\phi((N_\max-N)/Y) =
-r\,N\,\frac{N_{\max}-N}{K_R Y + N_{\max}-N}\ }
-\]</span></p>
-<p>whose shape is controlled by one dimensionless number, <span
-class="math inline">\(\kappa = K_R Y/N_{\max} =
-K_R/R_{\text{tot}}\)</span>: the affinity of the cells for the resource,
-measured against how much resource there is.</p>
-<ul>
-<li><span class="math inline">\(\kappa\gg1\)</span> (<span
-class="math inline">\(R_{\text{tot}} \ll K_R\)</span>) — the resource is
-always scarce compared with <span class="math inline">\(K_R\)</span>, so
-<span class="math inline">\(\phi\)</span> is in its linear regime. Then
-<span class="math inline">\(K_RY\)</span> dominates the denominator
-and<br />
-<span class="math display">\[
-\frac{dN}{dt} \simeq
-\frac{b}{\kappa}\,N\left(1-\frac{N}{N_{\max}}\right) ,
-\]</span><br />
-<em>exactly Verhulst</em>, with growth rate <span
-class="math inline">\(rR_{\text{tot}}/K_R\)</span> and carrying capacity
-<span class="math inline">\(N_{\max}=YR_{\text{tot}}\)</span>. The
-logistic is the unsaturated limit of a consumer and its resource, and
-its <span class="math inline">\(K\)</span> is a property of the
-<em>environment</em> (how much food) and of the <em>conversion</em> (the
-yield), not of the organism alone.</li>
-<li><span class="math inline">\(\kappa\ll1\)</span> (<span
-class="math inline">\(R_{\text{tot}} \gg K_R\)</span>)) — the medium is
-saturating, <span class="math inline">\(\phi\simeq1\)</span>, and<br />
-<span class="math display">\[
-\frac{dN}{dt} \simeq = b\,N
-\]</span><br />
-until the last fraction <span class="math inline">\(\kappa\)</span> of
-the resource is left, when growth collapses within about one
-doubling.</li>
-</ul>
-<p>The per-capita rate makes the contrast visible: <span
-class="math inline">\(\dot N/N\)</span> falls linearly with <span
-class="math inline">\(N\)</span> in the first case and stays flat until
-the very end in the second. Real bacterial batch cultures are often at
-<span class="math inline">\(\kappa\ll1\)</span> — which is exactly what
-it means to say the medium is rich — and this is why the logistic is a
-poor description of them, while sigmoids with a sharper knee fit better
-(<a href="https://doi.org/10.1128/aem.56.6.1875-1881.1990">Zwietering et
-al. 1990</a>).</p>
 <h2 id="what-a-carrying-capacity-is">What a carrying capacity is</h2>
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 29%" />
+<col style="width: 19%" />
+<col style="width: 51%" />
 </colgroup>
 <thead>
 <tr>
@@ -465,7 +471,7 @@ al. 1990</a>).</p>
 </tr>
 <tr>
 <td>ceiling</td>
-<td><span class="math inline">\(N^*=sY/d\)</span></td>
+<td><span class="math inline">\(N_{\max}=sY/d\)</span></td>
 <td><span class="math inline">\(N_{\max}=Y R_{\text{tot}}\)</span></td>
 </tr>
 <tr>
@@ -497,12 +503,11 @@ logistic close enough to its ceiling; the mechanisms differ <em>far</em>
 from it, in the early growth — which is exactly the part of the curve a
 batch experiment measures well.</p>
 <h2 id="exctinction">Exctinction</h2>
-<p>Everything so far has been about where a population settles. Now turn
-a knob and watch the ceiling move. The knob is mortality: dilute the
-culture, harvest a fixed <em>fraction</em> per unit time, or add a drug
-that kills at rate <span class="math inline">\(\delta\)</span>. In the
-logistic, mortality enters as <span class="math inline">\(-\delta
-N\)</span>:</p>
+<p>Everything so far has been about where a population settles. What
+happens if we change parameters? For instance we could increase
+mortality (e.g. add a drug that kills at rate <span
+class="math inline">\(\delta\)</span>). In the logistic, mortality
+enters as <span class="math inline">\(-\delta N\)</span>:</p>
 <p><span class="math display">\[
 \frac{dN}{dt} = r N\left(1-\frac{N}{N_{\max}}\right) - \delta N
 = N\left[\,(r-\delta) - \frac{r}{N_{\max}}\,N \right] ,
