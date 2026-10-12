@@ -74,6 +74,7 @@ li { margin: .25rem 0; }
 }
 .callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
 .callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
 .callout-title, details.callout > summary { font-weight: 650; }
 details.callout > summary { cursor: pointer; }
 footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
@@ -534,13 +535,13 @@ href="#graphical-method-for-long-term-behavior">the graphical
 method</a>, with the per-capita line pushed down by <span
 class="math inline">\(\delta\)</span> until it no longer crosses
 zero.</p>
-<div class="callout callout-example">
-<p><span class="callout-title">Interactive figure: logistic growth with
-mortality</span></p>
-<p>Move the mortality and follow the three pictures together: the flow
-on the line, the per-capita rate, and the fixed points as a function of
-<span class="math inline">\(\delta\)</span> (the bifurcation
-diagram).</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Logistic growth with mortality and
+transcritical bifurcation</span></p>
+<p>Move the mortality rate <span class="math inline">\(\delta\)</span>
+and follow the three pictures together: the flow on the line, the
+per-capita rate, and the fixed points as a function of <span
+class="math inline">\(\delta\)</span> (the bifurcation diagram).</p>
 <iframe class="widget" src="material/l4-logistic-mortality.html" title="L4-logistic-mortality" loading="lazy" style="display:block;width:100%;height:520px;border:0;margin:.6rem 0">
 </iframe>
 <script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>

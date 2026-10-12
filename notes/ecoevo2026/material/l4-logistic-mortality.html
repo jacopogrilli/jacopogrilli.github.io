@@ -12,14 +12,17 @@
 <style>
 :root {
   --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
-  --rule: #e3e5e8; --grid: #eef0f2; --shade: #f1f2f4;
+  --rule: #e3e5e8;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
-    --rule: #2c3038; --grid: #202329; --shade: #22252b;
+    --rule: #2c3038;
   }
 }
+/* translucent, so they stay visible on any background (white page or grey box) */
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --shade: color-mix(in srgb, var(--muted) 13%, transparent); }
 html, body { margin: 0; background: var(--bg); color: var(--fg); }
 /* embedded in a note (e.g. inside a callout box): let the page's background show through */
 html.embedded, html.embedded body { background: transparent; }
