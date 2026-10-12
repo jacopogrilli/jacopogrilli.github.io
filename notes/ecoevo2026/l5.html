@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 5. Limits to growth: cooperation and Allee effects ·
+Ecology &amp; Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l5.md" download>&darr; Markdown</a>
+</div>
+<h1
+id="lecture-5.-limits-to-growth-cooperation-and-allee-effects">Lecture
+5. Limits to growth: cooperation and Allee effects</h1>
+<hr />
+<p>In <a href="l4.html#extinction">L4</a> the only limit to growth is
+finite resources: any arbitrarily small population will grow to carrying
+capacity. This is quite general, as long as the growth rate is positive
+at all abundances below carrying capacity. In this case the growth rate
+has a negative density dependence (it decreases as abundance increases).
+In many scenarios it is possible to observe a positive density
+dependence.</p>
+<h2 id="positive-density-dependence">Positive density dependence</h2>
+<p>In many species individuals do better when there are more of them
+(mates are easier to find, groups defend better against predators, or
+hunt better, predators get satiated, microbes share what they
+secrete).</p>
+<p>When the per-capita growth rate <em>increases</em> with density at
+low density, it is called an <a
+href="https://en.wikipedia.org/wiki/Allee_effect">Allee effect</a>
+(Allee 1931; review: <a
+href="https://doi.org/10.1016/s0169-5347(99)01683-3">Courchamp,
+Clutton-Brock &amp; Grenfell 1999</a>).</p>
+<p>Write <span class="math inline">\(\dot N = N g(N)\)</span> as in L4.
+There are three cases:</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr>
+<th>per-capita rate <span class="math inline">\(g(N)\)</span></th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>decreasing</td>
+<td>no Allee effect (logistic)</td>
+</tr>
+<tr>
+<td>increasing at low <span class="math inline">\(N\)</span>, <span
+class="math inline">\(g(0)&gt;0\)</span></td>
+<td><em>weak</em> Allee effect (same fixed-point behavior as the
+logistic)</td>
+</tr>
+<tr>
+<td>increasing at low <span class="math inline">\(N\)</span>, <span
+class="math inline">\(g(0)&lt;0\)</span></td>
+<td><em>strong</em> Allee effect: small populations decline</td>
+</tr>
+</tbody>
+</table>
+<p>Microbes give clean examples. Yeast does not take up sucrose: it
+secretes invertase, which cuts sucrose into glucose and fructose
+<em>outside</em> the cell. Only about 1% of the products are captured by
+the cell that made them (<a
+href="https://doi.org/10.1038/nature07921">Gore, Youk &amp; van
+Oudenaarden 2009</a>), and the rest is a public good. The more cells
+there are, the more glucose there is in the medium, and the faster each
+cell grows.</p>
+<p>The same shape appears across bacteria. <a
+href="https://doi.org/10.1038/s41467-024-48521-9">Lopes, Amor &amp; Gore
+2024</a> measured the growth rate against the inoculum density.</p>
+<h2 id="the-simplest-model">The simplest model</h2>
+<p>Verhulst took the simplest decreasing <span
+class="math inline">\(g\)</span>, a straight line. The simplest <span
+class="math inline">\(g\)</span> with a hump is a parabola.</p>
+<p><span class="math display">\[
+\frac{dN}{dt} = r N\,(N-a)\left(1-\frac{N}{N_{\max}}\right),
+\qquad
+g(N) = r (N-a)\left(1-\frac{N}{N_{\max}}\right).
+\]</span></p>
+<p><span class="math inline">\(r\)</span> now has units of 1/(density ×
+time). Measure <span class="math inline">\(N\)</span> in units of <span
+class="math inline">\(N_{\max}\)</span> and time in units of <span
+class="math inline">\(1/(rN_{\max})\)</span>:</p>
+<p><span class="math display">\[
+u = \frac{N}{N_{\max}},\quad \alpha=\frac{a}{N_{\max}},\quad \tau =
+rN_{\max}t
+\]</span><br />
+from which we get<br />
+<span class="math display">\[
+\frac{du}{d\tau} = u\,g(u) = u\,(u-\alpha)(1-u).
+\]</span></p>
+<p>One parameter is left: <span class="math inline">\(\alpha\)</span>,
+the value of <span class="math inline">\(u\)</span> where <span
+class="math inline">\(g\)</span> changes sign (other than <span
+class="math inline">\(u=1\)</span>). Since <span
+class="math inline">\(g(0)=-\alpha\)</span> and <span
+class="math inline">\(g&#39;(0)=1+\alpha\)</span>, it covers all three
+cases:</p>
+<table>
+<thead>
+<tr>
+<th><span class="math inline">\(\alpha\)</span></th>
+<th><span class="math inline">\(g(0)\)</span></th>
+<th><span class="math inline">\(g&#39;(0)\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(\alpha&lt;-1\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td>no Allee effect</td>
+</tr>
+<tr>
+<td><span class="math inline">\(-1&lt;\alpha&lt;0\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td>weak</td>
+</tr>
+<tr>
+<td><span class="math inline">\(0&lt;\alpha&lt;1\)</span></td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td>strong (<span class="math inline">\(u=\alpha\)</span> is a
+threshold)</td>
+</tr>
+</tbody>
+</table>
+<p>The choice is less arbitrary than it looks. As we saw for the
+logistic, any function with the same zeros (fixed points) and the same
+signs has the same long-term behavior.</p>
+<h3 id="graphical-solution">Graphical solution</h3>
+<p><span class="math inline">\(f(u)=u\,(u-\alpha)(1-u)\)</span> is a
+cubic, with zeros at <span class="math inline">\(u^*=0\)</span>, <span
+class="math inline">\(u^*=\alpha\)</span> and <span
+class="math inline">\(u^*=1\)</span>. The zero at <span
+class="math inline">\(\alpha\)</span> is a population only if <span
+class="math inline">\(0&lt;\alpha&lt;1\)</span>.</p>
+<p>Stability follows from L4, using <span
+class="math inline">\(f&#39;(u) = g(u) + u\,g&#39;(u)\)</span>:</p>
+<p><span class="math inline">\(f&#39;(0)=g(0)=-\alpha\)</span>: <span
+class="math inline">\(u=0\)</span> is unstable if <span
+class="math inline">\(\alpha&lt;0\)</span> and stable if <span
+class="math inline">\(\alpha&gt;0\)</span>.</p>
+<p>Nonzero fixed points.<br />
+There <span class="math inline">\(g(u^*)=0\)</span>, so <span
+class="math inline">\(f&#39;(u^*) = u^*\,g&#39;(u^*)\)</span>. It is
+stable where the per-capita curve decreases and unstable where it
+increases. The stability can be read directly off the plot of <span
+class="math inline">\(g\)</span>.</p>
+<ul>
+<li><span class="math inline">\(u^*=1\)</span>: <span
+class="math inline">\(g&#39;(1)=-(1-\alpha)&lt;0\)</span>, so it is
+always stable.</li>
+<li><span class="math inline">\(u^*=\alpha\)</span>: <span
+class="math inline">\(g&#39;(\alpha)=1-\alpha&gt;0\)</span>, so it is
+unstable.</li>
+</ul>
+<p>The three cases:</p>
+<ul>
+<li>No Allee effect (<span class="math inline">\(\alpha&lt;-1\)</span>).
+<span class="math inline">\(g\)</span> decreases from <span
+class="math inline">\(g(0)&gt;0\)</span> to <span
+class="math inline">\(g(1)=0\)</span>. Extinction is unstable and <span
+class="math inline">\(u=1\)</span> is stable: the logistic picture of <a
+href="l4.html">L4</a>.</li>
+<li>Weak (<span class="math inline">\(-1&lt;\alpha&lt;0\)</span>). <span
+class="math inline">\(g\)</span> has a hump, but <span
+class="math inline">\(g(0)&gt;0\)</span>. Extinction is still unstable
+and <span class="math inline">\(u=1\)</span> stable: the same long-term
+behavior as the logistic. A weak Allee effect only slows down the
+initial growth. It is invisible in the fixed points.</li>
+<li>Strong (<span class="math inline">\(0&lt;\alpha&lt;1\)</span>).
+<span class="math inline">\(g(0)&lt;0\)</span>. Extinction is stable,
+<span class="math inline">\(u=\alpha\)</span> is unstable, and <span
+class="math inline">\(u=1\)</span> is stable. The population is
+bistable: below the threshold <span
+class="math inline">\(\alpha\)</span> it goes extinct, above it it grows
+to <span class="math inline">\(N_{\max}\)</span>. Where the population
+ends up depends on where it starts, not only on the parameters.</li>
+</ul>
+<h2 id="the-experiment-yeast-on-sucrose-dai-et-al.-2012">The experiment:
+yeast on sucrose (<a href="https://doi.org/10.1126/science.1219805">Dai
+et al. 2012</a>)</h2>
+<p><strong>Setup.</strong></p>
+<ul>
+<li><em>S. cerevisiae</em> in 2% sucrose.</li>
+<li>Every day a fraction <span class="math inline">\(1/D\)</span> of the
+culture is transferred into fresh medium.</li>
+<li>8 dilution factors <span class="math inline">\(D\)</span> from 250
+to 1600; for each, followed for a week.</li>
+</ul>
+<p><strong>Dilution is mortality.</strong> Let <span
+class="math inline">\(n_t\)</span> be the density at the end of day
+<span class="math inline">\(t\)</span>. At the transfer it is divided by
+<span class="math inline">\(D\)</span>, so the next day starts from
+<span class="math inline">\(n_\mathrm{initial}=n_t/D\)</span>. During
+the day the culture grows by a factor <span
+class="math inline">\(F\)</span>, which depends on the density it starts
+from, and it ends at <span
+class="math inline">\(n_\mathrm{final}=n_{t+1}=n_\mathrm{initial}\,F(n_\mathrm{initial})\)</span>:</p>
+<p><span class="math display">\[
+n_{t+1} = \frac{n_t}{D}\,F\!\left(\frac{n_t}{D}\right)
+\quad\Longrightarrow\quad
+\ln\frac{n_{t+1}}{n_t} = \ln\frac{n_\mathrm{final}}{n_\mathrm{initial}}
+- \ln D .
+\]</span></p>
+<p><span class="math inline">\(\ln
+F=\ln(n_\mathrm{final}/n_\mathrm{initial})\)</span> per day is the
+per-capita growth rate averaged over the day, and <span
+class="math inline">\(\ln D\)</span> per day is the mortality <span
+class="math inline">\(\delta\)</span>. A fixed point needs <span
+class="math inline">\(\ln(n_\mathrm{final}/n_\mathrm{initial}) = \ln
+D\)</span>, i.e. a net growth <span
+class="math inline">\(\ln(n_{t+1}/n_t)=0\)</span>: the graphical method
+of <a href="l4.html">L4</a>. <span class="math inline">\(D\)</span> from
+250 to 1600 means <span class="math inline">\(\delta\)</span> from 5.5
+to 7.4 per day (0.23–0.31 /h).</p>
+<p><em>What the data show.</em> Each day is a batch culture started at
+<span class="math inline">\(n_\mathrm{initial}\)</span>. Plotting <span
+class="math inline">\(\ln(n_\mathrm{final}/n_\mathrm{initial})\)</span>
+against <span class="math inline">\(\log_{10}
+n_\mathrm{initial}\)</span> therefore draws the per-capita curve itself.
+It is a hump, with its peak near <span
+class="math inline">\(n_\mathrm{initial}\approx 2\times10^{-4}\)</span>
+OD: the Allee effect, seen directly. Subtracting <span
+class="math inline">\(\ln D\)</span> gives the net growth, and the fixed
+points are where it crosses zero:</p>
+<ul>
+<li><span class="math inline">\(D=250\)</span>: the net growth is
+positive at every density below the stable state. There is no threshold,
+and extinction is unstable.</li>
+<li><span class="math inline">\(D=750\)</span> to <span
+class="math inline">\(1400\)</span>: two crossings, the threshold on the
+rising side of the hump and the stable state on the falling side. At
+<span class="math inline">\(D=750\)</span> the threshold is at the
+lowest density measured, and at <span
+class="math inline">\(D=500\)</span> it is below it.</li>
+<li><span class="math inline">\(D=1600\)</span>: the top of the hump
+just touches zero (+0.04). The fold is right there.</li>
+</ul>
+<p>We therefore model <span class="math inline">\(\ln F(n) =
+g(n)\)</span> in our language and <span class="math inline">\(\ln D =
+\delta\)</span>.</p>
+<p>This simplification assumes that <span
+class="math inline">\(F\)</span> is independent of <span
+class="math inline">\(D\)</span>. If this were true, the per-capita
+curves for different <span class="math inline">\(D\)</span> would
+coincide. They do not exactly: at the same starting density, the
+cultures at <span class="math inline">\(D=1600\)</span> grow 1.5–2.5×
+less per day than those at <span class="math inline">\(D=250\)</span>.
+The cause is not known (carry-over of spent medium is one candidate). In
+the model this means <span class="math inline">\(g\)</span> itself
+depends weakly on <span class="math inline">\(D\)</span>. We’ll neglect
+this dependency.</p>
+<h2 id="changing-mortality-in-allee-effect">Changing mortality in Allee
+effect</h2>
+<p>Now add a mortality <span class="math inline">\(\delta\)</span>, as
+at the end of L4:</p>
+<p><span class="math display">\[
+\frac{dN}{dt} = r N\,(N-a)\left(1-\frac{N}{N_{\max}}\right) - \delta N
+\]</span><br />
+can be written as<br />
+<span class="math display">\[
+\ \frac{du}{d\tau} = u\,\bigl[g(u)-m\bigr] =
+u\,\bigl[(u-\alpha)(1-u)-m\bigr],\qquad m=\frac{\delta}{rN_{\max}}\
+\]</span></p>
+<p>The mortality only shifts the per-capita rate down by a constant.
+Graphically, the nonzero fixed points are where the per-capita curve
+crosses the horizontal line at height <span
+class="math inline">\(m\)</span>, and raising <span
+class="math inline">\(m\)</span> moves the line up. Equivalently, they
+are where the net per-capita rate <span
+class="math inline">\(g-m\)</span> crosses zero, as in the Dai
+figure.</p>
+<h3 id="fixed-points">Fixed points</h3>
+<p><span class="math inline">\(u^*=0\)</span>, and the solutions of
+<span class="math inline">\(g(u^*)=m\)</span>. Completing the
+square:</p>
+<p><span class="math display">\[
+g(u) = m_F - (u-u_c)^2,\qquad u_c=\frac{1+\alpha}{2},\qquad
+m_F=\frac{(1-\alpha)^2}{4},
+\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[
+u_\pm = u_c \pm \sqrt{m_F-m},\qquad u_++u_- = 1+\alpha,\qquad u_+u_- =
+\alpha+m .
+\]</span></p>
+<p>At <span class="math inline">\(m=0\)</span> these are <span
+class="math inline">\(u_+=1\)</span> and <span
+class="math inline">\(u_-=\alpha\)</span>.</p>
+<h3 id="when-they-exist">When they exist</h3>
+<p>Extinction, <span class="math inline">\(u^*=0\)</span>, always
+exists. <span class="math inline">\(u_\pm\)</span> are populations only
+if they are real and positive.</p>
+<ul>
+<li><em>Real</em> if <span class="math inline">\(m\le m_F\)</span>.
+Above <span class="math inline">\(m_F\)</span> the line is above the top
+of the hump, and extinction is the only fixed point.</li>
+<li><em>Positive.</em> The product decides it. Define <span
+class="math inline">\(m_T\equiv-\alpha=g(0)\)</span>, so that <span
+class="math inline">\(u_+u_-=m-m_T\)</span>.
+<ul>
+<li><span class="math inline">\(m&lt;m_T\)</span>: <span
+class="math inline">\(u_+&gt;0&gt;u_-\)</span>. Only <span
+class="math inline">\(u_+\)</span> is a population.</li>
+<li><span class="math inline">\(m_T&lt;m\le m_F\)</span>: <span
+class="math inline">\(u_+\)</span> and <span
+class="math inline">\(u_-\)</span> have the same sign, that of their sum
+<span class="math inline">\(1+\alpha\)</span>. Both are populations if
+<span class="math inline">\(\alpha&gt;-1\)</span>, neither if <span
+class="math inline">\(\alpha&lt;-1\)</span>.</li>
+</ul></li>
+</ul>
+<p>The interval <span class="math inline">\(m_T&lt;m&lt;m_F\)</span>
+always exists: <span
+class="math inline">\(m_F-m_T=(1+\alpha)^2/4\ge0\)</span>.</p>
+<h3 id="stability">Stability</h3>
+<p>With <span class="math inline">\(f(u)=u\,[g(u)-m]\)</span>, <span
+class="math inline">\(f&#39;(u)=g(u)-m+u\,g&#39;(u)\)</span>.</p>
+<ul>
+<li>Extinction: <span
+class="math inline">\(f&#39;(0)=g(0)-m=m_T-m\)</span>. It is stable if
+and only if <span class="math inline">\(m&gt;m_T\)</span>.</li>
+<li><span class="math inline">\(u_\pm\)</span>: since <span
+class="math inline">\(g(u_\pm)=m\)</span>, <span
+class="math inline">\(f&#39;(u_\pm)=u_\pm\,g&#39;(u_\pm)\)</span>. With
+<span class="math inline">\(g&#39;(u)=-2(u-u_c)\)</span>,</li>
+</ul>
+<p><span class="math display">\[
+f&#39;(u_\pm) = \mp\,2\,u_\pm\sqrt{m_F-m}.
+\]</span></p>
+<p>Whenever it is a population, <span class="math inline">\(u_+\)</span>
+is stable and <span class="math inline">\(u_-\)</span> is unstable. The
+rule is the same as without mortality: stable where <span
+class="math inline">\(g\)</span> decreases (the right side of the hump),
+unstable where it increases (the left side). <span
+class="math inline">\(u_-\)</span> is the threshold: populations
+starting below it go extinct.</p>
+<h3 id="summary">Summary</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 41%" />
+<col style="width: 17%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr>
+<th>fixed point</th>
+<th>value</th>
+<th>is feasible (<span class="math inline">\(u^* \geq 0\)</span>)
+when</th>
+<th><span class="math inline">\(f&#39;(u^*)\)</span></th>
+<th>stable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extinction</td>
+<td><span class="math inline">\(0\)</span></td>
+<td>always</td>
+<td><span class="math inline">\(m_T-m\)</span></td>
+<td>if <span class="math inline">\(m&gt;m_T\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(u_+\)</span></td>
+<td><span class="math inline">\(u_c+\sqrt{m_F-m}\)</span></td>
+<td><span class="math inline">\(m&lt;m_F\)</span> if <span
+class="math inline">\(\alpha&gt;-1\)</span>; <span
+class="math inline">\(m&lt;m_T\)</span> if <span
+class="math inline">\(\alpha&lt;-1\)</span></td>
+<td><span class="math inline">\(-2u_+\sqrt{m_F-m}\)</span></td>
+<td>always</td>
+</tr>
+<tr>
+<td><span class="math inline">\(u_-\)</span> (threshold)</td>
+<td><span class="math inline">\(u_c-\sqrt{m_F-m}\)</span></td>
+<td><span class="math inline">\(m_T&lt;m&lt;m_F\)</span> and <span
+class="math inline">\(\alpha&gt;-1\)</span></td>
+<td><span class="math inline">\(+2u_-\sqrt{m_F-m}\)</span></td>
+<td>never</td>
+</tr>
+</tbody>
+</table>
+<p>with <span class="math inline">\(u_c=(1+\alpha)/2\)</span>, <span
+class="math inline">\(m_T=-\alpha\)</span> and <span
+class="math inline">\(m_F=(1-\alpha)^2/4\)</span>.</p>
+<h3 id="two-bifurcations">Two bifurcations</h3>
+<p>Increase <span class="math inline">\(m\)</span> and follow the fixed
+points.</p>
+<ul>
+<li>Transcritical at <span class="math inline">\(m_T = -\alpha\)</span>,
+i.e. where the line passes through <span
+class="math inline">\(g(0)\)</span>. <span
+class="math inline">\(u_-\)</span> (or <span
+class="math inline">\(u_+\)</span>, if <span
+class="math inline">\(\alpha&lt;-1\)</span>) crosses zero and exchanges
+stability with extinction. This is the bifurcation of L4.</li>
+<li>Fold (saddle-node) at <span class="math inline">\(m_F\)</span>,
+where the line is tangent to the top of the hump. <span
+class="math inline">\(u_+\)</span> and <span
+class="math inline">\(u_-\)</span> collide at <span
+class="math inline">\(u_c\)</span> and annihilate. Beyond it, extinction
+is the only state.</li>
+</ul>
+<p>What happens depends on <span
+class="math inline">\(\alpha\)</span>:</p>
+<ul>
+<li>No Allee effect (<span class="math inline">\(\alpha&lt;-1\)</span>).
+The top of the hump is at <span class="math inline">\(u_c&lt;0\)</span>.
+Only the transcritical is reached, and the extinction is continuous, as
+in L4.</li>
+<li>Weak (<span class="math inline">\(-1&lt;\alpha&lt;0\)</span>). There
+are three regimes:
+<ul>
+<li><span class="math inline">\(m&lt;-\alpha\)</span>: only survival is
+stable;</li>
+<li><span class="math inline">\(-\alpha&lt;m&lt;m_F\)</span>: the
+population is <em>bistable</em>, between survival and extinction;</li>
+<li><span class="math inline">\(m&gt;m_F\)</span>: only extinction.</li>
+</ul></li>
+<li><em>Strong (<span
+class="math inline">\(0&lt;\alpha&lt;1\)</span>).</em> Extinction is
+stable for every <span class="math inline">\(m\ge0\)</span>, and the
+population is bistable for <span
+class="math inline">\(m&lt;m_F\)</span>.</li>
+</ul>
+<h3 id="catastrophe-and-hysteresis">Catastrophe and hysteresis</h3>
+<p>At <span class="math inline">\(m_F\)</span> the population does not
+shrink to zero: it jumps from <span
+class="math inline">\(u_c=(1+\alpha)/2\)</span> to <span
+class="math inline">\(0\)</span>. Just before the jump, <span
+class="math inline">\(u_+ = u_c+\sqrt{m_F-m}\)</span> declines with
+infinite slope, but far from the fold it barely moves.</p>
+<p>Going back is harder:</p>
+<ul>
+<li>Weak Allee effect. A collapsed population regrows from a few
+survivors only when <span class="math inline">\(m&lt;-\alpha\)</span>.
+The hysteresis loop has width <span
+class="math inline">\(m_F-m_T=(1+\alpha)^2/4\)</span>.</li>
+<li>Strong Allee effect. Lowering the mortality never brings it back.
+Individuals have to be reintroduced above <span
+class="math inline">\(u_-\)</span>.</li>
+</ul>
+<p>Compare with L4:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>logistic + <span class="math inline">\(\delta\)</span></th>
+<th>Allee + <span class="math inline">\(\delta\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bifurcation</td>
+<td>transcritical</td>
+<td>fold (plus a transcritical if weak)</td>
+</tr>
+<tr>
+<td>density at the threshold</td>
+<td><span class="math inline">\(\to 0\)</span></td>
+<td><span class="math inline">\(u_c&gt;0\)</span>: a jump</td>
+</tr>
+<tr>
+<td>undoing it</td>
+<td>reduce <span class="math inline">\(\delta\)</span> just below <span
+class="math inline">\(\delta_c\)</span></td>
+<td>reduce <span class="math inline">\(\delta\)</span> below <span
+class="math inline">\(m_T\)</span>, or reintroduce</td>
+</tr>
+</tbody>
+</table>
+<h3 id="normal-form">Normal form</h3>
+<p>Near the fold write <span class="math inline">\(x=u-u_c\)</span> and
+<span class="math inline">\(\epsilon = m_F-m\)</span>. Then <span
+class="math inline">\(g-m=\epsilon-x^2\)</span>, and to leading
+order</p>
+<p><span class="math display">\[
+\frac{dx}{d\tau} \simeq u_c\,(\epsilon - x^2) .
+\]</span></p>
+<p>This is the normal form of the saddle-node (Strogatz 3.1). Any
+per-capita curve with a smooth maximum, pushed down by mortality, gives
+this equation near its top. The square roots above follow from it.</p>
+<h2 id="immigration-two-folds-and-a-cusp">Immigration: two folds and a
+cusp</h2>
+<p>So far the population was isolated: once it is gone, it is gone. Real
+populations usually receive immigrants: from a mainland, from a source
+population nearby, or, in the lab, from a fixed number of cells added at
+every transfer. Add a constant flux <span
+class="math inline">\(L\)</span> of immigrants per unit volume and
+time:</p>
+<p><span class="math display">\[
+\frac{dN}{dt} = N\,\bigl[g(N)-\delta\bigr] + L
+\quad\Longrightarrow\quad
+\boxed{\ \frac{du}{d\tau} = u\,\bigl[(u-\alpha)(1-u)-m\bigr] + \lambda \
+},
+\qquad \lambda = \frac{L}{rN_{\max}^2}.
+\]</span></p>
+<p>With <span class="math inline">\(\lambda&gt;0\)</span>, <span
+class="math inline">\(u=0\)</span> is no longer a fixed point, since
+<span class="math inline">\(\dot u(0)=\lambda&gt;0\)</span>. Expanded,
+the right-hand side is a cubic,</p>
+<p><span class="math display">\[
+f(u) = -u^3 + s\,u^2 - (\alpha+m)\,u + \lambda,\qquad s=1+\alpha .
+\]</span></p>
+<h3 id="graphical-solution-1">Graphical solution</h3>
+<p>Divide by <span class="math inline">\(u\)</span>. The fixed points
+are where</p>
+<p><span class="math display">\[
+G(u) \equiv g(u) + \frac{\lambda}{u} = m ,
+\]</span></p>
+<p>and since <span class="math inline">\(f = u\,(G-m)\)</span>, at a
+fixed point <span
+class="math inline">\(f&#39;(u^*)=u^*G&#39;(u^*)\)</span>. The rule is
+the same as before: <em>stable where <span
+class="math inline">\(G\)</span> decreases, unstable where it
+increases</em>.</p>
+<p>Immigration adds <span class="math inline">\(\lambda/u\)</span>,
+which diverges at <span class="math inline">\(u\to0\)</span>. So <span
+class="math inline">\(G\)</span> first decreases (immigration
+dominates), then increases (the Allee hump), then decreases (resource
+limitation). Its stationary points solve</p>
+<p><span class="math display">\[
+G&#39;(u) = s-2u-\frac{\lambda}{u^2} = 0
+\quad\Longleftrightarrow\quad
+\lambda = u^2(s-2u).
+\]</span></p>
+<p>The right-hand side vanishes at <span
+class="math inline">\(u=0\)</span> and <span
+class="math inline">\(u=s/2\)</span>, and has its maximum <span
+class="math inline">\(s^3/27\)</span> at <span
+class="math inline">\(u=s/3\)</span>. Define <span
+class="math inline">\(\lambda_c = (s/3)^3\)</span>.</p>
+<ul>
+<li><strong><span
+class="math inline">\(\lambda&lt;\lambda_c\)</span>.</strong> <span
+class="math inline">\(G\)</span> has a minimum at <span
+class="math inline">\(u_1\)</span> and a maximum at <span
+class="math inline">\(u_2\)</span>. A line <span
+class="math inline">\(m\)</span> between <span
+class="math inline">\(G(u_1)\)</span> and <span
+class="math inline">\(G(u_2)\)</span> crosses <span
+class="math inline">\(G\)</span> three times:
+<ul>
+<li>a <em>refuge</em> at low density (stable, <span
+class="math inline">\(G\)</span> decreasing);</li>
+<li>a threshold (unstable);</li>
+<li>the <em>high state</em> (stable).</li>
+</ul></li>
+<li><strong><span
+class="math inline">\(\lambda&gt;\lambda_c\)</span>.</strong> <span
+class="math inline">\(G\)</span> is monotonically decreasing. There is
+one fixed point for every <span class="math inline">\(m\)</span>: no
+bistability and no tipping point.</li>
+</ul>
+<p>This is the same as the spruce budworm picture (Strogatz 3.7). There,
+the per-capita predation <span class="math inline">\(x/(1+x^2)\)</span>
+first rises and then falls as predators saturate. The per-capita net
+growth therefore decreases, increases and decreases again, and two folds
+meet at a cusp.</p>
+<h3 id="the-fold-lines">The fold lines</h3>
+<p>A fold is a fixed point with zero slope: <span
+class="math inline">\(f=0\)</span> and <span
+class="math inline">\(f&#39;=0\)</span>, i.e. <span
+class="math inline">\(m=G(u)\)</span> and <span
+class="math inline">\(G&#39;(u)=0\)</span>. Use the position <span
+class="math inline">\(u\)</span> of the fold as a parameter:</p>
+<p><span class="math display">\[
+\lambda(u) = u^2(s-2u),\qquad
+m(u) = G(u) = (u-\alpha)(1-u) + u(s-2u) = -3u^2 + 2su - \alpha ,\qquad
+0&lt;u&lt;\frac{s}{2}.
+\]</span></p>
+<p>These are two curves in the <span
+class="math inline">\((m,\lambda)\)</span> plane. At <span
+class="math inline">\(\lambda=0\)</span> they end at the bifurcations of
+the model without immigration:</p>
+<ul>
+<li><span class="math inline">\(u\to0\)</span> gives <span
+class="math inline">\((m,\lambda)\to(-\alpha,0)=(m_T,0)\)</span>.
+<em>The transcritical becomes a fold</em>: the extinction state turns
+into the refuge, which now disappears at a fold.</li>
+<li><span class="math inline">\(u=s/2\)</span> gives <span
+class="math inline">\((m_F,0)\)</span>, the old fold.</li>
+</ul>
+<p>For small <span class="math inline">\(\lambda\)</span> the two folds
+move in very different ways:</p>
+<ul>
+<li>Lower fold. Here <span
+class="math inline">\(u\simeq\sqrt{\lambda/s}\)</span>, and <span
+class="math inline">\(m_{\text{low}} \simeq m_T +
+2\sqrt{s\,\lambda}\)</span>.</li>
+<li>Upper fold. Write <span class="math inline">\(u=s/2-v\)</span>, so
+<span class="math inline">\(v\simeq 2\lambda/s^2\)</span>, and <span
+class="math inline">\(m_{\text{up}}\simeq m_F +
+2\lambda/s\)</span>.</li>
+</ul>
+<p>So a little immigration barely moves the collapse (a shift linear in
+<span class="math inline">\(\lambda\)</span>), but it makes recovery
+much easier (a shift <span
+class="math inline">\(\propto\sqrt\lambda\)</span>): the hysteresis loop
+shrinks fast. Between the folds, the refuge sits at <span
+class="math inline">\(u_{\text{low}}\simeq \lambda/(m-m_T)\)</span>: a
+sink population, kept alive by immigration.</p>
+<p>For <span class="math inline">\(\alpha=-0.3\)</span>, <span
+class="math inline">\(\lambda=0.003\)</span>: the folds are at <span
+class="math inline">\(m=0.387\)</span> and <span
+class="math inline">\(0.431\)</span>. The approximations give <span
+class="math inline">\(0.392\)</span> and <span
+class="math inline">\(0.4311\)</span>.</p>
+<h3 id="the-cusp">The cusp</h3>
+<p>The two fold lines meet where the minimum and the maximum of <span
+class="math inline">\(G\)</span> merge, at <span
+class="math inline">\(f=f&#39;=f&#39;&#39;=0\)</span>. From <span
+class="math inline">\(f&#39;&#39;=-6u+2s=0\)</span>:</p>
+<p><span class="math display">\[
+u_c=\frac{s}{3},\qquad m_c=\frac{s^2}{3}-\alpha,\qquad
+\lambda_c=\Bigl(\frac{s}{3}\Bigr)^3 .
+\]</span></p>
+<p>For <span class="math inline">\(\alpha=-0.3\)</span>, <span
+class="math inline">\((m_c,\lambda_c)=(0.463,\,0.0127)\)</span>. Both
+<span class="math inline">\(dm/du\)</span> and <span
+class="math inline">\(d\lambda/du\)</span> vanish at <span
+class="math inline">\(u_c\)</span>, so the two lines meet tangentially:
+a <em>cusp</em>.</p>
+<ul>
+<li>Above <span class="math inline">\(\lambda_c\)</span>, increasing the
+mortality lowers the population smoothly and reversibly. Enough
+immigration removes the tipping point altogether.</li>
+<li>As <span class="math inline">\(\alpha\to-1\)</span>, <span
+class="math inline">\(s\to0\)</span> and the cusp moves to <span
+class="math inline">\((m,\lambda)=(1,0)\)</span>. This is the point
+where the transcritical and fold lines touched in the <span
+class="math inline">\((\alpha,m)\)</span> diagram. In the
+three-parameter space <span
+class="math inline">\((\alpha,m,\lambda)\)</span> there is a line of
+cusps, and it hits the plane <span
+class="math inline">\(\lambda=0\)</span> exactly there.</li>
+</ul>
+<p>In dimensional units, <span class="math inline">\(L_c =
+rN_{\max}^2\,\bigl[(1+a/N_{\max})/3\bigr]^3\)</span>.</p>
+<h3 id="the-exact-cusp-normal-form">The exact cusp normal form</h3>
+<p>Shift to the cusp, <span class="math inline">\(u = s/3 + x\)</span>.
+Because <span class="math inline">\(f\)</span> is a cubic, the expansion
+is exact:</p>
+<p><span class="math display">\[
+\frac{dx}{d\tau} = -x^3 + A\,x + B,\qquad A = m_c - m,\qquad B =
+(\lambda-\lambda_c) + \frac{s}{3}A .
+\]</span></p>
+<ul>
+<li>There are three fixed points if and only if <span
+class="math inline">\(27B^2&lt;4A^3\)</span> (the discriminant of the
+cubic).</li>
+<li>The folds are on <span class="math inline">\(27B^2=4A^3\)</span>,
+i.e. <span class="math inline">\(B=\pm 2(A/3)^{3/2}\)</span>.</li>
+</ul>
+<p>This is the generic form near any cusp, the budworm’s included. It is
+also mean-field Ising:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> is the magnetization, <span
+class="math inline">\(A\propto T_c-T\)</span>, and <span
+class="math inline">\(B\)</span> is the external field;</li>
+<li><span class="math inline">\(\dot x = -V&#39;(x)\)</span> with <span
+class="math inline">\(V=x^4/4-Ax^2/2-Bx\)</span>;</li>
+<li>the hysteresis loop below is the hysteresis loop of a magnet.</li>
+</ul>
+<h3 id="simulations">Simulations</h3>
+<p>All at <span class="math inline">\(\alpha=-0.3\)</span>.</p>
+<ul>
+<li><strong>Slow ramps</strong> of <span
+class="math inline">\(m\)</span>, from 0.2 to 0.6 and back, starting on
+the high state:
+<ul>
+<li><span class="math inline">\(\lambda=0\)</span>: the population
+collapses at <span class="math inline">\(m_F\)</span> and never comes
+back. A population below <span class="math inline">\(10^{-6}\)</span> is
+set to 0.</li>
+<li><span class="math inline">\(\lambda=0.003\)</span>: a hysteresis
+loop between the high state and the refuge.</li>
+<li><span class="math inline">\(\lambda=0.03\)</span>: the two
+directions coincide.</li>
+</ul></li>
+<li><strong>Trajectories</strong> at <span
+class="math inline">\(\lambda=0.003\)</span>, <span
+class="math inline">\(m=0.41\)</span>: those starting above the
+threshold (<span class="math inline">\(u=0.18\)</span>) go to the high
+state (<span class="math inline">\(0.49\)</span>), the others to the
+refuge (<span class="math inline">\(0.034\)</span>).</li>
+<li><strong>Relaxation after a kick</strong>, at distances 0.1 → 0.003
+below the upper fold: the recovery time grows from 2.4 to 24,
+approaching the <span class="math inline">\(\epsilon^{-1/2}\)</span>
+law.</li>
+</ul>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>For <span class="math inline">\(\dot N = N\,[g(N)-\delta]\)</span>,
+show that a nonzero fixed point is stable if and only if <span
+class="math inline">\(g&#39;(N^*)&lt;0\)</span>, whatever the shape of
+<span class="math inline">\(g\)</span>.</li>
+<li>For <span class="math inline">\(g(u)=(u-\alpha)(1-u)\)</span>:
+<ul>
+<li>find the ranges of <span class="math inline">\(\alpha\)</span> with
+no, weak and strong Allee effect;</li>
+<li>compute <span class="math inline">\(m_T\)</span>, <span
+class="math inline">\(m_F\)</span>, <span
+class="math inline">\(u_\pm\)</span>;</li>
+<li>show that the fold line and the transcritical line are tangent at
+<span class="math inline">\(\alpha=-1\)</span>.</li>
+</ul></li>
+<li>Derive the normal form near <span
+class="math inline">\((u_c,m_F)\)</span>. Show that the recovery rate
+and the basin width both scale as <span
+class="math inline">\(\sqrt{m_F-m}\)</span>, and that their ratio is
+<span class="math inline">\(u_+\)</span>.</li>
+<li>(Colab) Take <span class="math inline">\(\alpha=-0.3\)</span>.
+Increase <span class="math inline">\(m\)</span> slowly from 0 past <span
+class="math inline">\(m_F\)</span>, then decrease it back to 0, starting
+from a small nonzero <span class="math inline">\(u\)</span> each time it
+collapses. Plot <span class="math inline">\(u\)</span> against <span
+class="math inline">\(m\)</span> and find the hysteresis loop. What
+changes if <span class="math inline">\(u\)</span> is set exactly to zero
+after the collapse?</li>
+<li>A public good. A cooperative species secretes a product <span
+class="math inline">\(G\)</span> that decays at rate <span
+class="math inline">\(\gamma\)</span>, with <span
+class="math inline">\(\dot G = kN-\gamma G\)</span>. Assume the product
+is fast, and that growth is <span class="math inline">\(\bigl[b_0 +
+b_1\phi(G)\bigr](1-N/N_{\max})\)</span>, with <span
+class="math inline">\(\phi\)</span> the Monod function of L4.
+<ul>
+<li>Show that the per-capita rate has a weak Allee effect.</li>
+<li>What sets <span class="math inline">\(g(0)\)</span>? What happens
+when <span class="math inline">\(b_0=0\)</span>?</li>
+</ul></li>
+<li>Dai et al.: from <span
+class="math inline">\(\ln(n_\mathrm{final}/n_\mathrm{initial})-\ln
+D\)</span> against <span class="math inline">\(\log_{10}
+n_\mathrm{initial}\)</span> (data in the course folder), read off the
+fixed points for each <span class="math inline">\(D\)</span> as the zero
+crossings. Convert them to end-of-day densities, <span
+class="math inline">\(n^*=D\,n_\mathrm{initial}^*\)</span>, and compare
+them with the trajectories.</li>
+<li>Immigration:
+<ul>
+<li>derive the parametric fold lines <span
+class="math inline">\((m(u),\lambda(u))\)</span> and the cusp;</li>
+<li>show that for small <span class="math inline">\(\lambda\)</span> the
+lower fold moves as <span
+class="math inline">\(2\sqrt{s\lambda}\)</span> and the upper one as
+<span class="math inline">\(2\lambda/s\)</span>;</li>
+<li>what does this imply for restoring a collapsed population by adding
+immigrants?</li>
+</ul></li>
+<li>Shift <span class="math inline">\(u=s/3+x\)</span> and derive <span
+class="math inline">\(\dot x=-x^3+Ax+B\)</span>. Rewrite the condition
+for bistability as <span class="math inline">\(27B^2&lt;4A^3\)</span>,
+and check that it reproduces the fold lines.</li>
+<li>The spruce budworm (Strogatz 3.7), <span class="math inline">\(\dot
+x = rx(1-x/k) - x^2/(1+x^2)\)</span>.
+<ul>
+<li>Write the per-capita rate and identify which term plays the role of
+<span class="math inline">\(\lambda/u\)</span> and which the role of the
+Allee hump.</li>
+<li>Find the cusp, at <span
+class="math inline">\((k,r)=(3\sqrt3,\,3\sqrt3/8)\)</span>.</li>
+</ul></li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>Strogatz 3.1–3.2 (saddle-node, transcritical, normal forms), 3.6
+(imperfect bifurcations and the cusp), and 3.7 (the spruce budworm: the
+same two folds and cusp as the immigration model, with predation instead
+of immigration).</li>
+<li><a href="https://doi.org/10.1038/nature08227">Scheffer et
+al. 2009</a>, early-warning signals for critical transitions.</li>
+<li><a href="https://doi.org/10.1038/nature12071">Dai, Korolev &amp;
+Gore 2013</a>: the same yeast in connected populations, with warnings in
+space.</li>
+<li>Dai, Korolev &amp; Gore 2015 compare a mortality driver with a
+nutrient driver, and show that the relation between stability and
+resilience depends on the driver.</li>
+<li><a href="https://doi.org/10.1038/nature09389">Drake &amp; Griffen
+2010</a>: slowing down before a <em>transcritical</em> extinction in
+<em>Daphnia</em>.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>W. C. Allee, <em>Animal Aggregations</em> (1931).</li>
+<li>C. S. Holling, <a
+href="https://doi.org/10.1146/annurev.es.04.110173.000245">Resilience
+and stability of ecological systems</a>, <em>Annu. Rev. Ecol. Syst.</em>
+<strong>4</strong>, 1 (1973).</li>
+<li>F. Courchamp, T. Clutton-Brock, B. Grenfell, <a
+href="https://doi.org/10.1016/s0169-5347(99)01683-3">Inverse density
+dependence and the Allee effect</a>, <em>Trends Ecol. Evol.</em>
+<strong>14</strong>, 405 (1999).</li>
+<li>J. Gore, H. Youk, A. van Oudenaarden, <a
+href="https://doi.org/10.1038/nature07921">Snowdrift game dynamics and
+facultative cheating in yeast</a>, <em>Nature</em> <strong>459</strong>,
+253 (2009).</li>
+<li>M. Scheffer et al., <a
+href="https://doi.org/10.1038/nature08227">Early-warning signals for
+critical transitions</a>, <em>Nature</em> <strong>461</strong>, 53
+(2009).</li>
+<li>J. M. Drake, B. D. Griffen, <a
+href="https://doi.org/10.1038/nature09389">Early warning signals of
+extinction in deteriorating environments</a>, <em>Nature</em>
+<strong>467</strong>, 456 (2010).</li>
+<li>L. Dai, D. Vorselen, K. S. Korolev, J. Gore, <a
+href="https://doi.org/10.1126/science.1219805">Generic indicators for
+loss of resilience before a tipping point leading to population
+collapse</a>, <em>Science</em> <strong>336</strong>, 1175 (2012); data:
+<a href="https://doi.org/10.5061/dryad.p2481134">Dryad
+10.5061/dryad.p2481134</a>.</li>
+<li>L. Dai, K. S. Korolev, J. Gore, <a
+href="https://doi.org/10.1038/nature12071">Slower recovery in space
+before collapse of connected populations</a>, <em>Nature</em>
+<strong>496</strong>, 355 (2013).</li>
+<li>L. Dai, K. S. Korolev, J. Gore, <a
+href="https://doi.org/10.1073/pnas.1418415112">Relation between
+stability and resilience determines the performance of early warning
+signals under different environmental drivers</a>, <em>PNAS</em>
+<strong>112</strong>, 10056 (2015).</li>
+<li>W. Lopes, D. R. Amor, J. Gore, <a
+href="https://doi.org/10.1038/s41467-024-48521-9">Cooperative growth in
+microbial communities is a driver of multistability</a>, <em>Nat.
+Commun.</em> <strong>15</strong>, 4709 (2024).</li>
+<li>S. H. Strogatz, <em>Nonlinear Dynamics and Chaos</em>, ch. 3.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l5.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>
