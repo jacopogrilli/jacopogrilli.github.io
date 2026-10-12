@@ -40,6 +40,10 @@ Obsidian syntax handled
          notes/; anything else becomes plain text (reported).
   ![[file.pdf]], ![[image.png]], ![[image.png|300]]
       -> file copied to notes/<course>/material/, then linked (pdf) or shown.
+  ![[figure.html]], ![[figure.html|500]]
+      -> self-contained interactive page copied to material/ and shown in an iframe
+         (initial height 520 px, or the number given). The page can post
+         {widgetHeight: px} to its parent and the iframe follows its height.
   > [!type] Title, > [!type]- Title (callouts) -> box, or collapsible <details>.
   single newlines -> line breaks (Obsidian default, "strict line breaks" off).
 
@@ -74,6 +78,10 @@ PANDOC_FROM = ("markdown+tex_math_dollars+pipe_tables+hard_line_breaks+autolink_
                "-yaml_metadata_block-implicit_figures")
 MATHJAX = "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"  # v4 breaks long formulas
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
+WIDGET_RESIZE = ("<script>if(!window.__widgetResize){window.__widgetResize=1;"
+                 "addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;"
+                 "document.querySelectorAll('iframe.widget').forEach(function(f){"
+                 "if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>")
 
 FRONTMATTER_RE = re.compile(r"\A---[ \t]*\n(.*?)\n---[ \t]*(?:\n|\Z)", re.S)
 CALLOUT_RE = re.compile(r"^>\s*\[!(?P<type>[\w-]+)\](?P<fold>[+-]?)\s*(?P<title>.*)$")
@@ -243,6 +251,14 @@ class Page:
         if src.suffix.lower() in IMAGE_EXT:
             size = f"{{width={alias}}}" if alias and alias.isdigit() else ""
             return f"![{'' if size else (alias or '')}]({dest}){size}"
+        if src.suffix.lower() == ".html":
+            # interactive figure: a self-contained page shown in an iframe. The page posts
+            # {widgetHeight: px} to its parent; the listener (installed once per page)
+            # resizes the iframe, so it never needs a scrollbar. `|500` sets the initial height.
+            height = alias if alias and alias.isdigit() else "520"
+            return (f'<iframe class="widget" src="{dest}" title="{src.stem}" loading="lazy" '
+                    f'style="display:block;width:100%;height:{height}px;border:0;margin:.6rem 0"></iframe>'
+                    + WIDGET_RESIZE)
         return f"[{alias or src.name}]({dest})"
 
     def link(self, target, anchor, alias, page_ids):
@@ -370,7 +386,7 @@ def check_html(html_file):
     """Relative links resolve, in-page anchors exist, no Obsidian syntax left over."""
     problems, s = [], html_file.read_text(encoding="utf-8")
     ids = set(re.findall(r'\bid="([^"]+)"', s))
-    for href in re.findall(r'href="([^"]+)"', s):
+    for href in re.findall(r'href="([^"]+)"', s) + re.findall(r'<iframe[^>]*\ssrc="([^"]+)"', s):
         if href.startswith(("http://", "https://", "mailto:", "/")):
             continue
         if href.startswith("#"):

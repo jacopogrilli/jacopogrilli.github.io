@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logistic growth with mortality</title>
+<!--
+  Interactive figure for L4 (Extinction): dN/dt = rN(1 - N/Nmax) - dN, in units r = Nmax = 1.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L4-logistic-mortality.html]]`).
+  Self-contained: no external scripts. Colours are the site's tokens (notes_template.html).
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --grid: #eef0f2; --shade: #f1f2f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --grid: #202329; --shade: #22252b;
+  }
+}
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+/* embedded in a note (e.g. inside a callout box): let the page's background show through */
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.controls { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.controls label { font-weight: 600; }
+.controls input[type=range] { flex: 1 1 200px; accent-color: var(--accent); min-width: 160px; }
+.controls output { font-variant-numeric: tabular-nums; min-width: 3.2em; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 2.9em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .curve { fill: none; stroke: var(--fg); stroke-width: 2; }
+svg .ref { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: .7; }
+svg .unstable { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 6 4; }
+svg .now { stroke: var(--accent); stroke-width: 1.5; }
+svg .stable-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+svg .arrow { fill: var(--accent); }
+svg .shade { fill: var(--shade); }
+svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+svg .hover-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .tip { fill: var(--fg); font-size: 12px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <label for="delta">Mortality δ / r</label>
+    <input type="range" id="delta" min="0" max="1.3" step="0.01" value="0.3"
+           aria-describedby="readout">
+    <output id="dval" for="delta">0.30</output>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p1" role="img" aria-label="dN/dt against N"></svg>
+      <figcaption>Growth rate d<i>N</i>/d<i>t</i></figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="per-capita growth rate against N"></svg>
+      <figcaption>Per-capita rate (1/<i>N</i>) d<i>N</i>/d<i>t</i></figcaption></figure>
+    <figure><svg id="p3" role="img" aria-label="fixed points against mortality"></svg>
+      <figcaption>Fixed points <i>N</i>* against δ (drag to set δ)</figcaption></figure>
+  </div>
+  <div class="note">Units: time in 1/<i>r</i>, population in <i>N</i><sub>max</sub>.
+    Filled dot: stable fixed point; open dot: unstable. Dashed grey in the first two panels: no mortality (δ = 0).</div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const slider = document.getElementById("delta");
+const dval = document.getElementById("dval");
+const readout = document.getElementById("readout");
+const D_MAX = +slider.max;
+
+// model, in units r = Nmax = 1
+const f = (x, d) => x * (1 - x) - d * x;        // dN/dt
+const g = (x, d) => 1 - x - d;                   // (1/N) dN/dt
+
+// panel definitions: data ranges and ticks
+const P = {
+  p1: { x: [0, 1.1], y: [-0.35, 0.3], xt: [0, 0.5, 1], yt: [-0.2, 0, 0.2],
+        xl: "N / Nmax", yl: "dN/dt" },
+  p2: { x: [0, 1.1], y: [-1.0, 1.1], xt: [0, 0.5, 1], yt: [-1, -0.5, 0, 0.5, 1],
+        xl: "N / Nmax", yl: "(1/N) dN/dt" },
+  p3: { x: [0, D_MAX], y: [-0.35, 1.1], xt: [0, 0.5, 1], yt: [0, 0.5, 1],
+        xl: "δ / r", yl: "N* / Nmax" },
+};
+const M = { l: 48, r: 10, t: 10, b: 40 };       // margins, px
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function fmt(v) { return (Math.abs(v) < 1e-9 ? 0 : v).toFixed(2); }
+
+// axis label with "max" as subscript where needed
+function label(parent, text, attrs) {
+  const t = el("text", attrs, parent);
+  const parts = text.split("max");
+  t.appendChild(document.createTextNode(parts[0]));
+  if (parts.length > 1) {
+    const s = el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t);
+    s.textContent = "max";
+    const rest = el("tspan", { "baseline-shift": "0" }, t);
+    rest.textContent = parts[1];
+  }
+  return t;
+}
+
+let state = { d: +slider.value, hover: { p1: null, p2: null } };
+const geom = {};
+
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth;
+  const h = Math.round(Math.min(Math.max(w * 0.82, 190), 260));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const p = P[id];
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]) };
+}
+
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const clipId = id + "-clip";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: clipId }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) {
+    const t = el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg);
+    t.textContent = v;
+  }
+  for (const v of p.xt) {
+    const t = el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg);
+    t.textContent = v;
+  }
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return el("g", { "clip-path": `url(#${clipId})` }, svg);
+}
+
+function path(fn, id, cls, parent, x0, x1) {
+  const { sx, sy, p } = geom[id];
+  const a = x0 ?? p.x[0], b = x1 ?? p.x[1], n = 160;
+  let dstr = "";
+  for (let i = 0; i <= n; i++) {
+    const x = a + (b - a) * i / n;
+    dstr += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(fn(x)).toFixed(1);
+  }
+  return el("path", { d: dstr, class: cls }, parent);
+}
+
+function dot(id, x, y, stable, parent) {
+  const { sx, sy } = geom[id];
+  el("circle", { cx: sx(x), cy: sy(y), r: 5.5, class: stable ? "stable-pt" : "unstable-pt" }, parent);
+}
+
+function arrowsOnAxis(id, parent, d) {
+  // flow on the N axis: right where dN/dt > 0, left where < 0
+  const { sx, sy, p } = geom[id];
+  const y0 = sy(0);
+  const fps = [0, 1 - d];
+  for (let x = 0.12; x < p.x[1]; x += 0.2) {
+    const v = f(x, d);
+    if (Math.abs(v) < 2e-3 || fps.some(z => Math.abs(x - z) < 0.07)) continue;
+    const s = v > 0 ? 1 : -1, cx = sx(x);
+    el("path", { class: "arrow",
+      d: `M${cx + 5 * s},${y0} L${cx - 4 * s},${y0 - 4.5} L${cx - 4 * s},${y0 + 4.5} Z` }, parent);
+  }
+}
+
+function hoverLayer(id, fn, name) {
+  const h = state.hover[id];
+  if (h == null) return;
+  const { svg, sx, sy, p, w } = geom[id];
+  const x = Math.min(Math.max(h, p.x[0]), p.x[1]), y = fn(x, state.d);
+  el("line", { class: "guide", x1: sx(x), x2: sx(x), y1: M.t, y2: geom[id].h - M.b }, svg);
+  if (y >= p.y[0] && y <= p.y[1]) el("circle", { cx: sx(x), cy: sy(y), r: 4, class: "hover-pt" }, svg);
+  const t = el("text", { class: "tip", x: w - M.r - 4, y: M.t + 12, "text-anchor": "end" }, svg);
+  t.textContent = `N = ${fmt(x)}, ${name} = ${fmt(y)}`;
+}
+
+function draw() {
+  const d = state.d, Np = 1 - d;               // nontrivial fixed point
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+
+  // 1. dN/dt against N
+  let c = frame("p1");
+  el("line", { class: "zero", x1: geom.p1.sx(0), x2: geom.p1.sx(1.1), y1: geom.p1.sy(0), y2: geom.p1.sy(0) }, c);
+  path(x => f(x, 0), "p1", "ref", c);
+  path(x => f(x, d), "p1", "curve", c);
+  arrowsOnAxis("p1", c, d);
+  dot("p1", 0, 0, d >= 1, geom.p1.svg);   // at d = r, N = 0 attracts (f = -N^2)
+  if (Np > 0) dot("p1", Np, 0, true, geom.p1.svg);
+  hoverLayer("p1", f, "dN/dt");
+
+  // 2. per-capita rate against N
+  c = frame("p2");
+  el("line", { class: "zero", x1: geom.p2.sx(0), x2: geom.p2.sx(1.1), y1: geom.p2.sy(0), y2: geom.p2.sy(0) }, c);
+  path(x => g(x, 0), "p2", "ref", c);
+  path(x => g(x, d), "p2", "curve", c);
+  if (Np > 0) dot("p2", Np, 0, true, geom.p2.svg);
+  hoverLayer("p2", g, "rate");
+
+  // 3. bifurcation diagram: fixed points against delta
+  const q = geom.p3;
+  c = frame("p3");
+  el("rect", { class: "shade", x: q.sx(0), y: q.sy(0), width: q.sx(D_MAX) - q.sx(0), height: q.sy(-0.35) - q.sy(0) }, c);
+  const nt = el("text", { x: q.sx(0.04), y: q.sy(-0.2), "font-size": "11" }, c);
+  nt.textContent = "N < 0: not a population";
+  path(() => 0, "p3", "unstable", c, 0, 1);          // N* = 0, unstable for delta < r
+  path(() => 0, "p3", "curve", c, 1, D_MAX);         // N* = 0, stable for delta > r
+  path(x => 1 - x, "p3", "curve", c, 0, 1);          // N* = 1 - delta, stable
+  path(x => 1 - x, "p3", "unstable", c, 1, D_MAX);   // continues below zero, unstable
+  el("line", { class: "now", x1: q.sx(d), x2: q.sx(d), y1: M.t, y2: q.h - M.b }, c);
+  dot("p3", d, 0, d >= 1, q.svg);
+  if (Math.abs(Np) > 1e-9 && Np >= -0.35) dot("p3", d, Np, Np > 0, q.svg);
+
+  // readout
+  dval.textContent = d.toFixed(2);
+  const rate = Math.abs(1 - d);
+  const rec = rate > 1e-9 ? ` → recovery time 1/|r − δ| = <b>${(1 / rate).toFixed(1)}</b> / r` : " → recovery time diverges";
+  readout.innerHTML = (Np > 1e-9
+      ? `Population persists: <b>N*/N<sub>max</sub> = 1 − δ/r = ${fmt(Np)}</b>. `
+      : Math.abs(Np) <= 1e-9
+        ? `At the threshold <b>δ = r</b>: the two fixed points meet at <b>N* = 0</b>. `
+        : `Extinction: <b>N* = 0</b> is the only stable state. `)
+    + `Return rate after a small perturbation |f′(N*)| = |r − δ| = <b>${fmt(rate)}</b> r${rec}.`;
+  postHeight();
+}
+
+// interaction: slider, drag on the bifurcation diagram, hover on the first two panels
+slider.addEventListener("input", () => { state.d = +slider.value; draw(); });
+const p3 = document.getElementById("p3");
+function setFromPointer(e) {
+  const r = p3.getBoundingClientRect();
+  const v = Math.min(Math.max(geom.p3.ix(e.clientX - r.left), 0), D_MAX);
+  state.d = Math.round(v * 100) / 100; slider.value = state.d; draw();
+}
+p3.addEventListener("pointerdown", e => { p3.setPointerCapture(e.pointerId); setFromPointer(e); });
+p3.addEventListener("pointermove", e => { if (p3.hasPointerCapture(e.pointerId)) setFromPointer(e); });
+for (const id of ["p1", "p2"]) {
+  const s = document.getElementById(id);
+  s.addEventListener("pointermove", e => {
+    const r = s.getBoundingClientRect();
+    state.hover[id] = geom[id].ix(e.clientX - r.left); draw();
+  });
+  s.addEventListener("pointerleave", () => { state.hover[id] = null; draw(); });
+}
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  // content height, not scrollHeight: inside an iframe that never drops below the frame itself
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+</script>
+</body>
+</html>
