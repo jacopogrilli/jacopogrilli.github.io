@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allee effect with mortality</title>
+<!--
+  Interactive figure for L5 (Changing mortality in Allee effect):
+  du/dtau = u [ (u - alpha)(1 - u) - m ], alpha = -0.3 (weak Allee effect: transcritical at
+  m_T = -alpha, fold at m_F = (1 - alpha)^2 / 4, bistable in between). No immigration.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L5-allee-mortality.html]]`).
+  Self-contained: no external scripts. Same layout and colours as L4-logistic-mortality.html.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+  }
+}
+/* translucent, so they stay visible on any background (white page or grey box) */
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --shade: color-mix(in srgb, var(--muted) 13%, transparent);
+        --bist: color-mix(in srgb, var(--accent) 10%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+/* embedded in a note (e.g. inside a callout box): let the page's background show through */
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.controls { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.controls label { font-weight: 600; }
+.controls input[type=range] { flex: 1 1 200px; accent-color: var(--accent); min-width: 160px; }
+.controls output { font-variant-numeric: tabular-nums; min-width: 3.2em; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .curve { fill: none; stroke: var(--fg); stroke-width: 2; }
+svg .ref { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: .7; }
+svg .unstable { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 6 4; }
+svg .now { stroke: var(--accent); stroke-width: 1.5; }
+svg .stable-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+svg .arrow { fill: var(--accent); }
+svg .shade { fill: var(--shade); }
+svg .bist { fill: var(--bist); }
+svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+svg .hover-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .tip { fill: var(--fg); font-size: 12px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <label for="mort">Mortality <i>m</i></label>
+    <input type="range" id="mort" min="0" max="0.6" step="0.005" value="0.2"
+           aria-describedby="readout">
+    <output id="mval" for="mort">0.200</output>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p1" role="img" aria-label="du/dtau against u"></svg>
+      <figcaption>Growth rate d<i>u</i>/d<i>τ</i></figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="per-capita growth rate against u"></svg>
+      <figcaption>Per-capita rate <i>g</i>(<i>u</i>) − <i>m</i></figcaption></figure>
+    <figure><svg id="p3" role="img" aria-label="fixed points against mortality"></svg>
+      <figcaption>Fixed points <i>u</i>* against <i>m</i> (drag to set <i>m</i>)</figcaption></figure>
+  </div>
+  <div class="note"><i>α</i> = −0.3 (weak Allee effect, as for the yeast), no immigration.
+    Units: <i>u</i> = <i>N</i>/<i>N</i><sub>max</sub>, <i>τ</i> = <i>rN</i><sub>max</sub><i>t</i>, <i>m</i> = <i>δ</i>/(<i>rN</i><sub>max</sub>).
+    Filled dot: stable fixed point; open dot: unstable. Dashed grey in the first two panels: no mortality (<i>m</i> = 0).
+    In the last panel, blue band: bistable range, <i>m</i><sub>T</sub> &lt; <i>m</i> &lt; <i>m</i><sub>F</sub>; grey band: <i>u</i> &lt; 0, not a population.</div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const slider = document.getElementById("mort");
+const mval = document.getElementById("mval");
+const readout = document.getElementById("readout");
+const M_MAX = +slider.max;
+
+// model: du/dtau = u [g(u) - m], g(u) = (u - alpha)(1 - u)
+const A = -0.3;
+const MT = -A;                       // transcritical: the line m passes through g(0)
+const MF = (1 - A) ** 2 / 4;         // fold: the line m is tangent to the top of the hump
+const UC = (1 + A) / 2;              // position of the top of the hump
+const g = x => (x - A) * (1 - x);
+const f = (x, m) => x * (g(x) - m);
+const pc = (x, m) => g(x) - m;
+function roots(m) {                  // u_pm = u_c pm sqrt(m_F - m); null past the fold
+  if (m > MF) return null;
+  const s = Math.sqrt(MF - m);
+  return { up: UC + s, um: UC - s, s };
+}
+
+// panel definitions: data ranges and ticks
+const P = {
+  p1: { x: [0, 1.1], y: [-0.12, 0.23], xt: [0, 0.5, 1], yt: [-0.1, 0, 0.1, 0.2],
+        xl: "u = N / Nmax", yl: "du/dτ" },
+  p2: { x: [0, 1.1], y: [-0.5, 0.5], xt: [0, 0.5, 1], yt: [-0.4, -0.2, 0, 0.2, 0.4],
+        xl: "u = N / Nmax", yl: "g(u) − m" },
+  p3: { x: [0, M_MAX], y: [-0.35, 1.1], xt: [0, 0.2, 0.4], yt: [0, 0.5, 1],
+        xl: "m", yl: "u*" },
+};
+const M = { l: 48, r: 10, t: 10, b: 40 };       // margins, px
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function fmt(v, n = 2) { return (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n); }
+
+// text with subscripts: "max" always, and "_X" for a one-letter subscript (m_T, m_F)
+function label(parent, text, attrs) {
+  const t = el("text", attrs, parent);
+  for (const part of text.split(/(max|_[A-Z])/)) {
+    if (!part) continue;
+    if (part === "max" || part[0] === "_") {
+      const s = el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t);
+      s.textContent = part === "max" ? "max" : part.slice(1);
+      el("tspan", { "baseline-shift": "0" }, t).textContent = "​";
+    } else {
+      t.appendChild(document.createTextNode(part));
+    }
+  }
+  return t;
+}
+
+let state = { m: +slider.value, hover: { p1: null, p2: null } };
+const geom = {};
+
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth;
+  const h = Math.round(Math.min(Math.max(w * 0.82, 190), 260));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const p = P[id];
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]) };
+}
+
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const clipId = id + "-clip";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: clipId }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) {
+    const t = el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg);
+    t.textContent = v;
+  }
+  for (const v of p.xt) {
+    const t = el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg);
+    t.textContent = v;
+  }
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return el("g", { "clip-path": `url(#${clipId})` }, svg);
+}
+
+// curve y = fn(x) on [x0, x1]
+function path(fn, id, cls, parent, x0, x1) {
+  const { p } = geom[id];
+  return curve(x => [x, fn(x)], id, cls, parent, x0 ?? p.x[0], x1 ?? p.x[1]);
+}
+// parametric curve (x(s), y(s)) for s in [a, b]
+function curve(xy, id, cls, parent, a, b) {
+  const { sx, sy } = geom[id], n = 200;
+  let dstr = "";
+  for (let i = 0; i <= n; i++) {
+    const [x, y] = xy(a + (b - a) * i / n);
+    dstr += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(y).toFixed(1);
+  }
+  return el("path", { d: dstr, class: cls }, parent);
+}
+
+function dot(id, x, y, stable, parent) {
+  const { sx, sy } = geom[id];
+  el("circle", { cx: sx(x), cy: sy(y), r: 5.5, class: stable ? "stable-pt" : "unstable-pt" }, parent);
+}
+
+function arrowsOnAxis(id, parent, m, fps) {
+  // flow on the u axis: right where du/dtau > 0, left where < 0
+  const { sx, sy, p } = geom[id];
+  const y0 = sy(0);
+  for (let x = 0.06; x < p.x[1]; x += 0.1) {
+    const v = f(x, m);
+    if (Math.abs(v) < 1e-4 || fps.some(z => Math.abs(x - z) < 0.045)) continue;
+    const s = v > 0 ? 1 : -1, cx = sx(x);
+    el("path", { class: "arrow",
+      d: `M${cx + 5 * s},${y0} L${cx - 4 * s},${y0 - 4.5} L${cx - 4 * s},${y0 + 4.5} Z` }, parent);
+  }
+}
+
+function hoverLayer(id, fn, name) {
+  const h = state.hover[id];
+  if (h == null) return;
+  const { svg, sx, sy, p, w } = geom[id];
+  const x = Math.min(Math.max(h, p.x[0]), p.x[1]), y = fn(x, state.m);
+  el("line", { class: "guide", x1: sx(x), x2: sx(x), y1: M.t, y2: geom[id].h - M.b }, svg);
+  if (y >= p.y[0] && y <= p.y[1]) el("circle", { cx: sx(x), cy: sy(y), r: 4, class: "hover-pt" }, svg);
+  const t = el("text", { class: "tip", x: w - M.r - 4, y: M.t + 12, "text-anchor": "end" }, svg);
+  t.textContent = `u = ${fmt(x)}, ${name} = ${fmt(y, 3)}`;
+}
+
+function draw() {
+  const m = state.m, r = roots(m);
+  const zeroStable = m > MT;                        // f'(0) = m_T - m
+  const pops = r ? [r.up, r.um].filter(u => u > 1e-9) : [];   // nonzero fixed points that are populations
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+
+  // 1. du/dtau against u
+  let c = frame("p1");
+  el("line", { class: "zero", x1: geom.p1.sx(0), x2: geom.p1.sx(1.1), y1: geom.p1.sy(0), y2: geom.p1.sy(0) }, c);
+  path(x => f(x, 0), "p1", "ref", c);
+  path(x => f(x, m), "p1", "curve", c);
+  arrowsOnAxis("p1", c, m, [0, ...pops]);
+  dot("p1", 0, 0, zeroStable, geom.p1.svg);
+  if (r && r.up > 1e-9) dot("p1", r.up, 0, r.s > 1e-9, geom.p1.svg);
+  if (r && r.um > 1e-9 && r.s > 1e-9) dot("p1", r.um, 0, false, geom.p1.svg);
+  hoverLayer("p1", f, "du/dτ");
+
+  // 2. per-capita rate against u
+  c = frame("p2");
+  el("line", { class: "zero", x1: geom.p2.sx(0), x2: geom.p2.sx(1.1), y1: geom.p2.sy(0), y2: geom.p2.sy(0) }, c);
+  path(x => pc(x, 0), "p2", "ref", c);
+  path(x => pc(x, m), "p2", "curve", c);
+  if (r && r.up > 1e-9) dot("p2", r.up, 0, r.s > 1e-9, geom.p2.svg);
+  if (r && r.um > 1e-9 && r.s > 1e-9) dot("p2", r.um, 0, false, geom.p2.svg);
+  hoverLayer("p2", pc, "rate");
+
+  // 3. bifurcation diagram: fixed points against m
+  const q = geom.p3;
+  c = frame("p3");
+  el("rect", { class: "bist", x: q.sx(MT), y: q.sy(1.1), width: q.sx(MF) - q.sx(MT), height: q.sy(-0.35) - q.sy(1.1) }, c);
+  el("rect", { class: "shade", x: q.sx(0), y: q.sy(0), width: q.sx(M_MAX) - q.sx(0), height: q.sy(-0.35) - q.sy(0) }, c);
+  const nt = el("text", { x: q.sx(M_MAX) - 4, y: q.sy(-0.25), "font-size": "11", "text-anchor": "end" }, c);
+  nt.textContent = "u < 0";
+  path(() => 0, "p3", "unstable", c, 0, MT);             // extinction, unstable for m < m_T
+  path(() => 0, "p3", "curve", c, MT, M_MAX);            // extinction, stable for m > m_T
+  curve(u => [g(u), u], "p3", "curve", c, 1, UC);        // u_+: m = g(u) on the falling side, stable
+  curve(u => [g(u), u], "p3", "unstable", c, UC, A);     // u_-: the rising side, unstable (negative for m < m_T)
+  for (const [mv, name] of [[MT, "m_T"], [MF, "m_F"]]) {
+    el("line", { class: "guide", x1: q.sx(mv), x2: q.sx(mv), y1: M.t, y2: q.h - M.b }, c);
+    label(q.svg, name, { x: q.sx(mv) + (name === "m_T" ? -4 : 4), y: M.t + 12,
+                         "text-anchor": name === "m_T" ? "end" : "start" });
+  }
+  el("line", { class: "now", x1: q.sx(m), x2: q.sx(m), y1: M.t, y2: q.h - M.b }, c);
+  dot("p3", m, 0, zeroStable, q.svg);
+  if (r) {
+    dot("p3", m, r.up, r.s > 1e-9, q.svg);
+    if (r.s > 1e-9 && Math.abs(r.um) > 1e-9 && r.um >= -0.35) dot("p3", m, r.um, false, q.svg);
+  }
+
+  // readout
+  mval.textContent = m.toFixed(3);
+  const sub = s => `m<sub>${s}</sub>`;
+  let txt;
+  if (r && m < MT - 1e-9) {
+    txt = `Only survival is stable: <b>u₊ = ${fmt(r.up)}</b>. Extinction is unstable, since m &lt; ${sub("T")} = ${fmt(MT)}: a few survivors regrow. `
+        + `Return rate |f′(u₊)| = 2u₊√(${sub("F")} − m) = <b>${fmt(2 * r.up * r.s)}</b>.`;
+  } else if (Math.abs(m - MT) < 1e-9) {
+    txt = `At the <b>transcritical</b>, m = ${sub("T")} = ${fmt(MT)}: the threshold u₋ reaches 0 and exchanges stability with extinction. `
+        + `Survival at <b>u₊ = ${fmt(r.up)}</b>. Above ${sub("T")} extinction is stable too: bistability, up to the fold ${sub("F")} = ${fmt(MF, 4)}.`;
+  } else if (r && r.s > 1e-9) {
+    txt = `<b>Bistable</b>: survival at <b>u₊ = ${fmt(r.up)}</b>, or extinction. The threshold is <b>u₋ = ${fmt(Math.max(r.um, 0))}</b>: populations starting below it go extinct. `
+        + `Return rate at u₊: 2u₊√(${sub("F")} − m) = <b>${fmt(2 * r.up * r.s)}</b>, vanishing at the fold ${sub("F")} = ${fmt(MF, 4)}. `
+        + `Basin width u₊ − u₋ = <b>${fmt(2 * r.s)}</b>.`;
+  } else {
+    txt = `<b>Past the fold</b> (m &gt; ${sub("F")} = ${fmt(MF, 4)}): extinction is the only state. `
+        + `The collapse is a jump, from u<sub>c</sub> = ${fmt(UC)} to 0. Lowering m back below ${sub("F")} does not bring the population back: it regrows only once m &lt; ${sub("T")} = ${fmt(MT)} (hysteresis).`;
+  }
+  readout.innerHTML = txt;
+  postHeight();
+}
+
+// interaction: slider, drag on the bifurcation diagram, hover on the first two panels
+slider.addEventListener("input", () => { state.m = +slider.value; draw(); });
+const p3 = document.getElementById("p3");
+function setFromPointer(e) {
+  const rc = p3.getBoundingClientRect();
+  const v = Math.min(Math.max(geom.p3.ix(e.clientX - rc.left), 0), M_MAX);
+  state.m = Math.round(v * 200) / 200; slider.value = state.m; draw();
+}
+p3.addEventListener("pointerdown", e => { p3.setPointerCapture(e.pointerId); setFromPointer(e); });
+p3.addEventListener("pointermove", e => { if (p3.hasPointerCapture(e.pointerId)) setFromPointer(e); });
+for (const id of ["p1", "p2"]) {
+  const s = document.getElementById(id);
+  s.addEventListener("pointermove", e => {
+    const rc = s.getBoundingClientRect();
+    state.hover[id] = geom[id].ix(e.clientX - rc.left); draw();
+  });
+  s.addEventListener("pointerleave", () => { state.hover[id] = null; draw(); });
+}
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  // content height, not scrollHeight: inside an iframe that never drops below the frame itself
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+</script>
+</body>
+</html>
