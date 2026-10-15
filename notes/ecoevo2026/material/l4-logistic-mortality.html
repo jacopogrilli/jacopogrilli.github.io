@@ -38,6 +38,8 @@ body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "He
 figure { margin: 0; }
 figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
 svg { display: block; width: 100%; touch-action: none; }
+/* dragging must not select the labels (Safari needs it on the text elements too) */
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 svg text { fill: var(--muted); font-size: 12px; }
 svg .axis { stroke: var(--rule); stroke-width: 1; }
 svg .zero { stroke: var(--muted); stroke-width: 1; }
@@ -260,7 +262,7 @@ function setFromPointer(e) {
   const v = Math.min(Math.max(geom.p3.ix(e.clientX - r.left), 0), D_MAX);
   state.d = Math.round(v * 100) / 100; slider.value = state.d; draw();
 }
-p3.addEventListener("pointerdown", e => { p3.setPointerCapture(e.pointerId); setFromPointer(e); });
+p3.addEventListener("pointerdown", e => { e.preventDefault(); p3.setPointerCapture(e.pointerId); setFromPointer(e); });
 p3.addEventListener("pointermove", e => { if (p3.hasPointerCapture(e.pointerId)) setFromPointer(e); });
 for (const id of ["p1", "p2"]) {
   const s = document.getElementById(id);
@@ -270,6 +272,9 @@ for (const id of ["p1", "p2"]) {
   });
   s.addEventListener("pointerleave", () => { state.hover[id] = null; draw(); });
 }
+
+// no text selection when a drag starts on (or crosses) a plot
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
 
 // tell the embedding page how tall we are, so the iframe needs no scrollbar
 let lastH = 0;

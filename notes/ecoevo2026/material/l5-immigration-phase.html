@@ -40,6 +40,8 @@ body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "He
 figure { margin: 0; }
 figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
 svg { display: block; width: 100%; touch-action: none; }
+/* dragging must not select the labels (Safari needs it on the text elements too) */
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 svg text { fill: var(--muted); font-size: 12px; }
 svg .axis { stroke: var(--rule); stroke-width: 1; }
 svg .zero { stroke: var(--muted); stroke-width: 1; }
@@ -338,7 +340,7 @@ function setFromPointer(e) {
   state.m = Math.round(mv * 1000) / 1000; state.l = Math.round(lv * 10000) / 10000;
   sm.value = state.m; sl.value = state.l; draw();
 }
-p1.addEventListener("pointerdown", e => { p1.setPointerCapture(e.pointerId); setFromPointer(e); });
+p1.addEventListener("pointerdown", e => { e.preventDefault(); p1.setPointerCapture(e.pointerId); setFromPointer(e); });
 p1.addEventListener("pointermove", e => { if (p1.hasPointerCapture(e.pointerId)) setFromPointer(e); });
 for (const id of ["p2", "p3"]) {
   const s = document.getElementById(id);
@@ -348,6 +350,9 @@ for (const id of ["p2", "p3"]) {
   });
   s.addEventListener("pointerleave", () => { state.hover[id] = null; draw(); });
 }
+
+// no text selection when a drag starts on (or crosses) a plot
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
 
 // tell the embedding page how tall we are, so the iframe needs no scrollbar
 let lastH = 0;
