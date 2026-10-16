@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cusp potential</title>
+<!--
+  Interactive figure for L5 (Normal form of the cusp and the potential):
+  dx/dtau = -x^3 + J x + H = -dV/dx,  V(x) = x^4/4 - J x^2/2 - H x.
+  Two minima iff 27 H^2 < 4 J^3; folds on H = +-2 (J/3)^(3/2), meeting at the cusp J = H = 0.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L5-potential.html]]`).
+  Self-contained: no external scripts. Same layout and colours as L5-immigration-phase.html.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+  }
+}
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --bist: color-mix(in srgb, var(--accent) 14%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.controls { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .1rem .75rem; margin-bottom: .3rem; }
+.controls label { font-weight: 600; }
+.controls input[type=range] { accent-color: var(--accent); min-width: 140px; }
+.controls output { font-variant-numeric: tabular-nums; min-width: 3.6em; text-align: right; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 3.2em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .curve { fill: none; stroke: var(--fg); stroke-width: 2; }
+svg .fold { fill: none; stroke: var(--fg); stroke-width: 2.5; }
+svg .stable-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+svg .half-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .cusp-pt { fill: var(--fg); }
+svg .here { fill: var(--accent); stroke: var(--bg); stroke-width: 2.5; }
+svg .arrow { fill: var(--accent); }
+svg .bist { fill: var(--bist); }
+svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+svg .region { font-size: 11px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <label for="sJ"><i>J</i></label>
+    <input type="range" id="sJ" min="-1" max="1.5" step="0.01" value="1">
+    <output id="Jval" for="sJ">1.00</output>
+    <label for="sH"><i>H</i></label>
+    <input type="range" id="sH" min="-0.8" max="0.8" step="0.005" value="0.2">
+    <output id="Hval" for="sH">0.200</output>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p1" role="img" aria-label="the (J, H) plane with the cusp"></svg>
+      <figcaption>(<i>J</i>, <i>H</i>) plane (drag the point)</figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="the potential V(x)"></svg>
+      <figcaption>Potential <i>V</i>(<i>x</i>)</figcaption></figure>
+    <figure><svg id="p3" role="img" aria-label="dx/dtau against x"></svg>
+      <figcaption>Flow d<i>x</i>/d<i>τ</i> = −<i>V</i>′(<i>x</i>)</figcaption></figure>
+  </div>
+  <div class="note">Normal form of the cusp, d<i>x</i>/d<i>τ</i> = −<i>x</i><sup>3</sup> + <i>Jx</i> + <i>H</i>, with <i>V</i>(<i>x</i>) = <i>x</i><sup>4</sup>/4 − <i>Jx</i><sup>2</sup>/2 − <i>Hx</i>.
+    First panel: the fold lines <i>H</i> = ±2(<i>J</i>/3)<sup>3/2</sup> meeting at the cusp; blue region: two wells (bistable).
+    Other panels: filled dot, minimum of <i>V</i> (stable); open dot, maximum (unstable); black dot, a fold (minimum and maximum merging).</div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const sJ = document.getElementById("sJ"), sH = document.getElementById("sH");
+const Jval = document.getElementById("Jval"), Hval = document.getElementById("Hval");
+const readout = document.getElementById("readout");
+
+const V = (x, J, H) => x ** 4 / 4 - J * x * x / 2 - H * x;
+const F = (x, J, H) => -(x ** 3) + J * x + H;            // dx/dtau = -V'(x)
+const Hf = J => 2 * (Math.max(J, 0) / 3) ** 1.5;          // fold value of |H| at this J
+
+// real roots of x^3 - J x - H = 0 (depressed cubic), sorted
+function roots(J, H) {
+  const p = -J, q = -H, D = (q / 2) ** 2 + (p / 3) ** 3;
+  if (D < -1e-12) {
+    const r = 2 * Math.sqrt(-p / 3);
+    const phi = Math.acos(Math.max(-1, Math.min(1, (3 * q / (2 * p)) * Math.sqrt(-3 / p))));
+    return [0, 1, 2].map(k => r * Math.cos(phi / 3 - 2 * Math.PI * k / 3)).sort((a, b) => a - b);
+  }
+  if (Math.abs(D) <= 1e-12 && J > 0) {                     // on a fold: a double root
+    const xd = -Math.sign(H) * Math.sqrt(J / 3);
+    return [xd, -2 * xd].sort((a, b) => a - b);
+  }
+  const sd = Math.sqrt(Math.max(D, 0));
+  return [Math.cbrt(-q / 2 + sd) + Math.cbrt(-q / 2 - sd)];
+}
+// extrema of V with their type: "min", "max", or "fold" (V'' = 0)
+function extrema(J, H) {
+  return roots(J, H).map(x => {
+    const v2 = 3 * x * x - J;
+    if (Math.abs(v2) < 1e-6 && J <= 1e-9) return { x, type: "cusp" };   // J = H = 0: flat quartic minimum
+    return { x, type: Math.abs(v2) < 1e-6 ? "fold" : (v2 > 0 ? "min" : "max") };
+  });
+}
+
+const P = {
+  p1: { x: [-1, 1.5], y: [-0.8, 0.8], xt: [-1, -0.5, 0, 0.5, 1, 1.5], yt: [-0.8, -0.4, 0, 0.4, 0.8],
+        xl: "J", yl: "H" },
+  p2: { x: [-1.8, 1.8], y: [-1.6, 1.2], xt: [-1.5, 0, 1.5], yt: [-1.5, -1, -0.5, 0, 0.5, 1],
+        xl: "x", yl: "V(x)" },
+  p3: { x: [-1.8, 1.8], y: [-1.5, 1.5], xt: [-1.5, 0, 1.5], yt: [-1.5, -1, -0.5, 0, 0.5, 1, 1.5],
+        xl: "x", yl: "dx/dτ" },
+};
+const M = { l: 44, r: 10, t: 10, b: 40 };
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function fmt(v, n = 3) { return (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n); }
+
+let state = { J: +sJ.value, H: +sH.value };
+const geom = {};
+
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth;
+  const h = Math.round(Math.min(Math.max(w * 0.82, 190), 260));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const p = P[id];
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]),
+               iy: py => p.y[1] - (py - M.t) / (h - M.t - M.b) * (p.y[1] - p.y[0]) };
+}
+
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const clipId = id + "-clip";
+  const cp = el("clipPath", { id: clipId }, el("defs", {}, svg));
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+  for (const v of p.xt) el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg).textContent = v;
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  el("text", { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" }, svg).textContent = p.xl;
+  const yc = (M.t + h - M.b) / 2;
+  el("text", { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` }, svg).textContent = p.yl;
+  return el("g", { "clip-path": `url(#${clipId})` }, svg);
+}
+
+function curve(xy, id, cls, parent, a, b, close) {
+  const { sx, sy, p } = geom[id], n = 240, span = p.y[1] - p.y[0];
+  let d = "";
+  for (let i = 0; i <= n; i++) {
+    const [x, y0] = xy(a + (b - a) * i / n);
+    const y = Math.min(Math.max(y0, p.y[0] - span), p.y[1] + span);
+    d += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(y).toFixed(1);
+  }
+  return el("path", { d: d + (close ? "Z" : ""), class: cls }, parent);
+}
+function path(fn, id, cls, parent) {
+  const { p } = geom[id];
+  return curve(x => [x, fn(x)], id, cls, parent, p.x[0], p.x[1]);
+}
+function dot(id, x, y, cls, parent, r = 5.5) {
+  const { sx, sy } = geom[id];
+  el("circle", { cx: sx(x), cy: sy(y), r, class: cls }, parent);
+}
+const cls = t => (t === "min" || t === "cusp") ? "stable-pt" : (t === "max" ? "unstable-pt" : "half-pt");
+
+function arrowsOnAxis(id, parent, J, H, xs) {
+  const { sx, sy, p } = geom[id];
+  const y0 = sy(0);
+  for (let x = p.x[0] + 0.1; x < p.x[1]; x += 0.2) {
+    const v = F(x, J, H);
+    if (Math.abs(v) < 1e-4 || xs.some(z => Math.abs(x - z) < 0.09)) continue;
+    const s = v > 0 ? 1 : -1, cx = sx(x);
+    el("path", { class: "arrow",
+      d: `M${cx + 5 * s},${y0} L${cx - 4 * s},${y0 - 4.5} L${cx - 4 * s},${y0 + 4.5} Z` }, parent);
+  }
+}
+
+function draw() {
+  const { J, H } = state;
+  const ex = extrema(J, H);
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+
+  // 1. (J, H) plane: cusp region 27 H^2 < 4 J^3
+  const q = geom.p1;
+  let c = frame("p1");
+  const Jmax = P.p1.x[1];
+  curve(t => t < 1 ? [Jmax * t, Hf(Jmax * t)] : [Jmax * (2 - t), -Hf(Jmax * (2 - t))], "p1", "bist", c, 0, 2, true);
+  curve(t => [t, Hf(t)], "p1", "fold", c, 0, Jmax);
+  curve(t => [t, -Hf(t)], "p1", "fold", c, 0, Jmax);
+  el("line", { class: "zero", x1: q.sx(P.p1.x[0]), x2: q.sx(Jmax), y1: q.sy(0), y2: q.sy(0) }, c);
+  dot("p1", 0, 0, "cusp-pt", c, 4);
+  el("text", { x: q.sx(0) - 6, y: q.sy(0) - 7, "text-anchor": "end" }, c).textContent = "cusp";
+  el("text", { class: "region", x: q.sx(1.45), y: q.sy(-0.12), "text-anchor": "end" }, c).textContent = "two wells";
+  el("text", { class: "region", x: q.sx(-0.95), y: q.sy(0.55), "text-anchor": "start" }, c).textContent = "one well";
+  el("line", { class: "guide", x1: q.sx(J), x2: q.sx(J), y1: q.sy(H), y2: q.h - M.b }, c);
+  el("line", { class: "guide", x1: M.l, x2: q.sx(J), y1: q.sy(H), y2: q.sy(H) }, c);
+  dot("p1", J, H, "here", q.svg, 6.5);
+
+  // 2. the potential
+  const r = geom.p2;
+  c = frame("p2");
+  path(x => V(x, J, H), "p2", "curve", c);
+  for (const e of ex) {
+    const y = V(e.x, J, H);
+    if (y >= P.p2.y[0] && y <= P.p2.y[1]) dot("p2", e.x, y, cls(e.type), r.svg);
+  }
+
+  // 3. the flow on the line
+  const z = geom.p3;
+  c = frame("p3");
+  el("line", { class: "zero", x1: M.l, x2: z.w - M.r, y1: z.sy(0), y2: z.sy(0) }, c);
+  path(x => F(x, J, H), "p3", "curve", c);
+  arrowsOnAxis("p3", c, J, H, ex.map(e => e.x));
+  for (const e of ex) dot("p3", e.x, 0, cls(e.type), z.svg);
+
+  // readout
+  Jval.textContent = J.toFixed(2);
+  Hval.textContent = H.toFixed(3);
+  const mins = ex.filter(e => e.type === "min"), hf = Hf(J);
+  let txt;
+  if (mins.length === 2) {
+    const mx = ex.find(e => e.type === "max");
+    txt = `<b>Two wells</b>: minima at <b>x = ${fmt(mins[0].x)}</b> and <b>x = ${fmt(mins[1].x)}</b>, separated by a maximum at <b>x = ${fmt(mx.x)}</b>. `;
+  } else if (ex.some(e => e.type === "cusp")) {
+    txt = `<b>At the cusp</b>: a single, flat minimum at <b>x = 0</b> (V ∝ x<sup>4</sup>), where the two wells are born. `;
+  } else if (ex.some(e => e.type === "fold")) {
+    txt = `<b>At a fold</b>: a minimum and the maximum merge at <b>x = ${fmt(ex.find(e => e.type === "fold").x)}</b>. `;
+  } else {
+    txt = `<b>One well</b>: a single minimum at <b>x = ${fmt(mins[0].x)}</b>. `;
+  }
+  if (J > 0) txt += `At this J the folds are at <b>H = ±${fmt(hf)}</b>: two wells in between, and a hysteresis loop of width ${fmt(2 * hf)} in H.`;
+  else txt += `J ≤ 0: one well for every H, no folds.`;
+  readout.innerHTML = txt;
+  postHeight();
+}
+
+sJ.addEventListener("input", () => { state.J = +sJ.value; draw(); });
+sH.addEventListener("input", () => { state.H = +sH.value; draw(); });
+const p1 = document.getElementById("p1");
+function setFromPointer(e) {
+  const rc = p1.getBoundingClientRect(), q = geom.p1;
+  const Jv = Math.min(Math.max(q.ix(e.clientX - rc.left), +sJ.min), +sJ.max);
+  const Hv = Math.min(Math.max(q.iy(e.clientY - rc.top), +sH.min), +sH.max);
+  state.J = Math.round(Jv * 100) / 100; state.H = Math.round(Hv * 200) / 200;
+  sJ.value = state.J; sH.value = state.H; draw();
+}
+p1.addEventListener("pointerdown", e => { e.preventDefault(); p1.setPointerCapture(e.pointerId); setFromPointer(e); });
+p1.addEventListener("pointermove", e => { if (p1.hasPointerCapture(e.pointerId)) setFromPointer(e); });
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
+
+let lastH = 0;
+function postHeight() {
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+</script>
+</body>
+</html>
