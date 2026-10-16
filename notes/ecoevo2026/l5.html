@@ -383,23 +383,31 @@ m_F=\frac{(1-\alpha)^2}{4},
 \]</span></p>
 <p>so that</p>
 <p><span class="math display">\[
-u_\pm = u_c \pm \sqrt{m_F-m},\qquad u_++u_- = 1+\alpha,\qquad u_+u_- =
-\alpha+m .
+u_\pm = u_c \pm \sqrt{m_F-m},
 \]</span></p>
+<p>Define <span class="math inline">\(m_T\equiv-\alpha=g(0)\)</span>, so
+that<br />
+<span class="math inline">\(u_+u_-=m-m_T\)</span><br />
+and<br />
+<span class="math inline">\(u_+ + u_-=1-m_T\)</span></p>
+<p>note that<br />
+<span class="math inline">\(m_F-m_T=(1+\alpha)^2/4\ge0\)</span><br />
+and therefore <span class="math inline">\(m_F \ge m_T\)</span>, with
+equality only at <span class="math inline">\(\alpha=-1\)</span></p>
 <p>At <span class="math inline">\(m=0\)</span> these are <span
 class="math inline">\(u_+=1\)</span> and <span
 class="math inline">\(u_-=\alpha\)</span>.</p>
-<h3 id="when-they-exist">When they exist</h3>
+<h3 id="feasibility-when-do-the-fixed-points-exist">Feasibility (when do
+the fixed points exist)</h3>
 <p>Extinction, <span class="math inline">\(u^*=0\)</span>, always
 exists. <span class="math inline">\(u_\pm\)</span> are populations only
 if they are real and positive.</p>
 <ul>
 <li><em>Real</em> if <span class="math inline">\(m\le m_F\)</span>.
-Above <span class="math inline">\(m_F\)</span> the line is above the top
-of the hump, and extinction is the only fixed point.</li>
-<li><em>Positive.</em> The product decides it. Define <span
-class="math inline">\(m_T\equiv-\alpha=g(0)\)</span>, so that <span
-class="math inline">\(u_+u_-=m-m_T\)</span>.
+Above <span class="math inline">\(m_F\)</span> there is no solution
+<span class="math inline">\(u_\pm\)</span>: the line is above the top of
+the hump, and extinction is the only fixed point.</li>
+<li><em>Positive.</em> The product decides it.
 <ul>
 <li><span class="math inline">\(m&lt;m_T\)</span>: <span
 class="math inline">\(u_+&gt;0&gt;u_-\)</span>. Only <span
@@ -412,9 +420,6 @@ class="math inline">\(u_-\)</span> have the same sign, that of their sum
 class="math inline">\(\alpha&lt;-1\)</span>.</li>
 </ul></li>
 </ul>
-<p>The interval <span class="math inline">\(m_T&lt;m&lt;m_F\)</span>
-always exists: <span
-class="math inline">\(m_F-m_T=(1+\alpha)^2/4\ge0\)</span>.</p>
 <h3 id="stability">Stability</h3>
 <p>With <span class="math inline">\(f(u)=u\,[g(u)-m]\)</span>, <span
 class="math inline">\(f&#39;(u)=g(u)-m+u\,g&#39;(u)\)</span>.</p>
@@ -607,18 +612,19 @@ per-capita curve with a smooth maximum, pushed down by mortality, gives
 this equation near its top. The square roots above follow from it.</p>
 <h2 id="immigration-two-folds-and-a-cusp">Immigration: two folds and a
 cusp</h2>
-<p>So far the population was isolated: once it is gone, it is gone. Real
-populations usually receive immigrants: from a mainland, from a source
-population nearby, or, in the lab, from a fixed number of cells added at
-every transfer. Add a constant flux <span
-class="math inline">\(L\)</span> of immigrants per unit volume and
-time:</p>
+<p>So far the population was isolated. Real populations usually receive
+immigrants: from a mainland, from a source population nearby, or, in the
+lab, one could add a fixed number of cells at every transfer. We can add
+a constant flux <span class="math inline">\(L\)</span> of immigrants per
+unit volume and time:</p>
 <p><span class="math display">\[
 \frac{dN}{dt} = N\,\bigl[g(N)-\delta\bigr] + L
-\quad\Longrightarrow\quad
-\boxed{\ \frac{du}{d\tau} = u\,\bigl[(u-\alpha)(1-u)-m\bigr] + \lambda \
-},
-\qquad \lambda = \frac{L}{rN_{\max}^2}.
+\]</span><br />
+In rescaled variables we obtain<br />
+<span class="math display">\[
+\ \frac{du}{d\tau} = u\,\bigl[(u-\alpha)(1-u)-m\bigr] + \lambda \ , \ \
+\text{with} \ \
+\lambda = \frac{L}{rN_{\max}^2}.
 \]</span></p>
 <p>With <span class="math inline">\(\lambda&gt;0\)</span>, <span
 class="math inline">\(u=0\)</span> is no longer a fixed point, since
@@ -643,7 +649,20 @@ increases</em>.</p>
 which diverges at <span class="math inline">\(u\to0\)</span>. So <span
 class="math inline">\(G\)</span> first decreases (immigration
 dominates), then increases (the Allee hump), then decreases (resource
-limitation). Its stationary points solve</p>
+limitation).</p>
+<p>How many times the line at height <span
+class="math inline">\(m\)</span> crosses <span
+class="math inline">\(G\)</span> depends on whether <span
+class="math inline">\(G\)</span> has a minimum and a maximum, and on
+where <span class="math inline">\(m\)</span> sits relative to them.
+These are the extrema of the function <span
+class="math inline">\(G\)</span>, where <span
+class="math inline">\(G&#39;(u)=0\)</span>: not fixed points of the
+dynamics, which are where <span class="math inline">\(G(u)=m\)</span>.
+When <span class="math inline">\(m\)</span> passes through an extremum,
+the line is tangent to <span class="math inline">\(G\)</span> and two
+fixed points are created or destroyed: these are the folds below. The
+extrema solve</p>
 <p><span class="math display">\[
 G&#39;(u) = s-2u-\frac{\lambda}{u^2} = 0
 \quad\Longleftrightarrow\quad
