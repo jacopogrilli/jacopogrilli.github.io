@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphical solution with immigration</title>
+<!--
+  Interactive figure for L5 (Immigration › Graphical solution): the G(u) panel of
+  L5-immigration-phase.html on its own. du/dtau = u [ (u - alpha)(1 - u) - m ] + lambda, alpha = -0.3;
+  fixed points where G(u) = g(u) + lambda/u equals m, stable where G decreases.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L5-immigration-G.html]]`).
+  Self-contained: no external scripts. Same colours and conventions as the other L5 figures.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+  }
+}
+/* translucent, so they stay visible on any background (white page or grey box) */
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+/* embedded in a note (e.g. inside a callout box): let the page's background show through */
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.controls { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .1rem .75rem; margin-bottom: .3rem; }
+.controls label { font-weight: 600; }
+.controls input[type=range] { accent-color: var(--accent); min-width: 140px; }
+.controls output { font-variant-numeric: tabular-nums; min-width: 3.6em; text-align: right; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: minmax(0, 560px); }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+/* no text selection on the plot (Safari needs it on the text elements too) */
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .curve { fill: none; stroke: var(--fg); stroke-width: 2; }
+svg .ref { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: .7; }
+svg .now { stroke: var(--accent); stroke-width: 1.5; }
+svg .stable-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+svg .ext-pt { fill: var(--fg); }
+svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+svg .hover-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .tip { fill: var(--fg); font-size: 12px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <label for="mort">Mortality <i>m</i></label>
+    <input type="range" id="mort" min="0.25" max="0.55" step="0.001" value="0.41">
+    <output id="mval" for="mort">0.410</output>
+    <label for="imm">Immigration <i>λ</i></label>
+    <input type="range" id="imm" min="0" max="0.02" step="0.0001" value="0.003">
+    <output id="lval" for="imm">0.0030</output>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p2" role="img" aria-label="G(u) against u, with the line at height m"></svg>
+      <figcaption><i>G</i>(<i>u</i>) = <i>g</i>(<i>u</i>) + <i>λ</i>/<i>u</i> and the line <i>m</i></figcaption></figure>
+  </div>
+  <div class="note"><i>α</i> = −0.3 (weak Allee effect), <i>λ</i> = <i>L</i>/(<i>rN</i><sub>max</sub><sup>2</sup>).
+    Filled dot: stable fixed point (<i>G</i> decreasing); open dot: unstable (<i>G</i> increasing).
+    Small black dots: the minimum and the maximum of <i>G</i>. Dashed grey: no immigration, <i>G</i> = <i>g</i>.</div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const sm = document.getElementById("mort"), sl = document.getElementById("imm");
+const mval = document.getElementById("mval"), lval = document.getElementById("lval");
+const readout = document.getElementById("readout");
+
+// model: du/dtau = u [g(u) - m] + lambda, g(u) = (u - alpha)(1 - u)
+const A = -0.3, S = 1 + A;
+const MT = -A, MF = (1 - A) ** 2 / 4;
+const UCUSP = S / 3, LC = (S / 3) ** 3;
+const g = x => (x - A) * (1 - x);
+const fp = (x, m) => -3 * x * x + 2 * S * x - (A + m);        // f'(u)
+const G = (x, l) => g(x) + l / x;
+const extL = u => u * u * (S - 2 * u);                       // G'(u) = 0  <=>  lambda = u^2 (s - 2u)
+
+// real roots of u^3 + a u^2 + b u + c = 0
+function cubic(a, b, c) {
+  const p = b - a * a / 3, q = 2 * a ** 3 / 27 - a * b / 3 + c, sh = -a / 3;
+  const D = (q / 2) ** 2 + (p / 3) ** 3;
+  if (D < 0) {
+    const r = 2 * Math.sqrt(-p / 3), phi = Math.acos(Math.max(-1, Math.min(1, (3 * q / (2 * p)) * Math.sqrt(-3 / p))));
+    return [0, 1, 2].map(k => r * Math.cos(phi / 3 - 2 * Math.PI * k / 3) + sh);
+  }
+  const sd = Math.sqrt(D);
+  return [Math.cbrt(-q / 2 + sd) + Math.cbrt(-q / 2 - sd) + sh];
+}
+// nonzero fixed points (crossings of G with the line m), sorted, with stability
+function crossings(m, l) {
+  let us = cubic(-S, A + m, -l).filter(u => u > 1e-9).sort((a, b) => a - b);
+  us = us.filter((u, i) => i === 0 || u - us[i - 1] > 1e-7);
+  return us.map(u => ({ u, stable: fp(u, m) < 0 }));
+}
+// the minimum u1 (< s/3) and the maximum u2 (> s/3) of G, for 0 < lambda < lambda_c
+function extrema(l) {
+  if (l <= 0 || l >= LC) return null;
+  const bis = (a, b, inc) => {
+    for (let i = 0; i < 60; i++) {
+      const c = (a + b) / 2;
+      ((extL(c) < l) === inc) ? (a = c) : (b = c);
+    }
+    return (a + b) / 2;
+  };
+  return { u1: bis(0, UCUSP, true), u2: bis(UCUSP, S / 2, false) };
+}
+
+const P = { x: [0, 1.1], y: [0.2, 0.6], xt: [0, 0.5, 1], yt: [0.2, 0.3, 0.4, 0.5, 0.6], xl: "u = N / Nmax", yl: "G(u)" };
+const M = { l: 48, r: 10, t: 10, b: 40 };       // margins, px
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function fmt(v, n = 3) { return (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n); }
+
+// text with "max" as subscript
+function label(parent, text, attrs) {
+  const t = el("text", attrs, parent);
+  for (const part of text.split(/(max)/)) {
+    if (!part) continue;
+    if (part === "max") {
+      el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t).textContent = "max";
+      el("tspan", { "baseline-shift": "0" }, t).textContent = "​";
+    } else {
+      t.appendChild(document.createTextNode(part));
+    }
+  }
+  return t;
+}
+
+let state = { m: +sm.value, l: +sl.value, hover: null };
+let geom;
+
+function setup() {
+  const svg = document.getElementById("p2");
+  const w = svg.parentElement.clientWidth;
+  const h = Math.round(Math.min(Math.max(w * 0.62, 200), 320));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const p = P;
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom = { svg, w, h, sx, sy, p, ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]) };
+}
+
+function frame() {
+  const { svg, w, h, sx, sy, p } = geom;
+  svg.textContent = "";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: "p2-clip" }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+  for (const v of p.xt) el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg).textContent = v;
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return el("g", { "clip-path": "url(#p2-clip)" }, svg);
+}
+
+// curve y = fn(x) on [x0, x1]; y values far off-panel are clamped for the path
+function path(fn, cls, parent, x0, x1) {
+  const { sx, sy, p } = geom, n = 300, span = p.y[1] - p.y[0];
+  let dstr = "";
+  for (let i = 0; i <= n; i++) {
+    const x = x0 + (x1 - x0) * i / n;
+    const y = Math.min(Math.max(fn(x), p.y[0] - span), p.y[1] + span);
+    dstr += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(y).toFixed(1);
+  }
+  return el("path", { d: dstr, class: cls }, parent);
+}
+function dot(x, y, cls, parent, r = 5.5) {
+  el("circle", { cx: geom.sx(x), cy: geom.sy(y), r, class: cls }, parent);
+}
+
+function draw() {
+  const { m, l } = state;
+  const cr = crossings(m, l), ex = extrema(l);
+  setup();
+  const c = frame(), { svg, w, sy } = geom;
+  path(x => g(x), "ref", c, 0, 1.1);
+  path(x => G(x, l), "curve", c, l > 0 ? 0.002 : 0, 1.1);
+  el("line", { class: "now", x1: M.l, x2: w - M.r, y1: sy(m), y2: sy(m) }, c);
+  label(c, "m", { x: w - M.r - 4, y: sy(m) - 5, "text-anchor": "end" });
+  if (ex) for (const u of [ex.u1, ex.u2]) dot(u, G(u, l), "ext-pt", svg, 3.5);
+  for (const pt of cr) dot(pt.u, m, pt.stable ? "stable-pt" : "unstable-pt", svg);
+  if (state.hover != null) {
+    const x = Math.min(Math.max(state.hover, 0.005), 1.1), y = G(x, l);
+    el("line", { class: "guide", x1: geom.sx(x), x2: geom.sx(x), y1: M.t, y2: geom.h - M.b }, svg);
+    if (y >= P.y[0] && y <= P.y[1]) dot(x, y, "hover-pt", svg, 4);
+    el("text", { class: "tip", x: w - M.r - 4, y: M.t + 12, "text-anchor": "end" }, svg).textContent = `u = ${fmt(x, 2)}, G = ${fmt(y)}`;
+  }
+
+  // readout: the crossings, then the shape of G
+  mval.textContent = m.toFixed(3);
+  lval.textContent = l.toFixed(4);
+  let names;
+  if (cr.length === 3) names = ["the refuge", "the threshold", "the high state"];
+  else if (cr.length === 2) names = ["the threshold", "the high state"];       // lambda = 0, m_T < m < m_F
+  else if (cr.length === 1) names = [l >= LC ? "" : (cr[0].u > UCUSP ? "the high state" : "the refuge")];
+  else names = [];
+  const list = cr.map((pt, i) => `<b>u = ${fmt(pt.u)}</b>, ${pt.stable ? "stable" : "unstable"}${names[i] ? " (" + names[i] + ")" : ""}`);
+  let txt = cr.length
+    ? `${cr.length === 1 ? "One crossing" : cr.length === 2 ? "Two crossings" : "<b>Three crossings</b>"}: ${list.join("; ")}. `
+    : `No crossing: the line is above G everywhere. `;
+  if (l === 0) txt += `With λ = 0, G = g, and u = 0 (extinction) is a fixed point too, stable when m &gt; m<sub>T</sub> = ${fmt(MT, 2)}. G has its maximum m<sub>F</sub> = ${fmt(MF, 4)} at u = ${fmt(S / 2, 2)}.`;
+  else if (ex) txt += `G has a minimum at u<sub>1</sub> = ${fmt(ex.u1)}, G(u<sub>1</sub>) = <b>${fmt(G(ex.u1, l))}</b>, and a maximum at u<sub>2</sub> = ${fmt(ex.u2)}, G(u<sub>2</sub>) = <b>${fmt(G(ex.u2, l))}</b>: three crossings when m is between the two.`;
+  else txt += `λ ≥ λ<sub>c</sub> = ${fmt(LC, 4)}: G decreases monotonically, so there is one crossing for every m.`;
+  readout.innerHTML = txt;
+  postHeight();
+}
+
+// interaction: sliders, hover on the panel
+sm.addEventListener("input", () => { state.m = +sm.value; draw(); });
+sl.addEventListener("input", () => { state.l = +sl.value; draw(); });
+const p2 = document.getElementById("p2");
+p2.addEventListener("pointermove", e => {
+  const rc = p2.getBoundingClientRect();
+  state.hover = geom.ix(e.clientX - rc.left); draw();
+});
+p2.addEventListener("pointerleave", () => { state.hover = null; draw(); });
+document.querySelectorAll(".grid").forEach(gr => gr.addEventListener("selectstart", e => e.preventDefault()));
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  // content height, not scrollHeight: inside an iframe that never drops below the frame itself
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+</script>
+</body>
+</html>
