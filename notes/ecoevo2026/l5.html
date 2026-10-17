@@ -81,7 +81,8 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -124,23 +125,23 @@ There are three cases:</p>
 <col style="width: 65%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>per-capita rate <span class="math inline">\(g(N)\)</span></th>
 <th>name</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>decreasing</td>
 <td>no Allee effect (logistic)</td>
 </tr>
-<tr class="even">
+<tr>
 <td>increasing at low <span class="math inline">\(N\)</span>, <span
 class="math inline">\(g(0)&gt;0\)</span></td>
 <td><em>weak</em> Allee effect (same fixed-point behavior as the
 logistic)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>increasing at low <span class="math inline">\(N\)</span>, <span
 class="math inline">\(g(0)&lt;0\)</span></td>
 <td><em>strong</em> Allee effect: small populations decline</td>
@@ -188,7 +189,7 @@ class="math inline">\(g&#39;(0)=1+\alpha\)</span>, it covers all three
 cases:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><span class="math inline">\(\alpha\)</span></th>
 <th><span class="math inline">\(g(0)\)</span></th>
 <th><span class="math inline">\(g&#39;(0)\)</span></th>
@@ -196,19 +197,19 @@ cases:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(\alpha&lt;-1\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td><span class="math inline">\(&lt;0\)</span></td>
 <td>no Allee effect</td>
 </tr>
-<tr class="even">
+<tr>
 <td><span class="math inline">\(-1&lt;\alpha&lt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td>weak</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(0&lt;\alpha&lt;1\)</span></td>
 <td><span class="math inline">\(&lt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
@@ -451,7 +452,7 @@ starting below it go extinct.</p>
 <col style="width: 9%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>fixed point</th>
 <th>value</th>
 <th>is feasible (<span class="math inline">\(u^* \geq 0\)</span>)
@@ -461,14 +462,14 @@ when</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>extinction</td>
 <td><span class="math inline">\(0\)</span></td>
 <td>always</td>
 <td><span class="math inline">\(m_T-m\)</span></td>
 <td>if <span class="math inline">\(m&gt;m_T\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td><span class="math inline">\(u_+\)</span></td>
 <td><span class="math inline">\(u_c+\sqrt{m_F-m}\)</span></td>
 <td><span class="math inline">\(m&lt;m_F\)</span> if <span
@@ -478,7 +479,7 @@ class="math inline">\(\alpha&lt;-1\)</span></td>
 <td><span class="math inline">\(-2u_+\sqrt{m_F-m}\)</span></td>
 <td>always</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(u_-\)</span> (threshold)</td>
 <td><span class="math inline">\(u_c-\sqrt{m_F-m}\)</span></td>
 <td><span class="math inline">\(m_T&lt;m&lt;m_F\)</span> and <span
@@ -572,24 +573,24 @@ class="math inline">\(u_-\)</span>.</li>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>logistic + <span class="math inline">\(\delta\)</span></th>
 <th>Allee + <span class="math inline">\(\delta\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>bifurcation</td>
 <td>transcritical</td>
 <td>fold (plus a transcritical if weak)</td>
 </tr>
-<tr class="even">
+<tr>
 <td>density at the threshold</td>
 <td><span class="math inline">\(\to 0\)</span></td>
 <td><span class="math inline">\(u_c&gt;0\)</span>: a jump</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>undoing it</td>
 <td>reduce <span class="math inline">\(\delta\)</span> just below <span
 class="math inline">\(\delta_c\)</span></td>
@@ -798,15 +799,7 @@ same slope <span class="math inline">\(2u_c/3\)</span>.</p>
 <p><span class="callout-title">Fold lines and the cusp</span></p>
 <p>The two fold lines in the <span
 class="math inline">\((m,\lambda)\)</span> plane, at <span
-class="math inline">\(\alpha=-0.3\)</span>. They start on the axis <span
-class="math inline">\(\lambda=0\)</span> at <span
-class="math inline">\(m_T=0.3\)</span> and <span
-class="math inline">\(m_F=0.4225\)</span> and meet at the cusp, <span
-class="math inline">\((m_c,\lambda_c)=(0.463,\,0.0127)\)</span>. Inside
-(grey) the population is bistable, between the refuge and the high
-state. The dotted lines are <span
-class="math inline">\(\lambda=0.003\)</span> and <span
-class="math inline">\(\lambda=0.03\)</span>.</p>
+class="math inline">\(\alpha=-0.3\)</span>.</p>
 <p><img src="material/l5-phase-m-lambda.png" /></p>
 </div>
 <p>The point <span class="math inline">\((m_c,\lambda_c)\)</span>, where

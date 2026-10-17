@@ -34,8 +34,11 @@ body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "He
 .controls label { font-weight: 600; }
 .controls input[type=range] { accent-color: var(--accent); min-width: 140px; }
 .controls output { font-variant-numeric: tabular-nums; min-width: 3.6em; text-align: right; }
-.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 1.6em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
 .readout b { color: var(--fg); font-weight: 600; }
+/* u^*_+ : superscript and subscript stacked */
+.readout sup, .readout sub { font-size: .7em; line-height: 0; }
+.readout sub.ss { margin-left: -.42em; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 10px 14px; }
 figure { margin: 0; }
 figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
@@ -60,7 +63,6 @@ svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
 svg .hover-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
 svg .tip { fill: var(--fg); font-size: 12px; }
 svg .region { font-size: 11px; }
-.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
 </style>
 </head>
 <body>
@@ -68,10 +70,10 @@ svg .region { font-size: 11px; }
   <div class="controls">
     <label for="mort">Mortality <i>m</i></label>
     <input type="range" id="mort" min="0.25" max="0.55" step="0.001" value="0.41">
-    <output id="mval" for="mort">0.410</output>
+    <output id="mval" for="mort">0.41</output>
     <label for="imm">Immigration <i>λ</i></label>
     <input type="range" id="imm" min="0" max="0.02" step="0.0001" value="0.003">
-    <output id="lval" for="imm">0.0030</output>
+    <output id="lval" for="imm">0.003</output>
   </div>
   <div class="readout" id="readout" aria-live="polite"></div>
   <div class="grid">
@@ -82,9 +84,6 @@ svg .region { font-size: 11px; }
     <figure><svg id="p3" role="img" aria-label="du/dtau against u"></svg>
       <figcaption>Growth rate d<i>u</i>/d<i>τ</i></figcaption></figure>
   </div>
-  <div class="note"><i>α</i> = −0.3 (weak Allee effect), <i>s</i> = 1 + <i>α</i>. Units as in the mortality figure; <i>λ</i> = <i>L</i>/(<i>rN</i><sub>max</sub><sup>2</sup>).
-    First panel: fold lines meeting at the cusp (<i>m</i><sub>c</sub>, <i>λ</i><sub>c</sub>) = (0.463, 0.0127); blue region: bistable.
-    Other panels: filled dot, stable fixed point; open dot, unstable; small black dots, the minimum and the maximum of <i>G</i>. Dashed grey: no immigration (<i>λ</i> = 0) at the same <i>m</i>.</div>
 </div>
 <script>
 "use strict";
@@ -157,6 +156,7 @@ function el(tag, attrs, parent) {
   return e;
 }
 function fmt(v, n = 3) { return (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n); }
+function trim(v, n) { return (+v.toFixed(n)).toString(); }      // 0.410 -> 0.41, 0.0030 -> 0.003
 
 // text with subscripts: "max" always, and "_X" for a one-letter subscript (m_T, m_F)
 function label(parent, text, attrs) {
@@ -306,28 +306,22 @@ function draw() {
   for (const pt of fps) dot("p3", pt.u, 0, pt.stable ? "stable-pt" : "unstable-pt", z.svg);
   hoverLayer("p3", x => f(x, m, l), "du/dτ");
 
-  // readout
-  mval.textContent = m.toFixed(3);
-  lval.textContent = l.toFixed(4);
-  const sub = (b, s) => `${b}<sub>${s}</sub>`;
+  // readout: the regime and the fixed points, 2 digits. u*_+ high state, u*_- threshold (as in the
+  // mortality section), u*_0 low state (the refuge; extinction at lambda = 0)
+  mval.textContent = trim(m, 3);
+  lval.textContent = trim(l, 4);
+  const U = (s, v) => `<b><i>u</i><sup>*</sup><sub class="ss">${s}</sub> = ${v < 1e-9 ? "0" : fmt(v, 2)}</b>`;
   const stable = fps.filter(pt => pt.stable);
   let txt;
   if (stable.length >= 2) {
     const [lo, th, hi] = fps;
-    const low = l === 0 ? `extinction` : `a refuge at <b>u = ${fmt(lo.u)}</b>`;
-    txt = `<b>Bistable</b>: ${low}, or the high state at <b>u = ${fmt(hi.u)}</b>. The threshold is <b>u = ${fmt(th.u)}</b>: below it the population ${l === 0 ? "goes extinct" : "ends in the refuge"}. `;
+    txt = `<b>Bistable</b>: ${U("0", lo.u)}, ${U("+", hi.u)} (threshold ${U("−", th.u)})`;
   } else {
     const u = stable.length ? stable[0].u : fps[fps.length - 1].u;
-    if (l === 0 && u < 1e-9) txt = `<b>Extinction</b> is the only stable state. `;
-    else if (l === 0) txt = `<b>Only the high state</b> is stable, <b>u = ${fmt(u)}</b>; extinction is unstable. `;
-    else if (l >= LC) txt = `<b>One state, no tipping point</b> (λ ≥ ${sub("λ", "c")} = ${fmt(LC, 4)}): <b>u = ${fmt(u)}</b>. Changing m moves it smoothly and reversibly. `;
-    else if (u > UCUSP) txt = `<b>High state only</b>: <b>u = ${fmt(u)}</b>. `;
-    else txt = `<b>Low state only</b>: the refuge, <b>u = ${fmt(u)}</b>, a sink population kept alive by immigration. `;
+    if (l >= LC) txt = `<b>One state</b>: <b><i>u</i>* = ${fmt(u, 2)}</b>`;
+    else if (u > UCUSP) txt = `<b>High state only</b>: ${U("+", u)}`;
+    else txt = `<b>Low state only</b>: ${U("0", u)}`;
   }
-  const fo = foldsAt(l);
-  if (l === 0) txt += `At λ = 0: transcritical at ${sub("m", "T")} = ${fmt(MT, 2)}, fold at ${sub("m", "F")} = ${fmt(MF, 4)}.`;
-  else if (fo) txt += `At this λ: recovery at the lower fold, m = <b>${fmt(fo.low)}</b>; collapse at the upper fold, m = <b>${fmt(fo.up)}</b>. Hysteresis width <b>${fmt(fo.up - fo.low)}</b>.`;
-  else txt += `Above ${sub("λ", "c")} there are no folds.`;
   readout.innerHTML = txt;
   postHeight();
 }
