@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Competition with mortality</title>
+<!--
+  Interactive figure for L6 (Adding mortality): two-species competitive Lotka-Volterra with a common
+  mortality delta, in units of the carrying capacities without mortality, u_i = N_i / K_i:
+    du_f/dt = r_f u_f (1 - u_f - a_fs u_s) - delta u_f,   du_s/dt = r_s u_s (1 - u_s - a_sf u_f) - delta u_s.
+  Same as LV with K_i -> K_i (1 - delta/r_i):  ln a_fs(delta) = ln a_fs - Phi,  ln a_sf(delta) = ln a_sf + Phi,
+  Phi = ln[(1 - delta/r_f)/(1 - delta/r_s)].
+  Presets: Ea-Pv-like (r_f = 0.70, r_s = 0.43 /h, centre of the box allowed by Abreu et al.'s outcomes)
+  and Pci-Pv-like (r_f = 0.60, r_s = 0.43 /h), which crosses bistability.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L6-competition-mortality.html]]`).
+  Self-contained: no external scripts. Same layout and colours as L5-allee-mortality.html.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+  --spf: #c27c0e; --sps: #3f7f3f; --red: #c44e52;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+    --spf: #e3a64a; --sps: #7cc47c; --red: #ef8a8d;
+  }
+}
+/* translucent, so they stay visible on any background (white page or grey box) */
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --q-coex: color-mix(in srgb, var(--accent) 11%, transparent);
+        --q-f: color-mix(in srgb, var(--spf) 15%, transparent);
+        --q-s: color-mix(in srgb, var(--sps) 15%, transparent);
+        --q-bist: color-mix(in srgb, var(--red) 13%, transparent);
+        --flow: color-mix(in srgb, var(--muted) 55%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.controls { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.controls label { font-weight: 600; }
+.controls input[type=range] { flex: 1 1 200px; accent-color: var(--accent); min-width: 160px; }
+.controls output { font-variant-numeric: tabular-nums; min-width: 9.5em; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.seg button { font: inherit; font-size: .88rem; background: transparent; color: var(--muted); border: 0;
+              padding: .15rem .6rem; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed=true] { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--fg); font-weight: 600; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .ncf { fill: none; stroke: var(--spf); stroke-width: 2.5; }
+svg .ncs { fill: none; stroke: var(--sps); stroke-width: 2.5; }
+svg .ncf-u { fill: none; stroke: var(--spf); stroke-width: 2; stroke-dasharray: 6 4; }
+svg .ncs-u { fill: none; stroke: var(--sps); stroke-width: 2; stroke-dasharray: 6 4; }
+svg .sep { fill: none; stroke: var(--fg); stroke-width: 1.6; stroke-dasharray: 5 4; }
+svg .traj { fill: none; stroke: var(--accent); stroke-width: 1.8; opacity: .85; }
+svg .start { fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: grab; }
+svg .flow { fill: var(--flow); }
+svg .flowl { stroke: var(--flow); stroke-width: 1.2; }
+svg .path { fill: none; stroke: var(--fg); stroke-width: 1.5; }
+svg .stable-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+svg .now-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+svg .base-pt { fill: var(--bg); stroke: var(--fg); stroke-width: 2; cursor: grab; }
+svg .dtick { fill: var(--muted); }
+svg .now { stroke: var(--accent); stroke-width: 1.5; }
+svg .guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+svg .q-coex { fill: var(--q-coex); } svg .q-f { fill: var(--q-f); }
+svg .q-s { fill: var(--q-s); } svg .q-bist { fill: var(--q-bist); }
+svg .qlab { font-size: 11px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+.f { color: var(--spf); font-weight: 600; } .s { color: var(--sps); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <label for="mort">Mortality <i>δ</i></label>
+    <input type="range" id="mort" min="0" max="0.72" step="0.002" value="0.2" aria-describedby="readout">
+    <output id="dval" for="mort"></output>
+    <span class="seg" role="group" aria-label="pair">
+      <button type="button" id="pA" aria-pressed="true">Ea–Pv-like</button>
+      <button type="button" id="pB" aria-pressed="false">Pci–Pv-like (bistable)</button>
+    </span>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p1" role="img" aria-label="phase plane"></svg>
+      <figcaption>Phase plane (drag the open circles to move the starts)</figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="outcome plane"></svg>
+      <figcaption>(ln <i>a<sub>fs</sub></i>, ln <i>a<sub>sf</sub></i>) at this <i>δ</i> (drag the open circle: the pair at <i>δ</i> = 0)</figcaption></figure>
+    <figure><svg id="p3" role="img" aria-label="densities against mortality"></svg>
+      <figcaption>Densities at the fixed points against <i>δ</i> (drag to set <i>δ</i>)</figcaption></figure>
+  </div>
+  <div class="note">
+    <span class="f">f</span>: fast grower, <span class="s">s</span>: slow grower. Densities in units of the carrying capacities without mortality, <i>u<sub>i</sub></i> = <i>N<sub>i</sub></i>/<i>K<sub>i</sub></i>.
+    Phase plane: coloured lines are the nullclines (<i>u<sub>f</sub></i> + <i>a<sub>fs</sub>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>f</sub></i> and <i>a<sub>sf</sub>u<sub>f</sub></i> + <i>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>s</sub></i>), grey arrows the direction of the flow, blue lines two trajectories, dashed black the separatrix.
+    Filled dot: stable; open dot: unstable.
+    Middle panel: the quadrants are the four outcomes; the black line is the path of the pair as <i>δ</i> goes from 0 to <i>r<sub>s</sub></i>, at −45°; the ticks mark the dilution factors <i>D</i> = 10…10<sup>4</sup> of a daily transfer, <i>δ</i> = ln <i>D</i> / 24 h.
+    Last panel: solid = stable, dashed = unstable; shading = the coexistence (blue) or bistable (red) range of <i>δ</i>.
+  </div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const slider = document.getElementById("mort");
+const dval = document.getElementById("dval");
+const readout = document.getElementById("readout");
+const D_MAX = +slider.max;
+const T = 24;                                         // hours per transfer: delta = ln D / T
+
+// presets: r in 1/h; la = ln a at delta = 0
+const PRESETS = {
+  A: { rf: 0.70, rs: 0.43, laf: 0.18, las: -0.96, f: "Ea", s: "Pv" },
+  B: { rf: 0.60, rs: 0.43, laf: 0.79, las: -0.25, f: "Pci", s: "Pv" },
+};
+let par = { ...PRESETS.A };
+let state = { d: +slider.value, starts: [[0.85, 0.1], [0.1, 0.85]] };
+
+// ---------------------------------------------------------------- model
+const kf = d => 1 - d / par.rf, ks = d => 1 - d / par.rs;
+const Phi = d => Math.log(kf(d) / ks(d));             // defined for d < r_s
+function F(x, d) {
+  const afs = Math.exp(par.laf), asf = Math.exp(par.las);
+  return [par.rf * x[0] * (1 - x[0] - afs * x[1]) - d * x[0],
+          par.rs * x[1] * (1 - x[1] - asf * x[0]) - d * x[1]];
+}
+function J(x, d) {
+  const afs = Math.exp(par.laf), asf = Math.exp(par.las);
+  return [[par.rf * (1 - 2 * x[0] - afs * x[1]) - d, -par.rf * afs * x[0]],
+          [-par.rs * asf * x[1], par.rs * (1 - 2 * x[1] - asf * x[0]) - d]];
+}
+function stable(x, d) { const j = J(x, d); return j[0][0] + j[1][1] < 0 && j[0][0] * j[1][1] - j[0][1] * j[1][0] > 0; }
+function fixedPoints(d) {
+  const afs = Math.exp(par.laf), asf = Math.exp(par.las), a = kf(d), b = ks(d);
+  const out = [{ x: [0, 0], kind: "0" }];
+  if (a > 0) out.push({ x: [a, 0], kind: "f" });
+  if (b > 0) out.push({ x: [0, b], kind: "s" });
+  const den = 1 - afs * asf;
+  if (Math.abs(den) > 1e-12) {
+    const xf = (a - afs * b) / den, xs = (b - asf * a) / den;
+    if (xf > 1e-9 && xs > 1e-9) out.push({ x: [xf, xs], kind: "c" });
+  }
+  for (const p of out) p.stable = stable(p.x, d);
+  return out;
+}
+// invasion rates: of f into s alone, of s into f alone (into the empty tube if the resident cannot persist)
+function invasion(d) {
+  const afs = Math.exp(par.laf), asf = Math.exp(par.las);
+  const lf = ks(d) > 0 ? par.rf * (1 - afs * ks(d)) - d : par.rf - d;
+  const ls = kf(d) > 0 ? par.rs * (1 - asf * kf(d)) - d : par.rs - d;
+  return { lf, ls };
+}
+function outcome(d) {
+  if (d >= par.rf) return "none";
+  if (d >= par.rs) return "f";
+  const { lf, ls } = invasion(d);
+  if (lf > 0 && ls > 0) return "coex";
+  if (lf > 0) return "f";
+  if (ls > 0) return "s";
+  return "bist";
+}
+// delta at which Phi = c (c > 0), from Phi(delta) = ln[(1 - delta/r_f)/(1 - delta/r_s)]
+const deltaAt = c => (Math.exp(c) - 1) / (Math.exp(c) / par.rs - 1 / par.rf);
+function transitions() {
+  const t = [];
+  if (par.laf > 0) t.push({ d: deltaAt(par.laf), what: "f starts to invade" });
+  if (par.las < 0) t.push({ d: deltaAt(-par.las), what: "s stops invading" });
+  return t.sort((u, v) => u.d - v.d);
+}
+function rk4(x, d, h) {
+  const k1 = F(x, d);
+  const k2 = F([x[0] + h / 2 * k1[0], x[1] + h / 2 * k1[1]], d);
+  const k3 = F([x[0] + h / 2 * k2[0], x[1] + h / 2 * k2[1]], d);
+  const k4 = F([x[0] + h * k3[0], x[1] + h * k3[1]], d);
+  return [x[0] + h / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]),
+          x[1] + h / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])];
+}
+
+// ---------------------------------------------------------------- drawing helpers
+const P = {
+  p1: { x: [0, 1.1], y: [0, 1.1], xt: [0, 0.5, 1], yt: [0, 0.5, 1], xl: "u_f = N_f / K_f", yl: "u_s = N_s / K_s", sq: true },
+  p2: { x: [-2, 1.6], y: [-2, 1.6], xt: [-2, -1, 0, 1], yt: [-2, -1, 0, 1], xl: "ln a_fs", yl: "ln a_sf", sq: true },
+  p3: { x: [0, D_MAX], y: [0, 1.05], xt: [0, 0.2, 0.4, 0.6], yt: [0, 0.5, 1], xl: "δ (1/h)", yl: "u* = N* / K" },
+};
+const M = { l: 44, r: 10, t: 10, b: 40 };
+const geom = {};
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const fmt = (v, n = 2) => (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n);
+// text with subscripts: "_fs", "_sf", "_f", "_s", "_T"
+function label(parent, text, attrs) {
+  const t = el("text", attrs, parent);
+  for (const part of text.split(/(_[a-zA-Z]{1,2})/)) {
+    if (!part) continue;
+    if (part[0] === "_") {
+      el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t).textContent = part.slice(1);
+      el("tspan", { "baseline-shift": "0" }, t).textContent = "​";
+    } else t.appendChild(document.createTextNode(part));
+  }
+  return t;
+}
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth, p = P[id];
+  const h = p.sq ? Math.round(Math.min(Math.max(w - M.l - M.r + M.t + M.b, 200), 330))
+                 : Math.round(Math.min(Math.max(w * 0.82, 200), 300));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]),
+               iy: py => p.y[1] - (py - M.t) / (h - M.t - M.b) * (p.y[1] - p.y[0]) };
+}
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: id + "-clip" }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  const bg = el("g", { "clip-path": `url(#${id}-clip)` }, svg);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+  for (const v of p.xt) el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg).textContent = v;
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return { bg, fg: el("g", { "clip-path": `url(#${id}-clip)` }, svg) };
+}
+function poly(id, pts, cls, parent) {
+  const { sx, sy } = geom[id];
+  let d = "";
+  pts.forEach((q, i) => { d += (i ? "L" : "M") + sx(q[0]).toFixed(1) + "," + sy(q[1]).toFixed(1); });
+  return el("path", { d, class: cls }, parent);
+}
+function dot(id, x, y, cls, parent, r = 5.5) {
+  const { sx, sy } = geom[id];
+  return el("circle", { cx: sx(x), cy: sy(y), r, class: cls }, parent);
+}
+
+// ---------------------------------------------------------------- panels
+function drawPhase(d) {
+  const id = "p1", { sx, sy, p } = geom[id];
+  const { bg, fg } = frame(id);
+  const afs = Math.exp(par.laf), asf = Math.exp(par.las), a = kf(d), b = ks(d);
+  // flow: short arrows of fixed length on a grid (direction only)
+  const n = 10, L = 6, H = 3.2;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+    const x = [(i + 0.5) / n * p.x[1], (j + 0.5) / n * p.y[1]];
+    const v = F(x, d), m = Math.hypot(sx(x[0] + v[0]) - sx(x[0]), sy(x[1] + v[1]) - sy(x[1]));
+    if (m < 1e-12) continue;
+    const ux = (sx(x[0] + v[0]) - sx(x[0])) / m, uy = (sy(x[1] + v[1]) - sy(x[1])) / m;
+    const cx = sx(x[0]), cy = sy(x[1]), tx = cx + ux * L, ty = cy + uy * L;
+    el("line", { class: "flowl", x1: cx - ux * L, y1: cy - uy * L, x2: tx - ux * H, y2: ty - uy * H }, bg);
+    el("path", { class: "flow", d: `M${tx},${ty} L${tx - ux * 2 * H - uy * H},${ty - uy * 2 * H + ux * H} L${tx - ux * 2 * H + uy * H},${ty - uy * 2 * H - ux * H} Z` }, bg);
+  }
+  // nullclines (the axes are nullclines too)
+  if (a > 0) poly(id, [[a, 0], [0, a / afs]], "ncf", fg);
+  if (b > 0) poly(id, [[b / asf, 0], [0, b]], "ncs", fg);
+  const fps = fixedPoints(d);
+  // separatrix: stable manifold of the coexistence saddle, integrated backward
+  const c = fps.find(q => q.kind === "c");
+  if (c && !c.stable) {
+    const j = J(c.x, d), tr = j[0][0] + j[1][1], det = j[0][0] * j[1][1] - j[0][1] * j[1][0];
+    const lam = tr / 2 - Math.sqrt(tr * tr / 4 - det);                   // the negative eigenvalue
+    let v = Math.abs(j[0][1]) > 1e-12 ? [j[0][1], lam - j[0][0]] : [lam - j[1][1], j[1][0]];
+    const nv = Math.hypot(v[0], v[1]); v = [v[0] / nv, v[1] / nv];
+    for (const sg of [1, -1]) {
+      let x = [c.x[0] + sg * 1e-4 * v[0], c.x[1] + sg * 1e-4 * v[1]];
+      const pts = [c.x.slice(), x];
+      for (let k = 0; k < 8000; k++) {
+        x = rk4(x, d, -0.02);
+        if (x[0] < 0 || x[1] < 0 || x[0] > 1.5 || x[1] > 1.5 || x[0] + x[1] < 1e-3) break;
+        pts.push(x);
+      }
+      poly(id, pts, "sep", fg);
+    }
+  }
+  // trajectories from the two starts
+  for (const s0 of state.starts) {
+    let x = s0.slice();
+    const pts = [x];
+    for (let k = 0; k < 6000; k++) {
+      const y = rk4(x, d, 0.1);
+      pts.push(y);
+      if (Math.hypot(y[0] - x[0], y[1] - x[1]) < 1e-7) break;
+      x = y;
+    }
+    poly(id, pts, "traj", fg);
+  }
+  for (const q of fps) dot(id, q.x[0], q.x[1], q.stable ? "stable-pt" : "unstable-pt", geom[id].svg);
+  state.starts.forEach((s0, k) => {
+    const e = dot(id, s0[0], s0[1], "start", geom[id].svg, 6);
+    e.dataset.k = k;
+  });
+}
+
+function drawPlane(d) {
+  const id = "p2", { sx, sy, p, svg } = geom[id];
+  const { bg, fg } = frame(id);
+  const quad = (x0, x1, y0, y1, cls) => el("rect", { x: sx(x0), y: sy(y1), width: sx(x1) - sx(x0), height: sy(y0) - sy(y1), class: cls }, bg);
+  quad(p.x[0], 0, p.y[0], 0, "q-coex"); quad(p.x[0], 0, 0, p.y[1], "q-f");
+  quad(0, p.x[1], p.y[0], 0, "q-s");    quad(0, p.x[1], 0, p.y[1], "q-bist");
+  el("line", { class: "zero", x1: sx(0), x2: sx(0), y1: sy(p.y[0]), y2: sy(p.y[1]) }, bg);
+  el("line", { class: "zero", x1: sx(p.x[0]), x2: sx(p.x[1]), y1: sy(0), y2: sy(0) }, bg);
+  const ql = (x, y, t, anchor) => el("text", { x: sx(x), y: sy(y), class: "qlab", "text-anchor": anchor }, bg).textContent = t;
+  ql(p.x[0] + 0.08, p.y[0] + 0.1, "coexistence", "start");
+  ql(p.x[0] + 0.08, p.y[1] - 0.18, "f wins", "start");
+  ql(p.x[1] - 0.08, p.y[0] + 0.1, "s wins", "end");
+  ql(p.x[1] - 0.08, p.y[1] - 0.18, "bistable", "end");
+  // path for delta in [0, r_s): a -45 deg line
+  const pts = [];
+  for (let i = 0; i <= 400; i++) {
+    const dd = par.rs * (1 - Math.pow(1 - i / 400, 3)) * 0.99999;
+    const ph = Phi(dd);
+    pts.push([par.laf - ph, par.las + ph]);
+    if (par.laf - ph < p.x[0] - 1 || par.las + ph > p.y[1] + 1) break;
+  }
+  poly(id, pts, "path", fg);
+  for (let k = 1; k <= 4; k++) {
+    const dd = Math.log(10 ** k) / T;
+    if (dd >= par.rs) continue;
+    const ph = Phi(dd), x = par.laf - ph, y = par.las + ph;
+    dot(id, x, y, "dtick", fg, 3);
+    if (x > p.x[0] + 0.1 && y < p.y[1] - 0.1) {
+      const t = el("text", { x: sx(x) + 6, y: sy(y) - 5, "font-size": "10" }, fg);
+      t.textContent = "10"; el("tspan", { "baseline-shift": "super", "font-size": "8" }, t).textContent = k;
+    }
+  }
+  dot(id, par.laf, par.las, "base-pt", svg, 6);
+  if (d < par.rs) {
+    const ph = Phi(d);
+    dot(id, par.laf - ph, par.las + ph, "now-pt", svg, 6);
+  }
+}
+
+function drawBif(d) {
+  const id = "p3", { sx, sy, p, h } = geom[id];
+  const { bg, fg } = frame(id);
+  // shading: coexistence or bistable range
+  const tr = transitions().filter(t => t.d < par.rs);
+  const o0 = outcome(1e-6);
+  if (tr.length === 2) {
+    const mid = outcome((tr[0].d + tr[1].d) / 2);
+    if (mid === "coex" || mid === "bist")
+      el("rect", { x: sx(tr[0].d), y: sy(p.y[1]), width: sx(tr[1].d) - sx(tr[0].d), height: sy(p.y[0]) - sy(p.y[1]),
+                   class: mid === "coex" ? "q-coex" : "q-bist" }, bg);
+  } else if (tr.length === 1 && (o0 === "coex" || o0 === "bist")) {
+    el("rect", { x: sx(0), y: sy(p.y[1]), width: sx(tr[0].d) - sx(0), height: sy(p.y[0]) - sy(p.y[1]),
+                 class: o0 === "coex" ? "q-coex" : "q-bist" }, bg);
+  }
+  for (const t of tr) el("line", { class: "guide", x1: sx(t.d), x2: sx(t.d), y1: M.t, y2: h - M.b }, bg);
+  // branches, sampled in delta; solid where stable
+  const N = 360, br = { ff: [], ss: [], cf: [], cs: [] };
+  for (let i = 0; i <= N; i++) {
+    const dd = i / N * p.x[1];
+    for (const q of fixedPoints(dd)) {
+      if (q.kind === "f") br.ff.push([dd, q.x[0], q.stable]);
+      if (q.kind === "s") br.ss.push([dd, q.x[1], q.stable]);
+      if (q.kind === "c") { br.cf.push([dd, q.x[0], q.stable]); br.cs.push([dd, q.x[1], q.stable]); }
+    }
+  }
+  const draw = (arr, sp) => {   // split into runs of equal stability (and contiguous delta)
+    let run = [];
+    const flush = () => { if (run.length > 1) poly(id, run.map(q => [q[0], q[1]]), run[0][2] ? sp : sp + "-u", fg); };
+    arr.forEach((q, i) => {
+      if (run.length && (q[2] !== run[0][2] || q[0] - run[run.length - 1][0] > 1.5 * p.x[1] / N)) {
+        if (q[2] !== run[0][2] && q[0] - run[run.length - 1][0] <= 1.5 * p.x[1] / N) run.push(q);
+        flush(); run = [];
+      }
+      run.push(q);
+    });
+    flush();
+  };
+  draw(br.ff, "ncf"); draw(br.cf, "ncf"); draw(br.ss, "ncs"); draw(br.cs, "ncs");
+  el("line", { class: "now", x1: sx(d), x2: sx(d), y1: M.t, y2: h - M.b }, fg);
+  for (const q of fixedPoints(d)) {
+    if (q.kind === "f" || q.kind === "c") dot(id, d, q.x[0], q.stable ? "stable-pt" : "unstable-pt", geom[id].svg, 4.5);
+    if (q.kind === "s" || q.kind === "c") dot(id, d, q.x[1], q.stable ? "stable-pt" : "unstable-pt", geom[id].svg, 4.5);
+  }
+  for (const [rv, name] of [[par.rs, "r_s"], [par.rf, "r_f"]]) {
+    if (rv > p.x[1]) continue;
+    label(geom[id].svg, name, { x: sx(rv), y: h - M.b - 5, "text-anchor": "middle", "font-size": "11" });
+  }
+}
+
+// ---------------------------------------------------------------- readout
+function describe(d) {
+  const o = outcome(d), D = Math.exp(T * d), { lf, ls } = invasion(d);
+  const Dtxt = D < 1e3 ? D.toFixed(D < 10 ? 1 : 0) : `${(D / 10 ** Math.floor(Math.log10(D))).toFixed(1)}×10<sup>${Math.floor(Math.log10(D))}</sup>`;
+  dval.innerHTML = `${d.toFixed(3)} /h  (<i>D</i> = ${Dtxt})`;
+  const names = `<span class="f">f</span> = ${par.f}-like (<i>r<sub>f</sub></i> = ${par.rf.toFixed(2)}), <span class="s">s</span> = ${par.s}-like (<i>r<sub>s</sub></i> = ${par.rs.toFixed(2)} /h)`;
+  let txt = "";
+  if (d >= par.rf) txt = `<b>Both die</b>: δ ≥ <i>r<sub>f</sub></i>, so neither can persist even alone.`;
+  else if (d >= par.rs) txt = `<b>Only f</b>: δ ≥ <i>r<sub>s</sub></i>, so <span class="s">s</span> cannot persist even alone (its carrying capacity <i>K</i>(1 − δ/<i>r<sub>s</sub></i>) is ≤ 0). <span class="f">f</span> alone at <i>u<sub>f</sub></i> = ${fmt(kf(d))}.`;
+  else {
+    const afs = Math.exp(par.laf - Phi(d)), asf = Math.exp(par.las + Phi(d));
+    const word = { coex: "<b>Coexistence</b>: each invades the other", f: "<b>f excludes s</b>: f invades, s does not",
+                   s: "<b>s excludes f</b>: s invades, f does not", bist: "<b>Bistable</b>: neither invades the other; the winner depends on the start (dashed: separatrix)" }[o];
+    txt = `${word}. Φ = ${fmt(Phi(d))}, <i>a<sub>fs</sub></i>(δ) = <b>${fmt(afs)}</b>, <i>a<sub>sf</sub></i>(δ) = <b>${fmt(asf)}</b> (product ${fmt(afs * asf)}, independent of δ). `
+        + `Invasion rates: <span class="f">f</span> into <span class="s">s</span> ${fmt(lf, 3)} /h, <span class="s">s</span> into <span class="f">f</span> ${fmt(ls, 3)} /h.`;
+  }
+  const tr = transitions().filter(t => t.d < par.rs);
+  const ttxt = tr.length ? " Transitions: " + tr.map(t => `${t.what} at δ = ${fmt(t.d, 3)} (<i>D</i> ≈ ${Math.round(Math.exp(T * t.d)).toLocaleString("en")})`).join("; ") + "." : "";
+  readout.innerHTML = `${names}. ${txt}${ttxt}`;
+}
+
+function draw() {
+  const d = state.d;
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+  drawPhase(d); drawPlane(d); drawBif(d); describe(d);
+  postHeight();
+}
+
+// ---------------------------------------------------------------- interaction
+slider.addEventListener("input", () => { state.d = +slider.value; draw(); });
+for (const [k, b] of [["A", "pA"], ["B", "pB"]]) {
+  document.getElementById(b).addEventListener("click", () => {
+    par = { ...PRESETS[k] };
+    document.getElementById("pA").setAttribute("aria-pressed", k === "A");
+    document.getElementById("pB").setAttribute("aria-pressed", k === "B");
+    draw();
+  });
+}
+function pointerPos(id, e) {
+  const rc = geom[id].svg.getBoundingClientRect();
+  return [geom[id].ix(e.clientX - rc.left), geom[id].iy(e.clientY - rc.top)];
+}
+function dragOn(id, onMove) {
+  const svg = document.getElementById(id);
+  svg.addEventListener("pointerdown", e => { e.preventDefault(); svg.setPointerCapture(e.pointerId); onMove(pointerPos(id, e), true); });
+  svg.addEventListener("pointermove", e => { if (svg.hasPointerCapture(e.pointerId)) onMove(pointerPos(id, e), false); });
+}
+let which = 0;
+dragOn("p1", ([x, y], first) => {
+  x = Math.min(Math.max(x, 0.002), 1.1); y = Math.min(Math.max(y, 0.002), 1.1);
+  if (first) {                                        // move the start nearest to the pointer
+    const dist = state.starts.map(s => Math.hypot(s[0] - x, s[1] - y));
+    which = dist[0] <= dist[1] ? 0 : 1;
+  }
+  state.starts[which] = [x, y]; draw();
+});
+dragOn("p2", ([x, y]) => {
+  par.laf = Math.min(Math.max(x, -2), 1.6); par.las = Math.min(Math.max(y, -2), 1.6); draw();
+});
+dragOn("p3", ([x]) => {
+  state.d = Math.round(Math.min(Math.max(x, 0), D_MAX) * 500) / 500; slider.value = state.d; draw();
+});
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+draw();
+</script>
+</body>
+</html>

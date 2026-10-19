@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 6. Competition · Ecology &amp; Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l6.md" download>&darr; Markdown</a>
+</div>
+<h1 id="lecture-6.-competition">Lecture 6. Competition</h1>
+<hr />
+<p>In <a href="l4.html">L4</a> and <a href="l5.html">L5</a> a population
+was limited by its resources and by itself. What happens if you put two
+species in the same tube? Who wins? Can we predict it from how each
+species grows alone?</p>
+<h2 id="two-species-in-a-tube">Two species in a tube</h2>
+<p>Gause did the experiment in the early 1930s, with yeasts and with
+<em>Paramecium</em>, measuring each species alone and in mixture (<a
+href="https://doi.org/10.1242/jeb.9.4.389">Gause 1932</a>; <a
+href="https://doi.org/10.1126/science.79.2036.16-a">Gause 1934</a>; data
+in <a href="https://doi.org/10.1002/ece3.6926">gauseR</a>).</p>
+<p>So the same experiment gives exclusion with one pair and coexistence
+with another. We want a model where the outcome follows from parameters
+that can be measured, in part, on each species alone.</p>
+<h2 id="lotkavolterra-competition">Lotka–Volterra competition</h2>
+<p>Each species alone grows logistically, as in <a
+href="l4.html">L4</a>. Together in the tube, each is also slowed down by
+the other:</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dN_1}{dt} =
+r_1N_1\left(1-\frac{N_1+\alpha_{12}N_2}{K_1}\right),\qquad
+\frac{dN_2}{dt} = r_2N_2\left(1-\frac{N_2+\alpha_{21}N_1}{K_2}\right)\ }
+\]</span></p>
+<p>This is the Lotka–Volterra model of competition (Lotka 1925; <a
+href="https://doi.org/10.1038/118558a0">Volterra 1926</a>).</p>
+<ul>
+<li><span class="math inline">\(r_i\)</span> is the growth rate of
+species <span class="math inline">\(i\)</span> alone at low density, as
+in L1, and <span class="math inline">\(K_i\)</span> its carrying
+capacity alone (L4’s <span
+class="math inline">\(N_{\max}\)</span>).</li>
+<li><span class="math inline">\(\alpha_{ij}\ge0\)</span> is the
+<em>competition coefficient</em>: one individual of <span
+class="math inline">\(j\)</span> slows the growth of <span
+class="math inline">\(i\)</span> as much as <span
+class="math inline">\(\alpha_{ij}\)</span> individuals of <span
+class="math inline">\(i\)</span> do. <span
+class="math inline">\(\alpha_{ij}=1\)</span>: for <span
+class="math inline">\(i\)</span>, a competitor is the same as a
+conspecific.</li>
+<li>The signs of <span class="math inline">\(\alpha_{12}\)</span> and
+<span class="math inline">\(\alpha_{21}\)</span> set the type of
+interaction. With <span class="math inline">\(\alpha_{ij}&lt;0\)</span>,
+<span class="math inline">\(j\)</span> helps <span
+class="math inline">\(i\)</span>. Both negative is mutualism, opposite
+signs is exploitation (one eats or parasitizes the other, L12). Today
+both are positive.</li>
+</ul>
+<p>Measuring each density in units of its own carrying capacity, <span
+class="math inline">\(u_i=N_i/K_i\)</span>,</p>
+<p><span class="math display">\[
+\frac{du_1}{dt} = r_1u_1\,(1-u_1-a_{12}u_2),\qquad
+\frac{du_2}{dt} = r_2u_2\,(1-u_2-a_{21}u_1),\qquad
+a_{12}=\alpha_{12}\frac{K_2}{K_1},\quad
+a_{21}=\alpha_{21}\frac{K_1}{K_2}.
+\]</span></p>
+<p><span class="math inline">\(a_{ij}\)</span> is the competition from
+<span class="math inline">\(j\)</span> <em>at its own carrying
+capacity</em>, measured against <span
+class="math inline">\(i\)</span>’s. The carrying capacities only set the
+units of the densities, and <span class="math inline">\(r_1\)</span> the
+unit of time. Three parameters are left: <span
+class="math inline">\(a_{12}\)</span>, <span
+class="math inline">\(a_{21}\)</span> and <span
+class="math inline">\(r_2/r_1\)</span>. We will see that the possible
+outcomes depend only on <span class="math inline">\(a_{12}\)</span> and
+<span class="math inline">\(a_{21}\)</span>. The ratio <span
+class="math inline">\(r_2/r_1\)</span> changes the trajectories, and so,
+when two outcomes are possible, which one is reached from a given
+start.</p>
+<h2 id="fixed-points">Fixed points</h2>
+<p>Setting both equations to zero, each species is either absent, <span
+class="math inline">\(u_i=0\)</span>, or has zero per-capita growth,
+<span class="math inline">\(u_i+a_{ij}u_j=1\)</span>. There are <span
+class="math inline">\(2^2=4\)</span> fixed points (with <span
+class="math inline">\(S\)</span> species, up to <span
+class="math inline">\(2^S\)</span>):</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(u_1^*\)</span></th>
+<th><span class="math inline">\(u_2^*\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>extinction</td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>1 alone</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td>2 alone</td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td>coexistence</td>
+<td><span
+class="math inline">\(\dfrac{1-a_{12}}{1-a_{12}a_{21}}\)</span></td>
+<td><span
+class="math inline">\(\dfrac{1-a_{21}}{1-a_{12}a_{21}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The coexistence point solves the linear system <span
+class="math inline">\(u_1+a_{12}u_2=1\)</span>, <span
+class="math inline">\(a_{21}u_1+u_2=1\)</span>. It is a population only
+if both <span class="math inline">\(u_i^*\)</span> are positive. In the
+original units, <span class="math inline">\(N_i^*=K_iu_i^*\)</span>.</p>
+<h3 id="nullclines">Nullclines</h3>
+<p>The graphical method of <a
+href="l4.html#graphical-method-for-long-term-behavior">L4</a> in two
+dimensions. In the <span class="math inline">\((u_1,u_2)\)</span>
+plane:</p>
+<ul>
+<li><span class="math inline">\(\dot u_1=0\)</span> on the axis <span
+class="math inline">\(u_1=0\)</span> and on the line <span
+class="math inline">\(u_1+a_{12}u_2=1\)</span>, from <span
+class="math inline">\((1,0)\)</span> to <span
+class="math inline">\((0,1/a_{12})\)</span>. Below the line <span
+class="math inline">\(u_1\)</span> grows, above it it declines.</li>
+<li><span class="math inline">\(\dot u_2=0\)</span> on the axis <span
+class="math inline">\(u_2=0\)</span> and on the line <span
+class="math inline">\(a_{21}u_1+u_2=1\)</span>, from <span
+class="math inline">\((1/a_{21},0)\)</span> to <span
+class="math inline">\((0,1)\)</span>. Below the line <span
+class="math inline">\(u_2\)</span> grows.</li>
+</ul>
+<p>Fixed points are where a nullcline of <span
+class="math inline">\(u_1\)</span> meets one of <span
+class="math inline">\(u_2\)</span>. The two lines can sit in four ways
+(one above the other, either way, or crossing, either way), and these
+are the four outcomes below. Which one is set by comparing the
+intercepts on each axis: <span class="math inline">\(1\)</span> with
+<span class="math inline">\(1/a_{21}\)</span>, and <span
+class="math inline">\(1/a_{12}\)</span> with <span
+class="math inline">\(1\)</span>.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Two competing species</span></p>
+<p>Move <span class="math inline">\(a_{12}\)</span> and <span
+class="math inline">\(a_{21}\)</span> with the sliders, or drag the dot
+in the first panel: its four quadrants are the four outcomes below.
+Follow the nullclines, the fixed points and two trajectories in the
+phase plane, and the two populations in time. Drag the starts in the
+phase plane. The ratio <span class="math inline">\(r_2/r_1\)</span>
+moves the trajectories, not the nullclines or the fixed points.</p>
+<iframe class="widget" src="material/l6-competition-nullclines.html" title="L6-competition-nullclines" loading="lazy" style="display:block;width:100%;height:520px;border:0;margin:.6rem 0">
+</iframe>
+<script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>
+</div>
+<h2 id="linear-stability-in-two-dimensions">Linear stability in two
+dimensions</h2>
+<p>The same as in <a
+href="l4.html#fixed-points-and-their-stability">L4</a>, now with a
+vector. Write <span class="math inline">\(\dot u_i = f_i(u)\)</span> and
+<span class="math inline">\(u=u^*+\delta\)</span>, with <span
+class="math inline">\(\delta\)</span> small. Expanding, with <span
+class="math inline">\(f(u^*)=0\)</span>,</p>
+<p><span class="math display">\[
+\frac{d\delta_i}{dt} \simeq \sum_j J_{ij}\,\delta_j,\qquad
+J_{ij}=\left.\frac{\partial f_i}{\partial u_j}\right|_{u^*}.
+\]</span></p>
+<p><span class="math inline">\(J\)</span> is the <em>Jacobian</em>. The
+solutions are combinations of <span class="math inline">\(v\,e^{\lambda
+t}\)</span>, with <span class="math inline">\(\lambda\)</span> an
+eigenvalue of <span class="math inline">\(J\)</span> and <span
+class="math inline">\(v\)</span> its eigenvector. So <span
+class="math inline">\(u^*\)</span> is stable if every eigenvalue has a
+negative real part, and unstable if at least one has a positive real
+part. In 2D the eigenvalues solve <span
+class="math inline">\(\lambda^2-(\operatorname{tr}J)\,\lambda+\det
+J=0\)</span>, and</p>
+<p><span class="math display">\[
+\text{stable}\iff \operatorname{tr}J&lt;0\ \text{ and }\ \det J&gt;0 .
+\]</span></p>
+<p>If <span class="math inline">\(\det J&lt;0\)</span> the eigenvalues
+are real with opposite signs: a <em>saddle</em>, attracting along one
+direction and repelling along the other. (Complex eigenvalues give
+spirals, and the full classification is for home: board 5, Strogatz
+5.2.) Unlike in one dimension, the flow is in general not the gradient
+of a potential: that would need a symmetric <span
+class="math inline">\(J\)</span> everywhere, and here <span
+class="math inline">\(J_{ij}\neq J_{ji}\)</span>.</p>
+<p>Here <span class="math inline">\(f_i=u_ig_i\)</span>, with <span
+class="math inline">\(g_i=r_i(1-u_i-a_{ij}u_j)\)</span> the per-capita
+growth rate, so</p>
+<p><span class="math display">\[
+J_{ij} = \delta_{ij}\,g_i(u^*) + u_i^*\,\frac{\partial g_i}{\partial
+u_j}.
+\]</span></p>
+<p>Two kinds of rows:</p>
+<ul>
+<li>if species <span class="math inline">\(i\)</span> is
+<strong>absent</strong>, <span class="math inline">\(u_i^*=0\)</span>,
+its row is zero except <span
+class="math inline">\(J_{ii}=g_i(u^*)\)</span>: <em>the per-capita
+growth rate of <span class="math inline">\(i\)</span> when
+rare</em>;</li>
+<li>if species <span class="math inline">\(i\)</span> is
+<strong>present</strong>, <span
+class="math inline">\(g_i(u^*)=0\)</span> and <span
+class="math inline">\(J_{ij}=u_i^*\,\partial g_i/\partial
+u_j\)</span>.</li>
+</ul>
+<h3 id="extinction">Extinction</h3>
+<p><span class="math inline">\(J=\operatorname{diag}(r_1,r_2)\)</span>:
+unstable. Either species alone grows.</p>
+<h3 id="one-species-alone">One species alone</h3>
+<p>At <span class="math inline">\((1,0)\)</span>,</p>
+<p><span class="math display">\[
+J=\begin{pmatrix} -r_1 &amp; -r_1a_{12}\\ 0 &amp;
+r_2\,(1-a_{21})\end{pmatrix}.
+\]</span></p>
+<p><span class="math inline">\(J\)</span> is triangular, so its
+eigenvalues are on the diagonal:</p>
+<ul>
+<li><span class="math inline">\(-r_1\)</span>: species 1 returns to its
+carrying capacity at rate <span class="math inline">\(r_1\)</span>, as
+alone in L4;</li>
+<li><span class="math inline">\(\lambda_{2|1}=r_2\,(1-a_{21})\)</span>:
+the per-capita growth rate of species 2, rare, in the environment set by
+species 1 at its carrying capacity. This is the <em>invasion growth
+rate</em> of 2 into 1.</li>
+</ul>
+<p>So 1 alone is stable if and only if 2 cannot invade it, <span
+class="math inline">\(a_{21}&gt;1\)</span>. In the same way, at <span
+class="math inline">\((0,1)\)</span>, <span
+class="math inline">\(\lambda_{1|2}=r_1(1-a_{12})\)</span>, and 2 alone
+is stable if and only if <span
+class="math inline">\(a_{12}&gt;1\)</span>.</p>
+<h3 id="coexistence">Coexistence</h3>
+<p><span class="math display">\[
+J=-\begin{pmatrix} r_1u_1^* &amp; r_1a_{12}u_1^*\\ r_2a_{21}u_2^* &amp;
+r_2u_2^*\end{pmatrix},
+\]</span></p>
+<p><span class="math display">\[
+\qquad
+\operatorname{tr}J=-r_1u_1^*-r_2u_2^*&lt;0,
+\qquad
+\det J=r_1r_2\,u_1^*u_2^*\,(1-a_{12}a_{21}).
+\]</span></p>
+<p>When it is feasible, the trace is always negative. So coexistence is
+stable if <span class="math inline">\(a_{12}a_{21}&lt;1\)</span> and a
+saddle if <span class="math inline">\(a_{12}a_{21}&gt;1\)</span>.</p>
+<h2 id="the-four-outcomes">The four outcomes</h2>
+<p>Putting the three results together, the outcome depends only on <span
+class="math inline">\(a_{12}=\alpha_{12}K_2/K_1\)</span> and <span
+class="math inline">\(a_{21}=\alpha_{21}K_1/K_2\)</span>, i.e. on how
+<span class="math inline">\(\alpha_{12}\)</span> compares with <span
+class="math inline">\(K_1/K_2\)</span> and <span
+class="math inline">\(\alpha_{21}\)</span> with <span
+class="math inline">\(K_2/K_1\)</span>:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>condition</th>
+<th>feasible fixed points</th>
+<th>stable</th>
+<th>outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(a_{12}&lt;1\)</span>, <span
+class="math inline">\(a_{21}&lt;1\)</span></td>
+<td>4</td>
+<td>coexistence</td>
+<td><strong>coexistence</strong></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(a_{12}&lt;1\)</span>, <span
+class="math inline">\(a_{21}&gt;1\)</span></td>
+<td>3</td>
+<td><span class="math inline">\((1,0)\)</span></td>
+<td><strong>competitive exclusion</strong>: 1 wins</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(a_{12}&gt;1\)</span>, <span
+class="math inline">\(a_{21}&lt;1\)</span></td>
+<td>3</td>
+<td><span class="math inline">\((0,1)\)</span></td>
+<td><strong>competitive exclusion</strong>: 2 wins</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(a_{12}&gt;1\)</span>, <span
+class="math inline">\(a_{21}&gt;1\)</span></td>
+<td>4</td>
+<td><span class="math inline">\((1,0)\)</span> and <span
+class="math inline">\((0,1)\)</span></td>
+<td><strong>bistability</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Coexistence.</strong> Each species limits itself more than
+it limits the other. The two may share resources, but individuals of the
+same species affect each other more. From any start with both species
+present, the populations go to the coexistence point.</li>
+<li><strong>Competitive exclusion.</strong> One species is the stronger
+competitor: it can invade the other, and the other cannot invade it.
+There is no coexistence point with both densities positive.</li>
+<li><strong>Bistability.</strong> Each species, once established, keeps
+the other out. The coexistence point exists but is a saddle. Its stable
+direction, the <em>separatrix</em>, divides the starts that end with 1
+alone from those that end with 2 alone. Which species wins depends on
+where the populations start.</li>
+</ul>
+<p>In all four cases extinction is unstable: from a few individuals of
+each, both populations first grow. Where they end up depends on <span
+class="math inline">\(a_{12}\)</span> and <span
+class="math inline">\(a_{21}\)</span>. The growth rates <span
+class="math inline">\(r_1\)</span>, <span
+class="math inline">\(r_2\)</span> set how fast, and in the bistable
+case where the separatrix lies, but not which outcomes are possible.</p>
+<h2 id="many-species-with-symmetric-interactions">Many species with
+symmetric interactions</h2>
+<p>With <span class="math inline">\(S\)</span> species, the natural
+generalization keeps each per-capita growth rate linear in all the
+densities, <span class="math inline">\(\dot N_i = N_i\,g_i\)</span> with
+<span class="math inline">\(g_i = r_i+\sum_j A_{ij}N_j\)</span>. This is
+the <em>generalized Lotka–Volterra</em> (GLV) model. <span
+class="math inline">\(A_{ii}&lt;0\)</span> is self-limitation, and the
+sign of <span class="math inline">\(A_{ij}\)</span> is the sign of the
+effect of <span class="math inline">\(j\)</span> on <span
+class="math inline">\(i\)</span>. When <span
+class="math inline">\(A\)</span> is symmetric there is a function that
+always decreases along trajectories:</p>
+<p><span class="math display">\[
+L(N) = -\sum_i r_iN_i - \frac12\sum_{ij}A_{ij}N_iN_j,
+\qquad
+\frac{\partial L}{\partial N_i}=-g_i,
+\qquad
+\frac{dL}{dt}=\sum_i\frac{\partial L}{\partial N_i}\,\dot N_i = -\sum_i
+N_i\,g_i^2\ \le 0 .
+\]</span></p>
+<p>It stops decreasing only at fixed points. <span
+class="math inline">\(L\)</span> is a <em>Lyapunov function</em>: the
+dynamics goes downhill on <span class="math inline">\(L\)</span>, as in
+the 1D potential of L4.</p>
+<p>If, in addition, <span class="math inline">\(-A\)</span> is positive
+definite (self-limitation dominates), <span
+class="math inline">\(L\)</span> is a convex bowl and has a single
+minimum on the region <span class="math inline">\(N_i\ge0\)</span>.
+Every trajectory ends there, so there is no bistability and there are no
+cycles. At the minimum, each species is either</p>
+<ul>
+<li>present, with <span class="math inline">\(\partial L/\partial
+N_i=0\)</span>, i.e. <span class="math inline">\(g_i=0\)</span>; or</li>
+<li>absent, with <span class="math inline">\(\partial L/\partial
+N_i\ge0\)</span>, i.e. <span class="math inline">\(g_i\le0\)</span>: it
+cannot invade.</li>
+</ul>
+<p>The state reached is the one that no absent species can invade: the
+<span class="math inline">\(S\)</span>-species version of the invasion
+criterion. This is MacArthur’s “minimum principle” (<a
+href="https://doi.org/10.1016/0040-5809(70)90039-0">MacArthur 1970</a>),
+and L17–L18 build on it.</p>
+<p><strong>Two species.</strong> With <span
+class="math inline">\(A_{ij}=-r_i\alpha_{ij}/K_i\)</span>, <span
+class="math inline">\(A\)</span> itself is not symmetric. But the
+argument only needs <span class="math inline">\(w_iA_{ij}\)</span>
+symmetric for some weights <span
+class="math inline">\(w_i&gt;0\)</span>. Then <span
+class="math inline">\(L=-\sum_iw_ir_iN_i-\frac12\sum_{ij}w_iA_{ij}N_iN_j\)</span>
+gives <span class="math inline">\(dL/dt=-\sum_iw_iN_ig_i^2\)</span>.
+With <span class="math inline">\(w_i=K_i/r_i\)</span>, <span
+class="math inline">\(w_iA_{ij}=-\alpha_{ij}\)</span> (with <span
+class="math inline">\(\alpha_{ii}=1\)</span>), which is symmetric if
+<span class="math inline">\(\alpha_{12}=\alpha_{21}=\alpha\)</span>. The
+matrix <span
+class="math inline">\(\begin{pmatrix}1&amp;\alpha\\\alpha&amp;1\end{pmatrix}\)</span>
+is positive definite if <span
+class="math inline">\(\alpha&lt;1\)</span>: one outcome, coexistence or
+exclusion depending on <span class="math inline">\(K_1/K_2\)</span>. If
+<span class="math inline">\(\alpha&gt;1\)</span>, <span
+class="math inline">\(L\)</span> has a saddle and two minima:
+bistability.</p>
+<p>Without symmetry there is in general no such function. With three
+species, competition alone can produce cycles of rock–paper–scissors
+type (<a href="https://doi.org/10.1137/0129022">May &amp; Leonard
+1975</a>).</p>
+<h2 id="adding-mortality">Adding mortality</h2>
+<p>Now add a mortality <span class="math inline">\(\delta\)</span>, the
+same for both species (a dilution removes cells regardless of species),
+as at the end of <a href="l4.html#extinction">L4</a>:</p>
+<p><span class="math display">\[
+\frac{dN_i}{dt} =
+r_iN_i\left(1-\frac{N_i+\alpha_{ij}N_j}{K_i}\right)-\delta N_i
+= (r_i-\delta)\,N_i\left(1-\frac{N_i+\alpha_{ij}N_j}{\tilde K_i}\right),
+\qquad
+\tilde K_i = K_i\left(1-\frac{\delta}{r_i}\right).
+\]</span></p>
+<p>It is the same model, with <span class="math inline">\(r_i\to
+r_i-\delta\)</span>, <span class="math inline">\(K_i\to\tilde
+K_i\)</span>, and the same <span
+class="math inline">\(\alpha_{ij}\)</span>. The algebra is the same as
+in L4: mortality lowers each carrying capacity linearly, to zero at
+<span class="math inline">\(\delta=r_i\)</span>. Everything above holds
+with <span class="math inline">\(\tilde K\)</span>, and in
+particular</p>
+<p><span class="math display">\[
+\boxed{\ a_{ij}(\delta)=\alpha_{ij}\,\frac{\tilde K_j}{\tilde K_i} =
+a_{ij}\,\frac{1-\delta/r_j}{1-\delta/r_i}\ }
+\]</span></p>
+<p>which is Eq. 3 of Abreu et al.</p>
+<p><strong>Why the fast grower is favoured.</strong> Mortality removes a
+fraction <span class="math inline">\(\delta/r_i\)</span> of each
+carrying capacity. The slow grower loses the larger fraction. Call <span
+class="math inline">\(f\)</span> the faster species and <span
+class="math inline">\(s\)</span> the slower one, <span
+class="math inline">\(r_f&gt;r_s\)</span>. Taking logs,</p>
+<p><span class="math display">\[
+\ln a_{fs}(\delta)=\ln a_{fs}-\Phi(\delta),\qquad
+\ln a_{sf}(\delta)=\ln a_{sf}+\Phi(\delta),\qquad
+\Phi(\delta)=\ln\frac{1-\delta/r_f}{1-\delta/r_s}.
+\]</span></p>
+<p><span class="math inline">\(\Phi(0)=0\)</span>, and <span
+class="math inline">\(\Phi\)</span> increases with <span
+class="math inline">\(\delta\)</span> and diverges at <span
+class="math inline">\(\delta\to r_s\)</span>. Mortality only shifts the
+pair <span class="math inline">\((\ln a_{fs},\ln a_{sf})\)</span>, by
+<span class="math inline">\(\Phi\)</span> along the direction <span
+class="math inline">\((-1,+1)\)</span>. Three consequences:</p>
+<ol type="1">
+<li><strong>The product <span
+class="math inline">\(a_{fs}a_{sf}\)</span> does not depend on <span
+class="math inline">\(\delta\)</span>.</strong> The pair moves along a
+line at <span class="math inline">\(-45°\)</span> (Abreu’s “45°
+trajectory”). Whether the transition passes through coexistence or
+through bistability is fixed by the pair at <span
+class="math inline">\(\delta=0\)</span>: coexistence if <span
+class="math inline">\(a_{fs}a_{sf}&lt;1\)</span>, bistability if <span
+class="math inline">\(a_{fs}a_{sf}&gt;1\)</span>.</li>
+<li><strong>Mortality can only help the fast grower.</strong> A reversal
+needs a slow grower that wins at low mortality (<span
+class="math inline">\(a_{fs}&gt;1\)</span>), i.e. a <em>tradeoff</em>
+between growth rate and competitive ability. Without it, the fast grower
+wins at every <span class="math inline">\(\delta\)</span>.</li>
+<li><strong>The slow grower is excluded before mortality alone would
+kill it.</strong> As <span class="math inline">\(\delta\to r_s\)</span>,
+<span class="math inline">\(\Phi\to\infty\)</span>. Whatever the <span
+class="math inline">\(a_{ij}\)</span>, the fast grower wins before <span
+class="math inline">\(\delta\)</span> reaches <span
+class="math inline">\(r_s\)</span>. Competition drives a species extinct
+at a mortality it could survive alone.</li>
+</ol>
+<p>The two transitions are at <span
+class="math inline">\(\Phi(\delta)=\ln a_{fs}\)</span> (the fast grower
+starts to invade) and <span class="math inline">\(\Phi(\delta)=-\ln
+a_{sf}\)</span> (the slow grower stops invading). Solving <span
+class="math inline">\(\Phi(\delta)=c\)</span>,</p>
+<p><span class="math display">\[
+\delta=\frac{e^{c}-1}{e^{c}/r_s-1/r_f}.
+\]</span></p>
+<p>In the coexistence window the density of the fast grower is <span
+class="math inline">\(u_f^*=\frac{1-a_{fs}(\delta)}{1-a_{fs}a_{sf}}\)</span>
+(in units of <span class="math inline">\(\tilde K_f\)</span>). The
+denominator is constant, so its share grows with <span
+class="math inline">\(\delta\)</span>.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Competition with mortality</span></p>
+<p>Move the mortality <span class="math inline">\(\delta\)</span> and
+follow three pictures together: the phase plane (nullclines, fixed
+points, flow), the pair <span class="math inline">\((\ln a_{fs},\ln
+a_{sf})\)</span> sliding along its <span
+class="math inline">\(-45°\)</span> line, and the densities at the fixed
+points as a function of <span class="math inline">\(\delta\)</span>. The
+two presets mimic two pairs of soil bacteria in <a
+href="https://doi.org/10.1038/s41467-019-09925-0">Abreu et al. 2019</a>,
+<em>P. veronii</em> (Pv, <span class="math inline">\(r_s=0.43\)</span>
+per hour) with <em>E. aerogenes</em> (Ea, <span
+class="math inline">\(r_f=0.70\)</span>) or with <em>P.
+citronellolis</em> (Pci, <span class="math inline">\(r_f=0.60\)</span>):
+the first crosses coexistence, the second bistability.</p>
+<iframe class="widget" src="material/l6-competition-mortality.html" title="L6-competition-mortality" loading="lazy" style="display:block;width:100%;height:520px;border:0;margin:.6rem 0">
+</iframe>
+<script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>
+</div>
+<h2 id="serial-dilution-is-mortality-again">Serial dilution is
+mortality, again</h2>
+<p>In <a href="l5.html">L5</a> a daily dilution by a factor <span
+class="math inline">\(D\)</span> was treated as a mortality <span
+class="math inline">\(\delta=\ln D/T\)</span> per unit time (<span
+class="math inline">\(T\)</span> = one cycle). That was an
+approximation: the Allee per-capita rate is not linear in the density.
+For Lotka–Volterra it is exact, as far as invasion is concerned (Abreu
+et al., Supplementary Note 2, state the same).</p>
+<p>Within a cycle there is no death, only growth. A resident <span
+class="math inline">\(s\)</span>, alone and at its periodic steady
+state, must grow by exactly a factor <span
+class="math inline">\(D\)</span> in each cycle:</p>
+<p><span class="math display">\[
+\ln D=\int_0^T r_s\left(1-\frac{N_s(t)}{K_s}\right)dt
+\quad\Longrightarrow\quad
+\bar N_s\equiv\frac1T\int_0^TN_s\,dt =
+K_s\left(1-\frac{\delta}{r_s}\right)=\tilde K_s .
+\]</span></p>
+<p>A rare invader <span class="math inline">\(f\)</span> grows during
+the cycle and is diluted at its end:</p>
+<p><span class="math display">\[
+\ln\frac{N_f(T)}{D\,N_f(0)}=\int_0^T
+r_f\left(1-\alpha_{fs}\frac{N_s(t)}{K_f}\right)dt-\ln D
+=T\,(r_f-\delta)\left(1-\alpha_{fs}\frac{\tilde K_s}{\tilde
+K_f}\right)=T\,\lambda_{f|s}(\delta).
+\]</span></p>
+<p>This is exactly the continuous-time invasion rate. The per-capita
+rate is linear in the densities, so only the <em>time average</em> of
+the resident matters, and the resident’s own balance fixes that average.
+The coexistence densities are not the same as in continuous time, and
+nothing here holds once the per-capita rate is nonlinear (the Allee
+effect of L5) or with lag phases.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Write the Jacobian of the competitive LV model at its four fixed
+points. Check that at the single-species points the eigenvalues are
+<span class="math inline">\(-r_i\)</span> and the invasion rate of the
+other species.</li>
+<li>Show that the coexistence point is feasible and stable if and only
+if both species can invade, and a saddle if and only if neither
+can.</li>
+<li>Mutualism: <span class="math inline">\(\dot N_i =
+r_iN_i\bigl(1-(N_i-\beta_{ij}N_j)/K_i\bigr)\)</span> with <span
+class="math inline">\(\beta_{ij}&gt;0\)</span>. Show that a stable
+coexistence point exists if <span
+class="math inline">\(\beta_{12}\beta_{21}&lt;1\)</span>, and that
+otherwise both populations grow without bound.</li>
+<li>Species-specific mortality <span
+class="math inline">\(\delta_i\)</span> (an antibiotic that kills fast
+growers more). Find the fixed points and their stability.</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>Strogatz 5.1–5.2 (linear systems and their classification) and
+6.1–6.4 (phase plane, linearization, and the competitive Lotka–Volterra
+model as “rabbits versus sheep”).</li>
+<li>2020 board 5: linear systems in more than one dimension. Spectral
+decomposition, a potential only for symmetric matrices, oscillations
+from complex eigenvalues.</li>
+<li>G. F. Gause, <em>The Struggle for Existence</em> (1934), for the
+experiments themselves.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>A. J. Lotka, <em>Elements of Physical Biology</em> (Williams &amp;
+Wilkins, 1925).</li>
+<li>V. Volterra, <a href="https://doi.org/10.1038/118558a0">Fluctuations
+in the abundance of a species considered mathematically</a>,
+<em>Nature</em> <strong>118</strong>, 558 (1926).</li>
+<li>G. F. Gause, <a
+href="https://doi.org/10.1242/jeb.9.4.389">Experimental studies on the
+struggle for existence</a>, <em>J. Exp. Biol.</em> <strong>9</strong>,
+389 (1932).</li>
+<li>G. F. Gause, <a
+href="https://doi.org/10.1126/science.79.2036.16-a">Experimental
+analysis of Vito Volterra’s mathematical theory of the struggle for
+existence</a>, <em>Science</em> <strong>79</strong>, 16 (1934).</li>
+<li>G. F. Gause, <em>The Struggle for Existence</em> (Williams &amp;
+Wilkins, 1934).</li>
+<li>L. Mühlbauer et al., <a
+href="https://doi.org/10.1002/ece3.6926">gauseR: simple methods for
+fitting Lotka–Volterra models</a>, <em>Ecol. Evol.</em>
+<strong>10</strong>, 13275 (2020).</li>
+<li>G. Hardin, <a
+href="https://doi.org/10.1126/science.131.3409.1292">The competitive
+exclusion principle</a>, <em>Science</em> <strong>131</strong>, 1292
+(1960).</li>
+<li>R. MacArthur, <a
+href="https://doi.org/10.1016/0040-5809(70)90039-0">Species packing and
+competitive equilibrium for many species</a>, <em>Theor. Popul.
+Biol.</em> <strong>1</strong>, 1 (1970).</li>
+<li>F. M. Stewart, B. R. Levin, <a
+href="https://doi.org/10.1086/282825">Partitioning of resources and the
+outcome of interspecific competition</a>, <em>Am. Nat.</em>
+<strong>107</strong>, 171 (1973).</li>
+<li>R. M. May, W. J. Leonard, <a
+href="https://doi.org/10.1137/0129022">Nonlinear aspects of competition
+between three species</a>, <em>SIAM J. Appl. Math.</em>
+<strong>29</strong>, 243 (1975).</li>
+<li>J. Friedman, L. M. Higgins, J. Gore, <a
+href="https://doi.org/10.1038/s41559-017-0109">Community structure
+follows simple assembly rules in microbial microcosms</a>, <em>Nat.
+Ecol. Evol.</em> <strong>1</strong>, 0109 (2017).</li>
+<li>C. I. Abreu, J. Friedman, V. L. Andersen Woltz, J. Gore, <a
+href="https://doi.org/10.1038/s41467-019-09925-0">Mortality causes
+universal changes in microbial community composition</a>, <em>Nat.
+Commun.</em> <strong>10</strong>, 2120 (2019); data: <a
+href="https://figshare.com/projects/Added_mortality_causes_universal_changes_in_microbial_community_composition/58304">figshare</a>.</li>
+<li>S. H. Strogatz, <em>Nonlinear Dynamics and Chaos</em>, ch. 5–6.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l6.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>

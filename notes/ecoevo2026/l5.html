@@ -81,8 +81,7 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script defer=""
-src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -125,23 +124,23 @@ There are three cases:</p>
 <col style="width: 65%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>per-capita rate <span class="math inline">\(g(N)\)</span></th>
 <th>name</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>decreasing</td>
 <td>no Allee effect (logistic)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>increasing at low <span class="math inline">\(N\)</span>, <span
 class="math inline">\(g(0)&gt;0\)</span></td>
 <td><em>weak</em> Allee effect (same fixed-point behavior as the
 logistic)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>increasing at low <span class="math inline">\(N\)</span>, <span
 class="math inline">\(g(0)&lt;0\)</span></td>
 <td><em>strong</em> Allee effect: small populations decline</td>
@@ -189,7 +188,7 @@ class="math inline">\(g&#39;(0)=1+\alpha\)</span>, it covers all three
 cases:</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th><span class="math inline">\(\alpha\)</span></th>
 <th><span class="math inline">\(g(0)\)</span></th>
 <th><span class="math inline">\(g&#39;(0)\)</span></th>
@@ -197,19 +196,19 @@ cases:</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><span class="math inline">\(\alpha&lt;-1\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td><span class="math inline">\(&lt;0\)</span></td>
 <td>no Allee effect</td>
 </tr>
-<tr>
+<tr class="even">
 <td><span class="math inline">\(-1&lt;\alpha&lt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
 <td>weak</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><span class="math inline">\(0&lt;\alpha&lt;1\)</span></td>
 <td><span class="math inline">\(&lt;0\)</span></td>
 <td><span class="math inline">\(&gt;0\)</span></td>
@@ -452,7 +451,7 @@ starting below it go extinct.</p>
 <col style="width: 9%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>fixed point</th>
 <th>value</th>
 <th>is feasible (<span class="math inline">\(u^* \geq 0\)</span>)
@@ -462,14 +461,14 @@ when</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>extinction</td>
 <td><span class="math inline">\(0\)</span></td>
 <td>always</td>
 <td><span class="math inline">\(m_T-m\)</span></td>
 <td>if <span class="math inline">\(m&gt;m_T\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td><span class="math inline">\(u_+\)</span></td>
 <td><span class="math inline">\(u_c+\sqrt{m_F-m}\)</span></td>
 <td><span class="math inline">\(m&lt;m_F\)</span> if <span
@@ -479,7 +478,7 @@ class="math inline">\(\alpha&lt;-1\)</span></td>
 <td><span class="math inline">\(-2u_+\sqrt{m_F-m}\)</span></td>
 <td>always</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><span class="math inline">\(u_-\)</span> (threshold)</td>
 <td><span class="math inline">\(u_c-\sqrt{m_F-m}\)</span></td>
 <td><span class="math inline">\(m_T&lt;m&lt;m_F\)</span> and <span
@@ -573,24 +572,24 @@ class="math inline">\(u_-\)</span>.</li>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>logistic + <span class="math inline">\(\delta\)</span></th>
 <th>Allee + <span class="math inline">\(\delta\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>bifurcation</td>
 <td>transcritical</td>
 <td>fold (plus a transcritical if weak)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>density at the threshold</td>
 <td><span class="math inline">\(\to 0\)</span></td>
 <td><span class="math inline">\(u_c&gt;0\)</span>: a jump</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>undoing it</td>
 <td>reduce <span class="math inline">\(\delta\)</span> just below <span
 class="math inline">\(\delta_c\)</span></td>
@@ -899,10 +898,11 @@ merges with the maximum and disappears: a fold.</p>
 </iframe>
 <script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>
 </div>
-<p>This is mean-field Ising, i.e. Landau theory: <span
-class="math inline">\(x\)</span> is the magnetization, <span
-class="math inline">\(J\propto T_c-T\)</span>, <span
-class="math inline">\(H\)</span> is the external field, and <span
+<p>This is the mean-field Ising model (the Curie–Weiss model, where
+every spin interacts with every other and mean field is exact), in its
+Landau form: <span class="math inline">\(x\)</span> is the
+magnetization, <span class="math inline">\(J\propto T_c-T\)</span>,
+<span class="math inline">\(H\)</span> is the external field, and <span
 class="math inline">\(V\)</span> is the free energy. The cusp is the
 critical point, the fold lines are the spinodals, and the hysteresis
 loop is the one of a magnet.</p>
@@ -922,19 +922,6 @@ class="math inline">\(u_\pm\)</span>;</li>
 <li>show that the fold line and the transcritical line are tangent at
 <span class="math inline">\(\alpha=-1\)</span>.</li>
 </ul></li>
-<li>Derive the normal form near <span
-class="math inline">\((u_c,m_F)\)</span>. Show that the recovery rate
-and the basin width both scale as <span
-class="math inline">\(\sqrt{m_F-m}\)</span>, and that their ratio is
-<span class="math inline">\(u_+\)</span>.</li>
-<li>(Colab) Take <span class="math inline">\(\alpha=-0.3\)</span>.
-Increase <span class="math inline">\(m\)</span> slowly from 0 past <span
-class="math inline">\(m_F\)</span>, then decrease it back to 0, starting
-from a small nonzero <span class="math inline">\(u\)</span> each time it
-collapses. Plot <span class="math inline">\(u\)</span> against <span
-class="math inline">\(m\)</span> and find the hysteresis loop. What
-changes if <span class="math inline">\(u\)</span> is set exactly to zero
-after the collapse?</li>
 <li>A public good. A cooperative species secretes a product <span
 class="math inline">\(G\)</span> that decays at rate <span
 class="math inline">\(\gamma\)</span>, with <span
@@ -946,26 +933,6 @@ class="math inline">\(\phi\)</span> the Monod function of L4.
 <li>Show that the per-capita rate has a weak Allee effect.</li>
 <li>What sets <span class="math inline">\(g(0)\)</span>? What happens
 when <span class="math inline">\(b_0=0\)</span>?</li>
-</ul></li>
-<li>Dai et al.: from <span
-class="math inline">\(\ln(n_\mathrm{final}/n_\mathrm{initial})-\ln
-D\)</span> against <span class="math inline">\(\log_{10}
-n_\mathrm{initial}\)</span> (data in the course folder), read off the
-fixed points for each <span class="math inline">\(D\)</span> as the zero
-crossings. Convert them to end-of-day densities, <span
-class="math inline">\(n^*=D\,n_\mathrm{initial}^*\)</span>, and compare
-them with the trajectories.</li>
-<li>Immigration:
-<ul>
-<li>derive the parametric fold lines <span
-class="math inline">\((m(u),\lambda(u))\)</span> and the cusp;</li>
-<li>show that for small <span class="math inline">\(\lambda\)</span> the
-lower fold moves as <span
-class="math inline">\(m_T+2\sqrt{(1+\alpha)\lambda}\)</span> and the
-upper one as <span
-class="math inline">\(m_F+2\lambda/(1+\alpha)\)</span>;</li>
-<li>what does this imply for restoring a collapsed population by adding
-immigrants?</li>
 </ul></li>
 <li>The spruce budworm (Strogatz 3.7), <span class="math inline">\(\dot
 x = rx(1-x/k) - x^2/(1+x^2)\)</span>.

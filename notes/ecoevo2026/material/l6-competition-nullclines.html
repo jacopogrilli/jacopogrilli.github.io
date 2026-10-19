@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two-species competition</title>
+<!--
+  Interactive figure for L6 (Nullclines): two-species competitive Lotka-Volterra in units of the
+  carrying capacities, u_i = N_i/K_i, and of time 1/r_1:
+    du1/dt = u1 (1 - u1 - a12 u2),   du2/dt = rho u2 (1 - u2 - a21 u1),   rho = r2/r1.
+  Parameters: a12, a21 (sliders, or the draggable dot in the first panel) and rho, which moves the
+  trajectories and the separatrix but not the nullclines, the fixed points or their stability.
+  Panels: the (a12, a21) plane with the four outcome quadrants; phase plane (nullclines, flow, fixed points,
+  separatrix, two trajectories from draggable starts); u1(t), u2(t) for the two starts.
+  Embedded in the published note as an iframe (publish_notes.py, `![[L6-competition-nullclines.html]]`).
+  Self-contained: no external scripts. Same layout and colours as L6-competition-mortality.html.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+  --sp1: #c27c0e; --sp2: #3f7f3f; --red: #c44e52;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+    --sp1: #e3a64a; --sp2: #7cc47c; --red: #ef8a8d;
+  }
+}
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --q-coex: color-mix(in srgb, var(--accent) 11%, transparent);
+        --q-1: color-mix(in srgb, var(--sp1) 15%, transparent);
+        --q-2: color-mix(in srgb, var(--sp2) 15%, transparent);
+        --q-bist: color-mix(in srgb, var(--red) 13%, transparent);
+        --flow: color-mix(in srgb, var(--muted) 55%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.sliders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .1rem 1.1rem; margin-bottom: .35rem; }
+@media (max-width: 560px) { .sliders { grid-template-columns: 1fr; } }
+.sl { display: flex; align-items: center; gap: .45rem; }
+.sl label { min-width: 2.2em; font-weight: 600; white-space: nowrap; }
+.sl.s1 label { color: var(--sp1); } .sl.s2 label { color: var(--sp2); }
+.sl input[type=range] { flex: 1 1 auto; min-width: 80px; accent-color: var(--accent); }
+.sl output { min-width: 2.8em; text-align: right; font-variant-numeric: tabular-nums; }
+.controls { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.controls .lab { color: var(--muted); font-size: .9rem; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: .88rem; background: transparent; color: var(--muted); border: 0;
+              padding: .15rem .6rem; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed=true] { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--fg); font-weight: 600; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .nc1 { fill: none; stroke: var(--sp1); stroke-width: 2.5; }
+svg .nc2 { fill: none; stroke: var(--sp2); stroke-width: 2.5; }
+svg .ts1 { fill: none; stroke: var(--sp1); stroke-width: 2.2; }
+svg .ts2 { fill: none; stroke: var(--sp2); stroke-width: 2.2; }
+svg .dash { stroke-dasharray: 6 4; }
+svg .sep { fill: none; stroke: var(--fg); stroke-width: 1.6; stroke-dasharray: 5 4; }
+svg .traj { fill: none; stroke: var(--accent); stroke-width: 1.8; opacity: .85; }
+svg .start { fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: grab; }
+svg .flow { fill: var(--flow); }
+svg .flowl { stroke: var(--flow); stroke-width: 1.2; }
+svg .stable-pt { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .unstable-pt { fill: var(--bg); stroke: var(--fg); stroke-width: 2; }
+svg .now-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; cursor: grab; }
+svg .q-coex { fill: var(--q-coex); } svg .q-1 { fill: var(--q-1); }
+svg .q-2 { fill: var(--q-2); } svg .q-bist { fill: var(--q-bist); }
+svg .qlab { font-size: 11px; }
+svg .icpt1 { fill: var(--sp1); font-size: 11px; } svg .icpt2 { fill: var(--sp2); font-size: 11px; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+.c1 { color: var(--sp1); font-weight: 600; } .c2 { color: var(--sp2); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sliders" id="sliders"></div>
+  <div class="controls">
+    <span class="lab">Examples:</span>
+    <span class="seg" role="group" aria-label="examples" id="presets"></span>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p3" role="img" aria-label="outcome plane"></svg>
+      <figcaption>The pair in the (<i>a</i><sub>12</sub>, <i>a</i><sub>21</sub>) plane (drag the dot)</figcaption></figure>
+    <figure><svg id="p1" role="img" aria-label="phase plane"></svg>
+      <figcaption>Phase plane (drag the open circles to move the starts)</figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="populations against time"></svg>
+      <figcaption>The two populations in time, from the two starts</figcaption></figure>
+  </div>
+  <div class="note">
+    <span class="c1">Species 1</span>, <span class="c2">species 2</span>. Densities in units of the carrying capacities, <i>u<sub>i</sub></i> = <i>N<sub>i</sub></i>/<i>K<sub>i</sub></i>; time in units of 1/<i>r</i><sub>1</sub>.
+    First panel: <i>a</i><sub>12</sub> = <i>α</i><sub>12</sub><i>K</i><sub>2</sub>/<i>K</i><sub>1</sub>, <i>a</i><sub>21</sub> = <i>α</i><sub>21</sub><i>K</i><sub>1</sub>/<i>K</i><sub>2</sub>; the quadrants are the four outcomes.
+    Phase plane: coloured lines are the nullclines, <span class="c1"><i>u</i><sub>1</sub> + <i>a</i><sub>12</sub><i>u</i><sub>2</sub> = 1</span> and <span class="c2"><i>a</i><sub>21</sub><i>u</i><sub>1</sub> + <i>u</i><sub>2</sub> = 1</span> (the axes are nullclines too); grey arrows the direction of the flow; blue lines the two trajectories (solid and dashed); dashed black the separatrix.
+    Black dots: fixed points, filled if stable, open if unstable; blue open circles: the two starts.
+    Last panel: <i>u</i><sub>1</sub>(<i>t</i>) and <i>u</i><sub>2</sub>(<i>t</i>), solid and dashed for the two starts.
+    The ratio <i>r</i><sub>2</sub>/<i>r</i><sub>1</sub> changes the trajectories and the separatrix, not the nullclines, the fixed points or the outcome.
+  </div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const readout = document.getElementById("readout");
+
+// ---------------------------------------------------------------- parameters
+const AMAX = 2.5;
+const SPEC = [   // key, label (HTML), min, max, step, species class; rho is on a log10 slider
+  ["a12", "<i>a</i><sub>12</sub>", 0, AMAX, 0.01, 1],
+  ["a21", "<i>a</i><sub>21</sub>", 0, AMAX, 0.01, 2],
+  ["rho", "<i>r</i><sub>2</sub>/<i>r</i><sub>1</sub>", -0.7, 0.7, 0.01, 0],
+];
+const PRESETS = {
+  coex: { label: "coexistence", a12: 0.5, a21: 0.6 },
+  one:  { label: "1 wins",      a12: 0.5, a21: 1.6 },
+  two:  { label: "2 wins",      a12: 1.6, a21: 0.5 },
+  bist: { label: "bistable",    a12: 1.5, a21: 1.8 },
+};
+const PKEYS = ["a12", "a21"];
+let par = { a12: PRESETS.coex.a12, a21: PRESETS.coex.a21, rho: 1 };
+let state = { starts: [[0.4, 0.08], [0.08, 0.6]] };
+const TMAX = 30, DT = 0.02, UMAX = 1.5;
+
+const inputs = {}, outs = {};
+const slBox = document.getElementById("sliders");
+for (const [k, lab, mn, mx, st, sp] of SPEC) {
+  const d = document.createElement("div");
+  d.className = "sl" + (sp ? " s" + sp : "");
+  d.innerHTML = `<label for="${k}">${lab}</label><input type="range" id="${k}" min="${mn}" max="${mx}" step="${st}"><output for="${k}"></output>`;
+  slBox.appendChild(d);
+  inputs[k] = d.querySelector("input"); outs[k] = d.querySelector("output");
+  inputs[k].addEventListener("input", () => {
+    const v = +inputs[k].value;
+    par[k] = k === "rho" ? Math.pow(10, v) : v;
+    syncPresets(); draw();
+  });
+}
+const segBox = document.getElementById("presets");
+for (const k in PRESETS) {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = PRESETS[k].label; b.dataset.k = k;
+  b.addEventListener("click", () => { for (const q of PKEYS) par[q] = PRESETS[k][q]; syncInputs(); syncPresets(); draw(); });
+  segBox.appendChild(b);
+}
+function syncInputs() {
+  inputs.a12.value = par.a12; inputs.a21.value = par.a21; inputs.rho.value = Math.log10(par.rho);
+}
+function syncPresets() {
+  for (const b of segBox.children) {
+    const p = PRESETS[b.dataset.k];
+    b.setAttribute("aria-pressed", PKEYS.every(k => Math.abs(p[k] - par[k]) < 1e-9));
+  }
+}
+function showValues() { for (const [k] of SPEC) outs[k].textContent = par[k].toFixed(2); }
+
+// ---------------------------------------------------------------- model (r1 = 1, r2 = rho)
+function F(u) {
+  const { a12, a21, rho } = par;
+  return [u[0] * (1 - u[0] - a12 * u[1]), rho * u[1] * (1 - u[1] - a21 * u[0])];
+}
+function J(u) {
+  const { a12, a21, rho } = par;
+  return [[1 - 2 * u[0] - a12 * u[1], -a12 * u[0]],
+          [-rho * a21 * u[1], rho * (1 - 2 * u[1] - a21 * u[0])]];
+}
+function stable(u) { const j = J(u); return j[0][0] + j[1][1] < 0 && j[0][0] * j[1][1] - j[0][1] * j[1][0] > 0; }
+function fixedPoints() {
+  const { a12, a21 } = par;
+  const out = [{ u: [0, 0], kind: "0" }, { u: [1, 0], kind: "1" }, { u: [0, 1], kind: "2" }];
+  const den = 1 - a12 * a21;
+  if (Math.abs(den) > 1e-9) {
+    const u1 = (1 - a12) / den, u2 = (1 - a21) / den;
+    if (u1 > 1e-9 && u2 > 1e-9) out.push({ u: [u1, u2], kind: "c" });
+  }
+  for (const p of out) p.stable = stable(p.u);
+  return out;
+}
+function outcome() {
+  const x = par.a12, y = par.a21;
+  if (x < 1 && y < 1) return "coex";
+  if (x < 1) return "one";
+  if (y < 1) return "two";
+  return "bist";
+}
+function rk4(x, h) {
+  const k1 = F(x);
+  const k2 = F([x[0] + h / 2 * k1[0], x[1] + h / 2 * k1[1]]);
+  const k3 = F([x[0] + h / 2 * k2[0], x[1] + h / 2 * k2[1]]);
+  const k4 = F([x[0] + h * k3[0], x[1] + h * k3[1]]);
+  return [x[0] + h / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]),
+          x[1] + h / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])];
+}
+// trajectory: points [t, u1, u2], to TMAX for the time panel and on to convergence for the phase plane
+function trajectory(s0) {
+  let x = s0.slice(), t = 0;
+  const pts = [[0, x[0], x[1]]];
+  for (let k = 0; k < 40000; k++) {
+    const y = rk4(x, DT); t += DT;
+    if (k % 5 === 4 || t <= TMAX) pts.push([t, y[0], y[1]]);
+    if (t > TMAX && Math.hypot(y[0] - x[0], y[1] - x[1]) < 1e-9) break;
+    x = y;
+  }
+  return pts;
+}
+
+// ---------------------------------------------------------------- drawing helpers
+const P = {
+  p1: { x: [0, UMAX], y: [0, UMAX], xt: [0, 0.5, 1, 1.5], yt: [0, 0.5, 1, 1.5], xl: "u_1", yl: "u_2", sq: true },
+  p2: { x: [0, TMAX], y: [0, UMAX], xt: [0, 10, 20, 30], yt: [0, 0.5, 1, 1.5], xl: "r_1 t", yl: "u_1, u_2" },
+  p3: { x: [0, AMAX], y: [0, AMAX], xt: [0, 1, 2], yt: [0, 1, 2], xl: "a_12", yl: "a_21", sq: true },
+};
+const M = { l: 44, r: 10, t: 10, b: 40 };
+const geom = {};
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const fmt = (v, n = 2) => (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n);
+function label(parent, text, attrs) {      // "_12", "_1": subscripts
+  const t = el("text", attrs, parent);
+  for (const part of text.split(/(_[a-zA-Z0-9]{1,2})/)) {
+    if (!part) continue;
+    if (part[0] === "_") {
+      el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t).textContent = part.slice(1);
+      el("tspan", { "baseline-shift": "0" }, t).textContent = "​";
+    } else t.appendChild(document.createTextNode(part));
+  }
+  return t;
+}
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth, p = P[id];
+  const h = p.sq ? Math.round(Math.min(Math.max(w - M.l - M.r + M.t + M.b, 200), 330))
+                 : Math.round(Math.min(Math.max(w * 0.82, 200), 300));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]),
+               iy: py => p.y[1] - (py - M.t) / (h - M.t - M.b) * (p.y[1] - p.y[0]) };
+}
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: id + "-clip" }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  const bg = el("g", { "clip-path": `url(#${id}-clip)` }, svg);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+  for (const v of p.xt) el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg).textContent = v;
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return { bg, fg: el("g", { "clip-path": `url(#${id}-clip)` }, svg) };
+}
+function poly(id, pts, cls, parent) {
+  const { sx, sy } = geom[id];
+  let d = "";
+  pts.forEach((q, i) => { d += (i ? "L" : "M") + sx(q[0]).toFixed(1) + "," + sy(q[1]).toFixed(1); });
+  return el("path", { d, class: cls }, parent);
+}
+function dot(id, x, y, cls, parent, r = 5.5) {
+  const { sx, sy } = geom[id];
+  return el("circle", { cx: sx(x), cy: sy(y), r, class: cls }, parent);
+}
+
+// ---------------------------------------------------------------- panels
+function drawPhase(trajs) {
+  const id = "p1", { sx, sy, p, svg } = geom[id];
+  const { bg, fg } = frame(id);
+  const { a12, a21 } = par;
+  // flow: short arrows of fixed length on a grid (direction only)
+  const n = 10, L = 6, H = 3.2;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+    const x = [(i + 0.5) / n * p.x[1], (j + 0.5) / n * p.y[1]];
+    const v = F(x), m = Math.hypot(sx(x[0] + v[0]) - sx(x[0]), sy(x[1] + v[1]) - sy(x[1]));
+    if (m < 1e-12) continue;
+    const ux = (sx(x[0] + v[0]) - sx(x[0])) / m, uy = (sy(x[1] + v[1]) - sy(x[1])) / m;
+    const cx = sx(x[0]), cy = sy(x[1]), tx = cx + ux * L, ty = cy + uy * L;
+    el("line", { class: "flowl", x1: cx - ux * L, y1: cy - uy * L, x2: tx - ux * H, y2: ty - uy * H }, bg);
+    el("path", { class: "flow", d: `M${tx},${ty} L${tx - ux * 2 * H - uy * H},${ty - uy * 2 * H + ux * H} L${tx - ux * 2 * H + uy * H},${ty - uy * 2 * H - ux * H} Z` }, bg);
+  }
+  // nullclines (the axes are nullclines too): u1 + a12 u2 = 1, a21 u1 + u2 = 1
+  poly(id, a12 > 1e-9 ? [[1, 0], [0, 1 / a12]] : [[1, 0], [1, 1e4]], "nc1", fg);
+  poly(id, a21 > 1e-9 ? [[1 / a21, 0], [0, 1]] : [[0, 1], [1e4, 1]], "nc2", fg);
+  // intercepts 1/a12 (species 1, on the u2 axis) and 1/a21 (species 2, on the u1 axis), when in range
+  if (a12 > 1 / p.y[1]) el("text", { x: M.l + 4, y: sy(1 / a12) - 4, class: "icpt1" }, svg).textContent = "1/a₁₂";
+  if (a21 > 1 / p.x[1]) el("text", { x: sx(1 / a21) + 3, y: sy(0) - 5, class: "icpt2" }, svg).textContent = "1/a₂₁";
+  const fps = fixedPoints();
+  // separatrix: stable manifold of the coexistence saddle, integrated backward
+  const c = fps.find(q => q.kind === "c");
+  if (c && !c.stable) {
+    const j = J(c.u), tr = j[0][0] + j[1][1], det = j[0][0] * j[1][1] - j[0][1] * j[1][0];
+    const lam = tr / 2 - Math.sqrt(tr * tr / 4 - det);                   // the negative eigenvalue
+    let v = Math.abs(j[0][1]) > 1e-12 ? [j[0][1], lam - j[0][0]] : [lam - j[1][1], j[1][0]];
+    const nv = Math.hypot(v[0], v[1]); v = [v[0] / nv, v[1] / nv];
+    for (const sg of [1, -1]) {
+      let x = [c.u[0] + sg * 1e-5 * v[0], c.u[1] + sg * 1e-5 * v[1]];
+      const pts = [c.u.slice(), x];
+      for (let k = 0; k < 20000; k++) {
+        x = rk4(x, -DT);
+        if (x[0] < 0 || x[1] < 0 || x[0] > 1.5 * p.x[1] || x[1] > 1.5 * p.y[1] || x[0] + x[1] < 1e-4) break;
+        pts.push(x);
+      }
+      poly(id, pts, "sep", fg);
+    }
+  }
+  trajs.forEach((tr, k) => poly(id, tr.map(q => [q[1], q[2]]), "traj" + (k ? " dash" : ""), fg));
+  for (const q of fps) dot(id, q.u[0], q.u[1], q.stable ? "stable-pt" : "unstable-pt", svg);
+  state.starts.forEach(s0 => dot(id, s0[0], s0[1], "start", svg, 6));
+}
+
+function drawTime(trajs) {
+  const id = "p2";
+  const { fg } = frame(id);
+  trajs.forEach((tr, k) => {
+    const pts = tr.filter(q => q[0] <= TMAX + 1e-9);
+    poly(id, pts.map(q => [q[0], q[1]]), "ts1" + (k ? " dash" : ""), fg);
+    poly(id, pts.map(q => [q[0], q[2]]), "ts2" + (k ? " dash" : ""), fg);
+  });
+}
+
+function drawPlane() {
+  const id = "p3", { sx, sy, p, svg } = geom[id];
+  const { bg } = frame(id);
+  const quad = (x0, x1, y0, y1, cls) => el("rect", { x: sx(x0), y: sy(y1), width: sx(x1) - sx(x0), height: sy(y0) - sy(y1), class: cls }, bg);
+  quad(0, 1, 0, 1, "q-coex"); quad(0, 1, 1, p.y[1], "q-1");
+  quad(1, p.x[1], 0, 1, "q-2"); quad(1, p.x[1], 1, p.y[1], "q-bist");
+  el("line", { class: "zero", x1: sx(1), x2: sx(1), y1: sy(p.y[0]), y2: sy(p.y[1]) }, bg);
+  el("line", { class: "zero", x1: sx(p.x[0]), x2: sx(p.x[1]), y1: sy(1), y2: sy(1) }, bg);
+  const ql = (x, y, t, anchor) => el("text", { x: sx(x), y: sy(y), class: "qlab", "text-anchor": anchor }, bg).textContent = t;
+  ql(0.06, 0.08, "coexistence", "start");
+  ql(0.06, p.y[1] - 0.16, "1 wins", "start");
+  ql(p.x[1] - 0.06, 0.08, "2 wins", "end");
+  ql(p.x[1] - 0.06, p.y[1] - 0.16, "bistable", "end");
+  dot(id, par.a12, par.a21, "now-pt", svg, 6.5);
+}
+
+// ---------------------------------------------------------------- readout
+function describe() {
+  const o = outcome(), x = par.a12, y = par.a21;
+  const word = { coex: "<b>Coexistence</b>: each species can invade the other",
+                 one: "<b>1 excludes 2</b>: 1 can invade 2, 2 cannot invade 1",
+                 two: "<b>2 excludes 1</b>: 2 can invade 1, 1 cannot invade 2",
+                 bist: "<b>Bistable</b>: neither can invade the other, the winner depends on the start (dashed black: separatrix)" }[o];
+  const fps = fixedPoints().filter(q => q.kind !== "0");
+  const name = { "1": "(1, 0)", "2": "(0, 1)", c: "coexistence" };
+  const fptxt = fps.map(q => `${name[q.kind]}${q.kind === "c" ? ` (${fmt(q.u[0])}, ${fmt(q.u[1])})` : ""} ${q.stable ? "stable" : (q.kind === "c" ? "saddle" : "unstable")}`).join(", ");
+  readout.innerHTML = `${word}. `
+    + `Invasion rates (units of <i>r</i><sub>1</sub>): <span class="c1">1</span> into <span class="c2">2</span> alone 1 − <i>a</i><sub>12</sub> = ${fmt(1 - x)}, `
+    + `<span class="c2">2</span> into <span class="c1">1</span> alone (<i>r</i><sub>2</sub>/<i>r</i><sub>1</sub>)(1 − <i>a</i><sub>21</sub>) = ${fmt(par.rho * (1 - y))}. `
+    + `Fixed points: ${fptxt}${fps.some(q => q.kind === "c") ? "" : " (no coexistence point with both positive)"}.`;
+}
+
+function draw() {
+  showValues();
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+  const trajs = state.starts.map(trajectory);
+  drawPlane(); drawPhase(trajs); drawTime(trajs); describe();
+  postHeight();
+}
+
+// ---------------------------------------------------------------- interaction
+function pointerPos(id, e) {
+  const rc = geom[id].svg.getBoundingClientRect();
+  return [geom[id].ix(e.clientX - rc.left), geom[id].iy(e.clientY - rc.top)];
+}
+function dragOn(id, onMove) {
+  const svg = document.getElementById(id);
+  svg.addEventListener("pointerdown", e => { e.preventDefault(); svg.setPointerCapture(e.pointerId); onMove(pointerPos(id, e), true); });
+  svg.addEventListener("pointermove", e => { if (svg.hasPointerCapture(e.pointerId)) onMove(pointerPos(id, e), false); });
+}
+let which = 0;
+dragOn("p1", ([x, y], first) => {
+  x = Math.min(Math.max(x, 0.002), UMAX); y = Math.min(Math.max(y, 0.002), UMAX);
+  if (first) {                                        // move the start nearest to the pointer
+    const dist = state.starts.map(s => Math.hypot(s[0] - x, s[1] - y));
+    which = dist[0] <= dist[1] ? 0 : 1;
+  }
+  state.starts[which] = [x, y]; draw();
+});
+dragOn("p3", ([x, y]) => {
+  const clamp = v => Math.round(Math.min(Math.max(v, 0), AMAX) * 100) / 100;
+  par.a12 = clamp(x); par.a21 = clamp(y);
+  syncInputs(); syncPresets(); draw();
+});
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+syncInputs(); syncPresets(); draw();
+</script>
+</body>
+</html>
