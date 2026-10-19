@@ -11,7 +11,7 @@
   Parameters: a12, a21 (sliders, or the draggable dot in the first panel) and rho, which moves the
   trajectories and the separatrix but not the nullclines, the fixed points or their stability.
   Panels: the (a12, a21) plane with the four outcome quadrants; phase plane (nullclines, flow, fixed points,
-  separatrix, two trajectories from draggable starts); u1(t), u2(t) for the two starts.
+  separatrix, one trajectory from a draggable start); u1(t), u2(t) along it.
   Embedded in the published note as an iframe (publish_notes.py, `![[L6-competition-nullclines.html]]`).
   Self-contained: no external scripts. Same layout and colours as L6-competition-mortality.html.
 -->
@@ -67,7 +67,6 @@ svg .nc1 { fill: none; stroke: var(--sp1); stroke-width: 2.5; }
 svg .nc2 { fill: none; stroke: var(--sp2); stroke-width: 2.5; }
 svg .ts1 { fill: none; stroke: var(--sp1); stroke-width: 2.2; }
 svg .ts2 { fill: none; stroke: var(--sp2); stroke-width: 2.2; }
-svg .dash { stroke-dasharray: 6 4; }
 svg .sep { fill: none; stroke: var(--fg); stroke-width: 1.6; stroke-dasharray: 5 4; }
 svg .traj { fill: none; stroke: var(--accent); stroke-width: 1.8; opacity: .85; }
 svg .start { fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: grab; }
@@ -96,16 +95,16 @@ svg .icpt1 { fill: var(--sp1); font-size: 11px; } svg .icpt2 { fill: var(--sp2);
     <figure><svg id="p3" role="img" aria-label="outcome plane"></svg>
       <figcaption>The pair in the (<i>a</i><sub>12</sub>, <i>a</i><sub>21</sub>) plane (drag the dot)</figcaption></figure>
     <figure><svg id="p1" role="img" aria-label="phase plane"></svg>
-      <figcaption>Phase plane (drag the open circles to move the starts)</figcaption></figure>
+      <figcaption>Phase plane (drag the open circle to move the start)</figcaption></figure>
     <figure><svg id="p2" role="img" aria-label="populations against time"></svg>
-      <figcaption>The two populations in time, from the two starts</figcaption></figure>
+      <figcaption>The two populations in time, from that start</figcaption></figure>
   </div>
   <div class="note">
     <span class="c1">Species 1</span>, <span class="c2">species 2</span>. Densities in units of the carrying capacities, <i>u<sub>i</sub></i> = <i>N<sub>i</sub></i>/<i>K<sub>i</sub></i>; time in units of 1/<i>r</i><sub>1</sub>.
     First panel: <i>a</i><sub>12</sub> = <i>α</i><sub>12</sub><i>K</i><sub>2</sub>/<i>K</i><sub>1</sub>, <i>a</i><sub>21</sub> = <i>α</i><sub>21</sub><i>K</i><sub>1</sub>/<i>K</i><sub>2</sub>; the quadrants are the four outcomes.
-    Phase plane: coloured lines are the nullclines, <span class="c1"><i>u</i><sub>1</sub> + <i>a</i><sub>12</sub><i>u</i><sub>2</sub> = 1</span> and <span class="c2"><i>a</i><sub>21</sub><i>u</i><sub>1</sub> + <i>u</i><sub>2</sub> = 1</span> (the axes are nullclines too); grey arrows the direction of the flow; blue lines the two trajectories (solid and dashed); dashed black the separatrix.
-    Black dots: fixed points, filled if stable, open if unstable; blue open circles: the two starts.
-    Last panel: <i>u</i><sub>1</sub>(<i>t</i>) and <i>u</i><sub>2</sub>(<i>t</i>), solid and dashed for the two starts.
+    Phase plane: coloured lines are the nullclines, <span class="c1"><i>u</i><sub>1</sub> + <i>a</i><sub>12</sub><i>u</i><sub>2</sub> = 1</span> and <span class="c2"><i>a</i><sub>21</sub><i>u</i><sub>1</sub> + <i>u</i><sub>2</sub> = 1</span> (the axes are nullclines too); grey arrows the direction of the flow; blue line the trajectory; dashed black the separatrix.
+    Black dots: fixed points, filled if stable, open if unstable; blue open circle: the start.
+    Last panel: <i>u</i><sub>1</sub>(<i>t</i>) and <i>u</i><sub>2</sub>(<i>t</i>), from that start.
     The ratio <i>r</i><sub>2</sub>/<i>r</i><sub>1</sub> changes the trajectories and the separatrix, not the nullclines, the fixed points or the outcome.
   </div>
 </div>
@@ -130,7 +129,7 @@ const PRESETS = {
 };
 const PKEYS = ["a12", "a21"];
 let par = { a12: PRESETS.coex.a12, a21: PRESETS.coex.a21, rho: 1 };
-let state = { starts: [[0.4, 0.08], [0.08, 0.6]] };
+let state = { start: [0.4, 0.08] };
 const TMAX = 30, DT = 0.02, UMAX = 1.5;
 
 const inputs = {}, outs = {};
@@ -283,7 +282,7 @@ function dot(id, x, y, cls, parent, r = 5.5) {
 }
 
 // ---------------------------------------------------------------- panels
-function drawPhase(trajs) {
+function drawPhase(traj) {
   const id = "p1", { sx, sy, p, svg } = geom[id];
   const { bg, fg } = frame(id);
   const { a12, a21 } = par;
@@ -323,19 +322,17 @@ function drawPhase(trajs) {
       poly(id, pts, "sep", fg);
     }
   }
-  trajs.forEach((tr, k) => poly(id, tr.map(q => [q[1], q[2]]), "traj" + (k ? " dash" : ""), fg));
+  poly(id, traj.map(q => [q[1], q[2]]), "traj", fg);
   for (const q of fps) dot(id, q.u[0], q.u[1], q.stable ? "stable-pt" : "unstable-pt", svg);
-  state.starts.forEach(s0 => dot(id, s0[0], s0[1], "start", svg, 6));
+  dot(id, state.start[0], state.start[1], "start", svg, 6);
 }
 
-function drawTime(trajs) {
+function drawTime(traj) {
   const id = "p2";
   const { fg } = frame(id);
-  trajs.forEach((tr, k) => {
-    const pts = tr.filter(q => q[0] <= TMAX + 1e-9);
-    poly(id, pts.map(q => [q[0], q[1]]), "ts1" + (k ? " dash" : ""), fg);
-    poly(id, pts.map(q => [q[0], q[2]]), "ts2" + (k ? " dash" : ""), fg);
-  });
+  const pts = traj.filter(q => q[0] <= TMAX + 1e-9);
+  poly(id, pts.map(q => [q[0], q[1]]), "ts1", fg);
+  poly(id, pts.map(q => [q[0], q[2]]), "ts2", fg);
 }
 
 function drawPlane() {
@@ -373,8 +370,8 @@ function describe() {
 function draw() {
   showValues();
   for (const id of ["p1", "p2", "p3"]) setup(id);
-  const trajs = state.starts.map(trajectory);
-  drawPlane(); drawPhase(trajs); drawTime(trajs); describe();
+  const traj = trajectory(state.start);
+  drawPlane(); drawPhase(traj); drawTime(traj); describe();
   postHeight();
 }
 
@@ -388,14 +385,8 @@ function dragOn(id, onMove) {
   svg.addEventListener("pointerdown", e => { e.preventDefault(); svg.setPointerCapture(e.pointerId); onMove(pointerPos(id, e), true); });
   svg.addEventListener("pointermove", e => { if (svg.hasPointerCapture(e.pointerId)) onMove(pointerPos(id, e), false); });
 }
-let which = 0;
-dragOn("p1", ([x, y], first) => {
-  x = Math.min(Math.max(x, 0.002), UMAX); y = Math.min(Math.max(y, 0.002), UMAX);
-  if (first) {                                        // move the start nearest to the pointer
-    const dist = state.starts.map(s => Math.hypot(s[0] - x, s[1] - y));
-    which = dist[0] <= dist[1] ? 0 : 1;
-  }
-  state.starts[which] = [x, y]; draw();
+dragOn("p1", ([x, y]) => {
+  state.start = [Math.min(Math.max(x, 0.002), UMAX), Math.min(Math.max(y, 0.002), UMAX)]; draw();
 });
 dragOn("p3", ([x, y]) => {
   const clamp = v => Math.round(Math.min(Math.max(v, 0), AMAX) * 100) / 100;
