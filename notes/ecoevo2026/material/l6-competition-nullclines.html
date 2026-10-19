@@ -52,7 +52,7 @@ body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "He
               padding: .15rem .6rem; cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--rule); }
 .seg button[aria-pressed=true] { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--fg); font-weight: 600; }
-.readout { color: var(--muted); font-size: .9rem; min-height: 4.4em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 3em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
 .readout b { color: var(--fg); font-weight: 600; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
 figure { margin: 0; }
@@ -228,7 +228,6 @@ function el(tag, attrs, parent) {
   if (parent) parent.appendChild(e);
   return e;
 }
-const fmt = (v, n = 2) => (Math.abs(v) < 1e-9 ? 0 : v).toFixed(n);
 function label(parent, text, attrs) {      // "_12", "_1": subscripts
   const t = el("text", attrs, parent);
   for (const part of text.split(/(_[a-zA-Z0-9]{1,2})/)) {
@@ -353,18 +352,10 @@ function drawPlane() {
 
 // ---------------------------------------------------------------- readout
 function describe() {
-  const o = outcome(), x = par.a12, y = par.a21;
-  const word = { coex: "<b>Coexistence</b>: each species can invade the other",
-                 one: "<b>1 excludes 2</b>: 1 can invade 2, 2 cannot invade 1",
-                 two: "<b>2 excludes 1</b>: 2 can invade 1, 1 cannot invade 2",
-                 bist: "<b>Bistable</b>: neither can invade the other, the winner depends on the start (dashed black: separatrix)" }[o];
-  const fps = fixedPoints().filter(q => q.kind !== "0");
-  const name = { "1": "(1, 0)", "2": "(0, 1)", c: "coexistence" };
-  const fptxt = fps.map(q => `${name[q.kind]}${q.kind === "c" ? ` (${fmt(q.u[0])}, ${fmt(q.u[1])})` : ""} ${q.stable ? "stable" : (q.kind === "c" ? "saddle" : "unstable")}`).join(", ");
-  readout.innerHTML = `${word}. `
-    + `Invasion rates (units of <i>r</i><sub>1</sub>): <span class="c1">1</span> into <span class="c2">2</span> alone 1 − <i>a</i><sub>12</sub> = ${fmt(1 - x)}, `
-    + `<span class="c2">2</span> into <span class="c1">1</span> alone (<i>r</i><sub>2</sub>/<i>r</i><sub>1</sub>)(1 − <i>a</i><sub>21</sub>) = ${fmt(par.rho * (1 - y))}. `
-    + `Fixed points: ${fptxt}${fps.some(q => q.kind === "c") ? "" : " (no coexistence point with both positive)"}.`;
+  readout.innerHTML = { coex: "<b>Coexistence</b>: each species can invade the other.",
+                        one: "<b>1 excludes 2</b>: 1 can invade 2, 2 cannot invade 1.",
+                        two: "<b>2 excludes 1</b>: 2 can invade 1, 1 cannot invade 2.",
+                        bist: "<b>Bistable</b>: neither can invade the other, the winner depends on the start (dashed black: separatrix)." }[outcome()];
 }
 
 function draw() {
