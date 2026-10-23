@@ -12,3 +12,5 @@ Lecture 3, Mutations: Luria–Delbrück [L3](l3.html)
 Lecture 4, Limits to growth [L4](l4.html)
 Lecture 5, Cooperation and tipping points [L5](l5.html)
 Lecture 6, Competition between two species [L6](l6.html)
+
+Appendix S1, Linear systems [S1](s1.html)

@@ -80,7 +80,8 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -178,29 +179,29 @@ class="math inline">\(2^S\)</span>):</p>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th><span class="math inline">\(u_1^*\)</span></th>
 <th><span class="math inline">\(u_2^*\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>extinction</td>
 <td><span class="math inline">\(0\)</span></td>
 <td><span class="math inline">\(0\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td>1 alone</td>
 <td><span class="math inline">\(1\)</span></td>
 <td><span class="math inline">\(0\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2 alone</td>
 <td><span class="math inline">\(0\)</span></td>
 <td><span class="math inline">\(1\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td>coexistence</td>
 <td><span
 class="math inline">\(\dfrac{1-a_{12}}{1-a_{12}a_{21}}\)</span></td>
@@ -267,28 +268,23 @@ class="math inline">\(f(u^*)=0\)</span>,</p>
 <p><span class="math display">\[
 \frac{d\delta_i}{dt} \simeq \sum_j J_{ij}\,\delta_j,\qquad
 J_{ij}=\left.\frac{\partial f_i}{\partial u_j}\right|_{u^*}.
-\]</span></p>
-<p><span class="math inline">\(J\)</span> is the <em>Jacobian</em>. The
-solutions are combinations of <span class="math inline">\(v\,e^{\lambda
-t}\)</span>, with <span class="math inline">\(\lambda\)</span> an
-eigenvalue of <span class="math inline">\(J\)</span> and <span
-class="math inline">\(v\)</span> its eigenvector. So <span
-class="math inline">\(u^*\)</span> is stable if every eigenvalue has a
-negative real part, and unstable if at least one has a positive real
-part. In 2D the eigenvalues solve <span
-class="math inline">\(\lambda^2-(\operatorname{tr}J)\,\lambda+\det
-J=0\)</span>, and</p>
+\]</span><br />
+<span class="math inline">\(J\)</span> is the <em>Jacobian</em>. Close
+to <span class="math inline">\(u^*\)</span> the dynamics is the linear
+system <span class="math inline">\(\dot\delta=J\delta\)</span>, solved
+in <a href="s1.html">Appendix S1</a>. We need two results from it. The
+fixed point is stable if every eigenvalue of <span
+class="math inline">\(J\)</span> has a negative real part, and unstable
+if at least one has a positive real part (<a
+href="s1.html#long-times-and-stability">S1</a>). In two dimensions the
+trace and the determinant decide (<a
+href="s1.html#two-dimensions">S1</a>):</p>
 <p><span class="math display">\[
 \text{stable}\iff \operatorname{tr}J&lt;0\ \text{ and }\ \det J&gt;0 .
 \]</span></p>
 <p>If <span class="math inline">\(\det J&lt;0\)</span> the eigenvalues
 are real with opposite signs: a <em>saddle</em>, attracting along one
-direction and repelling along the other. (Complex eigenvalues give
-spirals, and the full classification is for home: board 5, Strogatz
-5.2.) Unlike in one dimension, the flow is in general not the gradient
-of a potential: that would need a symmetric <span
-class="math inline">\(J\)</span> everywhere, and here <span
-class="math inline">\(J_{ij}\neq J_{ji}\)</span>.</p>
+direction and repelling along the other.</p>
 <p>Here <span class="math inline">\(f_i=u_ig_i\)</span>, with <span
 class="math inline">\(g_i=r_i(1-u_i-a_{ij}u_j)\)</span> the per-capita
 growth rate, so</p>
@@ -367,7 +363,7 @@ class="math inline">\(K_2/K_1\)</span>:</p>
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>condition</th>
 <th>feasible fixed points</th>
@@ -376,7 +372,7 @@ class="math inline">\(K_2/K_1\)</span>:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td><span class="math inline">\(a_{12}&lt;1\)</span>, <span
 class="math inline">\(a_{21}&lt;1\)</span></td>
@@ -384,7 +380,7 @@ class="math inline">\(a_{21}&lt;1\)</span></td>
 <td>coexistence</td>
 <td><strong>coexistence</strong></td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td><span class="math inline">\(a_{12}&lt;1\)</span>, <span
 class="math inline">\(a_{21}&gt;1\)</span></td>
@@ -392,7 +388,7 @@ class="math inline">\(a_{21}&gt;1\)</span></td>
 <td><span class="math inline">\((1,0)\)</span></td>
 <td><strong>competitive exclusion</strong>: 1 wins</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td><span class="math inline">\(a_{12}&gt;1\)</span>, <span
 class="math inline">\(a_{21}&lt;1\)</span></td>
@@ -400,7 +396,7 @@ class="math inline">\(a_{21}&lt;1\)</span></td>
 <td><span class="math inline">\((0,1)\)</span></td>
 <td><strong>competitive exclusion</strong>: 2 wins</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td><span class="math inline">\(a_{12}&gt;1\)</span>, <span
 class="math inline">\(a_{21}&gt;1\)</span></td>
@@ -495,10 +491,11 @@ exclusion depending on <span class="math inline">\(K_1/K_2\)</span>. If
 <span class="math inline">\(\alpha&gt;1\)</span>, <span
 class="math inline">\(L\)</span> has a saddle and two minima:
 bistability.</p>
-<p>Without symmetry there is in general no such function. With three
-species, competition alone can produce cycles of rock–paper–scissors
-type (<a href="https://doi.org/10.1137/0129022">May &amp; Leonard
-1975</a>).</p>
+<p>Without symmetry there is in general no such function: a potential
+needs a symmetric Jacobian everywhere (<a
+href="s1.html#a-potential">S1</a>). With three species, competition
+alone can produce cycles of rock–paper–scissors type (<a
+href="https://doi.org/10.1137/0129022">May &amp; Leonard 1975</a>).</p>
 <h2 id="adding-mortality">Adding mortality</h2>
 <p>Now add a mortality <span class="math inline">\(\delta\)</span>, the
 same for both species (a dilution removes cells regardless of species),
@@ -653,9 +650,10 @@ growers more). Find the fixed points and their stability.</li>
 <li>Strogatz 5.1–5.2 (linear systems and their classification) and
 6.1–6.4 (phase plane, linearization, and the competitive Lotka–Volterra
 model as “rabbits versus sheep”).</li>
-<li>2020 board 5: linear systems in more than one dimension. Spectral
-decomposition, a potential only for symmetric matrices, oscillations
-from complex eigenvalues.</li>
+<li><a href="s1.html">Appendix S1</a>: linear systems in more than one
+dimension. Spectral decomposition, a potential only for symmetric
+matrices, oscillations from complex eigenvalues, the 2D
+classification.</li>
 <li>G. F. Gause, <em>The Struggle for Existence</em> (1934), for the
 experiments themselves.</li>
 </ul>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear systems in 2D</title>
+<!--
+  Interactive figure for S1 (Two dimensions): the linear system dx/dt = A x, A = [[a, b], [c, d]].
+  Parameters: a, b, c, d (sliders), seven examples, or the draggable point in the trace-determinant plane
+  (dragging keeps a - d and b fixed and solves for c).
+  Panels: the (tau, Delta) plane with the parabola Delta = tau^2/4 and the regions; phase plane (flow,
+  real eigenvectors dashed, a fan of orbits, one trajectory from a draggable start); x1(t), x2(t) along it.
+  Trajectories use the closed form e^{At} = e^{tau t/2}[cosh(k t) 1 + sinh(k t)/k (A - tau/2 1)], k^2 = tau^2/4 - Delta.
+  Embedded in the published note as an iframe (publish_notes.py, `![[S1-linear-2d.html]]`).
+  Self-contained: no external scripts. Same layout and colours as L6-competition-nullclines.html.
+-->
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8;
+  --sp1: #c27c0e; --sp2: #3f7f3f; --red: #c44e52;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038;
+    --sp1: #e3a64a; --sp2: #7cc47c; --red: #ef8a8d;
+  }
+}
+:root { --grid: color-mix(in srgb, var(--muted) 12%, transparent);
+        --r-saddle: color-mix(in srgb, var(--red) 10%, transparent);
+        --r-spiral: color-mix(in srgb, var(--accent) 9%, transparent);
+        --flow: color-mix(in srgb, var(--muted) 55%, transparent);
+        --orbit: color-mix(in srgb, var(--muted) 38%, transparent); }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+html.embedded, html.embedded body { background: transparent; }
+body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.wrap { padding: 4px 0 8px; }
+.sliders { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .1rem 1.1rem; margin-bottom: .35rem; }
+@media (max-width: 640px) { .sliders { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 380px) { .sliders { grid-template-columns: 1fr; } }
+.sl { display: flex; align-items: center; gap: .45rem; }
+.sl label { min-width: 1.2em; font-weight: 600; white-space: nowrap; font-style: italic; }
+.sl input[type=range] { flex: 1 1 auto; min-width: 70px; accent-color: var(--accent); }
+.sl output { min-width: 2.8em; text-align: right; font-variant-numeric: tabular-nums; }
+.controls { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.controls .lab { color: var(--muted); font-size: .9rem; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: .88rem; background: transparent; color: var(--muted); border: 0;
+              padding: .15rem .6rem; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed=true] { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--fg); font-weight: 600; }
+.readout { color: var(--muted); font-size: .9rem; min-height: 3em; margin-bottom: .4rem; font-variant-numeric: tabular-nums; }
+.readout b { color: var(--fg); font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
+figure { margin: 0; }
+figcaption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 2px; }
+svg { display: block; width: 100%; touch-action: none; }
+.grid, svg, svg text { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+svg text { fill: var(--muted); font-size: 12px; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .zero { stroke: var(--muted); stroke-width: 1; }
+svg .parab { fill: none; stroke: var(--fg); stroke-width: 1.6; }
+svg .r-saddle { fill: var(--r-saddle); } svg .r-spiral { fill: var(--r-spiral); }
+svg .rlab { font-size: 11px; }
+svg .eig { fill: none; stroke: var(--sp1); stroke-width: 1.8; stroke-dasharray: 6 4; }
+svg .orbit { fill: none; stroke: var(--orbit); stroke-width: 1.1; }
+svg .traj { fill: none; stroke: var(--accent); stroke-width: 2; }
+svg .start { fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: grab; }
+svg .flow { fill: var(--flow); }
+svg .flowl { stroke: var(--flow); stroke-width: 1.2; }
+svg .fp { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+svg .now-pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; cursor: grab; }
+svg .ts1 { fill: none; stroke: var(--sp1); stroke-width: 2.2; }
+svg .ts2 { fill: none; stroke: var(--sp2); stroke-width: 2.2; }
+.note { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+.c1 { color: var(--sp1); font-weight: 600; } .c2 { color: var(--sp2); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sliders" id="sliders"></div>
+  <div class="controls">
+    <span class="lab">Examples:</span>
+    <span class="seg" role="group" aria-label="examples" id="presets"></span>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="grid">
+    <figure><svg id="p1" role="img" aria-label="trace-determinant plane"></svg>
+      <figcaption>Trace–determinant plane (drag the dot)</figcaption></figure>
+    <figure><svg id="p2" role="img" aria-label="phase plane"></svg>
+      <figcaption>Phase plane (drag the open circle to move the start)</figcaption></figure>
+    <figure><svg id="p3" role="img" aria-label="components against time"></svg>
+      <figcaption>The two components in time, from that start</figcaption></figure>
+  </div>
+  <div class="note">
+    <i>A</i> = ((<i>a</i>, <i>b</i>), (<i>c</i>, <i>d</i>)), <i>τ</i> = <i>a</i> + <i>d</i>, <i>Δ</i> = <i>ad</i> − <i>bc</i>.
+    First panel: black curve, the parabola <i>Δ</i> = <i>τ</i>²/4 (real eigenvalues outside, complex inside, shaded blue); below <i>Δ</i> = 0, saddles (shaded red); left of <i>τ</i> = 0 stable, right unstable; centers on the positive <i>Δ</i> axis.
+    Phase plane: grey arrows, the direction of the flow; grey lines, orbits through a ring of starts; dashed lines, the real eigenvectors; blue, the trajectory from the open circle.
+    Last panel: <span class="c1"><i>x</i><sub>1</sub>(<i>t</i>)</span> and <span class="c2"><i>x</i><sub>2</sub>(<i>t</i>)</span>.
+  </div>
+</div>
+<script>
+"use strict";
+if (window.parent !== window) document.documentElement.classList.add("embedded");
+const NS = "http://www.w3.org/2000/svg";
+const readout = document.getElementById("readout");
+
+// ---------------------------------------------------------------- parameters
+const EMAX = 3;
+const SPEC = [["a", -EMAX, EMAX, 0.05], ["b", -EMAX, EMAX, 0.05], ["c", -EMAX, EMAX, 0.05], ["d", -EMAX, EMAX, 0.05]];
+const PRESETS = {
+  sym:  { label: "symmetric",       a: -1.5, b: 0.6,  c: 0.6, d: -0.5 },
+  node: { label: "stable node",     a: -2,   b: 1.5,  c: 0,   d: -0.5 },
+  unode:{ label: "unstable node",   a: 1,    b: 0.5,  c: 0.2, d: 0.5 },
+  sad:  { label: "saddle",          a: 0.5,  b: 1,    c: 1,   d: -1 },
+  sp:   { label: "stable spiral",   a: -0.3, b: -2,   c: 1,   d: -0.2 },
+  usp:  { label: "unstable spiral", a: 0.2,  b: -2,   c: 1,   d: 0.1 },
+  cen:  { label: "center",          a: 0,    b: 1,    c: -1,  d: 0 },
+  deg:  { label: "degenerate node", a: -1,   b: 1,    c: 0,   d: -1 },
+};
+const PKEYS = ["a", "b", "c", "d"];
+let par = { ...PRESETS.sp };
+let state = { start: [1.2, 0.6] };
+const TMAX = 10, XMAX = 2, YTS = 3, EPS = 1e-9;
+const TR = [-4, 4], DET = [-3, 5];
+
+const inputs = {}, outs = {};
+const slBox = document.getElementById("sliders");
+for (const [k, mn, mx, st] of SPEC) {
+  const dv = document.createElement("div");
+  dv.className = "sl";
+  dv.innerHTML = `<label for="${k}">${k}</label><input type="range" id="${k}" min="${mn}" max="${mx}" step="${st}"><output for="${k}"></output>`;
+  slBox.appendChild(dv);
+  inputs[k] = dv.querySelector("input"); outs[k] = dv.querySelector("output");
+  inputs[k].addEventListener("input", () => { par[k] = +inputs[k].value; syncPresets(); draw(); });
+}
+const segBox = document.getElementById("presets");
+for (const k in PRESETS) {
+  const bt = document.createElement("button");
+  bt.type = "button"; bt.textContent = PRESETS[k].label; bt.dataset.k = k;
+  bt.addEventListener("click", () => { for (const q of PKEYS) par[q] = PRESETS[k][q]; syncInputs(); syncPresets(); draw(); });
+  segBox.appendChild(bt);
+}
+function syncInputs() { for (const k of PKEYS) inputs[k].value = par[k]; }
+function syncPresets() {
+  for (const bt of segBox.children) {
+    const p = PRESETS[bt.dataset.k];
+    bt.setAttribute("aria-pressed", PKEYS.every(k => Math.abs(p[k] - par[k]) < 1e-9));
+  }
+}
+function showValues() { for (const k of PKEYS) outs[k].textContent = par[k].toFixed(2); }
+
+// ---------------------------------------------------------------- linear algebra
+const trace = () => par.a + par.d;
+const det = () => par.a * par.d - par.b * par.c;
+function F(x) { return [par.a * x[0] + par.b * x[1], par.c * x[0] + par.d * x[1]]; }
+// x(t) = e^{At} x0, closed form via Cayley-Hamilton
+function propagate(x0, t) {
+  const tau = trace(), k2 = tau * tau / 4 - det();
+  let ch, sh;                                   // cosh(k t) and sinh(k t)/k, continued to k imaginary or zero
+  if (k2 > 1e-12) { const k = Math.sqrt(k2); ch = Math.cosh(k * t); sh = Math.sinh(k * t) / k; }
+  else if (k2 < -1e-12) { const w = Math.sqrt(-k2); ch = Math.cos(w * t); sh = Math.sin(w * t) / w; }
+  else { ch = 1; sh = t; }
+  const e = Math.exp(tau * t / 2), h = tau / 2;
+  const B = [[par.a - h, par.b], [par.c, par.d - h]];
+  return [e * (ch * x0[0] + sh * (B[0][0] * x0[0] + B[0][1] * x0[1])),
+          e * (ch * x0[1] + sh * (B[1][0] * x0[0] + B[1][1] * x0[1]))];
+}
+function eigen() {
+  const tau = trace(), D = det(), k2 = tau * tau / 4 - D;
+  if (k2 >= -EPS) {
+    const k = Math.sqrt(Math.max(k2, 0));
+    const lams = [tau / 2 + k, tau / 2 - k];
+    const vecs = [];
+    if (Math.abs(par.b) < EPS && Math.abs(par.c) < EPS) { vecs.push([1, 0], [0, 1]); }
+    else for (const l of lams) {
+      let v = Math.abs(par.b) > EPS ? [par.b, l - par.a] : [l - par.d, par.c];
+      const n = Math.hypot(v[0], v[1]); v = [v[0] / n, v[1] / n];
+      if (!vecs.some(u => Math.abs(u[0] * v[1] - u[1] * v[0]) < 1e-6)) vecs.push(v);
+    }
+    return { real: true, lams, vecs, k2 };
+  }
+  return { real: false, mu: tau / 2, w: Math.sqrt(-k2), k2 };
+}
+function classify() {
+  const tau = trace(), D = det(), k2 = tau * tau / 4 - D, z = 1e-9;
+  const st = tau < -z ? "stable" : tau > z ? "unstable" : "";
+  if (Math.abs(D) < z) return "<b>One zero eigenvalue</b>: a line of fixed points (marginal)";
+  if (D < 0) return "<b>Saddle</b> (unstable): eigenvalues real, opposite signs";
+  if (Math.abs(k2) < z) {
+    const star = Math.abs(par.b) < z && Math.abs(par.c) < z && Math.abs(par.a - par.d) < z;
+    return `<b>${star ? "Star" : "Degenerate node"}</b>${st ? " (" + st + ")" : ""}: one repeated real eigenvalue`
+           + (star ? ", every direction is an eigenvector" : ", one eigenvector");
+  }
+  if (k2 > 0) return `<b>${st === "stable" ? "Stable" : "Unstable"} node</b>: eigenvalues real, same sign`;
+  if (!st) return "<b>Center</b> (marginal): eigenvalues purely imaginary, closed orbits";
+  return `<b>${st === "stable" ? "Stable" : "Unstable"} spiral</b>: complex eigenvalues, `
+         + (st === "stable" ? "negative" : "positive") + " real part";
+}
+const f2 = v => (Math.abs(v) < 5e-3 ? 0 : v).toFixed(2).replace("-", "−");
+
+// ---------------------------------------------------------------- drawing helpers
+const P = {
+  p1: { x: TR, y: DET, xt: [-4, -2, 0, 2, 4], yt: [-2, 0, 2, 4], xl: "τ = tr A", yl: "Δ = det A" },
+  p2: { x: [-XMAX, XMAX], y: [-XMAX, XMAX], xt: [-2, -1, 0, 1, 2], yt: [-2, -1, 0, 1, 2], xl: "x_1", yl: "x_2", sq: true },
+  p3: { x: [0, TMAX], y: [-YTS, YTS], xt: [0, 2, 4, 6, 8, 10], yt: [-3, -2, -1, 0, 1, 2, 3], xl: "t", yl: "x_1, x_2" },
+};
+const M = { l: 44, r: 10, t: 10, b: 40 };
+const geom = {};
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function label(parent, text, attrs) {      // "_1": subscripts
+  const t = el("text", attrs, parent);
+  for (const part of text.split(/(_[a-zA-Z0-9]{1,2})/)) {
+    if (!part) continue;
+    if (part[0] === "_") {
+      el("tspan", { "baseline-shift": "sub", "font-size": "9" }, t).textContent = part.slice(1);
+      el("tspan", { "baseline-shift": "0" }, t).textContent = "​";
+    } else t.appendChild(document.createTextNode(part));
+  }
+  return t;
+}
+function setup(id) {
+  const svg = document.getElementById(id);
+  const w = svg.parentElement.clientWidth, p = P[id];
+  const h = p.sq ? Math.round(Math.min(Math.max(w - M.l - M.r + M.t + M.b, 200), 330))
+                 : Math.round(Math.min(Math.max(w * 0.82, 200), 300));
+  svg.setAttribute("width", w); svg.setAttribute("height", h);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const sx = v => M.l + (v - p.x[0]) / (p.x[1] - p.x[0]) * (w - M.l - M.r);
+  const sy = v => M.t + (p.y[1] - v) / (p.y[1] - p.y[0]) * (h - M.t - M.b);
+  geom[id] = { svg, w, h, sx, sy, p,
+               ix: px => p.x[0] + (px - M.l) / (w - M.l - M.r) * (p.x[1] - p.x[0]),
+               iy: py => p.y[1] - (py - M.t) / (h - M.t - M.b) * (p.y[1] - p.y[0]) };
+}
+function frame(id) {
+  const { svg, w, h, sx, sy, p } = geom[id];
+  svg.textContent = "";
+  const defs = el("defs", {}, svg);
+  const cp = el("clipPath", { id: id + "-clip" }, defs);
+  el("rect", { x: M.l, y: M.t, width: w - M.l - M.r, height: h - M.t - M.b }, cp);
+  const bg = el("g", { "clip-path": `url(#${id}-clip)` }, svg);
+  for (const v of p.yt) el("line", { class: "gridl", x1: M.l, x2: w - M.r, y1: sy(v), y2: sy(v) }, svg);
+  for (const v of p.yt) el("text", { x: M.l - 6, y: sy(v) + 4, "text-anchor": "end" }, svg).textContent = String(v).replace("-", "−");
+  for (const v of p.xt) el("text", { x: sx(v), y: h - M.b + 15, "text-anchor": "middle" }, svg).textContent = String(v).replace("-", "−");
+  el("line", { class: "axis", x1: M.l, x2: M.l, y1: M.t, y2: h - M.b }, svg);
+  el("line", { class: "axis", x1: M.l, x2: w - M.r, y1: h - M.b, y2: h - M.b }, svg);
+  label(svg, p.xl, { x: (M.l + w - M.r) / 2, y: h - 9, "text-anchor": "middle" });
+  const yc = (M.t + h - M.b) / 2;
+  label(svg, p.yl, { x: 11, y: yc, "text-anchor": "middle", transform: `rotate(-90 11 ${yc})` });
+  return { bg, fg: el("g", { "clip-path": `url(#${id}-clip)` }, svg) };
+}
+function poly(id, pts, cls, parent) {
+  const { sx, sy } = geom[id];
+  let dd = "";
+  pts.forEach((q, i) => { dd += (i ? "L" : "M") + sx(q[0]).toFixed(1) + "," + sy(q[1]).toFixed(1); });
+  return el("path", { d: dd, class: cls }, parent);
+}
+function dot(id, x, y, cls, parent, r = 5.5) {
+  const { sx, sy } = geom[id];
+  return el("circle", { cx: sx(x), cy: sy(y), r, class: cls }, parent);
+}
+
+// ---------------------------------------------------------------- panels
+function drawTD() {
+  const id = "p1", { sx, sy, p } = geom[id];
+  const { bg, fg } = frame(id);
+  el("rect", { x: sx(p.x[0]), y: sy(0), width: sx(p.x[1]) - sx(p.x[0]), height: sy(p.y[0]) - sy(0), class: "r-saddle" }, bg);
+  const par0 = [];
+  for (let k = 0; k <= 200; k++) { const t = p.x[0] + (p.x[1] - p.x[0]) * k / 200; par0.push([t, t * t / 4]); }
+  const inside = par0.concat([[p.x[1], p.y[1]], [p.x[0], p.y[1]]]);
+  const reg = poly(id, inside, "r-spiral", bg);
+  reg.setAttribute("d", reg.getAttribute("d") + "Z");
+  el("line", { class: "zero", x1: sx(p.x[0]), x2: sx(p.x[1]), y1: sy(0), y2: sy(0) }, bg);
+  el("line", { class: "zero", x1: sx(0), x2: sx(0), y1: sy(0), y2: sy(p.y[1]) }, bg);
+  poly(id, par0, "parab", fg);
+  const rl = (x, y, t, anchor) => el("text", { x: sx(x), y: sy(y), class: "rlab", "text-anchor": anchor }, bg).textContent = t;
+  rl(0, -1.6, "saddles", "middle");
+  rl(-1.6, 3.6, "stable", "middle"); rl(-1.6, 3.15, "spirals", "middle");
+  rl(1.6, 3.6, "unstable", "middle"); rl(1.6, 3.15, "spirals", "middle");
+  rl(-3.9, 0.35, "stable nodes", "start"); rl(3.9, 0.35, "unstable nodes", "end");
+  dot(id, Math.max(Math.min(trace(), p.x[1]), p.x[0]), Math.max(Math.min(det(), p.y[1]), p.y[0]), "now-pt", geom[id].svg, 6.5);
+}
+
+function orbit(x0, sign) {               // orbit from x0, forward (sign 1) or backward (-1), clipped
+  const pts = [x0];
+  for (let k = 1; k <= 600; k++) {
+    const x = propagate(x0, sign * k * 0.025);
+    pts.push(x);
+    const r = Math.hypot(x[0], x[1]);
+    if (r > 4 * XMAX || r < 1e-3) break;
+  }
+  return pts;
+}
+function drawPhase(traj) {
+  const id = "p2", { sx, sy, p, svg } = geom[id];
+  const { bg, fg } = frame(id);
+  el("line", { class: "zero", x1: sx(p.x[0]), x2: sx(p.x[1]), y1: sy(0), y2: sy(0), opacity: .35 }, bg);
+  el("line", { class: "zero", x1: sx(0), x2: sx(0), y1: sy(p.y[0]), y2: sy(p.y[1]), opacity: .35 }, bg);
+  // flow: short arrows of fixed length on a grid (direction only)
+  const n = 10, L = 6, H = 3.2;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+    const x = [p.x[0] + (i + 0.5) / n * (p.x[1] - p.x[0]), p.y[0] + (j + 0.5) / n * (p.y[1] - p.y[0])];
+    const v = F(x), m = Math.hypot(sx(x[0] + v[0]) - sx(x[0]), sy(x[1] + v[1]) - sy(x[1]));
+    if (m < 1e-9) continue;
+    const ux = (sx(x[0] + v[0]) - sx(x[0])) / m, uy = (sy(x[1] + v[1]) - sy(x[1])) / m;
+    const cx = sx(x[0]), cy = sy(x[1]), tx = cx + ux * L, ty = cy + uy * L;
+    el("line", { class: "flowl", x1: cx - ux * L, y1: cy - uy * L, x2: tx - ux * H, y2: ty - uy * H }, bg);
+    el("path", { class: "flow", d: `M${tx},${ty} L${tx - ux * 2 * H - uy * H},${ty - uy * 2 * H + ux * H} L${tx - ux * 2 * H + uy * H},${ty - uy * 2 * H - ux * H} Z` }, bg);
+  }
+  // orbits through a ring of starts, forward and backward
+  for (let k = 0; k < 12; k++) {
+    const th = (k + 0.5) / 12 * 2 * Math.PI, x0 = [1.5 * Math.cos(th), 1.5 * Math.sin(th)];
+    const back = orbit(x0, -1).reverse(), fwd = orbit(x0, 1);
+    poly(id, back.concat(fwd.slice(1)), "orbit", bg);
+  }
+  const E = eigen();
+  if (E.real && Math.abs(det()) > 1e-9)
+    for (const v of E.vecs) poly(id, [[-10 * v[0], -10 * v[1]], [10 * v[0], 10 * v[1]]], "eig", fg);
+  poly(id, traj, "traj", fg);
+  dot(id, 0, 0, "fp", svg, 4.5);
+  dot(id, state.start[0], state.start[1], "start", svg, 6);
+}
+
+function drawTime() {
+  const id = "p3";
+  const { fg } = frame(id);
+  const pts = [];
+  for (let k = 0; k <= 800; k++) {
+    const t = k / 800 * TMAX, x = propagate(state.start, t);
+    pts.push([t, Math.max(Math.min(x[0], 50), -50), Math.max(Math.min(x[1], 50), -50)]);
+  }
+  poly(id, pts.map(q => [q[0], q[1]]), "ts1", fg);
+  poly(id, pts.map(q => [q[0], q[2]]), "ts2", fg);
+}
+
+// ---------------------------------------------------------------- readout
+function describe() {
+  const E = eigen();
+  const ev = E.real
+    ? (Math.abs(E.k2) < 1e-9 ? `λ = ${f2(E.lams[0])} (twice)` : `λ₊ = ${f2(E.lams[0])}, λ₋ = ${f2(E.lams[1])}`)
+    : `λ = ${f2(E.mu)} ± ${f2(E.w)} i`;
+  let extra = "";
+  if (!E.real) extra = `, period 2π/ω = ${(2 * Math.PI / E.w).toFixed(2)}, ${par.c > 0 ? "counterclockwise" : "clockwise"} (sign of c)`;
+  readout.innerHTML = `${classify()}.<br>τ = ${f2(trace())}, Δ = ${f2(det())}; ${ev}${extra}.`;
+}
+
+function draw() {
+  showValues();
+  for (const id of ["p1", "p2", "p3"]) setup(id);
+  const traj = [];
+  for (let k = 0; k <= 800; k++) {
+    const x = propagate(state.start, k / 800 * TMAX);
+    traj.push(x);
+    if (Math.hypot(x[0], x[1]) > 4 * XMAX) break;
+  }
+  drawTD(); drawPhase(traj); drawTime(); describe();
+  postHeight();
+}
+
+// ---------------------------------------------------------------- interaction
+function pointerPos(id, e) {
+  const rc = geom[id].svg.getBoundingClientRect();
+  return [geom[id].ix(e.clientX - rc.left), geom[id].iy(e.clientY - rc.top)];
+}
+function dragOn(id, onMove) {
+  const svg = document.getElementById(id);
+  svg.addEventListener("pointerdown", e => { e.preventDefault(); svg.setPointerCapture(e.pointerId); onMove(pointerPos(id, e), true); });
+  svg.addEventListener("pointermove", e => { if (svg.hasPointerCapture(e.pointerId)) onMove(pointerPos(id, e), false); });
+}
+const clampE = v => Math.round(Math.min(Math.max(v, -EMAX), EMAX) * 100) / 100;
+// dragging in the (tau, Delta) plane: keep s = (a - d)/2 and b, set a, d from tau and solve c from Delta
+dragOn("p1", ([tau, D]) => {
+  if (Math.abs(tau) < 0.08) tau = 0;                       // snap to the axis, so that centers are reachable
+  if (Math.abs(D) < 0.08) D = 0;
+  const s = (par.a - par.d) / 2;
+  if (Math.abs(par.b) < 0.05) par.b = par.b < 0 ? -1 : 1;
+  par.a = clampE(tau / 2 + s); par.d = clampE(tau / 2 - s);
+  par.c = clampE((par.a * par.d - D) / par.b);
+  syncInputs(); syncPresets(); draw();
+});
+dragOn("p2", ([x, y]) => {
+  state.start = [Math.min(Math.max(x, -XMAX), XMAX), Math.min(Math.max(y, -XMAX), XMAX)]; draw();
+});
+document.querySelectorAll(".grid").forEach(g => g.addEventListener("selectstart", e => e.preventDefault()));
+
+// tell the embedding page how tall we are, so the iframe needs no scrollbar
+let lastH = 0;
+function postHeight() {
+  const h = Math.ceil(document.querySelector(".wrap").getBoundingClientRect().height);
+  if (h !== lastH && window.parent !== window) {
+    lastH = h;
+    window.parent.postMessage({ widgetHeight: h }, "*");
+  }
+}
+let rt;
+addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 60); });
+syncInputs(); syncPresets(); draw();
+</script>
+</body>
+</html>
