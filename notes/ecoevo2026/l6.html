@@ -428,74 +428,6 @@ class="math inline">\(a_{21}\)</span>. The growth rates <span
 class="math inline">\(r_1\)</span>, <span
 class="math inline">\(r_2\)</span> set how fast, and in the bistable
 case where the separatrix lies, but not which outcomes are possible.</p>
-<h2 id="many-species-with-symmetric-interactions">Many species with
-symmetric interactions</h2>
-<p>With <span class="math inline">\(S\)</span> species, the natural
-generalization keeps each per-capita growth rate linear in all the
-densities, <span class="math inline">\(\dot N_i = N_i\,g_i\)</span> with
-<span class="math inline">\(g_i = r_i+\sum_j A_{ij}N_j\)</span>. This is
-the <em>generalized Lotka–Volterra</em> (GLV) model. <span
-class="math inline">\(A_{ii}&lt;0\)</span> is self-limitation, and the
-sign of <span class="math inline">\(A_{ij}\)</span> is the sign of the
-effect of <span class="math inline">\(j\)</span> on <span
-class="math inline">\(i\)</span>. When <span
-class="math inline">\(A\)</span> is symmetric there is a function that
-always decreases along trajectories:</p>
-<p><span class="math display">\[
-L(N) = -\sum_i r_iN_i - \frac12\sum_{ij}A_{ij}N_iN_j,
-\qquad
-\frac{\partial L}{\partial N_i}=-g_i,
-\qquad
-\frac{dL}{dt}=\sum_i\frac{\partial L}{\partial N_i}\,\dot N_i = -\sum_i
-N_i\,g_i^2\ \le 0 .
-\]</span></p>
-<p>It stops decreasing only at fixed points. <span
-class="math inline">\(L\)</span> is a <em>Lyapunov function</em>: the
-dynamics goes downhill on <span class="math inline">\(L\)</span>, as in
-the 1D potential of L4.</p>
-<p>If, in addition, <span class="math inline">\(-A\)</span> is positive
-definite (self-limitation dominates), <span
-class="math inline">\(L\)</span> is a convex bowl and has a single
-minimum on the region <span class="math inline">\(N_i\ge0\)</span>.
-Every trajectory ends there, so there is no bistability and there are no
-cycles. At the minimum, each species is either</p>
-<ul>
-<li>present, with <span class="math inline">\(\partial L/\partial
-N_i=0\)</span>, i.e. <span class="math inline">\(g_i=0\)</span>; or</li>
-<li>absent, with <span class="math inline">\(\partial L/\partial
-N_i\ge0\)</span>, i.e. <span class="math inline">\(g_i\le0\)</span>: it
-cannot invade.</li>
-</ul>
-<p>The state reached is the one that no absent species can invade: the
-<span class="math inline">\(S\)</span>-species version of the invasion
-criterion. This is MacArthur’s “minimum principle” (<a
-href="https://doi.org/10.1016/0040-5809(70)90039-0">MacArthur 1970</a>),
-and L17–L18 build on it.</p>
-<p><strong>Two species.</strong> With <span
-class="math inline">\(A_{ij}=-r_i\alpha_{ij}/K_i\)</span>, <span
-class="math inline">\(A\)</span> itself is not symmetric. But the
-argument only needs <span class="math inline">\(w_iA_{ij}\)</span>
-symmetric for some weights <span
-class="math inline">\(w_i&gt;0\)</span>. Then <span
-class="math inline">\(L=-\sum_iw_ir_iN_i-\frac12\sum_{ij}w_iA_{ij}N_iN_j\)</span>
-gives <span class="math inline">\(dL/dt=-\sum_iw_iN_ig_i^2\)</span>.
-With <span class="math inline">\(w_i=K_i/r_i\)</span>, <span
-class="math inline">\(w_iA_{ij}=-\alpha_{ij}\)</span> (with <span
-class="math inline">\(\alpha_{ii}=1\)</span>), which is symmetric if
-<span class="math inline">\(\alpha_{12}=\alpha_{21}=\alpha\)</span>. The
-matrix <span
-class="math inline">\(\begin{pmatrix}1&amp;\alpha\\\alpha&amp;1\end{pmatrix}\)</span>
-is positive definite if <span
-class="math inline">\(\alpha&lt;1\)</span>: one outcome, coexistence or
-exclusion depending on <span class="math inline">\(K_1/K_2\)</span>. If
-<span class="math inline">\(\alpha&gt;1\)</span>, <span
-class="math inline">\(L\)</span> has a saddle and two minima:
-bistability.</p>
-<p>Without symmetry there is in general no such function: a potential
-needs a symmetric Jacobian everywhere (<a
-href="s1.html#a-potential">S1</a>). With three species, competition
-alone can produce cycles of rock–paper–scissors type (<a
-href="https://doi.org/10.1137/0129022">May &amp; Leonard 1975</a>).</p>
 <h2 id="adding-mortality">Adding mortality</h2>
 <p>Now add a mortality <span class="math inline">\(\delta\)</span>, the
 same for both species (a dilution removes cells regardless of species),
@@ -626,6 +558,74 @@ the resident matters, and the resident’s own balance fixes that average.
 The coexistence densities are not the same as in continuous time, and
 nothing here holds once the per-capita rate is nonlinear (the Allee
 effect of L5) or with lag phases.</p>
+<h2 id="many-species-with-symmetric-interactions">Many species with
+symmetric interactions</h2>
+<p>With <span class="math inline">\(S\)</span> species, the natural
+generalization keeps each per-capita growth rate linear in all the
+densities, <span class="math inline">\(\dot N_i = N_i\,g_i\)</span> with
+<span class="math inline">\(g_i = r_i+\sum_j A_{ij}N_j\)</span>. This is
+the <em>generalized Lotka–Volterra</em> (GLV) model. <span
+class="math inline">\(A_{ii}&lt;0\)</span> is self-limitation, and the
+sign of <span class="math inline">\(A_{ij}\)</span> is the sign of the
+effect of <span class="math inline">\(j\)</span> on <span
+class="math inline">\(i\)</span>. When <span
+class="math inline">\(A\)</span> is symmetric there is a function that
+always decreases along trajectories:</p>
+<p><span class="math display">\[
+L(N) = -\sum_i r_iN_i - \frac12\sum_{ij}A_{ij}N_iN_j,
+\qquad
+\frac{\partial L}{\partial N_i}=-g_i,
+\qquad
+\frac{dL}{dt}=\sum_i\frac{\partial L}{\partial N_i}\,\dot N_i = -\sum_i
+N_i\,g_i^2\ \le 0 .
+\]</span></p>
+<p>It stops decreasing only at fixed points. <span
+class="math inline">\(L\)</span> is a <em>Lyapunov function</em>: the
+dynamics goes downhill on <span class="math inline">\(L\)</span>, as in
+the 1D potential of L4.</p>
+<p>If, in addition, <span class="math inline">\(-A\)</span> is positive
+definite (self-limitation dominates), <span
+class="math inline">\(L\)</span> is a convex bowl and has a single
+minimum on the region <span class="math inline">\(N_i\ge0\)</span>.
+Every trajectory ends there, so there is no bistability and there are no
+cycles. At the minimum, each species is either</p>
+<ul>
+<li>present, with <span class="math inline">\(\partial L/\partial
+N_i=0\)</span>, i.e. <span class="math inline">\(g_i=0\)</span>; or</li>
+<li>absent, with <span class="math inline">\(\partial L/\partial
+N_i\ge0\)</span>, i.e. <span class="math inline">\(g_i\le0\)</span>: it
+cannot invade.</li>
+</ul>
+<p>The state reached is the one that no absent species can invade: the
+<span class="math inline">\(S\)</span>-species version of the invasion
+criterion. This is MacArthur’s “minimum principle” (<a
+href="https://doi.org/10.1016/0040-5809(70)90039-0">MacArthur 1970</a>),
+and L17–L18 build on it.</p>
+<p><strong>Two species.</strong> With <span
+class="math inline">\(A_{ij}=-r_i\alpha_{ij}/K_i\)</span>, <span
+class="math inline">\(A\)</span> itself is not symmetric. But the
+argument only needs <span class="math inline">\(w_iA_{ij}\)</span>
+symmetric for some weights <span
+class="math inline">\(w_i&gt;0\)</span>. Then <span
+class="math inline">\(L=-\sum_iw_ir_iN_i-\frac12\sum_{ij}w_iA_{ij}N_iN_j\)</span>
+gives <span class="math inline">\(dL/dt=-\sum_iw_iN_ig_i^2\)</span>.
+With <span class="math inline">\(w_i=K_i/r_i\)</span>, <span
+class="math inline">\(w_iA_{ij}=-\alpha_{ij}\)</span> (with <span
+class="math inline">\(\alpha_{ii}=1\)</span>), which is symmetric if
+<span class="math inline">\(\alpha_{12}=\alpha_{21}=\alpha\)</span>. The
+matrix <span
+class="math inline">\(\begin{pmatrix}1&amp;\alpha\\\alpha&amp;1\end{pmatrix}\)</span>
+is positive definite if <span
+class="math inline">\(\alpha&lt;1\)</span>: one outcome, coexistence or
+exclusion depending on <span class="math inline">\(K_1/K_2\)</span>. If
+<span class="math inline">\(\alpha&gt;1\)</span>, <span
+class="math inline">\(L\)</span> has a saddle and two minima:
+bistability.</p>
+<p>Without symmetry there is in general no such function: a potential
+needs a symmetric Jacobian everywhere (<a
+href="s1.html#a-potential">S1</a>). With three species, competition
+alone can produce cycles of rock–paper–scissors type (<a
+href="https://doi.org/10.1137/0129022">May &amp; Leonard 1975</a>).</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li>Write the Jacobian of the competitive LV model at its four fixed
