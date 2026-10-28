@@ -97,7 +97,7 @@ svg .qlab { font-size: 11px; }
   <div class="readout" id="readout" aria-live="polite"></div>
   <div class="grid">
     <figure><svg id="p1" role="img" aria-label="phase plane"></svg>
-      <figcaption>Phase plane (drag the open circles to move the starts)</figcaption></figure>
+      <figcaption>Phase plane (drag the diamond to move the start)</figcaption></figure>
     <figure><svg id="p2" role="img" aria-label="outcome plane"></svg>
       <figcaption>(ln <i>a<sub>fs</sub></i>, ln <i>a<sub>sf</sub></i>) at this <i>δ</i> (drag the open circle: the pair at <i>δ</i> = 0)</figcaption></figure>
     <figure><svg id="p3" role="img" aria-label="densities against mortality"></svg>
@@ -105,8 +105,8 @@ svg .qlab { font-size: 11px; }
   </div>
   <div class="note">
     <span class="f">f</span>: fast grower, <span class="s">s</span>: slow grower. Densities in units of the carrying capacities without mortality, <i>u<sub>i</sub></i> = <i>N<sub>i</sub></i>/<i>K<sub>i</sub></i>.
-    Phase plane: coloured lines are the nullclines (<i>u<sub>f</sub></i> + <i>a<sub>fs</sub>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>f</sub></i> and <i>a<sub>sf</sub>u<sub>f</sub></i> + <i>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>s</sub></i>), grey arrows the direction of the flow, blue lines two trajectories, dashed black the separatrix.
-    Filled dot: stable; open dot: unstable.
+    Phase plane: coloured lines are the nullclines (<i>u<sub>f</sub></i> + <i>a<sub>fs</sub>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>f</sub></i> and <i>a<sub>sf</sub>u<sub>f</sub></i> + <i>u<sub>s</sub></i> = 1 − <i>δ</i>/<i>r<sub>s</sub></i>), grey arrows the direction of the flow, the blue line the trajectory from the start (blue diamond), dashed black the separatrix.
+    Dots are fixed points, filled if stable, open if unstable.
     Middle panel: the quadrants are the four outcomes; the black line is the path of the pair as <i>δ</i> goes from 0 to <i>r<sub>s</sub></i>, at −45°; the ticks mark the dilution factors <i>D</i> = 10…10<sup>4</sup> of a daily transfer, <i>δ</i> = ln <i>D</i> / 24 h.
     Last panel: solid = stable, dashed = unstable; shading = the coexistence (blue) or bistable (red) range of <i>δ</i>.
   </div>
@@ -127,7 +127,7 @@ const PRESETS = {
   B: { rf: 0.60, rs: 0.43, laf: 0.79, las: -0.25, f: "Pci", s: "Pv" },
 };
 let par = { ...PRESETS.A };
-let state = { d: +slider.value, starts: [[0.85, 0.1], [0.1, 0.85]] };
+let state = { d: +slider.value, start: [0.5, 0.5] };
 
 // ---------------------------------------------------------------- model
 const kf = d => 1 - d / par.rf, ks = d => 1 - d / par.rs;
@@ -295,9 +295,9 @@ function drawPhase(d) {
       poly(id, pts, "sep", fg);
     }
   }
-  // trajectories from the two starts
-  for (const s0 of state.starts) {
-    let x = s0.slice();
+  // trajectory from the start
+  {
+    let x = state.start.slice();
     const pts = [x];
     for (let k = 0; k < 6000; k++) {
       const y = rk4(x, d, 0.1);
@@ -308,10 +308,9 @@ function drawPhase(d) {
     poly(id, pts, "traj", fg);
   }
   for (const q of fps) dot(id, q.x[0], q.x[1], q.stable ? "stable-pt" : "unstable-pt", geom[id].svg);
-  state.starts.forEach((s0, k) => {
-    const e = dot(id, s0[0], s0[1], "start", geom[id].svg, 6);
-    e.dataset.k = k;
-  });
+  // the start: a diamond, so it is not mistaken for a fixed point
+  const cx = sx(state.start[0]), cy = sy(state.start[1]), r = 7.5;
+  el("path", { class: "start", d: `M${cx},${cy - r} L${cx + r},${cy} L${cx},${cy + r} L${cx - r},${cy} Z` }, geom[id].svg);
 }
 
 function drawPlane(d) {
@@ -450,14 +449,8 @@ function dragOn(id, onMove) {
   svg.addEventListener("pointerdown", e => { e.preventDefault(); svg.setPointerCapture(e.pointerId); onMove(pointerPos(id, e), true); });
   svg.addEventListener("pointermove", e => { if (svg.hasPointerCapture(e.pointerId)) onMove(pointerPos(id, e), false); });
 }
-let which = 0;
-dragOn("p1", ([x, y], first) => {
-  x = Math.min(Math.max(x, 0.002), 1.1); y = Math.min(Math.max(y, 0.002), 1.1);
-  if (first) {                                        // move the start nearest to the pointer
-    const dist = state.starts.map(s => Math.hypot(s[0] - x, s[1] - y));
-    which = dist[0] <= dist[1] ? 0 : 1;
-  }
-  state.starts[which] = [x, y]; draw();
+dragOn("p1", ([x, y]) => {
+  state.start = [Math.min(Math.max(x, 0.002), 1.1), Math.min(Math.max(y, 0.002), 1.1)]; draw();
 });
 dragOn("p2", ([x, y]) => {
   par.laf = Math.min(Math.max(x, -2), 1.6); par.las = Math.min(Math.max(y, -2), 1.6); draw();
