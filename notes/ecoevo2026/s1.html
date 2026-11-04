@@ -145,9 +145,9 @@ class="math inline">\(D=2\)</span>,</p>
 x=-kx\)</span>, is of this form. A second-order equation is two
 first-order ones, for the position <span
 class="math inline">\(x\)</span> and the velocity <span
-class="math inline">\(V=\dot x\)</span>:</p>
+class="math inline">\(v=\dot x\)</span>:</p>
 <p><span class="math display">\[
-\begin{cases}\dot x=V\\ \dot V=-\frac{k}{m}\,x\end{cases}
+\begin{cases}\dot x=v\\ \dot v=-\frac{k}{m}\,x\end{cases}
 \qquad
 A=\begin{pmatrix}0&amp;1\\-k/m&amp;0\end{pmatrix}.
 \]</span></p>
@@ -342,6 +342,21 @@ nonlinear system the same argument applies to its Jacobian: a potential
 needs <span class="math inline">\(J_{ij}=J_{ji}\)</span> everywhere,
 which is why competitive LV has none in general (<a
 href="l6.html#many-species-with-symmetric-interactions">L6</a>).</p>
+<p><strong>A potential is a special case.</strong> To decide stability,
+a potential is more than we need: it is enough to have a function that
+decreases along every trajectory and has its minimum at the fixed point,
+a <em>Lyapunov function</em>. A stable linear system always has one,
+symmetric or not: <span class="math inline">\(V(\mathbf x)=\mathbf
+x^TP\,\mathbf x\)</span>, with <span class="math inline">\(P\)</span>
+the positive-definite solution of <span
+class="math inline">\(A^TP+PA=-\mathbb 1\)</span>, gives <span
+class="math inline">\(dV/dt=\mathbf x^T(A^TP+PA)\,\mathbf x=-|\mathbf
+x|^2\)</span>. A potential is the special case where, in addition, the
+flow goes straight downhill, <span class="math inline">\(\dot
+x_i=-\partial V/\partial x_i\)</span>. The function used for many
+species in <a
+href="l6.html#many-species-with-symmetric-interactions">L6</a> is a
+Lyapunov function, not a potential.</p>
 <h2 id="non-symmetric-matrix">Non-symmetric matrix</h2>
 <p>Now no assumption on <span class="math inline">\(A\)</span>, except
 real entries. Two things change.</p>
@@ -732,24 +747,24 @@ class="math inline">\(\mathbb 1+t\,(A-\frac\tau2\mathbb 1)\)</span>, the
 <span class="math inline">\(t\,e^{\lambda t}\)</span> term. (The
 interactive figure uses this formula.)</p>
 <h3 id="the-harmonic-oscillator">The harmonic oscillator</h3>
-<p>Back to <span class="math inline">\(\dot x=V\)</span>, <span
-class="math inline">\(\dot V=-(k/m)x\)</span>: <span
+<p>Back to <span class="math inline">\(\dot x=v\)</span>, <span
+class="math inline">\(\dot v=-(k/m)x\)</span>: <span
 class="math inline">\(\tau=0\)</span>, <span
 class="math inline">\(\Delta=k/m&gt;0\)</span>, a center. The
 eigenvalues are <span class="math inline">\(\lambda=\pm i\omega\)</span>
 with <span class="math inline">\(\omega=\sqrt{k/m}\)</span>, and from
 the closed form</p>
 <p><span class="math display">\[
-x(t)=x(0)\cos\omega t+\frac{V(0)}{\omega}\sin\omega t,\qquad
-V(t)=-\omega\,x(0)\sin\omega t+V(0)\cos\omega t .
+x(t)=x(0)\cos\omega t+\frac{v(0)}{\omega}\sin\omega t,\qquad
+v(t)=-\omega\,x(0)\sin\omega t+v(0)\cos\omega t .
 \]</span></p>
 <p>Both oscillate at frequency <span
 class="math inline">\(\omega\)</span>, a quarter period apart, with an
 amplitude set by the initial condition. The orbits are the ellipses of
 constant energy, <span
-class="math inline">\(\frac12mV^2+\frac12kx^2=E\)</span>. Here <span
+class="math inline">\(\frac12mv^2+\frac12kx^2=E\)</span>. Here <span
 class="math inline">\(c=-k/m&lt;0\)</span>, so in the <span
-class="math inline">\((x,V)\)</span> plane they turn clockwise.</p>
+class="math inline">\((x,v)\)</span> plane they turn clockwise.</p>
 <p>Add friction, <span class="math inline">\(m\ddot x=-kx-\gamma\dot
 x\)</span>: now <span class="math inline">\(\tau=-\gamma/m&lt;0\)</span>
 and <span class="math inline">\(\Delta=k/m\)</span>. The center becomes

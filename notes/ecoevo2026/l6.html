@@ -332,6 +332,25 @@ class="math inline">\((0,1)\)</span>, <span
 class="math inline">\(\lambda_{1|2}=r_1(1-a_{12})\)</span>, and 2 alone
 is stable if and only if <span
 class="math inline">\(a_{12}&gt;1\)</span>.</p>
+<p><strong>Invasion analysis.</strong> This is a method in itself, and
+the most useful one when the Jacobian is out of reach. Let one species,
+the <em>resident</em>, sit alone at its carrying capacity, and add a few
+individuals of the other, the <em>invader</em>. While it is rare, the
+invader does not change the resident, and it grows or declines
+exponentially at its invasion growth rate. Then: coexistence if each
+species can invade the other, exclusion if only one can, bistability if
+neither can (<a href="#the-four-outcomes">The four outcomes</a>). Two
+caveats:</p>
+<ul>
+<li>invading is not replacing: an invader that grows when rare can end
+up coexisting with the resident, or excluding it;</li>
+<li>the test probes one direction only. A positive invasion rate makes
+the resident’s fixed point unstable, but a negative one does not make it
+stable, since it could be unstable in another direction. Here the test
+is exact, because <span class="math inline">\(J\)</span> is triangular
+and the other eigenvalue, <span class="math inline">\(-r_i\)</span>, is
+always negative.</li>
+</ul>
 <h3 id="coexistence">Coexistence</h3>
 <p><span class="math display">\[
 J=-\begin{pmatrix} r_1u_1^* &amp; r_1a_{12}u_1^*\\ r_2a_{21}u_2^* &amp;
@@ -419,7 +438,17 @@ There is no coexistence point with both densities positive.</li>
 the other out. The coexistence point exists but is a saddle. Its stable
 direction, the <em>separatrix</em>, divides the starts that end with 1
 alone from those that end with 2 alone. Which species wins depends on
-where the populations start.</li>
+where the populations start. The shape of the separatrix depends on
+<span class="math inline">\(r_2/r_1\)</span>. If <span
+class="math inline">\(r_1=r_2=r\)</span> it is a straight line through
+the origin and the saddle, <span
+class="math inline">\(u_2/u_1=(a_{21}-1)/(a_{12}-1)\)</span>: on that
+line <span
+class="math inline">\(\frac{d}{dt}\ln(u_2/u_1)=r\,[(1-a_{21})u_1-(1-a_{12})u_2]=0\)</span>,
+so a trajectory that starts on it stays on it. It is the diagonal only
+if also <span class="math inline">\(a_{12}=a_{21}\)</span>. For <span
+class="math inline">\(r_1\ne r_2\)</span> it is curved, and found
+numerically (figure in <a href="#nullclines">Nullclines</a>).</li>
 </ul>
 <p>In all four cases extinction is unstable: from a few individuals of
 each, both populations first grow. Where they end up depends on <span
@@ -567,9 +596,27 @@ the <em>generalized Lotka–Volterra</em> (GLV) model. <span
 class="math inline">\(A_{ii}&lt;0\)</span> is self-limitation, and the
 sign of <span class="math inline">\(A_{ij}\)</span> is the sign of the
 effect of <span class="math inline">\(j\)</span> on <span
-class="math inline">\(i\)</span>. When <span
-class="math inline">\(A\)</span> is symmetric there is a function that
-always decreases along trajectories:</p>
+class="math inline">\(i\)</span>. (In class: <span
+class="math inline">\(g_i=r_i-\sum_j\beta_{ij}N_j\)</span>, so <span
+class="math inline">\(\beta=-A\)</span>, positive for competition.)</p>
+<p>The fixed points are found as for two species. Each species is either
+absent, <span class="math inline">\(N_i^*=0\)</span>, or present, with
+<span class="math inline">\(g_i=0\)</span>. Once we choose which species
+are present, <span class="math inline">\(g_i=0\)</span> for them is a
+linear system, <span
+class="math inline">\(\sum_jA_{ij}N_j^*=-r_i\)</span> with <span
+class="math inline">\(i\)</span> and <span
+class="math inline">\(j\)</span> running over the present species, which
+in general has one solution. Each species can be present or absent, so
+there are <span class="math inline">\(2^S\)</span> candidates. Each has
+to be checked: is it feasible (all present densities positive)? Is it
+stable? The work grows exponentially with <span
+class="math inline">\(S\)</span>, and more than one fixed point can be
+stable (multistability, the <span
+class="math inline">\(S\)</span>-species version of bistability).</p>
+<p>There is a special case where none of this checking is needed. When
+<span class="math inline">\(A\)</span> is symmetric there is a function
+that always decreases along trajectories:</p>
 <p><span class="math display">\[
 L(N) = -\sum_i r_iN_i - \frac12\sum_{ij}A_{ij}N_iN_j,
 \qquad
@@ -578,16 +625,28 @@ L(N) = -\sum_i r_iN_i - \frac12\sum_{ij}A_{ij}N_iN_j,
 \frac{dL}{dt}=\sum_i\frac{\partial L}{\partial N_i}\,\dot N_i = -\sum_i
 N_i\,g_i^2\ \le 0 .
 \]</span></p>
-<p>It stops decreasing only at fixed points. <span
-class="math inline">\(L\)</span> is a <em>Lyapunov function</em>: the
-dynamics goes downhill on <span class="math inline">\(L\)</span>, as in
-the 1D potential of L4.</p>
+<p>It stops decreasing only at fixed points (at all of them, unstable
+ones included). <span class="math inline">\(L\)</span> is not a
+potential: <span class="math inline">\(\dot N_i=-N_i\,\partial
+L/\partial N_i\)</span>, and because of the factor <span
+class="math inline">\(N_i\)</span> the flow is not the gradient of <span
+class="math inline">\(L\)</span>. It is a <em>Lyapunov function</em>: it
+only has to decrease along trajectories, and that is enough. The
+dynamics goes downhill on <span class="math inline">\(L\)</span>, as on
+the 1D potential of <a
+href="l5.html#normal-form-of-the-cusp-and-the-potential">L5</a>.</p>
 <p>If, in addition, <span class="math inline">\(-A\)</span> is positive
 definite (self-limitation dominates), <span
 class="math inline">\(L\)</span> is a convex bowl and has a single
 minimum on the region <span class="math inline">\(N_i\ge0\)</span>.
 Every trajectory ends there, so there is no bistability and there are no
-cycles. At the minimum, each species is either</p>
+cycles. This is the minimum of <span class="math inline">\(L\)</span> on
+<span class="math inline">\(N_i\ge0\)</span>, not in general the point
+where all <span class="math inline">\(\partial L/\partial
+N_i=0\)</span>: that point solves <span
+class="math inline">\(\sum_jA_{ij}N_j=-r_i\)</span> for all <span
+class="math inline">\(i\)</span>, and some of its densities can be
+negative. At the minimum, each species is either</p>
 <ul>
 <li>present, with <span class="math inline">\(\partial L/\partial
 N_i=0\)</span>, i.e. <span class="math inline">\(g_i=0\)</span>; or</li>
@@ -608,23 +667,37 @@ symmetric for some weights <span
 class="math inline">\(w_i&gt;0\)</span>. Then <span
 class="math inline">\(L=-\sum_iw_ir_iN_i-\frac12\sum_{ij}w_iA_{ij}N_iN_j\)</span>
 gives <span class="math inline">\(dL/dt=-\sum_iw_iN_ig_i^2\)</span>.
-With <span class="math inline">\(w_i=K_i/r_i\)</span>, <span
-class="math inline">\(w_iA_{ij}=-\alpha_{ij}\)</span> (with <span
-class="math inline">\(\alpha_{ii}=1\)</span>), which is symmetric if
-<span class="math inline">\(\alpha_{12}=\alpha_{21}=\alpha\)</span>. The
-matrix <span
-class="math inline">\(\begin{pmatrix}1&amp;\alpha\\\alpha&amp;1\end{pmatrix}\)</span>
-is positive definite if <span
-class="math inline">\(\alpha&lt;1\)</span>: one outcome, coexistence or
-exclusion depending on <span class="math inline">\(K_1/K_2\)</span>. If
-<span class="math inline">\(\alpha&gt;1\)</span>, <span
-class="math inline">\(L\)</span> has a saddle and two minima:
-bistability.</p>
-<p>Without symmetry there is in general no such function: a potential
-needs a symmetric Jacobian everywhere (<a
-href="s1.html#a-potential">S1</a>). With three species, competition
-alone can produce cycles of rock–paper–scissors type (<a
-href="https://doi.org/10.1137/0129022">May &amp; Leonard 1975</a>).</p>
+With two species such weights always exist when <span
+class="math inline">\(A_{12}\)</span> and <span
+class="math inline">\(A_{21}\)</span> have the same sign: take <span
+class="math inline">\(w_1/w_2=A_{21}/A_{12}\)</span>. So any two
+competitors have a Lyapunov function, whatever <span
+class="math inline">\(\alpha_{12}\)</span> and <span
+class="math inline">\(\alpha_{21}\)</span>. The quadratic part of <span
+class="math inline">\(L\)</span> is positive definite if and only if
+<span class="math inline">\(A_{11}A_{22}&gt;A_{12}A_{21}\)</span>, that
+is <span
+class="math inline">\(\alpha_{12}\alpha_{21}=a_{12}a_{21}&lt;1\)</span>:
+one outcome, coexistence or exclusion. If <span
+class="math inline">\(a_{12}a_{21}&gt;1\)</span>, <span
+class="math inline">\(L\)</span> is not convex: two minima on <span
+class="math inline">\(N_i\ge0\)</span> if both <span
+class="math inline">\(a_{ij}&gt;1\)</span> (bistability), still one if
+only one of them is (exclusion). The product <span
+class="math inline">\(a_{12}a_{21}\)</span> is the one that mortality
+leaves unchanged (<a href="#adding-mortality">Adding mortality</a>).</p>
+<p>From three species on, the weights must satisfy <span
+class="math inline">\(w_iA_{ij}=w_jA_{ji}\)</span> for every pair at
+once. They exist only if <span
+class="math inline">\(A_{12}A_{23}A_{31}=A_{13}A_{32}A_{21}\)</span>,
+and the same for every loop of species. Generic interactions break this,
+and then there is in general no such function. (A potential would need
+more: a symmetric Jacobian everywhere, <a
+href="s1.html#a-potential">S1</a>, which GLV does not have even when
+<span class="math inline">\(A\)</span> is symmetric.) With three
+species, competition alone can then produce cycles of
+rock–paper–scissors type (<a href="https://doi.org/10.1137/0129022">May
+&amp; Leonard 1975</a>).</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li>Write the Jacobian of the competitive LV model at its four fixed
@@ -651,8 +724,10 @@ growers more). Find the fixed points and their stability.</li>
 model as “rabbits versus sheep”).</li>
 <li><a href="s1.html">Appendix S1</a>: linear systems in more than one
 dimension. Spectral decomposition, a potential only for symmetric
-matrices, oscillations from complex eigenvalues, the 2D
-classification.</li>
+matrices, oscillations from complex eigenvalues, the 2D classification.
+Covered in class, except <em>Growth before decay</em>, the
+non-diagonalizable case and the closed form in 2D, which are for
+home.</li>
 <li>G. F. Gause, <em>The Struggle for Existence</em> (1934), for the
 experiments themselves.</li>
 </ul>
