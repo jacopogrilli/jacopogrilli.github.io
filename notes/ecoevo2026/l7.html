@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 7. Selection · Ecology &amp; Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l7.md" download>&darr; Markdown</a>
+</div>
+<h1 id="lecture-7.-selection">Lecture 7. Selection</h1>
+<hr />
+<p>In <a href="l6.html">L6</a> we put two species in the same tube and
+asked who wins. Evolution asks the same question about individuals of
+the same species that differ in a heritable trait, like the resistant
+mutants of <a href="l3.html">L3</a>. If one type leaves more offspring
+than another, its frequency in the population increases. This is
+selection.</p>
+<p>What evolution is, and how we know it happens, is in <a
+href="l8.html">L8</a>. Here we describe selection in the simplest
+setting: types that do not change (no mutations), in populations so
+large that we can neglect demographic noise (<a href="l2.html">L2</a>).
+Noise comes back in L9, where we ask whether a single new mutant takes
+over.</p>
+<h2 id="resistant-and-susceptible-in-the-same-tube">Resistant and
+susceptible in the same tube</h2>
+<p>When does an antibiotic select for resistance? <a
+href="https://doi.org/10.1371/journal.ppat.1002158">Gullberg et
+al. 2011</a> put a resistant and a susceptible strain together, at
+antibiotic concentrations below the one that stops the growth of the
+susceptible strain (the MIC, minimal inhibitory concentration).</p>
+<p><strong>Each strain alone.</strong> The growth rate of the
+susceptible strain falls as the concentration increases, and it stops
+growing at the MIC. A resistant strain grows almost unaffected up to ten
+times the MIC, and stops only near a hundred times it. In the figure the
+resistant strain carries Tn10dTet, a gene for an efflux pump that
+exports tetracycline out of the cell. What happens when the two are
+together?</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Each strain alone</span></p>
+<p>Growth rate of each strain grown alone, relative to its own rate
+without antibiotic, vs tetracycline (log scale): susceptible
+<em>Salmonella</em> (open) and the same strain carrying Tn10dTet
+(filled), mean ± SEM (Gullberg et al. 2011, Table S2, their Fig. 1B).
+Dashed lines: the MIC of the susceptible strain, 1.5 µg/ml, and the MSC
+measured in competition (below), 13 ng/ml. Without antibiotic the
+resistant strain alone grows slightly faster, 1.86 against 1.73 per
+hour, yet in competition it loses: the growth rate alone does not
+predict the outcome.</p>
+<p><img src="material/l7-gullberg-dose-response.png" /></p>
+</div>
+<p><strong>Setup.</strong></p>
+<ul>
+<li>Pairs of strains of <em>E. coli</em> and <em>Salmonella</em>
+Typhimurium that differ by one resistance mutation, each tagged with a
+different fluorescent protein. For instance <em>rpsL</em> K42R for
+streptomycin (a mutation in a ribosomal protein, the drug’s target),
+Tn10dTet for tetracycline (the efflux pump above), <em>gyrA</em> S83L
+for ciprofloxacin.</li>
+<li>The two strains are mixed and grown in serial transfer: every 24
+hours the culture is diluted 1000-fold into fresh medium with the same
+antibiotic concentration. About 10 generations per transfer.</li>
+<li>At every transfer, the ratio <span class="math inline">\(R\)</span>
+of resistant to susceptible cells is measured by flow cytometry,
+counting <span class="math inline">\(10^5\)</span> cells. Two strains
+can be told apart by colour. With many strains one uses DNA barcodes
+counted by sequencing, as in the modern Luria–Delbrück experiment of <a
+href="l3.html#moments">L3</a>. In evolution experiments, where the types
+are not known in advance, whole genomes are sequenced.</li>
+</ul>
+<p><strong>What the data show.</strong> <span class="math inline">\(\ln
+R\)</span> changes linearly with the number of generations. The slope
+depends on the antibiotic concentration. Without antibiotic it is
+negative: resistance has a cost, a slope of <span
+class="math inline">\(-0.03\)</span> per generation for the streptomycin
+mutation. It becomes positive above a <em>minimal selective
+concentration</em> (MSC). For streptomycin the MSC is 1 µg/ml, a quarter
+of the MIC of the susceptible strain. For the other mutations it is
+between 1/10 and 1/230 of the MIC. Resistance is selected at
+concentrations far below those that stop the growth of the susceptible
+cells.</p>
+<p>The sign of selection is not a property of the mutation. The same
+mutation is costly without the drug and favoured with it: fitness is a
+property of a type <em>in an environment</em>. Here the environment is
+fixed from outside. When the types change it themselves, fitness and
+environment change together: this is eco-evolutionary dynamics, at the
+end of the course. The plates of Luria and Delbrück (<a
+href="l3.html">L3</a>) were far above the MIC, where susceptible cells
+do not grow at all and any resistant colony is selected. Here, below the
+MIC, both types grow, and selection is a difference of growth rates.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Resistant and susceptible in the same
+tube</span></p>
+<p>Ratio of resistant (<em>rpsL</em> K42R) to susceptible
+<em>Salmonella</em> vs generations, at five streptomycin concentrations,
+one competition each (digitized from Gullberg et al. 2011, Fig. 2A).
+Lines are straight-line fits of <span class="math inline">\(\ln
+R\)</span>.</p>
+<p><img src="material/l7-gullberg-ratio-streptomycin.png" /></p>
+</div>
+<div class="callout callout-figure">
+<p><span class="callout-title">Selection and antibiotic
+concentration</span></p>
+<p>Slope of <span class="math inline">\(\ln R\)</span> per generation
+for each competition (grey) and their mean (black), vs streptomycin
+concentration (Gullberg et al. 2011, Table S3). The dashed line is the
+MSC. The MIC of the susceptible strain is 4 µg/ml.</p>
+<p><img src="material/l7-gullberg-s-streptomycin.png" /></p>
+</div>
+<p>We want to understand why <span class="math inline">\(\ln R\)</span>
+is linear in time, what its slope is, and why the slope does not depend
+on how the total population grows.</p>
+<h2 id="two-types-growing-exponentially">Two types growing
+exponentially</h2>
+<p>Let’s consider two types, <span class="math inline">\(A\)</span> and
+<span class="math inline">\(a\)</span>, growing exponentially as in <a
+href="l1.html">L1</a>:</p>
+<p><span class="math display">\[
+\frac{dn_A}{dt} = f_A\,n_A,\qquad \frac{dn_a}{dt} = f_a\,n_a .
+\]</span></p>
+<p><span class="math inline">\(f_i\)</span> is the per-capita growth
+rate of type <span class="math inline">\(i\)</span>. We call it the
+<em>fitness</em> of type <span class="math inline">\(i\)</span>. The
+total population is <span class="math inline">\(N=n_A+n_a\)</span> and
+the frequency of <span class="math inline">\(A\)</span> is <span
+class="math inline">\(x=n_A/N\)</span>. Then</p>
+<p><span class="math display">\[
+\frac{dx}{dt} = \frac1N\frac{dn_A}{dt}-\frac{n_A}{N^2}\frac{dN}{dt}
+= f_A\,x - x\,\bigl(f_A\,x+f_a\,(1-x)\bigr),
+\]</span></p>
+<p>from which we get</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dx}{dt} = s\,x(1-x),\qquad s=f_A-f_a\ }
+\]</span></p>
+<p><span class="math inline">\(s\)</span> is the <em>selection
+coefficient</em>. It is the logistic equation of <a
+href="l4.html">L4</a>, now for a frequency. The “carrying capacity”
+<span class="math inline">\(x=1\)</span> does not come from resources,
+but from the definition of a frequency. The fixed points are <span
+class="math inline">\(x=0\)</span> and <span
+class="math inline">\(x=1\)</span>. If <span
+class="math inline">\(s&gt;0\)</span>, <span
+class="math inline">\(x=1\)</span> is stable and <span
+class="math inline">\(x=0\)</span> is unstable: <span
+class="math inline">\(A\)</span> takes over. If <span
+class="math inline">\(s&lt;0\)</span>, the opposite.</p>
+<p>The solution is the logistic of L4:</p>
+<p><span class="math display">\[
+x(t)=\frac{x_0\,e^{st}}{1-x_0+x_0\,e^{st}} ,
+\]</span></p>
+<p>which can be written as</p>
+<p><span class="math display">\[
+\ln\frac{x(t)}{1-x(t)} = \ln\frac{x_0}{1-x_0} + s\,t .
+\]</span></p>
+<p>This is just the ratio of two exponentials, <span
+class="math inline">\(n_A/n_a =
+(n_A(0)/n_a(0))\,e^{(f_A-f_a)t}\)</span>. The log of the ratio is linear
+in time and its slope is the selection coefficient, as in the data. Only
+the difference of the growth rates matters. Both types could be
+declining (<span class="math inline">\(f_A,f_a&lt;0\)</span>): if <span
+class="math inline">\(f_A&gt;f_a\)</span>, <span
+class="math inline">\(A\)</span> still increases in frequency.</p>
+<p>The slope does not depend on the frequency. Gullberg et al. also
+started the tetracycline competitions with one resistant cell every 10,
+up to one every <span class="math inline">\(10^4\)</span>. The slope
+barely changes.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">The slope does not depend on the starting
+frequency</span></p>
+<p>Selection coefficient of a tetracycline-resistant strain vs the
+initial ratio susceptible : resistant, at three tetracycline
+concentrations (Gullberg et al. 2011, Table S3).</p>
+<p><img src="material/l7-gullberg-s-initial-ratio.png" /></p>
+</div>
+<p>When <span class="math inline">\(A\)</span> is rare, <span
+class="math inline">\(x\simeq x_0e^{st}\)</span>: it grows exponentially
+at rate <span class="math inline">\(s\)</span>. The time to go from a
+single individual, <span class="math inline">\(x=1/N\)</span>, to <span
+class="math inline">\(x=1-1/N\)</span> is</p>
+<p><span class="math display">\[
+t_{\rm sweep}=\frac{2\ln(N-1)}{s}\simeq\frac{2\ln N}{s}.
+\]</span></p>
+<p>With <span class="math inline">\(N=10^9\)</span> and <span
+class="math inline">\(s=10^{-2}\)</span> per generation, about 4000
+generations. A <em>selective sweep</em> is slow, and its duration
+depends on <span class="math inline">\(N\)</span> only through a
+logarithm.</p>
+<h2 id="limits-to-growth">Limits to growth</h2>
+<p>Cells cannot grow exponentially forever (<a href="l4.html">L4</a>).
+Suppose that limitation of resources reduces growth equally to every
+type, <span class="math inline">\(\dot n_i=n_i\,(f_i-cN)\)</span>. The
+per-capita rates still differ by <span
+class="math inline">\(f_A-f_a\)</span>, and the frequency follows
+exactly the same equation, <span class="math inline">\(\dot
+x=s\,x(1-x)\)</span>. The total population goes to its carrying
+capacity, and selection goes on there.</p>
+<p>In general, write the per-capita growth rate of type <span
+class="math inline">\(i\)</span> as <span
+class="math inline">\(g_i\)</span>, which can depend on all the
+densities, <span class="math inline">\(\dot n_i=n_i\,g_i\)</span>. The
+same steps as above give</p>
+<p><span class="math display">\[
+\frac{dx_i}{dt}=\frac1N\frac{dn_i}{dt}-\frac{n_i}{N^2}\frac{dN}{dt}=x_i\,(g_i-\bar
+g),\qquad \bar g=\sum_j x_j\,g_j=\frac1N\frac{dN}{dt}.
+\]</span></p>
+<p>This is exact. Whatever is added to all the <span
+class="math inline">\(g_i\)</span> cancels: what matters for the
+frequencies is the difference of the per-capita growth rates. Selection
+is constant when the differences are constant. When they depend on the
+frequencies, selection is <em>frequency-dependent</em> (<a
+href="#frequency-dependent-selection">below</a>).</p>
+<p>If the differences depend on the total density, the frequencies are
+coupled to <span class="math inline">\(N\)</span>. Take two types that
+also differ in how much crowding slows them, <span
+class="math inline">\(\dot n_i=n_i\,(f_i-c_iN)\)</span>. Then</p>
+<p><span class="math display">\[
+\frac{dx}{dt}=x(1-x)\,\bigl[(f_A-f_a)-(c_A-c_a)\,N\bigr].
+\]</span></p>
+<p>The key is a separation of time scales. If the two types are similar,
+<span class="math inline">\(x\)</span> changes slowly, while <span
+class="math inline">\(N\)</span> relaxes at rate <span
+class="math inline">\(\bar f\)</span> to the value where the population
+stops growing, <span class="math inline">\(\bar g=0\)</span>, i.e. <span
+class="math inline">\(N^*=\bar f/\bar c\)</span> with <span
+class="math inline">\(\bar c=\sum_ix_ic_i\)</span>. Setting <span
+class="math inline">\(N=N^*\)</span> closes the equation for the
+frequency:</p>
+<p><span class="math display">\[
+\frac{dx}{dt}=\frac{c_Ac_a}{\bar c}\,(K_A-K_a)\,x(1-x),\qquad
+K_i=\frac{f_i}{c_i}.
+\]</span></p>
+<p>Once the population has saturated, the type with the larger carrying
+capacity wins, not the one that grows faster (exercise 7). The same
+reduction holds for arbitrary forms of self-limitation and competition
+(<a href="https://doi.org/10.1103/PhysRevE.108.034406">Mazzolini &amp;
+Grilli 2023</a>). In the rest of this note the differences of the <span
+class="math inline">\(g_i\)</span> do not depend on <span
+class="math inline">\(N\)</span>.</p>
+<h2 id="many-types-the-replicator-equation">Many types, the replicator
+equation</h2>
+<p>With <span class="math inline">\(S\)</span> types, <span
+class="math inline">\(\dot n_i=f_i\,n_i\)</span> and <span
+class="math inline">\(x_i=n_i/N\)</span>, the same steps give</p>
+<p><span class="math display">\[
+\boxed{\ \frac{dx_i}{dt}=x_i\,\bigl(f_i-\bar f\bigr),\qquad \bar
+f=\sum_j f_j\,x_j\ }
+\]</span></p>
+<p>the <em>replicator equation</em> (<a
+href="https://doi.org/10.1016/0025-5564(78)90077-9">Taylor &amp; Jonker
+1978</a>; <a
+href="https://doi.org/10.1016/0022-5193(83)90445-9">Schuster &amp;
+Sigmund 1983</a>). <span class="math inline">\(\bar f\)</span> is the
+<em>mean fitness</em>, <span class="math inline">\(\bar{f} = \sum_i f_i
+x_i\)</span><br />
+A type grows in frequency if it is fitter than the average.</p>
+<h3 id="fixed-points">Fixed points</h3>
+<p>Each type is either absent, <span
+class="math inline">\(x_i=0\)</span>, or has <span
+class="math inline">\(f_i=\bar f\)</span>. If all the <span
+class="math inline">\(f_i\)</span> are different, only one type can be
+present. There are <span class="math inline">\(S\)</span> fixed points,
+one per type: <span class="math inline">\(x_j=1\)</span> and <span
+class="math inline">\(x_i=0\)</span> for <span
+class="math inline">\(i\ne j\)</span>.</p>
+<h3 id="stability">Stability</h3>
+<p>At the fixed point where <span class="math inline">\(j\)</span> is
+alone, <span class="math inline">\(\bar f=f_j\)</span>, and a rare type
+<span class="math inline">\(i\)</span> grows as</p>
+<p><span class="math display">\[
+\frac{dx_i}{dt}\simeq(f_i-f_j)\,x_i .
+\]</span></p>
+<p><span class="math inline">\(f_i-f_j\)</span> is the invasion rate of
+<span class="math inline">\(i\)</span> into <span
+class="math inline">\(j\)</span>, as in <a
+href="l6.html#one-species-alone">L6</a>. The fixed point is stable if no
+type can invade, i.e. if <span class="math inline">\(f_j\)</span> is the
+largest fitness. Only one fixed point is stable: the fittest type,
+provided it is present at the start (without mutations, a type that is
+absent stays absent).</p>
+<h3 id="solution">Solution</h3>
+<p>The solution is explicit:</p>
+<p><span class="math display">\[
+x_i(t)=\frac{x_i(0)\,e^{f_it}}{Z(t)},\qquad
+Z(t)=\sum_jx_j(0)\,e^{f_jt}=\frac{N(t)}{N(0)} .
+\]</span></p>
+<p>It has the form of a Boltzmann distribution, with <span
+class="math inline">\(-f_i\)</span> in the role of the energy and <span
+class="math inline">\(t\)</span> in the role of the inverse temperature.
+Selection is a cooling: for <span
+class="math inline">\(t\to\infty\)</span> the population condenses on
+the “ground state”, the fittest type. The mean fitness is <span
+class="math inline">\(\bar f=d\ln Z/dt\)</span>, as the mean energy is
+<span class="math inline">\(-\partial\ln Z/\partial\beta\)</span>.</p>
+<h2 id="fishers-fundamental-theorem">Fisher’s fundamental theorem</h2>
+<p>How does the mean fitness change? Using the replicator equation,</p>
+<p><span class="math display">\[
+\frac{d\bar f}{dt}=\sum_if_i\,\frac{dx_i}{dt}=\sum_if_i^2\,x_i-\bar
+f\sum_if_i\,x_i ,
+\]</span></p>
+<p>which can be written as</p>
+<p><span class="math display">\[
+\boxed{\ \frac{d\bar f}{dt}=\overline{f^2}-\bar f^{\,2}=\mathrm{Var}(f)\
+}
+\]</span></p>
+<p>The mean fitness increases at a rate equal to the variance of fitness
+in the population (Fisher 1930). In the language of the solution, <span
+class="math inline">\(\mathrm{Var}(f)=d^2\ln Z/dt^2\)</span>, the
+analogue of the heat capacity.</p>
+<ul>
+<li>The mean fitness never decreases, and it stops increasing when there
+is no variance left.</li>
+<li>Selection consumes the variation it feeds on. The variance itself
+changes as <span
+class="math inline">\(d\,\mathrm{Var}(f)/dt=\kappa_3\)</span>, the third
+cumulant of the fitness distribution. In general <span
+class="math inline">\(d\kappa_n/dt=\kappa_{n+1}\)</span>, because <span
+class="math inline">\(\ln Z(t+\lambda)-\ln Z(t)\)</span> is the cumulant
+generating function of the fitness distribution at time <span
+class="math inline">\(t\)</span>. Without a source of new variation
+(mutations, <a href="l3.html">L3</a>) evolution stops. How fast a
+population adapts when mutations keep supplying variance is the subject
+of L10.</li>
+<li>It is a seductive result, but neither fundamental nor a theorem in
+general. It holds for constant fitness. Fisher’s own statement is about
+the additive genetic variance in sexual populations, and <a
+href="https://doi.org/10.1111/j.1469-1809.1972.tb00764.x">Price 1972</a>
+showed that it describes only the part of the change of <span
+class="math inline">\(\bar f\)</span> due to the change in
+frequencies.</li>
+</ul>
+<h2 id="price-equation">Price equation</h2>
+<p>Fitness is not something we can see on an organism. What we can
+measure is a trait: beak depth, cell size, the concentration of
+antibiotic a cell tolerates. Let <span
+class="math inline">\(q_i\)</span> be the value of the trait of type
+<span class="math inline">\(i\)</span> and <span
+class="math inline">\(\bar q=\sum_iq_ix_i\)</span> its mean. Using the
+replicator equation,</p>
+<p><span class="math display">\[
+\frac{d\bar q}{dt}=\sum_iq_i\,x_i\,(f_i-\bar f)=\overline{qf}-\bar
+q\,\bar f ,
+\]</span></p>
+<p>that is</p>
+<p><span class="math display">\[
+\boxed{\ \frac{d\bar q}{dt}=\mathrm{Cov}(q,f)\ }
+\]</span></p>
+<p>the <em>Price equation</em> (<a
+href="https://doi.org/10.1038/227520a0">Price 1970</a>). A trait changes
+if it covaries with fitness, whatever the reason for the covariance.
+Fisher’s theorem is the special case <span
+class="math inline">\(q=f\)</span>. Price’s general version has a second
+term, the average change of the trait between parent and offspring. Here
+it is zero, because each type reproduces itself exactly.</p>
+<p><strong>Darwin’s finches.</strong> Peter and Rosemary Grant have
+followed the medium ground finch, <em>Geospiza fortis</em>, on the
+island of Daphne Major (Galápagos) since 1973, banding and measuring
+every bird. In 1977 there was almost no rain (24 mm, against 135 mm in
+1976). Seeds became scarce, and the ones left were large and hard.
+Between December 1976 and December 1977 the population went from about
+850 to 180 birds. Over the same year the mean beak depth of the birds
+alive went from 9.48 to 9.93 mm. Birds with deeper beaks survived better
+(<a href="https://doi.org/10.1126/science.214.4516.82">Boag &amp; Grant
+1981</a>; data from <a href="https://doi.org/10.5061/dryad.g6g3h">Grant
+&amp; Grant 2013</a>).</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">The 1977 drought on Daphne
+Major</span></p>
+<p>Number of <em>G. fortis</em> on the island, July 1975 to January 1979
+(95% CI). The grey band is 1977.</p>
+<p><img src="material/l7-finches-population.png" /></p>
+</div>
+<div class="callout callout-figure">
+<p><span class="callout-title">Mean beak depth through the
+drought</span></p>
+<p>Mean beak depth of the birds alive (± SE), same dates.</p>
+<p><img src="material/l7-finches-beak-depth.png" /></p>
+</div>
+<p>During 1977 the population only declined, and we read the change of
+the mean as due to who survived. The types are the individuals, <span
+class="math inline">\(w_i=1\)</span> if bird <span
+class="math inline">\(i\)</span> survived and <span
+class="math inline">\(0\)</span> otherwise, and <span
+class="math inline">\(q_i\)</span> is its beak depth. Then <span
+class="math inline">\(\Delta\bar q=\mathrm{Cov}(q,w)/\bar w\)</span> is
+the mean beak depth of the survivors minus the mean before the drought,
+the <em>selection differential</em>: <span
+class="math inline">\(+0.45\)</span> mm, about 5%.</p>
+<p>Beak depth is heritable, but offspring only partly resemble their
+parents. The <em>breeder’s equation</em> writes the change in the next
+generation as <span class="math inline">\(R=h^2\,\Delta\bar q\)</span>.
+The heritability <span class="math inline">\(h^2\)</span> is the slope
+of the offspring’s trait against the mid-parent’s (the average of the
+two parents). For <em>G. fortis</em>, <span
+class="math inline">\(h^2\simeq0.7\)</span>, so the drought should shift
+the beak depth of the next generation by about <span
+class="math inline">\(0.3\)</span> mm. The replicator equation assumes
+<span class="math inline">\(h^2=1\)</span>: each type reproduces itself
+exactly.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Beak depth is heritable</span></p>
+<p>Mean beak depth of the offspring vs mean of the two parents, 413
+families of <em>G. fortis</em>. The slope of the line is the
+heritability, <span class="math inline">\(h^2=0.72\pm0.03\)</span>.</p>
+<p><img src="material/l7-finches-heritability.png" /></p>
+</div>
+<h2 id="frequency-dependent-selection">Frequency-dependent
+selection</h2>
+<p>So far the fitness of a type did not depend on the others. Often it
+does: the advantage of a cheater depends on how many cooperators are
+around. With two types,</p>
+<p><span class="math display">\[
+\frac{dx}{dt}=x(1-x)\,\bigl[f_A(x)-f_a(x)\bigr] .
+\]</span></p>
+<h3 id="fixed-points-1">Fixed points</h3>
+<p><span class="math inline">\(x=0\)</span>, <span
+class="math inline">\(x=1\)</span>, and any <span
+class="math inline">\(x^*\)</span> where <span
+class="math inline">\(f_A(x^*)=f_a(x^*)\)</span>: both types grow at the
+same rate.</p>
+<h3 id="feasibility-when-does-the-mixed-point-exist">Feasibility (when
+does the mixed point exist)</h3>
+<p><span class="math inline">\(x^*\)</span> is a population with both
+types only if <span class="math inline">\(0&lt;x^*&lt;1\)</span>.</p>
+<h3 id="stability-1">Stability</h3>
+<ul>
+<li>At <span class="math inline">\(x=0\)</span>, <span
+class="math inline">\(\dot x\simeq[f_A(0)-f_a(0)]\,x\)</span>: <span
+class="math inline">\(x=0\)</span> is unstable if <span
+class="math inline">\(A\)</span> can invade <span
+class="math inline">\(a\)</span> when rare.</li>
+<li>At <span class="math inline">\(x=1\)</span>, in the same way, <span
+class="math inline">\(x=1\)</span> is unstable if <span
+class="math inline">\(a\)</span> can invade <span
+class="math inline">\(A\)</span> when rare, <span
+class="math inline">\(f_a(1)&gt;f_A(1)\)</span>.</li>
+<li>At <span class="math inline">\(x^*\)</span>, <span
+class="math inline">\(x^*\)</span> is stable if <span
+class="math inline">\(f_A-f_a\)</span> decreases with <span
+class="math inline">\(x\)</span> there: the rarer type is the fitter one
+(<em>negative frequency dependence</em>).</li>
+</ul>
+<h3 id="linear-frequency-dependence">Linear frequency dependence</h3>
+<p>The simplest case is a fitness that depends linearly on the
+frequencies, as if it were the sum of the effects of encounters with
+other individuals (a <em>game</em>). Call <span
+class="math inline">\(P_{ij}\)</span> the gain of an individual of type
+<span class="math inline">\(i\)</span> meeting one of type <span
+class="math inline">\(j\)</span>:</p>
+<p><span class="math display">\[
+f_A(x)=P_{AA}\,x+P_{Aa}\,(1-x),\qquad f_a(x)=P_{aA}\,x+P_{aa}\,(1-x).
+\]</span></p>
+<p>The two invasion rates are</p>
+<p><span class="math display">\[
+\lambda_{A|a}=f_A(0)-f_a(0)=P_{Aa}-P_{aa},\qquad
+\lambda_{a|A}=f_a(1)-f_A(1)=P_{aA}-P_{AA},
+\]</span></p>
+<p>and <span
+class="math inline">\(f_A-f_a=\lambda_{A|a}-(\lambda_{A|a}+\lambda_{a|A})\,x\)</span>.
+Then</p>
+<p><span class="math display">\[
+x^*=\frac{\lambda_{A|a}}{\lambda_{A|a}+\lambda_{a|A}},
+\]</span></p>
+<p>and the slope of <span class="math inline">\(f_A-f_a\)</span> at
+<span class="math inline">\(x^*\)</span> is <span
+class="math inline">\(-(\lambda_{A|a}+\lambda_{a|A})\)</span>.</p>
+<h3 id="summary">Summary</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th><span class="math inline">\(\lambda_{A\vert a}\)</span></th>
+<th><span class="math inline">\(\lambda_{a\vert A}\)</span></th>
+<th><span class="math inline">\(0&lt;x^*&lt;1\)</span></th>
+<th>stable</th>
+<th>outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td>no</td>
+<td><span class="math inline">\(x=1\)</span></td>
+<td><span class="math inline">\(A\)</span> wins</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td>no</td>
+<td><span class="math inline">\(x=0\)</span></td>
+<td><span class="math inline">\(a\)</span> wins</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td><span class="math inline">\(&gt;0\)</span></td>
+<td>yes</td>
+<td><span class="math inline">\(x^*\)</span></td>
+<td>stable coexistence (polymorphism)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td><span class="math inline">\(&lt;0\)</span></td>
+<td>yes</td>
+<td><span class="math inline">\(x=0\)</span> and <span
+class="math inline">\(x=1\)</span></td>
+<td>bistability</td>
+</tr>
+</tbody>
+</table>
+<p>It is the table of <a href="l6.html#the-four-outcomes">L6</a>: who
+can invade whom decides the outcome. This is not a coincidence. Two
+competing species with the same <span class="math inline">\(r\)</span>
+and <span class="math inline">\(K\)</span>, written in frequencies <span
+class="math inline">\(x=N_1/(N_1+N_2)\)</span>, give</p>
+<p><span class="math display">\[
+g_1-g_2=\frac{rN}{K}\Bigl[(1-a_{12})(1-x)-(1-a_{21})\,x\Bigr].
+\]</span></p>
+<p>The factor <span class="math inline">\(rN/K\)</span> is positive: it
+sets how fast the frequency moves, not where it goes. The bracket is
+linear frequency dependence, with invasion rates proportional to <span
+class="math inline">\(1-a_{12}\)</span> and <span
+class="math inline">\(1-a_{21}\)</span>, and <span
+class="math inline">\(x^*=(1-a_{12})/[(1-a_{12})+(1-a_{21})]\)</span> is
+the fraction of species 1 at the coexistence point of L6. Competition
+between species and selection between types are the same
+mathematics.</p>
+<p><strong>Cooperators and cheaters.</strong> In <a
+href="l5.html">L5</a> yeast grew on sucrose, which cells break down
+outside the cell with the enzyme invertase. Most of the glucose produced
+diffuses away and is shared: this is the origin of the Allee effect. <a
+href="https://doi.org/10.1038/nature07921">Gore, Youk &amp; van
+Oudenaarden 2009</a> competed the invertase producers (cooperators)
+against a strain with the invertase gene deleted (cheaters), which pays
+no cost but uses the shared glucose. Each strain invades the other when
+rare, and the fraction of cooperators goes to the same value from any
+start: case 3, a stable polymorphism. Making cooperation more costly
+(limiting histidine, which the cooperators need) lowers the equilibrium
+fraction of cooperators.</p>
+<p>In the LTEE, in one of the populations two lineages (S and L) have
+coexisted for many thousands of generations, each favoured when rare (<a
+href="https://doi.org/10.1086/303299">Rozen &amp; Lenski 2000</a>).</p>
+<p><strong>Fisher’s theorem fails.</strong> With <span
+class="math inline">\(f_i\)</span> depending on <span
+class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+\frac{d\bar
+f}{dt}=\sum_if_i\,\frac{dx_i}{dt}+\sum_ix_i\,\frac{df_i}{dt}=\mathrm{Var}(f)+\overline{\frac{df}{dt}}
+.
+\]</span></p>
+<p>Selection still contributes the variance, but the environment created
+by the population changes the fitness of everyone. The mean fitness at
+the stable polymorphism need not be maximal. In the snowdrift game a
+population of cooperators alone has a higher mean fitness than the
+polymorphism (exercise 5), but it can be invaded by cheaters. In Gore et
+al., the growth rate of the co-culture at equilibrium decreases as the
+cost of cooperation increases. Selection does not maximize the growth of
+the population. What evolution optimizes, when fitness depends on the
+others, is the subject of L14.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Show that the time to go from <span
+class="math inline">\(x=\epsilon\)</span> to <span
+class="math inline">\(x=1-\epsilon\)</span> is <span
+class="math inline">\(2\ln[(1-\epsilon)/\epsilon]/s\)</span>. Compare a
+beneficial mutation with <span class="math inline">\(s=10^{-1}\)</span>
+and one with <span class="math inline">\(s=10^{-3}\)</span> per
+generation in a population of <span
+class="math inline">\(10^9\)</span>.</li>
+<li>Mutation–selection balance. In the absence of antibiotic, resistance
+has a cost <span class="math inline">\(c&gt;0\)</span> (so <span
+class="math inline">\(s=-c\)</span>), and susceptible cells become
+resistant at rate <span class="math inline">\(\mu\)</span> per unit
+time: <span class="math inline">\(\dot
+n_A=(f_a-c)\,n_A+\mu\,n_a\)</span>, <span class="math inline">\(\dot
+n_a=(f_a-\mu)\,n_a\)</span>. Show that <span class="math inline">\(\dot
+x=(1-x)(\mu-c\,x)\)</span>, find the fixed points and their stability.
+How does this change the assumption of neutral mutants in <a
+href="l3.html">L3</a>?</li>
+<li>Rock–paper–scissors. Three types with <span
+class="math inline">\(P=\begin{pmatrix}0&amp;-1&amp;1\\1&amp;0&amp;-1\\-1&amp;1&amp;0\end{pmatrix}\)</span>.
+Show that <span class="math inline">\(\bar f=0\)</span> and that <span
+class="math inline">\(x_1x_2x_3\)</span> is constant along trajectories.
+What do the trajectories look like?</li>
+<li>Show that with <span class="math inline">\(x_i&#39;=x_iw_i/\bar
+w\)</span> (discrete generations) <span class="math inline">\(\Delta\bar
+q=\mathrm{Cov}(q,w)/\bar w\)</span>, and that if <span
+class="math inline">\(w_i\in\{0,1\}\)</span> this is the difference
+between the mean trait of the survivors and the mean before
+selection.</li>
+<li>Snowdrift. Take <span class="math inline">\(P_{AA}=b-c/2\)</span>,
+<span class="math inline">\(P_{Aa}=b-c\)</span>, <span
+class="math inline">\(P_{aA}=b\)</span>, <span
+class="math inline">\(P_{aa}=0\)</span>, with <span
+class="math inline">\(b&gt;c&gt;0\)</span> (<span
+class="math inline">\(A\)</span> cooperates and pays a cost <span
+class="math inline">\(c\)</span>, shared when both cooperate). Find
+<span class="math inline">\(x^*\)</span> and compare the mean fitness at
+<span class="math inline">\(x^*\)</span> with the one of a population of
+cooperators only.</li>
+<li>Data in the course folder: the selection coefficients of every
+competition of Gullberg et al. 2011 (Table S3), for six resistance
+mutations at several antibiotic concentrations. For each mutation,
+estimate the cost of resistance and the MSC, and express the MSC as a
+fraction of the MIC of the susceptible strain (streptomycin 4 µg/ml,
+tetracycline 1.5 µg/ml, ciprofloxacin 23 ng/ml).</li>
+<li>Type-specific crowding, <span class="math inline">\(\dot
+n_i=n_i\,(f_i-c_iN)\)</span> for two types. Derive the equation for
+<span class="math inline">\(x\)</span>. Show that <span
+class="math inline">\(N\)</span> relaxes at rate <span
+class="math inline">\(\bar f\)</span> to <span
+class="math inline">\(N^*=\bar f/\bar c\)</span>, and that with <span
+class="math inline">\(N=N^*\)</span>, <span class="math inline">\(\dot
+x=(c_Ac_a/\bar c)(K_A-K_a)\,x(1-x)\)</span> with <span
+class="math inline">\(K_i=f_i/c_i\)</span>. A mutant grows faster than
+the resident, <span class="math inline">\(f_A&gt;f_a\)</span>, but has a
+smaller carrying capacity, <span
+class="math inline">\(K_A&lt;K_a\)</span>. Does it increase in frequency
+while the population is small? And once it has saturated? (This is
+<em>r</em>- versus <em>K</em>-selection.)</li>
+<li>Crowding weighted by fitness, <span class="math inline">\(\dot
+n_i=n_i\bigl(f_i-\sum_jf_jn_j/K\bigr)\)</span>. Show that the
+frequencies follow the replicator equation with fitnesses <span
+class="math inline">\(f_i\)</span>, and that <span
+class="math inline">\(N\)</span> grows logistically with rate <span
+class="math inline">\(\bar f\)</span>, which changes in time.</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>M. A. Nowak, <em>Evolutionary Dynamics</em> (2006), ch. 2 (selection
+and mutation without noise) and ch. 4 (evolutionary games and the
+replicator equation).</li>
+<li>J. Hofbauer, K. Sigmund, <em>Evolutionary Games and Population
+Dynamics</em> (1998), for the replicator equation and its equivalence
+with Lotka–Volterra.</li>
+<li><a href="https://doi.org/10.1038/nrg1088">Elena &amp; Lenski
+2003</a>: how fitness is measured in evolution experiments, and what the
+LTEE found.</li>
+<li><a href="https://doi.org/10.1111/j.1469-1809.1972.tb00764.x">Price
+1972</a>, on what Fisher’s theorem actually says.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>R. A. Fisher, <em>The Genetical Theory of Natural Selection</em>
+(Clarendon Press, 1930).</li>
+<li>G. R. Price, <a href="https://doi.org/10.1038/227520a0">Selection
+and covariance</a>, <em>Nature</em> <strong>227</strong>, 520
+(1970).</li>
+<li>G. R. Price, <a
+href="https://doi.org/10.1111/j.1469-1809.1972.tb00764.x">Fisher’s
+‘fundamental theorem’ made clear</a>, <em>Ann. Hum. Genet.</em>
+<strong>36</strong>, 129 (1972).</li>
+<li>P. D. Taylor, L. B. Jonker, <a
+href="https://doi.org/10.1016/0025-5564(78)90077-9">Evolutionary stable
+strategies and game dynamics</a>, <em>Math. Biosci.</em>
+<strong>40</strong>, 145 (1978).</li>
+<li>P. T. Boag, P. R. Grant, <a
+href="https://doi.org/10.1126/science.214.4516.82">Intense natural
+selection in a population of Darwin’s finches (Geospizinae) in the
+Galápagos</a>, <em>Science</em> <strong>214</strong>, 82 (1981).</li>
+<li>P. Schuster, K. Sigmund, <a
+href="https://doi.org/10.1016/0022-5193(83)90445-9">Replicator
+dynamics</a>, <em>J. Theor. Biol.</em> <strong>100</strong>, 533
+(1983).</li>
+<li>D. E. Dykhuizen, <a
+href="https://doi.org/10.1146/annurev.es.21.110190.002105">Experimental
+studies of natural selection in bacteria</a>, <em>Annu. Rev. Ecol.
+Syst.</em> <strong>21</strong>, 373 (1990).</li>
+<li>R. E. Lenski, M. R. Rose, S. C. Simpson, S. C. Tadler, <a
+href="https://doi.org/10.1086/285289">Long-term experimental evolution
+in <em>Escherichia coli</em>. I. Adaptation and divergence during 2,000
+generations</a>, <em>Am. Nat.</em> <strong>138</strong>, 1315
+(1991).</li>
+<li>J. Hofbauer, K. Sigmund, <em>Evolutionary Games and Population
+Dynamics</em> (Cambridge University Press, 1998).</li>
+<li>D. E. Rozen, R. E. Lenski, <a
+href="https://doi.org/10.1086/303299">Long-term experimental evolution
+in <em>Escherichia coli</em>. VIII. Dynamics of a balanced
+polymorphism</a>, <em>Am. Nat.</em> <strong>155</strong>, 24
+(2000).</li>
+<li>P. R. Grant, B. R. Grant, <a
+href="https://doi.org/10.1126/science.1070315">Unpredictable evolution
+in a 30-year study of Darwin’s finches</a>, <em>Science</em>
+<strong>296</strong>, 707 (2002); data: P. R. Grant, B. R. Grant, <a
+href="https://doi.org/10.5061/dryad.g6g3h">40 years of evolution.
+Darwin’s finches on Daphne Major Island</a>, Dryad (2013).</li>
+<li>S. F. Elena, R. E. Lenski, <a
+href="https://doi.org/10.1038/nrg1088">Evolution experiments with
+microorganisms: the dynamics and genetic bases of adaptation</a>,
+<em>Nat. Rev. Genet.</em> <strong>4</strong>, 457 (2003).</li>
+<li>M. A. Nowak, <em>Evolutionary Dynamics: Exploring the Equations of
+Life</em> (Harvard University Press, 2006).</li>
+<li>J. Gore, H. Youk, A. van Oudenaarden, <a
+href="https://doi.org/10.1038/nature07921">Snowdrift game dynamics and
+facultative cheating in yeast</a>, <em>Nature</em> <strong>459</strong>,
+253 (2009).</li>
+<li>E. Gullberg, S. Cao, O. G. Berg, C. Ilbäck, L. Sandegren, D. Hughes,
+D. I. Andersson, <a
+href="https://doi.org/10.1371/journal.ppat.1002158">Selection of
+resistant bacteria at very low antibiotic concentrations</a>, <em>PLoS
+Pathog.</em> <strong>7</strong>, e1002158 (2011).</li>
+<li>M. J. Wiser, N. Ribeck, R. E. Lenski, <a
+href="https://doi.org/10.1126/science.1243357">Long-term dynamics of
+adaptation in asexual populations</a>, <em>Science</em>
+<strong>342</strong>, 1364 (2013); data: <a
+href="https://doi.org/10.5061/dryad.0hc2m">Dryad</a>.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l7.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>
