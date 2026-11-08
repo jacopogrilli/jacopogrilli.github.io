@@ -292,9 +292,7 @@ g),\qquad \bar g=\sum_j x_j\,g_j=\frac1N\frac{dN}{dt}.
 <p>This is exact. Whatever is added to all the <span
 class="math inline">\(g_i\)</span> cancels: what matters for the
 frequencies is the difference of the per-capita growth rates. Selection
-is constant when the differences are constant. When they depend on the
-frequencies, selection is <em>frequency-dependent</em> (<a
-href="#frequency-dependent-selection">below</a>).</p>
+is constant when the differences are constant.</p>
 <p>If the differences depend on the total density, the frequencies are
 coupled to <span class="math inline">\(N\)</span>. Take two types that
 also differ in how much crowding slows them, <span
@@ -316,7 +314,7 @@ frequency:</p>
 K_i=\frac{f_i}{c_i}.
 \]</span></p>
 <p>Once the population has saturated, the type with the larger carrying
-capacity wins, not the one that grows faster (exercise 7). The same
+capacity wins, not the one that grows faster (exercise 5). The same
 reduction holds for arbitrary forms of self-limitation and competition
 (<a href="https://doi.org/10.1103/PhysRevE.108.034406">Mazzolini &amp;
 Grilli 2023</a>). In the rest of this note the differences of the <span
@@ -437,171 +435,6 @@ Fisher’s theorem is the special case <span
 class="math inline">\(q=f\)</span>. Price’s general version has a second
 term, the average change of the trait between parent and offspring. Here
 it is zero, because each type reproduces itself exactly.</p>
-<h2 id="frequency-dependent-selection">Frequency-dependent
-selection</h2>
-<p>So far the fitness of a type did not depend on the others. Often it
-does: the advantage of a cheater depends on how many cooperators are
-around. With two types,</p>
-<p><span class="math display">\[
-\frac{dx}{dt}=x(1-x)\,\bigl[f_A(x)-f_a(x)\bigr] .
-\]</span></p>
-<h3 id="fixed-points-1">Fixed points</h3>
-<p><span class="math inline">\(x=0\)</span>, <span
-class="math inline">\(x=1\)</span>, and any <span
-class="math inline">\(x^*\)</span> where <span
-class="math inline">\(f_A(x^*)=f_a(x^*)\)</span>: both types grow at the
-same rate.</p>
-<h3 id="feasibility-when-does-the-mixed-point-exist">Feasibility (when
-does the mixed point exist)</h3>
-<p><span class="math inline">\(x^*\)</span> is a population with both
-types only if <span class="math inline">\(0&lt;x^*&lt;1\)</span>.</p>
-<h3 id="stability-1">Stability</h3>
-<ul>
-<li>At <span class="math inline">\(x=0\)</span>, <span
-class="math inline">\(\dot x\simeq[f_A(0)-f_a(0)]\,x\)</span>: <span
-class="math inline">\(x=0\)</span> is unstable if <span
-class="math inline">\(A\)</span> can invade <span
-class="math inline">\(a\)</span> when rare.</li>
-<li>At <span class="math inline">\(x=1\)</span>, in the same way, <span
-class="math inline">\(x=1\)</span> is unstable if <span
-class="math inline">\(a\)</span> can invade <span
-class="math inline">\(A\)</span> when rare, <span
-class="math inline">\(f_a(1)&gt;f_A(1)\)</span>.</li>
-<li>At <span class="math inline">\(x^*\)</span>, <span
-class="math inline">\(x^*\)</span> is stable if <span
-class="math inline">\(f_A-f_a\)</span> decreases with <span
-class="math inline">\(x\)</span> there: the rarer type is the fitter one
-(<em>negative frequency dependence</em>).</li>
-</ul>
-<h3 id="linear-frequency-dependence">Linear frequency dependence</h3>
-<p>The simplest case is a fitness that depends linearly on the
-frequencies, as if it were the sum of the effects of encounters with
-other individuals (a <em>game</em>). Call <span
-class="math inline">\(P_{ij}\)</span> the gain of an individual of type
-<span class="math inline">\(i\)</span> meeting one of type <span
-class="math inline">\(j\)</span>:</p>
-<p><span class="math display">\[
-f_A(x)=P_{AA}\,x+P_{Aa}\,(1-x),\qquad f_a(x)=P_{aA}\,x+P_{aa}\,(1-x).
-\]</span></p>
-<p>The two invasion rates are</p>
-<p><span class="math display">\[
-\lambda_{A|a}=f_A(0)-f_a(0)=P_{Aa}-P_{aa},\qquad
-\lambda_{a|A}=f_a(1)-f_A(1)=P_{aA}-P_{AA},
-\]</span></p>
-<p>and <span
-class="math inline">\(f_A-f_a=\lambda_{A|a}-(\lambda_{A|a}+\lambda_{a|A})\,x\)</span>.
-Then</p>
-<p><span class="math display">\[
-x^*=\frac{\lambda_{A|a}}{\lambda_{A|a}+\lambda_{a|A}},
-\]</span></p>
-<p>and the slope of <span class="math inline">\(f_A-f_a\)</span> at
-<span class="math inline">\(x^*\)</span> is <span
-class="math inline">\(-(\lambda_{A|a}+\lambda_{a|A})\)</span>.</p>
-<h3 id="summary">Summary</h3>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr>
-<th></th>
-<th><span class="math inline">\(\lambda_{A\vert a}\)</span></th>
-<th><span class="math inline">\(\lambda_{a\vert A}\)</span></th>
-<th><span class="math inline">\(0&lt;x^*&lt;1\)</span></th>
-<th>stable</th>
-<th>outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><span class="math inline">\(&gt;0\)</span></td>
-<td><span class="math inline">\(&lt;0\)</span></td>
-<td>no</td>
-<td><span class="math inline">\(x=1\)</span></td>
-<td><span class="math inline">\(A\)</span> wins</td>
-</tr>
-<tr>
-<td>2</td>
-<td><span class="math inline">\(&lt;0\)</span></td>
-<td><span class="math inline">\(&gt;0\)</span></td>
-<td>no</td>
-<td><span class="math inline">\(x=0\)</span></td>
-<td><span class="math inline">\(a\)</span> wins</td>
-</tr>
-<tr>
-<td>3</td>
-<td><span class="math inline">\(&gt;0\)</span></td>
-<td><span class="math inline">\(&gt;0\)</span></td>
-<td>yes</td>
-<td><span class="math inline">\(x^*\)</span></td>
-<td>stable coexistence (polymorphism)</td>
-</tr>
-<tr>
-<td>4</td>
-<td><span class="math inline">\(&lt;0\)</span></td>
-<td><span class="math inline">\(&lt;0\)</span></td>
-<td>yes</td>
-<td><span class="math inline">\(x=0\)</span> and <span
-class="math inline">\(x=1\)</span></td>
-<td>bistability</td>
-</tr>
-</tbody>
-</table>
-<p>It is the table of <a href="l6.html#the-four-outcomes">L6</a>: who
-can invade whom decides the outcome. This is not a coincidence. Two
-competing species with the same <span class="math inline">\(r\)</span>
-and <span class="math inline">\(K\)</span>, written in frequencies <span
-class="math inline">\(x=N_1/(N_1+N_2)\)</span>, give</p>
-<p><span class="math display">\[
-g_1-g_2=\frac{rN}{K}\Bigl[(1-a_{12})(1-x)-(1-a_{21})\,x\Bigr].
-\]</span></p>
-<p>The factor <span class="math inline">\(rN/K\)</span> is positive: it
-sets how fast the frequency moves, not where it goes. The bracket is
-linear frequency dependence, with invasion rates proportional to <span
-class="math inline">\(1-a_{12}\)</span> and <span
-class="math inline">\(1-a_{21}\)</span>, and <span
-class="math inline">\(x^*=(1-a_{12})/[(1-a_{12})+(1-a_{21})]\)</span> is
-the fraction of species 1 at the coexistence point of L6. Competition
-between species and selection between types are the same
-mathematics.</p>
-<p><strong>Cooperators and cheaters.</strong> In <a
-href="l5.html">L5</a> yeast grew on sucrose, which cells break down
-outside the cell with the enzyme invertase. Most of the glucose produced
-diffuses away and is shared: this is the origin of the Allee effect. <a
-href="https://doi.org/10.1038/nature07921">Gore, Youk &amp; van
-Oudenaarden 2009</a> competed the invertase producers (cooperators)
-against a strain with the invertase gene deleted (cheaters), which pays
-no cost but uses the shared glucose. Each strain invades the other when
-rare, and the fraction of cooperators goes to the same value from any
-start: case 3, a stable polymorphism. Making cooperation more costly
-(limiting histidine, which the cooperators need) lowers the equilibrium
-fraction of cooperators.</p>
-<p>In the LTEE, in one of the populations two lineages (S and L) have
-coexisted for many thousands of generations, each favoured when rare (<a
-href="https://doi.org/10.1086/303299">Rozen &amp; Lenski 2000</a>).</p>
-<p><strong>Fisher’s theorem fails.</strong> With <span
-class="math inline">\(f_i\)</span> depending on <span
-class="math inline">\(x\)</span>,</p>
-<p><span class="math display">\[
-\frac{d\bar
-f}{dt}=\sum_if_i\,\frac{dx_i}{dt}+\sum_ix_i\,\frac{df_i}{dt}=\mathrm{Var}(f)+\overline{\frac{df}{dt}}
-.
-\]</span></p>
-<p>Selection still contributes the variance, but the environment created
-by the population changes the fitness of everyone. The mean fitness at
-the stable polymorphism need not be maximal. In the snowdrift game a
-population of cooperators alone has a higher mean fitness than the
-polymorphism (exercise 5), but it can be invaded by cheaters. In Gore et
-al., the growth rate of the co-culture at equilibrium decreases as the
-cost of cooperation increases. Selection does not maximize the growth of
-the population. What evolution optimizes, when fitness depends on the
-others, is the subject of L14.</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li>Show that the time to go from <span
@@ -622,27 +455,12 @@ n_a=(f_a-\mu)\,n_a\)</span>. Show that <span class="math inline">\(\dot
 x=(1-x)(\mu-c\,x)\)</span>, find the fixed points and their stability.
 How does this change the assumption of neutral mutants in <a
 href="l3.html">L3</a>?</li>
-<li>Rock–paper–scissors. Three types with <span
-class="math inline">\(P=\begin{pmatrix}0&amp;-1&amp;1\\1&amp;0&amp;-1\\-1&amp;1&amp;0\end{pmatrix}\)</span>.
-Show that <span class="math inline">\(\bar f=0\)</span> and that <span
-class="math inline">\(x_1x_2x_3\)</span> is constant along trajectories.
-What do the trajectories look like?</li>
 <li>Show that with <span class="math inline">\(x_i&#39;=x_iw_i/\bar
 w\)</span> (discrete generations) <span class="math inline">\(\Delta\bar
 q=\mathrm{Cov}(q,w)/\bar w\)</span>, and that if <span
 class="math inline">\(w_i\in\{0,1\}\)</span> this is the difference
 between the mean trait of the survivors and the mean before
 selection.</li>
-<li>Snowdrift. Take <span class="math inline">\(P_{AA}=b-c/2\)</span>,
-<span class="math inline">\(P_{Aa}=b-c\)</span>, <span
-class="math inline">\(P_{aA}=b\)</span>, <span
-class="math inline">\(P_{aa}=0\)</span>, with <span
-class="math inline">\(b&gt;c&gt;0\)</span> (<span
-class="math inline">\(A\)</span> cooperates and pays a cost <span
-class="math inline">\(c\)</span>, shared when both cooperate). Find
-<span class="math inline">\(x^*\)</span> and compare the mean fitness at
-<span class="math inline">\(x^*\)</span> with the one of a population of
-cooperators only.</li>
 <li>Data in the course folder: the selection coefficients of every
 competition of Gullberg et al. 2011 (Table S3), for six resistance
 mutations at several antibiotic concentrations. For each mutation,
@@ -714,21 +532,12 @@ generations</a>, <em>Am. Nat.</em> <strong>138</strong>, 1315
 (1991).</li>
 <li>J. Hofbauer, K. Sigmund, <em>Evolutionary Games and Population
 Dynamics</em> (Cambridge University Press, 1998).</li>
-<li>D. E. Rozen, R. E. Lenski, <a
-href="https://doi.org/10.1086/303299">Long-term experimental evolution
-in <em>Escherichia coli</em>. VIII. Dynamics of a balanced
-polymorphism</a>, <em>Am. Nat.</em> <strong>155</strong>, 24
-(2000).</li>
 <li>S. F. Elena, R. E. Lenski, <a
 href="https://doi.org/10.1038/nrg1088">Evolution experiments with
 microorganisms: the dynamics and genetic bases of adaptation</a>,
 <em>Nat. Rev. Genet.</em> <strong>4</strong>, 457 (2003).</li>
 <li>M. A. Nowak, <em>Evolutionary Dynamics: Exploring the Equations of
 Life</em> (Harvard University Press, 2006).</li>
-<li>J. Gore, H. Youk, A. van Oudenaarden, <a
-href="https://doi.org/10.1038/nature07921">Snowdrift game dynamics and
-facultative cheating in yeast</a>, <em>Nature</em> <strong>459</strong>,
-253 (2009).</li>
 <li>E. Gullberg, S. Cao, O. G. Berg, C. Ilbäck, L. Sandegren, D. Hughes,
 D. I. Andersson, <a
 href="https://doi.org/10.1371/journal.ppat.1002158">Selection of
