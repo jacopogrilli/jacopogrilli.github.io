@@ -16,3 +16,5 @@ Lecture 7, Selection [L7](l7.html)
 Lecture 8, What is evolution? [L8](l8.html)
 
 Appendix S1, Linear systems [S1](s1.html)
+
+[Extra material](extra-mat.html)
