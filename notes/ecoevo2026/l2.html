@@ -81,7 +81,8 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -434,6 +435,138 @@ class="math inline">\(t&gt;t_{\max}\)</span>.</li>
 integrators of <a href="l1.html">L1</a>. The cost is that the algorithm
 slows down as <span class="math inline">\(n\)</span> grows, which is
 exactly when the deterministic description becomes accurate.</p>
+<h2
+id="additional-material.-single-resistant-cells-under-antibiotic">Additional
+material. Single resistant cells under antibiotic</h2>
+<p><em>Not covered in class.</em> The extinction probability can be
+measured one cell at a time. How likely is a single cell to give rise to
+a population, at a concentration of antibiotic where a large culture of
+the same cells grows? <a
+href="https://doi.org/10.1073/pnas.1919672117">Alexander &amp; MacLean
+2020</a> measured it for resistant bacteria.</p>
+<p><strong>Setup.</strong></p>
+<ul>
+<li><em>Pseudomonas aeruginosa</em> carrying a plasmid that makes it
+resistant to streptomycin. Its minimal inhibitory concentration (MIC),
+measured with the standard inoculum of <span
+class="math inline">\(10^5\)</span> cells, is <span
+class="math inline">\(\text{MIC}_R=2048\)</span> µg/ml. The sensitive
+strain, without the plasmid, stops growing at <span
+class="math inline">\(\text{MIC}_R/64\)</span>.</li>
+<li>An overnight culture is diluted so much that each well of a 96-well
+plate receives on average about one cell. The number of cells in a well
+is random, Poisson (<a href="l3.html">L3</a>).</li>
+<li>The wells contain fresh medium with streptomycin, from 0 to <span
+class="math inline">\(\text{MIC}_R/8\)</span>. After three days, a well
+has either grown or is still clear.</li>
+<li>In a second experiment, the mean number of cells per well goes from
+0.03 to about 800, at three concentrations.</li>
+</ul>
+<p><strong>The model.</strong> Each cell starts its own lineage, which
+establishes with probability <span class="math inline">\(p\)</span>,
+independently of the others. A well that receives <span
+class="math inline">\(n\)</span> cells stays clear with probability
+<span class="math inline">\((1-p)^n\)</span>. For the birth–death
+process <span class="math inline">\(1-p=d/b\)</span>, and this is the
+extinction probability <span class="math inline">\((d/b)^{n_0}\)</span>
+of <a href="#extinction-probability">above</a>. Averaging over the
+Poisson number of cells, with mean <span
+class="math inline">\(\lambda\)</span>,</p>
+<p><span class="math display">\[
+P(\text{clear})=\sum_{n=0}^\infty
+e^{-\lambda}\frac{\lambda^n}{n!}\,(1-p)^n=e^{-\lambda}\,e^{\lambda(1-p)}=e^{-\lambda
+p},
+\]</span></p>
+<p>so a well grows with probability</p>
+<p><span class="math display">\[
+P(\text{grow})=1-e^{-\lambda p} .
+\]</span></p>
+<p><span class="math inline">\(\lambda\)</span> is known only up to a
+factor, because not every cell would establish even without antibiotic.
+What the data give is <span class="math inline">\(p(c)/p(0)\)</span>,
+the <em>relative establishment probability</em> at concentration <span
+class="math inline">\(c\)</span>, with <span
+class="math inline">\(\lambda p(0)\)</span> calibrated on the wells
+without antibiotic. Against <span
+class="math inline">\(\ln\lambda\)</span>, the curve <span
+class="math inline">\(1-e^{-\lambda p}\)</span> has the same shape for
+every <span class="math inline">\(p\)</span>, shifted by <span
+class="math inline">\(-\ln p\)</span>. We fit <span
+class="math inline">\(\lambda\)</span> and <span
+class="math inline">\(p(c)\)</span> by maximum likelihood (binomial,
+each well grows or not).</p>
+<p><strong>What the data show.</strong> The fraction of wells that grow
+follows <span class="math inline">\(1-e^{-\lambda p}\)</span> over four
+orders of magnitude of <span class="math inline">\(\lambda\)</span>, at
+every concentration: each cell establishes independently of the others.
+At <span class="math inline">\(\text{MIC}_R/16\)</span> the curve does
+not move (<span class="math inline">\(p=0.92\)</span>, 95% interval
+0.71–1.19). At <span class="math inline">\(\text{MIC}_R/8\)</span> it
+shifts by a factor 60: <span class="math inline">\(p=0.017\)</span>
+(0.012–0.023).</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">One cell at a time</span></p>
+<p>Fraction of wells that grow against the mean number of cells per well
+(log scale), without streptomycin and at <span
+class="math inline">\(\text{MIC}_R/16\)</span> and <span
+class="math inline">\(\text{MIC}_R/8\)</span> (colour); 48–54 wells per
+point, ± 95% interval. The mean number of cells is calibrated on the
+wells without antibiotic. Lines: <span
+class="math inline">\(1-e^{-\lambda p}\)</span>, one <span
+class="math inline">\(p\)</span> fitted for each concentration. Data:
+Alexander &amp; MacLean 2020.</p>
+<p><img src="material/l10-establishment-inoculum.png" /></p>
+</div>
+<p>With about one cell per well, the establishment probability falls
+from 1 to 0.03–0.05 between <span
+class="math inline">\(\text{MIC}_R/32\)</span> and <span
+class="math inline">\(\text{MIC}_R/8\)</span>, in two experiments. With
+another plasmid and another antibiotic (meropenem) it is 0.05 at <span
+class="math inline">\(\text{MIC}_R/8\)</span>, and no well out of 192
+grew at <span class="math inline">\(\text{MIC}_R/4\)</span>.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Establishment probability of a resistant
+cell</span></p>
+<p>Establishment probability of a single resistant cell relative to the
+one without antibiotic, against streptomycin in units of <span
+class="math inline">\(\text{MIC}_R\)</span>; two experiments (filled,
+open), ± 95% interval. Fit of <span class="math inline">\(1-e^{-\lambda
+p}\)</span> to 96 wells at each of three dilutions. Data: Alexander
+&amp; MacLean 2020.</p>
+<p><img src="material/l10-establishment-streptomycin.png" /></p>
+</div>
+<p>At <span class="math inline">\(\text{MIC}_R/8\)</span> a culture of
+<span class="math inline">\(10^5\)</span> resistant cells grows, while
+the sensitive strain is at 8 times its own MIC. Yet a single resistant
+cell gives rise to a population about 4 times out of 100. In the
+language of the birth–death process, <span
+class="math inline">\(d/b\simeq0.96\)</span> (or closer to 1, if not
+every cell establishes without antibiotic): the population grows, <span
+class="math inline">\(b&gt;d\)</span>, but most lineages die out. The
+antibiotic does not stop the resistant cells, it kills more of them. The
+authors saw it directly: after 7 hours at <span
+class="math inline">\(\text{MIC}_R/8\)</span>, more than 20% of the
+cells are dead, against 3–4% without antibiotic. As for the bactericidal
+drug of <a href="#the-observation">the observation</a>, the fate of a
+cell is decided by <span class="math inline">\(d/b\)</span>, not by the
+growth rate <span class="math inline">\(b-d\)</span> alone.</p>
+<p>This also explains what the MIC is. A culture inoculated with <span
+class="math inline">\(\lambda\)</span> cells grows with probability
+<span class="math inline">\(1-e^{-\lambda p}\)</span>. In the standard
+assay <span class="math inline">\(\lambda=10^5\)</span>, and the culture
+grows almost surely as long as <span
+class="math inline">\(p\gg10^{-5}\)</span>. The MIC measured this way is
+the concentration at which <span class="math inline">\(p\)</span> is
+about <span class="math inline">\(10^{-5}\)</span>, not the one at which
+a cell stops dividing. The authors checked that the measured MIC
+increases with the number of cells in the inoculum. <a
+href="https://doi.org/10.7554/eLife.32976">Coates et al. 2018</a> (<a
+href="#the-observation">the observation</a>) saw the same probability
+from the other side: a population exposed to a bactericidal antibiotic
+is cleared with a probability set by <span
+class="math inline">\(d/b\)</span>.</p>
+<p>The same calculation gives, in L10, the probability that a new
+beneficial mutation escapes drift.</p>
 <h2 id="appendix.-exact-solution-with-the-generating-function">Appendix.
 Exact solution with the generating function</h2>
 <p><em>Only sketched in class: the definition of <span
@@ -615,6 +748,23 @@ class="math inline">\(n_0\)</span> individuals.</li>
 <li>Redo the branching argument with a general offspring distribution
 (in the case above one individual give birth to two
 deterministically)</li>
+<li>Inoculum and MIC (additional material). At <span
+class="math inline">\(\text{MIC}_R/8\)</span> a resistant cell
+establishes with probability <span
+class="math inline">\(p=0.017\)</span>. What is the probability that a
+well inoculated with, on average, 100 cells grows? And with <span
+class="math inline">\(10^5\)</span> cells? With how many cells does half
+of the wells grow?</li>
+<li>Data (additional material). The wells of Alexander &amp; MacLean
+2020 are public (<a
+href="https://doi.org/10.5061/dryad.12jm63xtb">Dryad</a>). With a single
+dilution, show that the relative establishment probability is <span
+class="math inline">\(\ln(1-w_c)/\ln(1-w_0)\)</span>, where <span
+class="math inline">\(w_c\)</span> is the fraction of wells that grow at
+concentration <span class="math inline">\(c\)</span>. Compute it at
+<span class="math inline">\(\text{MIC}_R/8\)</span> for each dilution of
+their experiment 1 (<code>platedata_171104.txt</code>), and compare with
+the fit that uses all dilutions.</li>
 </ol>
 <h2 id="at-home">At home</h2>
 <ul>
@@ -626,17 +776,22 @@ the stationary distribution of a birth–death process with immigration
 href="https://en.wikipedia.org/wiki/Method_of_characteristics">method of
 characteristics</a> for first-order PDEs (any methods-of-physics
 text).</li>
+<li><a href="https://doi.org/10.1073/pnas.1919672117">Alexander &amp;
+MacLean 2020</a>: the experiment of the additional material, with the
+likelihood fits and the inoculum effect on the MIC.</li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
-<li>D. A. Coates et al., <a
+<li>J. Coates, B. R. Park, D. Le, E. Şimşek, W. Chaudhry, M. Kim, <a
 href="https://doi.org/10.7554/eLife.32976">Antibiotic-induced population
 fluctuations and stochastic clearance of bacteria</a>, <em>eLife</em>
 <strong>7</strong>, e32976 (2018).</li>
 <li>H. K. Alexander, R. C. MacLean, <a
 href="https://doi.org/10.1073/pnas.1919672117">Stochastic bacterial
-population dynamics restrict the establishment of antibiotic
-resistance</a>, <em>PNAS</em> <strong>117</strong>, 19455 (2020).</li>
+population dynamics restrict the establishment of antibiotic resistance
+from single cells</a>, <em>Proc. Natl. Acad. Sci. USA</em>
+<strong>117</strong>, 19455 (2020); data: <a
+href="https://doi.org/10.5061/dryad.12jm63xtb">Dryad</a>.</li>
 <li>B. A. Melbourne, A. Hastings, <a
 href="https://doi.org/10.1038/nature06922">Extinction risk depends
 strongly on factors contributing to stochasticity</a>, <em>Nature</em>
