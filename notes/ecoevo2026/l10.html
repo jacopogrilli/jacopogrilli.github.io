@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 10. Selection, drift and adaptation · Ecology &amp;
+Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l10.md" download>&darr; Markdown</a>
+</div>
+<h1 id="lecture-10.-selection-drift-and-adaptation">Lecture 10.
+Selection, drift and adaptation</h1>
+<hr />
+<p>In <a href="l9.html">L9</a> every mutation was neutral, and the
+synonymous mutations of the LTEE accumulated at a constant rate, the
+mutation rate. Mutations that change a protein do not, and in the whole
+population mutations rise and fall, and some sweep to fixation. How
+likely is a mutation to fix? We compute the fixation probability, first
+without selection and then with it, and test it on the LTEE. The test
+fails in an instructive way: in a large population, beneficial mutations
+interfere with each other.</p>
+<h2 id="mutations-in-the-ltee">Mutations in the LTEE</h2>
+<p>In the LTEE of <a
+href="l9.html#long-term-evolution-experiment">L9</a> the number of
+synonymous mutations grows linearly. Nonsynonymous mutations are many
+more, about 29 at 50,000 generations, and their number grows fast at
+first and then slows down. If they were neutral too, they would
+accumulate at a rate set by the fraction of all mutations that are
+nonsynonymous. Tenaillon et al. compared the LTEE with
+<em>mutation-accumulation lines</em> of the same strain: populations
+kept through bottlenecks so severe that selection is minimal and almost
+every mutation stays. They carry 2.9 nonsynonymous mutations per
+synonymous one. In the LTEE there are 10 times more nonsynonymous
+mutations than this neutral expectation at 2,000 generations, and 3
+times more at 50,000.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Nonsynonymous mutations in the
+LTEE</span></p>
+<p>Nonsynonymous mutations per genome, same populations and symbols as
+the synonymous figure. Dashed line: what neutral nonsynonymous mutations
+would give, the synonymous line times 2.9, the ratio
+nonsynonymous/synonymous in the mutation-accumulation lines.</p>
+<p><img src="material/l9-ltee-nonsynonymous.png" /></p>
+</div>
+<p>Why more? A nonsynonymous mutation changes a protein, and can change
+the fitness of its carrier. A mutation that raises fitness spreads, and
+the more it spreads, the more likely we are to find it in the genome we
+sample.</p>
+<p><a href="https://doi.org/10.1038/nature24287">Good et al. 2017</a>
+sequenced the whole of each LTEE population every 500 generations, up to
+60,000, and followed the frequency of every mutation that reached about
+10%. The sum of the frequencies of all the mutations of a population,
+<span class="math inline">\(M(t)\)</span>, is the number of mutations
+that a genome carries on average (their Fig. 2b). In the six populations
+that kept the ancestral mutation rate, <span
+class="math inline">\(M(t)\)</span> grows by about 20 mutations in the
+first 10,000 generations and by 10 in the last 10,000 (their Fig. 2c):
+<span class="math inline">\(2\times10^{-3}\)</span> per generation, then
+<span class="math inline">\(10^{-3}\)</span>. In the other six a
+mutation in DNA repair raised the mutation rate about a hundred times,
+and <span class="math inline">\(M(t)\)</span> reaches thousands.</p>
+<p>Their Fig. 1 shows the frequency of every mutation, population by
+population. Mutations rise and fall. Some sweep: they rise quickly, all
+the way to fixation. Often several rise together, in
+<em>cohorts</em>.</p>
+<p>How often does a mutation sweep? We need the probability that a new
+mutation spreads to the whole population, first without selection and
+then with it.</p>
+<h2 id="selection-and-drift">Selection and drift</h2>
+<h3 id="fixation-of-a-neutral-mutation">Fixation of a neutral
+mutation</h3>
+<p>Without mutation, drift in the end leaves a single type (<a
+href="l9.html#moran-model">L9</a>). Which one? Let <span
+class="math inline">\(\Pi(n)\)</span> be the probability that <span
+class="math inline">\(A\)</span> eventually makes up the whole
+population (<em>fixation</em>), starting from <span
+class="math inline">\(n\)</span> individuals of type <span
+class="math inline">\(A\)</span>.</p>
+<p><strong>First-event argument</strong>, as for the <a
+href="l2.html#extinction-probability">extinction probability</a> of L2.
+In the Moran model the first change of <span
+class="math inline">\(n\)</span> is to <span
+class="math inline">\(n+1\)</span> or to <span
+class="math inline">\(n-1\)</span>, with equal probability:</p>
+<p><span class="math display">\[
+\Pi(n)=\tfrac12\,\Pi(n+1)+\tfrac12\,\Pi(n-1),\qquad \Pi(0)=0,\quad
+\Pi(N)=1 .
+\]</span></p>
+<p>Then <span
+class="math inline">\(\Pi(n+1)-\Pi(n)=\Pi(n)-\Pi(n-1)=c\)</span>, so
+<span class="math inline">\(\Pi(n)=c\,n\)</span>, and <span
+class="math inline">\(\Pi(N)=1\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{\ \Pi(n)=\frac nN\ }
+\]</span></p>
+<p>There is a shorter argument. The mean frequency does not change,
+<span class="math inline">\(\langle x(t)\rangle=x(0)\)</span>. At long
+times <span class="math inline">\(x\)</span> is either 0 or 1, so <span
+class="math inline">\(\langle x(\infty)\rangle=\Pi\)</span>. Both are a
+statement of symmetry. In the end the whole population descends from a
+single individual of today, and each individual has the same
+probability, <span class="math inline">\(1/N\)</span>, of being that
+ancestor.</p>
+<p>A new mutation appears in one individual. If it is neutral it fixes
+with probability <span class="math inline">\(1/N\)</span>, and is lost
+with probability <span class="math inline">\(1-1/N\)</span>. Most are
+lost within a few generations. The few that fix take on average about
+<span class="math inline">\(N\)</span> generations (S2).</p>
+<p><strong>In the LTEE.</strong> With <span
+class="math inline">\(N_e\approx7\times10^7\)</span> (<a
+href="l9.html#diversity-in-the-ltee">L9</a>), a new neutral mutation
+fixes with probability <span
+class="math inline">\(1/N\approx1.4\times10^{-8}\)</span>. The same
+argument, with the absorbing wall at <span
+class="math inline">\(Nx\)</span> copies instead of <span
+class="math inline">\(N\)</span>, says that it reaches frequency <span
+class="math inline">\(x\)</span> with probability <span
+class="math inline">\(1/(Nx)\)</span>: <span
+class="math inline">\(1.4\times10^{-7}\)</span> for the 10% of Good et
+al. The few that fix take about <span class="math inline">\(N\)</span>
+generations, a thousand times the age of the experiment, and reaching
+10% takes of the order of <span class="math inline">\(0.1N\)</span>. The
+sweeps of their Fig. 1 take a few thousand generations. They are not
+drift: every mutation seen there was carried up by selection, its own or
+that of a mutation on the same genome.</p>
+<h3 id="moran-model-with-selection">Moran model with selection</h3>
+<p>Now <span class="math inline">\(A\)</span> has fitness <span
+class="math inline">\(f_A=1+s\)</span> and <span
+class="math inline">\(a\)</span> has <span
+class="math inline">\(f_a=1\)</span>. Each individual reproduces at a
+rate equal to its fitness, and the offspring replaces an individual
+chosen at random:</p>
+<p><span class="math display">\[
+n\to n+1\quad\text{at rate}\quad N f_A\,x(1-x),\qquad n\to
+n-1\quad\text{at rate}\quad N f_a\,x(1-x).
+\]</span></p>
+<p><span class="math inline">\(s=f_A-f_a\)</span> is the selection
+coefficient of <a href="l7.html#two-types-growing-exponentially">L7</a>,
+per generation. For the mean,</p>
+<p><span class="math display">\[
+\frac{d\langle x\rangle}{dt}=\frac1N\bigl\langle N f_A\,x(1-x)-N
+f_a\,x(1-x)\bigr\rangle=s\,\langle x(1-x)\rangle .
+\]</span></p>
+<p>For <span class="math inline">\(N\to\infty\)</span> the fluctuations
+vanish, <span class="math inline">\(\langle x(1-x)\rangle\to
+x(1-x)\)</span>, and we get back the replicator L7: <span
+class="math inline">\(\dot x=s\,x(1-x)\)</span>. For finite <span
+class="math inline">\(N\)</span> the frequency fluctuates around this
+trend, and can end at 0 even if <span
+class="math inline">\(s&gt;0\)</span>.</p>
+<h3 id="fixation-probability">Fixation probability</h3>
+<p>First-event argument again. Whatever <span
+class="math inline">\(n\)</span> is, the first change is up with
+probability <span class="math inline">\(f_A/(f_A+f_a)=r/(1+r)\)</span>,
+with <span class="math inline">\(r=f_A/f_a=1+s\)</span>:</p>
+<p><span class="math display">\[
+\Pi(n)=\frac{r}{1+r}\,\Pi(n+1)+\frac1{1+r}\,\Pi(n-1) .
+\]</span></p>
+<p>With <span class="math inline">\(\Delta(n)=\Pi(n)-\Pi(n-1)\)</span>
+this reads <span
+class="math inline">\(r\,\Delta(n+1)=\Delta(n)\)</span>. The increments
+form a geometric series, <span
+class="math inline">\(\Delta(n)=\Delta(1)\,r^{-(n-1)}\)</span>. Summing
+them, <span
+class="math inline">\(\Pi(n)=\Delta(1)\,(1-r^{-n})/(1-r^{-1})\)</span>,
+and <span class="math inline">\(\Pi(N)=1\)</span> fixes <span
+class="math inline">\(\Delta(1)\)</span>:</p>
+<p><span class="math display">\[
+\boxed{\ \Pi(n)=\frac{1-r^{-n}}{1-r^{-N}},\qquad r=\frac{f_A}{f_a}\ }
+\]</span></p>
+<p>It is the <em>gambler’s ruin</em>: a random walk that steps up with
+probability <span class="math inline">\(r/(1+r)\)</span>, between two
+absorbing walls at <span class="math inline">\(0\)</span> and <span
+class="math inline">\(N\)</span>. For <span
+class="math inline">\(r\to1\)</span> it gives back <span
+class="math inline">\(n/N\)</span>.</p>
+<p>For a new mutant, <span class="math inline">\(n=1\)</span>, with
+<span class="math inline">\(|s|\ll1\)</span> and <span
+class="math inline">\(r^{-N}\simeq e^{-Ns}\)</span>:</p>
+<p><span class="math display">\[
+\Pi(1)=\frac{1-1/r}{1-r^{-N}}\simeq\frac{s}{1-e^{-Ns}} .
+\]</span></p>
+<p>What matters is the product <span
+class="math inline">\(Ns\)</span>.</p>
+<ul>
+<li><span class="math inline">\(Ns\gg1\)</span>: <span
+class="math inline">\(\Pi(1)\simeq s\)</span>. A beneficial mutation is
+lost with probability <span class="math inline">\(1-s\)</span>. With
+<span class="math inline">\(s=1\%\)</span>, 99 out of 100 are lost,
+however large the population.</li>
+<li><span class="math inline">\(|Ns|\ll1\)</span>: <span
+class="math inline">\(\Pi(1)\simeq(1+Ns/2)/N\simeq1/N\)</span>.
+Selection is invisible, and the mutation behaves as neutral.</li>
+<li><span class="math inline">\(Ns\ll-1\)</span>: <span
+class="math inline">\(\Pi(1)\simeq|s|\,e^{-N|s|}\)</span>. A deleterious
+mutation can fix, with a probability exponentially small in <span
+class="math inline">\(N|s|\)</span>.</li>
+</ul>
+<p><strong>Selection beats drift when <span
+class="math inline">\(|s|\gg1/N_e\)</span>.</strong> With <span
+class="math inline">\(N_e\)</span> of the order of <span
+class="math inline">\(10^4\)</span>, as estimated for humans, mutations
+with <span class="math inline">\(|s|\lesssim10^{-4}\)</span> are
+effectively neutral. In the LTEE, with <span
+class="math inline">\(N_e\approx7\times10^7\)</span>, the threshold is
+<span class="math inline">\(|s|\sim10^{-8}\)</span>. Whether a mutation
+behaves as neutral depends on the population, not only on the mutation:
+this is the <em>nearly neutral</em> theory (<a
+href="https://doi.org/10.1038/246096a0">Ohta 1973</a>).</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Fixation probability of a new
+mutant</span></p>
+<p><span class="math inline">\(N\times\)</span> the fixation probability
+of a single new mutant against <span class="math inline">\(Ns\)</span>,
+<span class="math inline">\(N=100\)</span>, log scale; 1 is the neutral
+value. Line: exact formula. Points: simulations, <span
+class="math inline">\(4\times10^5\)</span> runs each.</p>
+<p><img src="material/l9-fixation-moran.png" /></p>
+</div>
+<p>For large <span class="math inline">\(N\)</span>, with <span
+class="math inline">\(x=n/N\)</span> and <span
+class="math inline">\(r^{-n}\simeq e^{-Nsx}\)</span>, this is <a
+href="https://doi.org/10.1093/genetics/47.6.713">Kimura’s formula</a>
+(1962),</p>
+<p><span class="math display">\[
+\Pi(x)=\frac{1-e^{-Nsx}}{1-e^{-Ns}} .
+\]</span></p>
+<p>S2 obtains it from the diffusion approximation.</p>
+<p>As a function of the starting frequency <span
+class="math inline">\(x\)</span>, the neutral result is a line, <span
+class="math inline">\(\Pi=x\)</span>. With <span
+class="math inline">\(Ns\gg1\)</span>, <span
+class="math inline">\(\Pi\simeq1-e^{-Nsx}\)</span>: it rises as <span
+class="math inline">\(Nsx\)</span> while <span
+class="math inline">\(x\ll1/(Ns)\)</span>, and is close to 1 as soon as
+<span class="math inline">\(x\gg1/(Ns)\)</span>, once the mutation has
+more than about <span class="math inline">\(1/s\)</span> copies. A
+beneficial mutation that has reached a few percent of a large population
+is safe: with <span class="math inline">\(N=10^7\)</span> and <span
+class="math inline">\(s=0.01\)</span>, <span
+class="math inline">\(1/(Ns)=10^{-5}\)</span>.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Drift simulator</span></p>
+<p>The simulator of L9, now with selection. <em>One new mutant</em>:
+with <span class="math inline">\(s=0.02\)</span> and <span
+class="math inline">\(N=100\)</span>, about 2% of the populations fix
+<span class="math inline">\(A\)</span>. <em>Ns &lt; 1</em>: selection is
+invisible. <em>Ns ≫ 1</em>: the frequency follows the logistic of L7.
+The dashed lines in the last panel are the formula above.</p>
+<iframe class="widget" src="material/l9-drift-simulator.html" title="L9-drift-simulator" loading="lazy" style="display:block;width:100%;height:520px;border:0;margin:.6rem 0">
+</iframe>
+<script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>
+</div>
+<h3 id="the-fate-of-a-new-mutation-is-decided-while-it-is-rare">The fate
+of a new mutation is decided while it is rare</h3>
+<p>While <span class="math inline">\(A\)</span> is rare, <span
+class="math inline">\(n\ll N\)</span>, the two rates are <span
+class="math inline">\(N f_A x(1-x)\simeq f_A\,n\)</span> and <span
+class="math inline">\(N f_a x(1-x)\simeq f_a\,n\)</span>. Each <span
+class="math inline">\(A\)</span> individual reproduces at rate <span
+class="math inline">\(f_A\)</span> and is replaced at rate <span
+class="math inline">\(f_a\)</span>. This is the birth–death process of
+<a href="l2.html#extinction-probability">L2</a>, with <span
+class="math inline">\(b=f_A\)</span> and <span
+class="math inline">\(d=f_a\)</span>. From one individual it goes
+extinct with probability <span class="math inline">\(d/b\)</span>, so it
+<em>establishes</em> with probability</p>
+<p><span class="math display">\[
+1-\frac{f_a}{f_A}=\frac{f_A-f_a}{f_A}\simeq s ,
+\]</span></p>
+<p>the limit <span class="math inline">\(N\to\infty\)</span> of <span
+class="math inline">\(\Pi(1)\)</span>. The fate of a new mutation is
+decided while it is rare, by the same process that decided the fate of
+the bacteria under antibiotic in L2. Once <span
+class="math inline">\(n\)</span> is of the order of <span
+class="math inline">\(1/s\)</span>, selection dominates drift and the
+frequency follows the logistic of L7 to fixation, in a time <span
+class="math inline">\(\simeq2\ln N/s\)</span> (<a
+href="#one-sweep-at-a-time">below</a>). The deterministic description of
+L7 holds once a mutation is common. Whether it ever becomes common is a
+matter of chance.</p>
+<p>In general, a lineage that starts from one individual, in which each
+individual divides at rate <span class="math inline">\(b\)</span> and
+dies at rate <span class="math inline">\(d\)</span>, establishes with
+probability</p>
+<p><span class="math display">\[
+p=\frac{b-d}{b} .
+\]</span></p>
+<p>A positive growth rate, <span class="math inline">\(b&gt;d\)</span>,
+is not enough: establishment is likely only if <span
+class="math inline">\(b-d\)</span> is comparable with <span
+class="math inline">\(b\)</span>. In the Moran model <span
+class="math inline">\(d\)</span> is the rate at which the residents
+replace <span class="math inline">\(A\)</span>, and <span
+class="math inline">\(p\)</span> is set by the difference of fitness. A
+resistant cell in a medium with antibiotic has its own <span
+class="math inline">\(b\)</span> and <span
+class="math inline">\(d\)</span>, set by the antibiotic and not by
+competitors: its establishment probability is measured one cell at a
+time in the <a
+href="l2.html#additional-material.-single-resistant-cells-under-antibiotic">additional
+material of L2</a>.</p>
+<h2 id="fixation-in-the-ltee">Fixation in the LTEE</h2>
+<p><a href="https://doi.org/10.1038/nature24287">Good et al.</a> tested
+this (their Fig. 4c,d). Every mutation they followed had reached about
+10%, far above <span class="math inline">\(1/(Ns)\)</span>, so it was
+beneficial or on the same genome as a beneficial one (<a
+href="#fixation-of-a-neutral-mutation">above</a>). It should then fix
+with probability close to 1. They grouped the mutations by frequency and
+counted how often they went on to fix. The probability of fixation is
+close to the frequency <span class="math inline">\(f\)</span>, the
+neutral result, also when only the data after 20,000 generations are
+used, and in the mutators too. (Frequencies are counted within the
+lineage, or <em>clade</em>, a mutation belongs to: in most LTEE
+populations two clades coexist.) The trajectories are far too fast to be
+neutral, yet the fixation probability looks neutral. Why?</p>
+<h2 id="clonal-interference">Clonal interference</h2>
+<h3 id="one-sweep-at-a-time">One sweep at a time</h3>
+<p>The calculation of the fixation probability follows one mutation at a
+time: it appears, and it fixes or is lost before the next mutation that
+will fix appears. When is this true? Beneficial mutations appear at rate
+<span class="math inline">\(U_b\)</span> per genome per generation,
+<span class="math inline">\(NU_b\)</span> in the whole population, and
+each escapes drift with probability <span class="math inline">\(\simeq
+s\)</span>. Successful mutations appear every</p>
+<p><span class="math display">\[
+\tau_{\rm est}=\frac1{NU_bs}
+\]</span></p>
+<p>generations.</p>
+<p>How long does a sweep last? Once established, the mutant follows the
+logistic of <a href="l7.html#two-types-growing-exponentially">L7</a>,
+whose log-ratio grows linearly in time:</p>
+<p><span class="math display">\[
+\ln\frac{x(t)}{1-x(t)}=\ln\frac{x_0}{1-x_0}+s\,t .
+\]</span></p>
+<p>A sweep starts from one mutant, <span
+class="math inline">\(x_0=1/N\)</span>, where the log-ratio is <span
+class="math inline">\(-\ln(N-1)\)</span>, and ends when one resident is
+left, <span class="math inline">\(x=1-1/N\)</span>, where it is <span
+class="math inline">\(+\ln(N-1)\)</span>. The log-ratio has to grow by
+<span class="math inline">\(2\ln(N-1)\)</span> at rate <span
+class="math inline">\(s\)</span>, so</p>
+<p><span class="math display">\[
+\tau_{\rm sw}=\frac{2\ln(N-1)}{s}\simeq\frac{2\ln N}{s} .
+\]</span></p>
+<p>The two halves are two exponentials: the mutants grow as <span
+class="math inline">\(e^{st}\)</span> from 1 to <span
+class="math inline">\(N/2\)</span>, in a time <span
+class="math inline">\(\ln N/s\)</span>, and the residents decline as
+<span class="math inline">\(e^{-st}\)</span> from <span
+class="math inline">\(N/2\)</span> to 1, in another <span
+class="math inline">\(\ln N/s\)</span>. With <span
+class="math inline">\(N=10^9\)</span> and <span
+class="math inline">\(s=0.01\)</span> a sweep lasts about 4,000
+generations: the population size enters only through a logarithm. Drift
+at the two ends, where there are few copies, shortens the sweep of a
+mutation that fixes to about <span
+class="math inline">\(2\ln(Ns)/s\)</span>. The difference, of order
+<span class="math inline">\(\ln(1/s)/s\)</span>, is small when <span
+class="math inline">\(N\gg1/s\)</span>.</p>
+<p>Sweeps do not overlap if <span class="math inline">\(\tau_{\rm
+sw}\ll\tau_{\rm est}\)</span>, that is</p>
+<p><span class="math display">\[
+\frac{\tau_{\rm sw}}{\tau_{\rm est}}=2NU_b\ln N\ll1 .
+\]</span></p>
+<p>The condition does not depend on <span
+class="math inline">\(s\)</span>: a larger <span
+class="math inline">\(s\)</span> makes successful mutations more
+frequent and sweeps shorter, by the same factor. With <span
+class="math inline">\(U_b=10^{-6}\)</span> it holds up to <span
+class="math inline">\(N\approx10^4\)</span>. In this regime fitness
+grows by one sweep after the other, <em>periodic selection</em> (<a
+href="https://doi.org/10.1073/pnas.37.3.146">Atwood, Schneider &amp;
+Ryan 1951</a>).</p>
+<p>In the LTEE, with <span class="math inline">\(U_b\sim10^{-6}\)</span>
+and <span class="math inline">\(N=10^7\)</span>, <span
+class="math inline">\(2\ln N\approx32\)</span> and <span
+class="math inline">\(2NU_b\ln N\approx300\)</span>; with the <span
+class="math inline">\(N_e\approx7\times10^7\)</span> of L9, about 2,500.
+Successful mutations appear hundreds of times faster than they can
+sweep, and a second one appears while the first is still sweeping. In a
+sexual population, recombination can bring the two into the same genome.
+In an asexual one they sit in two different lineages, which compete. One
+of the two is lost together with its beneficial mutation, unless a new
+mutation falls on the lineage that already carries the other (<a
+href="https://doi.org/10.1023/A:1017067816551">Gerrish &amp; Lenski
+1998</a>). This is <em>clonal interference</em>.</p>
+<h3 id="quasi-neutral-fixation">Quasi-neutral fixation</h3>
+<p>Without interference, a beneficial mutation that has escaped drift
+fixes: once <span class="math inline">\(f\gg1/(Ns)\)</span>, <span
+class="math inline">\(\Pi\simeq1\)</span>. Under strong interference
+this is no longer true. Take a mutation now at frequency <span
+class="math inline">\(f\)</span>. Whether it fixes is decided by the
+sweeps that follow: a new beneficial mutation appears in one individual,
+and the descendants of that individual take over. Our mutation fixes if
+that individual carries it.</p>
+<p><strong>Complete sweeps.</strong> Suppose that sweeps start at rate
+<span class="math inline">\(\lambda\)</span> per generation, each in an
+individual taken at random, and that each takes over the whole
+population. With probability <span class="math inline">\(f\)</span> the
+sweep starts in a carrier of our mutation, which then fixes. With
+probability <span class="math inline">\(1-f\)</span> it starts
+elsewhere, and our mutation is lost. So</p>
+<p><span class="math display">\[
+\Pi(f)=f ,
+\]</span></p>
+<p>as for a neutral mutation, and for the same reason (<a
+href="#fixation-of-a-neutral-mutation">above</a>): the future population
+descends from an individual of today taken at random. Here the sweeps
+pick the ancestor, instead of drift.</p>
+<p>Under strong clonal interference sweeps follow each other and
+overlap. The fate of a mutation is decided by the background on which it
+lands more than by its own effect, and fixation is
+<em>quasi-neutral</em> (<a
+href="https://doi.org/10.1534/genetics.111.132027">Schiffels et
+al. 2011</a>; <a
+href="https://doi.org/10.1534/genetics.113.156430">Kosheleva &amp; Desai
+2013</a>).</p>
+<h3 id="clonal-interference-in-the-ltee">Clonal interference in the
+LTEE</h3>
+<p>This explains the measurement of Good et al. In the LTEE successful
+mutations appear hundreds of times faster than they can sweep, and a
+mutation seen at frequency <span class="math inline">\(f\)</span> fixes
+with probability close to <span class="math inline">\(f\)</span> (<a
+href="#fixation-in-the-ltee">above</a>). In their words, adaptation in
+the LTEE “is not mutation-limited”.</p>
+<p>This is what the LTEE says about selection and drift. Selection
+drives the trajectories: drift alone would be a thousand times too slow,
+and nonsynonymous mutations outrun the neutral clock. But in a large
+population that does not recombine, escaping drift is not enough.
+Beneficial mutations are lost to each other, and a mutation that has
+escaped drift fixes with about the same probability as a neutral one at
+the same frequency.</p>
+<h2
+id="additional-material.-substitution-rate-with-selection">Additional
+material. Substitution rate with selection</h2>
+<p>In <a href="l9.html">L9</a> neutral mutations accumulate at rate
+<span class="math inline">\(\mu\)</span>: <span
+class="math inline">\(N\mu\)</span> appear in the population each
+generation, and each fixes with probability <span
+class="math inline">\(1/N\)</span>. A mutation with selection
+coefficient <span class="math inline">\(s\)</span> also appears <span
+class="math inline">\(N\mu\)</span> times per generation, and fixes with
+probability <span class="math inline">\(\Pi(1)\)</span>. Its
+<em>substitution rate</em> is</p>
+<p><span class="math display">\[
+k=N\mu\,\Pi(1),
+\]</span></p>
+<p>and relative to a neutral mutation</p>
+<p><span class="math display">\[
+\frac{k}{\mu}=N\,\Pi(1)\simeq\frac{Ns}{1-e^{-Ns}} .
+\]</span></p>
+<p>This is the quantity on the vertical axis of the figure of the
+fixation probability. For <span class="math inline">\(Ns\gg1\)</span>,
+<span class="math inline">\(k\simeq N\mu s\)</span>: beneficial
+mutations are substituted <span class="math inline">\(Ns\)</span> times
+faster than neutral ones. For <span
+class="math inline">\(Ns\ll-1\)</span> deleterious mutations are
+substituted exponentially more slowly.</p>
+<h3 id="back-to-the-ltee">Back to the LTEE</h3>
+<p>This makes the answer of the opening quantitative. Most changes to a
+protein are harmful, and with the <span
+class="math inline">\(N_e\approx7\times10^7\)</span> of the LTEE a cost
+as small as <span class="math inline">\(|s|=10^{-6}\)</span> already
+gives <span class="math inline">\(N|s|\gg1\)</span>: harmful mutations
+are almost never substituted. A few changes are beneficial, and each of
+those is substituted <span class="math inline">\(Ns\)</span> times
+faster than a neutral mutation, about <span
+class="math inline">\(10^6\)</span> times faster for <span
+class="math inline">\(s\)</span> of a few percent. Nonsynonymous
+mutations run faster than the neutral clock because the beneficial ones
+win: most of the nonsynonymous mutations found in the LTEE spread
+because of selection.</p>
+<p>The excess is large, but not as large as <span
+class="math inline">\(Ns\)</span> suggests. If every beneficial mutation
+that escapes drift went on to fix, a few nonsynonymous mutations in a
+million being beneficial would already explain it (exercise 3). In
+yeast, about one mutation in a thousand is beneficial by more than 2%
+(<a href="https://doi.org/10.1534/genetics.113.160069">Frenkel, Good
+&amp; Desai 2014</a>). Either beneficial mutations are far rarer in
+<em>E. coli</em>, or most of those that escape drift never fix. <a
+href="#clonal-interference">Clonal interference</a> says that the second
+is expected in a population this large: beneficial mutations compete
+with each other. The excess also shrinks with time, as the populations
+adapt and beneficial mutations become rarer and weaker (<a
+href="#additional-material.-fitness-in-the-ltee-keeps-rising">additional
+material</a>).</p>
+<h2 id="additional-material.-speed-of-adaptation">Additional material.
+Speed of adaptation</h2>
+<p>A population adapts by substituting beneficial mutations, one after
+the other. How fast? We measure the speed by the rate at which the mean
+log-fitness increases,</p>
+<p><span class="math display">\[
+v=\frac{d\langle\ln f\rangle}{dt} .
+\]</span></p>
+<p>The simplest model: beneficial mutations appear at rate <span
+class="math inline">\(U_b\)</span> per genome per generation, and all
+have the same effect, <span class="math inline">\(f\to(1+s)f\)</span>,
+so that each one increases <span class="math inline">\(\ln f\)</span> by
+<span class="math inline">\(\ln(1+s)\simeq s\)</span>.</p>
+<h3 id="originfixation">Origin–fixation</h3>
+<p>Each generation <span class="math inline">\(NU_b\)</span> beneficial
+mutations appear. Each establishes with probability <span
+class="math inline">\(\simeq s\)</span>, and then sweeps to fixation. If
+sweeps happen one at a time, each establishment increases <span
+class="math inline">\(\langle\ln f\rangle\)</span> by <span
+class="math inline">\(s\)</span>, and</p>
+<p><span class="math display">\[
+v\simeq NU_b\,s\cdot s=NU_b\,s^2 .
+\]</span></p>
+<p>This is the <em>origin–fixation</em> picture. The time between two
+substitutions is set by the origin of a successful mutation, and its
+fixation is fast by comparison. Fitness increases in steps, and on
+average linearly in time. <span class="math inline">\(v\)</span> is
+proportional to <span class="math inline">\(N\)</span>: a population ten
+times larger adapts ten times faster.</p>
+<p>This holds while sweeps do not overlap, <span
+class="math inline">\(2NU_b\ln N\ll1\)</span> (<a
+href="#one-sweep-at-a-time">above</a>).</p>
+<h3 id="travelling-wave">Travelling wave</h3>
+<p>Under clonal interference beneficial mutations are wasted, and <span
+class="math inline">\(v\)</span> grows more slowly than <span
+class="math inline">\(N\)</span>. When mutations keep piling up on the
+fittest lineages, the population moves in fitness as a travelling wave,
+and the speed grows only as the logarithm of <span
+class="math inline">\(N\)</span> (<a
+href="https://doi.org/10.1534/genetics.106.067678">Desai &amp; Fisher
+2007</a>):</p>
+<p><span class="math display">\[
+v\simeq s^2\,\frac{2\ln(Ns)-\ln(s/U_b)}{\ln^2(s/U_b)} .
+\]</span></p>
+<p>How much does it matter? Take <span
+class="math inline">\(s=0.05\)</span> and <span
+class="math inline">\(U_b=10^{-6}\)</span>. One sweep at a time holds up
+to <span class="math inline">\(N\approx10^4\)</span>. At <span
+class="math inline">\(N=10^8\)</span> it would give <span
+class="math inline">\(v=NU_bs^2=0.25\)</span> per generation, while the
+travelling wave gives <span
+class="math inline">\(v\simeq4\times10^{-4}\)</span>, 600 times less.
+Beyond <span class="math inline">\(N\approx10^4\)</span>, each factor 10
+in <span class="math inline">\(N\)</span> adds the same amount to <span
+class="math inline">\(v\)</span>, <span
+class="math inline">\(2s^2\ln10/\ln^2(s/U_b)\approx10^{-4}\)</span> per
+generation.</p>
+<h2
+id="additional-material.-fitness-in-the-ltee-keeps-rising">Additional
+material. Fitness in the LTEE keeps rising</h2>
+<p>The fitness of an LTEE population is measured by competing a sample
+of it against the ancestor, for one day. <span
+class="math inline">\(W=\ln(A_f/A_i)/\ln(B_f/B_i)\)</span> is the ratio
+between the growth of the evolved population (<span
+class="math inline">\(A\)</span>) and of the ancestor (<span
+class="math inline">\(B\)</span>), initial and final. Per generation of
+the ancestor, the selection coefficient is <span
+class="math inline">\(s=(W-1)\ln2\)</span>. <a
+href="https://doi.org/10.1126/science.1243357">Wiser et al. 2013</a>
+measured <span class="math inline">\(W\)</span> every 500 to 2,000
+generations in the twelve populations, up to 50,000 generations (three
+populations have gaps).</p>
+<p><strong>What the data show.</strong> Fitness grows fast at first, to
+<span class="math inline">\(W=1.25\)</span> at 2,000 generations, and
+then more and more slowly: 1.47 at 10,000, 1.69 at 50,000. The rate
+<span class="math inline">\(dW/dt\)</span> falls from about <span
+class="math inline">\(10^{-4}\)</span> per generation at 1,000
+generations to <span class="math inline">\(3.5\times10^{-6}\)</span> at
+45,000. A hyperbola, <span class="math inline">\(W=1+at/(b+t)\)</span>,
+which stops at <span class="math inline">\(W=1+a=1.71\)</span>, fits
+worse than a power law, <span class="math inline">\(W=(bt+1)^a\)</span>
+with <span class="math inline">\(a=0.095\)</span> and <span
+class="math inline">\(b=0.0051\)</span> per generation, which has no
+ceiling. Both are least-squares fits to the mean over the populations
+measured at each time (9 to 12).</p>
+<p>Neither of the two regimes of the <a
+href="#additional-material.-speed-of-adaptation">speed of adaptation</a>
+predicts a slowdown. With <span class="math inline">\(U_b\)</span> and
+<span class="math inline">\(s\)</span> fixed, <span
+class="math inline">\(v\)</span> is constant in time. Adaptation slows
+down because beneficial mutations become rarer and weaker as the
+population adapts: the same mutation has a smaller effect in a fitter
+genome (<em>diminishing returns</em>). Wiser et al. showed that clonal
+interference together with diminishing returns gives a power law. The
+nonsynonymous mutations slow down in the same way.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Fixation with selection. (a) Check that <span
+class="math inline">\(\Pi(n)=(1-r^{-n})/(1-r^{-N})\)</span> solves the
+first-event equation with its two boundary conditions. (b) Take <span
+class="math inline">\(N\to\infty\)</span> at fixed <span
+class="math inline">\(n\)</span> and compare <span
+class="math inline">\(1-\Pi(n)\)</span> with the extinction probability
+<span class="math inline">\((d/b)^n\)</span> of L2. (c) Compute <span
+class="math inline">\(\Pi\)</span> for a mutant starting at <span
+class="math inline">\(n=N/2\)</span>, for <span
+class="math inline">\(Ns=2\)</span> and <span
+class="math inline">\(Ns=20\)</span>.</li>
+<li>Deleterious mutations. A mutation with <span
+class="math inline">\(s=-10^{-3}\)</span> appears in one individual
+(Moran). Compute its fixation probability relative to a neutral one for
+<span class="math inline">\(N=10^2\)</span>, <span
+class="math inline">\(10^3\)</span>, <span
+class="math inline">\(10^4\)</span>. Where is the boundary between
+effectively neutral and selected?</li>
+<li>How rare are beneficial mutations (additional material)? In the six
+LTEE populations that kept the ancestral mutation rate, a genome carries
+4.1 nonsynonymous mutations at 2,000 generations, against 0.41 expected
+if they were neutral. (a) Suppose that a fraction <span
+class="math inline">\(f_b\)</span> of the nonsynonymous mutations is
+beneficial, with <span class="math inline">\(s=0.05\)</span>, that the
+others are neutral, and that each beneficial one fixes with probability
+<span class="math inline">\(\Pi(1)\simeq s\)</span>. With <span
+class="math inline">\(N=7\times10^7\)</span>, what <span
+class="math inline">\(f_b\)</span> explains the data? (b) In yeast about
+one mutation in 1000 has <span class="math inline">\(s&gt;2\%\)</span>
+(Frenkel et al.). Take <span class="math inline">\(f_b=10^{-3}\)</span>
+and <span class="math inline">\(s=0.05\)</span>, and <span
+class="math inline">\(U=3.6\times10^{-4}\)</span> point mutations per
+genome per generation (<a
+href="l9.html#long-term-evolution-experiment">L9</a>), 58% of them
+nonsynonymous (2.9 times the one in five that is synonymous). How many
+beneficial mutations appear in the population each generation, how many
+escape drift, and how many substitutions would one sweep at a time
+predict in 2,000 generations? Compare with the time a sweep takes.</li>
+<li>One sweep at a time. Derive the condition <span
+class="math inline">\(2NU_b\ln N\ll1\)</span> from the sweep time and
+the waiting time between successful mutations. Evaluate it for <span
+class="math inline">\(U_b=10^{-6}\)</span> and <span
+class="math inline">\(N=10^4\)</span>, <span
+class="math inline">\(N=10^7\)</span>. Which regime is the LTEE in?</li>
+<li>The power law (additional material). With <span
+class="math inline">\(W=(bt+1)^a\)</span>, <span
+class="math inline">\(a=0.095\)</span>, <span
+class="math inline">\(b=0.0051\)</span> per generation, compute <span
+class="math inline">\(dW/dt\)</span> at 1,000 and 45,000 generations,
+and the fitness predicted at <span class="math inline">\(10^6\)</span>
+generations. Compare with the hyperbola, which stops at <span
+class="math inline">\(W=1.71\)</span>.</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li><a href="https://doi.org/10.1098/rsif.2008.0248">Patwa &amp; Wahl
+2008</a>: a review of the fixation probability of beneficial mutations,
+from Haldane to changing populations.</li>
+<li><a href="https://doi.org/10.1534/genetics.106.067678">Desai &amp;
+Fisher 2007</a>: the travelling wave of clonal interference, with every
+step of the calculation.</li>
+<li><a href="https://doi.org/10.1038/nature24287">Good et al. 2017</a>:
+the frequency of every mutation of the LTEE over 60,000
+generations.</li>
+<li><a href="https://doi.org/10.1534/genetics.113.156430">Kosheleva
+&amp; Desai 2013</a>: genetic draft in rapidly adapting populations,
+where fixation becomes quasi-neutral.</li>
+<li><a href="https://doi.org/10.1126/science.1243357">Wiser et
+al. 2013</a>: fitness of the LTEE, the power law and the model behind it
+(<a
+href="#additional-material.-fitness-in-the-ltee-keeps-rising">additional
+material</a>).</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>K. C. Atwood, L. K. Schneider, F. J. Ryan, <a
+href="https://doi.org/10.1073/pnas.37.3.146">Periodic selection in
+<em>Escherichia coli</em></a>, <em>Proc. Natl. Acad. Sci. USA</em>
+<strong>37</strong>, 146 (1951).</li>
+<li>M. M. Desai, D. S. Fisher, <a
+href="https://doi.org/10.1534/genetics.106.067678">Beneficial
+mutation–selection balance and the effect of linkage on positive
+selection</a>, <em>Genetics</em> <strong>176</strong>, 1759 (2007).</li>
+<li>E. M. Frenkel, B. H. Good, M. M. Desai, <a
+href="https://doi.org/10.1534/genetics.113.160069">The fates of mutant
+lineages and the distribution of fitness effects of beneficial mutations
+in laboratory budding yeast populations</a>, <em>Genetics</em>
+<strong>196</strong>, 1217 (2014).</li>
+<li>P. J. Gerrish, R. E. Lenski, <a
+href="https://doi.org/10.1023/A:1017067816551">The fate of competing
+beneficial mutations in an asexual population</a>, <em>Genetica</em>
+<strong>102/103</strong>, 127 (1998).</li>
+<li>B. H. Good, M. J. McDonald, J. E. Barrick, R. E. Lenski, M. M.
+Desai, <a href="https://doi.org/10.1038/nature24287">The dynamics of
+molecular evolution over 60,000 generations</a>, <em>Nature</em>
+<strong>551</strong>, 45 (2017); reads: <a
+href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA380528">BioProject
+PRJNA380528</a>; allele-frequency trajectories and code: <a
+href="https://github.com/benjaminhgood/LTEE-metagenomic">GitHub</a>.</li>
+<li>M. Kimura, <a href="https://doi.org/10.1093/genetics/47.6.713">On
+the probability of fixation of mutant genes in a population</a>,
+<em>Genetics</em> <strong>47</strong>, 713 (1962).</li>
+<li>K. Kosheleva, M. M. Desai, <a
+href="https://doi.org/10.1534/genetics.113.156430">The dynamics of
+genetic draft in rapidly adapting populations</a>, <em>Genetics</em>
+<strong>195</strong>, 1007 (2013).</li>
+<li>T. Ohta, <a href="https://doi.org/10.1038/246096a0">Slightly
+deleterious mutant substitutions in evolution</a>, <em>Nature</em>
+<strong>246</strong>, 96 (1973).</li>
+<li>Z. Patwa, L. M. Wahl, <a
+href="https://doi.org/10.1098/rsif.2008.0248">The fixation probability
+of beneficial mutations</a>, <em>J. R. Soc. Interface</em>
+<strong>5</strong>, 1279 (2008).</li>
+<li>S. Schiffels, G. J. Szöllősi, V. Mustonen, M. Lässig, <a
+href="https://doi.org/10.1534/genetics.111.132027">Emergent neutrality
+in adaptive asexual evolution</a>, <em>Genetics</em>
+<strong>189</strong>, 1361 (2011).</li>
+<li>O. Tenaillon, J. E. Barrick, N. Ribeck et al., <a
+href="https://doi.org/10.1038/nature18959">Tempo and mode of genome
+evolution in a 50,000-generation experiment</a>, <em>Nature</em>
+<strong>536</strong>, 165 (2016); curated counts: <a
+href="https://github.com/barricklab/LTEE-Ecoli">barricklab/LTEE-Ecoli</a>
+(CC0).</li>
+<li>M. J. Wiser, N. Ribeck, R. E. Lenski, <a
+href="https://doi.org/10.1126/science.1243357">Long-term dynamics of
+adaptation in asexual populations</a>, <em>Science</em>
+<strong>342</strong>, 1364 (2013); data: <a
+href="https://doi.org/10.5061/dryad.0hc2m">Dryad</a>.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l10.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>

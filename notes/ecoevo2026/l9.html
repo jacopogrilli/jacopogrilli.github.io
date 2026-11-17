@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Lecture 9. Neutral evolution: drift and mutation · Ecology &amp;
+Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="l9.md" download>&darr; Markdown</a>
+</div>
+<h1 id="lecture-9.-neutral-evolution-drift-and-mutation">Lecture 9.
+Neutral evolution: drift and mutation</h1>
+<hr />
+<p>In <a href="l7.html">L7</a> selection was deterministic. A fitter
+type grows in frequency as a logistic, in a population so large that
+chance plays no role. In <a href="l2.html">L2</a> randomness was a key
+ingredient, and a population with <span
+class="math inline">\(b&gt;d\)</span> could go extinct. Here we put the
+two together. In a population of finite size, which individuals
+reproduce is partly a matter of chance, so frequencies change even when
+all types are equally fit. This is <em>genetic drift</em>, one of the
+mechanisms of <a href="l8.html#mechanisms">L8</a>.</p>
+<p>We start from data: how much variation do species have, and how does
+it depend on how many individuals there are? We follow a population
+without mutations first, and then add them. Everything in this lecture
+is <em>neutral</em>: no type is fitter than another. Selection comes
+back in <a href="l10.html">L10</a>.</p>
+<h2 id="how-much-variation-do-species-have">How much variation do
+species have?</h2>
+<p>The northern and the southern elephant seal are close relatives.
+Hunting brought the northern one down to a few tens of individuals in
+the 19th century (<a href="l8.html#mechanisms">L8</a>). Today there are
+more than <span class="math inline">\(10^5\)</span> of them, and they
+carry almost no genetic variation, much less than the southern species
+(<a href="https://doi.org/10.1093/oxfordjournals.jhered.a111370">Hoelzel
+et al. 1993</a>). How much variation does a species carry, and what sets
+it?</p>
+<h3 id="heterozygosity">Heterozygosity</h3>
+<p>To measure variation, draw two individuals at random (with
+replacement). The probability that they are of different types is the
+<em>heterozygosity</em>. With <span class="math inline">\(m\)</span>
+types,</p>
+<p><span class="math display">\[
+H=1-\sum_{i=1}^m x_i^2 .
+\]</span></p>
+<p>With two types, <span class="math inline">\(H=2x(1-x)\)</span>. <span
+class="math inline">\(H=0\)</span> when only one type is present. The
+maximum, <span class="math inline">\(1-1/m\)</span>, is reached when all
+types are equally frequent, <span
+class="math inline">\(x_i=1/m\)</span>. In a diploid species the two
+individuals are the two copies of a gene in one individual, and <span
+class="math inline">\(H\)</span> is the expected fraction of
+heterozygotes: hence the name.</p>
+<p>For DNA sequences we apply this to each site. The probability that
+two copies of a sequence differ at a given site is the <em>nucleotide
+diversity</em> <span class="math inline">\(\pi\)</span>.</p>
+<p>A mutation in a gene can be of two kinds. A <em>synonymous</em>
+mutation turns a codon into another one coding for the same amino acid:
+the protein does not change. A <em>nonsynonymous</em> mutation changes
+the amino acid. A synonymous mutation does not change the protein, so to
+a first approximation it does not change fitness: it is
+<em>neutral</em>. To measure variation that selection does not touch, we
+look at sites like these.</p>
+<h3 id="diversity-against-population-size">Diversity against population
+size</h3>
+<p><a href="https://doi.org/10.7554/eLife.67509">Buffalo 2021</a>
+collected the neutral diversity of 173 animal species, from <a
+href="https://doi.org/10.1371/journal.pbio.1001388">Leffler et
+al. 2012</a> and two other compilations, at synonymous or other sites
+assumed to be neutral. He estimated their census sizes from the
+geographic range times the population density predicted from body size.
+Census sizes go from thousands, for large mammals, to more than <span
+class="math inline">\(10^{12}\)</span> for small insects: 12 orders of
+magnitude. Diversity spans only 3, from <span
+class="math inline">\(10^{-4}\)</span> to 0.08.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Diversity against population
+size</span></p>
+<p>Neutral diversity per site against the estimated census size, 173
+animal species (Buffalo 2021), with a few of them named. The census
+sizes are order-of-magnitude estimates from range and body size: humans,
+for instance, end up at <span
+class="math inline">\(3\times10^8\)</span>.</p>
+<p><img src="material/l9-diversity-census-data.png" /></p>
+</div>
+<p>Is this a lot or a little? To say it, we need to know what sets the
+variation of a population.</p>
+<h2 id="genetic-drift">Genetic drift</h2>
+<p>Take a population of <span class="math inline">\(N\)</span>
+individuals of two types, <span class="math inline">\(A\)</span> and
+<span class="math inline">\(a\)</span>, with the same fitness. <span
+class="math inline">\(N\)</span> is constant: the limits to growth of <a
+href="l4.html">L4</a> keep the population at its carrying capacity, and
+we only follow who reproduces. The frequency of <span
+class="math inline">\(A\)</span> is <span
+class="math inline">\(x=n/N\)</span>. In <a
+href="l7.html#two-types-growing-exponentially">L7</a>, with <span
+class="math inline">\(f_A=f_a\)</span>, <span class="math inline">\(\dot
+x=0\)</span> and the frequency does not change. In a finite population
+it does, because which individuals reproduce is random.</p>
+<p>Without noise <span class="math inline">\(H\)</span> does not change:
+<span class="math inline">\(dH/dt=-2\sum_ix_i\,\dot x_i=0\)</span>. What
+happens to its average when <span class="math inline">\(N\)</span> is
+finite?</p>
+<h3 id="moran-model">Moran model</h3>
+<p>The simplest way to keep <span class="math inline">\(N\)</span>
+constant is to replace one individual at a time (<a
+href="https://doi.org/10.1017/S0305004100033193">Moran 1958</a>). In
+continuous time, as in <a href="l2.html#what-a-rate-is">L2</a>, each
+individual reproduces at rate <span class="math inline">\(b\)</span>,
+and its offspring replaces an individual chosen at random. <span
+class="math inline">\(n\)</span> changes when an <span
+class="math inline">\(A\)</span> replaces an <span
+class="math inline">\(a\)</span>, or the other way round:<br />
+<span class="math display">\[
+n\to n+1\quad\text{at rate}\quad bN\,x(1-x),\qquad n\to n-1\quad\text{at
+rate}\quad bN\,x(1-x).
+\]</span></p>
+<p>Each individual is replaced at rate <span
+class="math inline">\(b\)</span>, once every <span
+class="math inline">\(1/b\)</span> on average. We call this time a
+<em>generation</em>. Where <span class="math inline">\(b\)</span> does
+not appear below, time is measured in generations (<span
+class="math inline">\(b=1\)</span>). It is a birth–death process, as in
+L2, where the birth of one type is the death of the other.</p>
+<p>in a short time <span class="math inline">\(\Delta t\)</span>,</p>
+<p><span class="math display">\[
+\langle x(t+\Delta t)\rangle_x=x .
+\]</span></p>
+<p>The mean does not change: on average there is no direction. The
+variance is the drift, and it vanishes for <span
+class="math inline">\(N\to\infty\)</span>.</p>
+<p>For the heterozygosity we need the second moment:</p>
+<p><span class="math display">\[
+\langle x^2(t+\Delta
+t)\rangle_x=x^2+\Bigl[\Bigl(x+\tfrac1N\Bigr)^2-x^2+\Bigl(x-\tfrac1N\Bigr)^2-x^2\Bigr]bN\,x(1-x)\,\Delta
+t=x^2+\frac{2b}N\,x(1-x)\,\Delta t .
+\]</span></p>
+<p>So <span class="math inline">\(d\langle H\rangle/dt=-2\,d\langle
+x^2\rangle/dt=-\frac{2b}N\langle H\rangle\)</span>, and</p>
+<p><span class="math display">\[
+\boxed{\ \langle H(t)\rangle=H(0)\,e^{-2bt/N}\ }
+\]</span></p>
+<p>The number of generations in a time <span
+class="math inline">\(t\)</span> is <span
+class="math inline">\(bt\)</span>, so</p>
+<p><span class="math display">\[
+\langle H\rangle=H(0)\,\exp\Bigl(-\frac{2\times\text{number of
+generations}}{N}\Bigr)
+\]</span></p>
+<p>The same holds with <span class="math inline">\(m\)</span> types
+(exercise 1). Two messages:</p>
+<ul>
+<li><strong>Drift destroys variation.</strong> <span
+class="math inline">\(\langle H\rangle\to0\)</span>: in the end every
+population has a single type. Which type is random (<a
+href="l10.html#fixation-of-a-neutral-mutation">L10</a>).</li>
+<li><strong>Drift is slow.</strong> <span
+class="math inline">\(H\)</span> halves in <span
+class="math inline">\(t_{1/2}=\frac N2\ln2\)</span> generations. A
+population of <span class="math inline">\(10^6\)</span> individuals with
+20-year generations takes <span
+class="math inline">\(7\times10^6\)</span> years.</li>
+</ul>
+<div class="callout callout-figure">
+<p><span class="callout-title">Moran populations</span></p>
+<p>Frequency of <span class="math inline">\(A\)</span> in 20 neutral
+Moran populations of <span class="math inline">\(N=100\)</span>, all
+starting from <span class="math inline">\(x=1/2\)</span> (one in black).
+After 150 generations, 12 have fixed <span
+class="math inline">\(A\)</span>, 7 have lost it, 1 still has both
+types.</p>
+<p><img src="material/l9-moran-trajectories.png" /></p>
+</div>
+<p>Without mutations <span class="math inline">\(H\to0\)</span> in every
+population, more slowly the larger the population. The species in the
+figure above have <span class="math inline">\(H&gt;0\)</span>. What is
+creating variation?</p>
+<h2 id="mutation-and-drift">Mutation and drift</h2>
+<p>Drift removes variation and mutation creates it. Where do they
+balance? Simplest model of mutation for DNA: every mutation creates a
+new type, never seen before (<em>infinitely many alleles</em>, <a
+href="https://doi.org/10.1093/genetics/49.4.725">Kimura &amp; Crow
+1964</a>). In the Moran model, each offspring mutates with probability
+<span class="math inline">\(\mu\)</span>.</p>
+<p>Define <span class="math inline">\(F\)</span> as the probability that
+two individuals are of the same type (<span class="math inline">\(F = 1-
+H\)</span>).<br />
+In a short time <span class="math inline">\(\Delta t\)</span>, with
+probability <span class="math inline">\(1-2b\Delta t\)</span> neither of
+the two is replaced, and the pair is as before. With probability <span
+class="math inline">\(2b\Delta t\)</span> one of them is replaced. The
+new individual is of the same type if its parent is either the other
+one, probability <span class="math inline">\(1/N\)</span>, or a
+different individual of the same type as the other one, probability
+<span class="math inline">\((1-1/N)\,F\)</span>. And, in either of the
+two, the offspring does not mutate (probability <span
+class="math inline">\(1-\mu\)</span>)</p>
+<p><span class="math display">\[
+F(t+\Delta t)=(1-2b\Delta t)\,F(t)+2b\Delta
+t\,(1-\mu)\Bigl[\frac1N+\Bigl(1-\frac1N\Bigr)F(t)\Bigr].
+\]</span></p>
+<ul>
+<li><span class="math inline">\(1-2b\Delta t\)</span>: neither of the
+two is replaced. Each is replaced at rate <span
+class="math inline">\(b\)</span>; two replacements in the same <span
+class="math inline">\(\Delta t\)</span> have probability of order <span
+class="math inline">\(\Delta t^2\)</span>.</li>
+<li><span class="math inline">\(F(t)\)</span>: then they are of the same
+type with the same probability as before.</li>
+<li><span class="math inline">\(2b\Delta t\)</span>: one of the two is
+replaced.</li>
+<li><span class="math inline">\(1-\mu\)</span>: the newborn did not
+mutate. A mutant is a new type, different from everyone.</li>
+<li><span class="math inline">\(1/N\)</span>: its parent is the other
+individual of the pair, so the two are of the same type.</li>
+<li><span class="math inline">\((1-1/N)\,F(t)\)</span>: its parent is
+any other individual (possibly the replaced one itself), which is of the
+same type as the other one with probability <span
+class="math inline">\(F(t)\)</span>.</li>
+</ul>
+<p>in continuous limit</p>
+<p><span class="math display">\[
+\frac{dF}{dt}=2b\Bigl[(1-\mu)\Bigl(\frac1N+\Bigl(1-\frac1N\Bigr)F\Bigr)-F\Bigr]
+\]</span></p>
+<p>(<span class="math inline">\(F\)</span> is an average over
+populations, as <span class="math inline">\(\langle H\rangle\)</span>
+above.) With <span class="math inline">\(\mu=0\)</span>, <span
+class="math inline">\(dF/dt=\frac{2b}N(1-F)\)</span>: the decay of <span
+class="math inline">\(H\)</span> again. For <span
+class="math inline">\(\mu\ll1\)</span> and <span
+class="math inline">\(N\gg1\)</span> the fixed point is</p>
+<p><span class="math display">\[
+F^*\simeq\frac1{1+N\mu},\qquad
+\boxed{\ H^*=\frac{\theta}{1+\theta},\qquad \theta=N\mu\ }
+\]</span></p>
+<p><span class="math inline">\(\theta\)</span> is the number of new
+mutations per generation in the population. In general <span
+class="math inline">\(N\to N_e\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\theta\ll1\)</span>: <span
+class="math inline">\(H^*\simeq\theta\)</span>. Drift wins, and most of
+the time one type dominates.</li>
+<li><span class="math inline">\(\theta\gg1\)</span>: <span
+class="math inline">\(H^*\to1\)</span>. Mutation wins: many types, all
+rare.</li>
+</ul>
+<p><span class="math inline">\(F\)</span> approaches <span
+class="math inline">\(F^*\)</span> at rate <span
+class="math inline">\(2b(\mu+1/N)\)</span>. Reaching the balance takes
+about <span class="math inline">\(\min(N/2,1/2\mu)\)</span>
+generations.</p>
+<p>For DNA, apply this to each site, with <span
+class="math inline">\(\mu\)</span> the mutation rate per site and <span
+class="math inline">\(N\)</span> the number of copies of the sequence in
+the population. Then <span
+class="math inline">\(\pi\simeq\theta\)</span>, since <span
+class="math inline">\(\theta\ll1\)</span> at a single site. A diploid
+species with <span class="math inline">\(N_c\)</span> individuals has
+<span class="math inline">\(2N_c\)</span> copies, so <span
+class="math inline">\(\pi\simeq2N_c\mu\)</span>. The simulator below has
+two types mutating into each other, and its balance is a little lower
+(next paragraph). S2 derives the whole distribution of frequencies at
+the balance, a Beta distribution.</p>
+<p><strong>Two alleles or infinitely many?</strong> At a site there are
+four possible bases, and in the data almost always two. With <span
+class="math inline">\(K\)</span> types, and a mutation that turns the
+newborn into one of the other <span class="math inline">\(K-1\)</span>
+types, the equation for <span class="math inline">\(F\)</span> gets one
+more term: a newborn whose parent is of a different type from the other
+individual becomes identical to it by mutating into its type, with
+probability <span class="math inline">\(\mu/(K-1)\)</span>. The balance
+becomes</p>
+<p><span class="math display">\[
+H^*=\frac{\theta}{1+\frac{K}{K-1}\,\theta},
+\]</span></p>
+<p>that is <span class="math inline">\(\theta/(1+2\theta)\)</span> for
+two types and <span class="math inline">\(\theta/(1+\theta)\)</span> for
+<span class="math inline">\(K\to\infty\)</span>. The difference comes
+from repeated mutations at the same site: with two types, a second
+mutation brings the site back. It matters only when <span
+class="math inline">\(\theta\)</span> is not small; for <span
+class="math inline">\(\theta\ll1\)</span> every <span
+class="math inline">\(K\)</span> gives <span
+class="math inline">\(H^*\simeq\theta\)</span>. A small mutation rate is
+not enough: what must be small is <span
+class="math inline">\(\theta=N\mu\)</span>, the number of mutations per
+site per generation in the whole population. In the data of <a
+href="#lewontins-paradox">Lewontin’s paradox</a> <span
+class="math inline">\(\pi\le0.08\)</span>, so the <span
+class="math inline">\(\theta\)</span> obtained from <span
+class="math inline">\(\pi\)</span> changes by at most 10%, and by 1% for
+the median species. The prediction from the census size is in the other
+regime: for four species out of five <span
+class="math inline">\(2N_c\mu&gt;1\)</span>, and the prediction
+saturates at <span class="math inline">\(1/2\)</span> with two types
+(<span class="math inline">\(3/4\)</span> with four bases) instead of 1.
+For the median species it is still 40 times the observed diversity,
+instead of 75.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Drift simulator</span></p>
+<p>Many populations at once. Choose <span
+class="math inline">\(N\)</span>, the mutation probability <span
+class="math inline">\(\mu\)</span> and the starting frequency <span
+class="math inline">\(x_0\)</span>. Follow 20 of the populations, the
+histogram of all of them now, the mean heterozygosity against the theory
+of this lecture, and the fraction of populations where <span
+class="math inline">\(A\)</span> is fixed or lost. <em>Drift</em>: <span
+class="math inline">\(H\)</span> decays and the populations end at <span
+class="math inline">\(x=0\)</span> or <span
+class="math inline">\(x=1\)</span>. <em>Mutation–drift</em>: <span
+class="math inline">\(H\)</span> levels off where mutation balances
+drift. The slider <span class="math inline">\(s\)</span> and the other
+examples are for L10. The toggle switches from the Moran model to
+Wright–Fisher (<a
+href="#additional-material.-the-wrightfisher-model">additional
+material</a>).</p>
+<iframe class="widget" src="material/l9-drift-simulator.html" title="L9-drift-simulator" loading="lazy" style="display:block;width:100%;height:520px;border:0;margin:.6rem 0">
+</iframe>
+<script>if(!window.__widgetResize){window.__widgetResize=1;addEventListener('message',function(e){var h=e.data&&e.data.widgetHeight;if(!h)return;document.querySelectorAll('iframe.widget').forEach(function(f){if(f.contentWindow===e.source)f.style.height=h+'px';});});}</script>
+</div>
+<h2 id="lewontins-paradox">Lewontin’s paradox</h2>
+<p>We can now compare with the data. Mutation rates per site per
+generation are <span class="math inline">\(10^{-9}\)</span> to <span
+class="math inline">\(10^{-8}\)</span> in animals. If the <span
+class="math inline">\(N\)</span> in <span
+class="math inline">\(\theta\)</span> were the census size <span
+class="math inline">\(N_c\)</span>, <span
+class="math inline">\(\pi\)</span> would range from <span
+class="math inline">\(10^{-5}\)</span> to almost 1.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Lewontin’s paradox</span></p>
+<p>Neutral diversity per site against the estimated census size, 173
+animal species (Buffalo 2021). Solid line: neutral prediction <span
+class="math inline">\(\theta/(1+\theta)\)</span> with <span
+class="math inline">\(\theta=2N_c\mu\)</span>, <span
+class="math inline">\(\mu=10^{-8}\)</span>. Dashed line: least-squares
+fit, <span class="math inline">\(\pi\propto N_c^{0.11}\)</span>.</p>
+<p><img src="material/l9-diversity-census.png" /></p>
+</div>
+<p>Diversity grows with census size, but as <span
+class="math inline">\(N_c^{0.1}\)</span>, not as <span
+class="math inline">\(N_c\)</span>: a species a billion times more
+abundant is only about ten times more diverse. This is <em>Lewontin’s
+paradox</em> (R. C. Lewontin, <em>The Genetic Basis of Evolutionary
+Change</em>, 1974; he saw it in protein variation).</p>
+<h2 id="why-is-diversity-so-low">Why is diversity so low?</h2>
+<p>Three main explanations have been proposed. There is not an
+agreement</p>
+<h3 id="effective-population-size">Effective population size</h3>
+<p>The <span class="math inline">\(N\)</span> in <span
+class="math inline">\(\theta\)</span> need not be the number of
+individuals today. What sets the speed of drift is how unequal their
+reproduction is. In the Moran model the variance of the frequency is
+given by<br />
+<span class="math display">\[
+\operatorname{var}\bigl(x(t+\Delta t)\bigr)_x=\frac{2b}N\,x(1-x)\,\Delta
+t .
+\]</span><br />
+if <span class="math inline">\(N\)</span> is time dependent, we
+obtain<br />
+<span class="math display">\[
+\operatorname{var}\bigl(x(t+\Delta
+t)\bigr)_x=\frac{2b}{N(t)}\,x(1-x)\,\Delta t .
+\]</span><br />
+from which<br />
+<span class="math display">\[\frac{d\langle
+H\rangle}{dt}=-\frac{2b}{N(t)}\langle H\rangle\]</span><br />
+which leads to<br />
+<span class="math display">\[
+\langle H(t)\rangle=H(0)\exp\Bigl(-2\int_0^t\frac{d\tau}{N(\tau)}\Bigr)
+.
+\]</span><br />
+we can introduce an effective population size <span
+class="math inline">\(N_e\)</span>, defined as<br />
+<span class="math display">\[
+\qquad \frac1{N_e}=\frac1t\int_0^t\frac{d\tau}{N(\tau)}
+\]</span><br />
+so then<br />
+<span class="math display">\[\langle H(t)\rangle = H(0)
+e^{-2t/N_e}\]</span>.</p>
+<p><span class="math inline">\(N_e\)</span> is the harmonic mean of
+<span class="math inline">\(N(\tau)\)</span>, dominated by the smallest
+values. A population of 10 individuals 10% of the time, and 1000
+otherwise, has an arithmetic mean of 901 and <span
+class="math inline">\(N_e\simeq92\)</span>. Bottlenecks set <span
+class="math inline">\(N_e\)</span>.</p>
+<p>The effective population size is reduced also if different
+individuals have large variance in the number of offspring. In many
+marine species most of the offspring of a generation come from a few
+parents, so the variance of offspring number is large. Population
+structure also matters.</p>
+<p>The northern elephant seal is an extreme case. Hunting left an
+estimated bottleneck of fewer than 30 individuals in the 19th century.
+There are now well over <span class="math inline">\(10^5\)</span>, with
+almost no genetic variation (<a
+href="https://doi.org/10.1093/oxfordjournals.jhered.a111370">Hoelzel et
+al. 1993</a>).</p>
+<p>In natural populations <span class="math inline">\(N_e\)</span> is
+usually smaller than the census size, by about an order of magnitude on
+average in <a href="https://doi.org/10.1017/S0016672300034455">Frankham
+1995</a>’s review.<br />
+However, Lewontin’s paradox asks for much more: for the most abundant
+species <span class="math inline">\(N_e\)</span> would have to be about
+<span class="math inline">\(10^7\)</span> times smaller than the census
+population size.<br />
+Note that models alternative to Moran would lead to different
+definitions of <span class="math inline">\(N_e\)</span>. For instance,
+in the Wright–Fisher model <span class="math inline">\(N_e\)</span> is
+half of ours (see the <a
+href="#additional-material.-the-wrightfisher-model">additional
+material</a>). However such differences are order <span
+class="math inline">\(1\)</span> and the scaling of heterozygosity is
+very robust (see <a
+href="#additional-material.-the-diffusion-approximation">the diffusion
+approximation</a>), so not enough to explain the paradox.</p>
+<h3 id="time">Time</h3>
+<p>The balance between mutation and drift takes <span
+class="math inline">\(\min(N/2,1/2\mu)\)</span> generations to reach.
+Populations that grew recently, for instance after the last glaciation,
+are not there yet.</p>
+<h3 id="selection-at-linked-sites">Selection at linked sites</h3>
+<p>A neutral site does not evolve on its own: it sits on a genome,
+together with sites where a mutation changes fitness. Take two kinds of
+genome, one fitter than the other and spreading. A neutral mutation that
+appears on a copy of the fitter kind does nothing by itself, but it
+rises with the genome that carries it: it <em>hitchhikes</em>. The
+diversity at neutral sites is shaped by selection at the sites they are
+linked to.</p>
+<p>A beneficial mutation that sweeps to fixation (<a
+href="l7.html#two-types-growing-exponentially">L7</a>) carries along the
+variants on its genome and erases diversity around it (<a
+href="https://doi.org/10.1017/S0016672300014634">Maynard Smith &amp;
+Haigh 1974</a>). The removal of deleterious mutations does the same.
+Both are stronger in large populations, where selection is more
+effective (<a
+href="https://doi.org/10.1111/j.0014-3820.2001.tb00732.x">Gillespie
+2001</a>). Buffalo’s estimate is that they are not enough. The LTEE
+shows linked selection at work (<a
+href="#diversity-in-the-ltee">below</a>).</p>
+<h2 id="long-term-evolution-experiment">Long-term evolution
+experiment</h2>
+<p>Can we watch one of these explanations at work? Selection at linked
+sites is strongest when the genome does not recombine and is inherited
+as one block, as in bacteria.</p>
+<p>The LTEE (<a href="l8.html#evolution-we-can-watch">L8</a>) has run
+since 1988. Twelve populations of <em>E. coli</em> are diluted 100-fold
+into fresh medium every day, about 6.6 generations per day. <a
+href="https://doi.org/10.1038/nature18959">Tenaillon et al. 2016</a>
+sequenced the whole genome of two clones from each population at 11
+times between 500 and 50,000 generations, and listed every mutation
+relative to the ancestor. In six populations a mutation in DNA repair
+raised the mutation rate. We look at the other six. We first ask what a
+single genome carries, and then compare two genomes of the same
+population.</p>
+<p><strong>What the data show.</strong> The number of synonymous
+mutations in a genome grows linearly with time, about 3.5 after 50,000
+generations. (Nonsynonymous mutations behave very differently: they are
+the subject of L10.)</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Synonymous mutations in the
+LTEE</span></p>
+<p>Synonymous mutations per genome against generations, in the six
+populations that kept the ancestral mutation rate: each population
+(grey, mean of its two clones), mean over the six ± SEM (black). The
+line goes through the origin with slope <span
+class="math inline">\(7.2\times10^{-5}\)</span> per generation (least
+squares). Data: Tenaillon et al. 2016, curated counts of the Barrick
+lab.</p>
+<p><img src="material/l9-ltee-synonymous.png" /></p>
+</div>
+<p>Why do neutral mutations accumulate at a constant rate, and what sets
+the rate? Follow the ancestors of a genome back in time. Neutral
+mutations appear along this line of descent at rate <span
+class="math inline">\(\mu\)</span> per generation, whatever happens to
+the rest of the population. The slope is the mutation rate.</p>
+<p><strong>The slope and the mutation rate.</strong> The slope is <span
+class="math inline">\(7.2\times10^{-5}\)</span> synonymous mutations per
+genome per generation. To turn it into a rate per site, we need the
+number of sites at which a point mutation is synonymous. The genome has
+<span class="math inline">\(L=4.6\times10^6\)</span> base pairs. About
+88% of it codes for proteins, and about a quarter of the point mutations
+in a coding sequence leave the amino acid unchanged, mostly at the third
+position of a codon. So about one point mutation in five is synonymous,
+<span class="math inline">\(f_s\approx0.2\)</span> (the fraction
+measured in mutation-accumulation lines of the same strain is 0.20, 40
+of 199; Tenaillon et al. 2016). The rate of point mutations per genome
+and per site is then</p>
+<p><span class="math display">\[
+U=\frac{7.2\times10^{-5}}{f_s}\approx3.6\times10^{-4}\ \text{per genome
+per generation}\]</span><br />
+and then<br />
+<span class="math display">\[
+\mu=\frac{U}{L}=\frac{3.6\times10^{-4}}{4.6\times10^{6}}\approx7.7\times10^{-11}\
+\text{per site per generation}.
+\]</span></p>
+<p>A genome gains a new point mutation about once every 3,000
+generations. <a href="https://doi.org/10.1534/g3.111.000406">Wielgoss et
+al. 2011</a> found <span
+class="math inline">\(8.9\times10^{-11}\)</span> per site from 19 LTEE
+genomes.</p>
+<h2 id="diversity-in-the-ltee">Diversity in the LTEE</h2>
+<p>How much variation does a population of the LTEE hold, and what does
+the theory of this lecture predict? Tenaillon et al. sequenced two
+clones from each population at each time. The probability that two
+genomes differ at a site, the diversity per site, is the number of point
+mutations found in one clone and not in the other, divided by the number
+of sites that can be read (<span
+class="math inline">\(4.5\times10^6\)</span>).</p>
+<p><strong>The prediction.</strong> Each population starts from a single
+clone: <span class="math inline">\(F(0)=1\)</span>, <span
+class="math inline">\(H(0)=0\)</span>. The equation for <span
+class="math inline">\(F\)</span> of <a
+href="#mutation-and-drift">Mutation and drift</a> is linear, and from
+this start its solution is</p>
+<p><span class="math display">\[
+H(t)=1-F(t)=\bigl(1-F^*\bigr)\bigl(1-e^{-\lambda t}\bigr)\]</span><br />
+where<br />
+<span class="math display">\[
+\lambda=2b\Bigl[1-(1-\mu)\Bigl(1-\frac1N\Bigr)\Bigr]\simeq2b\Bigl(\mu+\frac1N\Bigr),\qquad
+F^*=\frac{2b(1-\mu)}{N\lambda} .
+\]</span></p>
+<p>It needs three numbers. <span class="math inline">\(b\)</span> is one
+per generation. <span class="math inline">\(\mu\)</span> is the rate of
+point mutations per site: <span
+class="math inline">\(7.7\times10^{-11}\)</span> from the synonymous
+clock. <span class="math inline">\(N\)</span> is the effective
+population size of the LTEE.</p>
+<p><strong>The effective population size of the LTEE.</strong> Drift in
+the LTEE happens mostly at the daily dilution: <span
+class="math inline">\(N_0=5\times10^6\)</span> cells are sampled out of
+<span class="math inline">\(5\times10^8\)</span>, which adds a variance
+<span class="math inline">\(x(1-x)/N_0\)</span> once a day, every <span
+class="math inline">\(g\approx6.6\)</span> generations. Comparing with
+the variance per generation of the Moran model, <span
+class="math inline">\(2x(1-x)/N_e\)</span>, gives</p>
+<p><span class="math display">\[
+N_e\approx2N_0\,g\approx7\times10^7 ,
+\]</span></p>
+<p>the effective size set by drift alone. With this <span
+class="math inline">\(N\)</span>, <span class="math inline">\(\lambda
+t\ll1\)</span> for the whole experiment and <span
+class="math inline">\(H(t)\simeq2b\mu t\)</span>: diversity should grow
+linearly, to <span class="math inline">\(7.7\times10^{-6}\)</span> at
+50,000 generations with the clock’s <span
+class="math inline">\(\mu\)</span>. The observed diversity is <span
+class="math inline">\(2.8\times10^{-6}\)</span> at 50,000 generations,
+and it barely grows after 30,000.</p>
+<div class="callout callout-figure">
+<p><span class="callout-title">Diversity in the LTEE</span></p>
+<p>Diversity per site between the two clones sampled at the same time
+from the same population (point mutations in one clone and not in the
+other, per readable site): each of the six populations that kept the
+ancestral mutation rate (grey) and their mean (black). Lines: the
+equation for <span class="math inline">\(F\)</span> solved from <span
+class="math inline">\(F(0)=1\)</span>, with <span
+class="math inline">\(b=1\)</span> per generation and <span
+class="math inline">\(\mu=7.7\times10^{-11}\)</span> per site, for <span
+class="math inline">\(N=N_e=7\times10^7\)</span> (dashed) and for the
+<span class="math inline">\(N\)</span> that fits the mean, <span
+class="math inline">\(3.9\times10^4\)</span> (dotted). Each point is one
+pair of clones, so single populations are noisy; read the mean. Data:
+Tenaillon et al. 2016, curated mutation lists of the Barrick lab.</p>
+<p><img src="material/l9-ltee-diversity.png" /></p>
+</div>
+<p><strong>The effective population size seen by diversity.</strong> If
+instead we fit <span class="math inline">\(N\)</span> to the observed
+diversity, with <span class="math inline">\(\mu\)</span> from the clock,
+we get <span class="math inline">\(N\approx4\times10^4\)</span>. With
+this <span class="math inline">\(N\)</span> the equation saturates at
+<span class="math inline">\(H^*\simeq
+N\mu\approx3\times10^{-6}\)</span>, on a time scale <span
+class="math inline">\(N/2\approx2\times10^4\)</span> generations, as the
+data do. The diversity behaves as if the population were 2,000 times
+smaller than its drift <span class="math inline">\(N_e\)</span>, and
+<span class="math inline">\(10^4\)</span> times smaller than the number
+of cells.</p>
+<p>This is the same <a href="#lewontins-paradox">Lewontin’s paradox</a>.
+The clock gives <span class="math inline">\(\mu\)</span>, the diversity
+gives <span class="math inline">\(N\mu\)</span>, and together they give
+an <span class="math inline">\(N\)</span> far below the size of the
+population. Here we know why. Beneficial mutations sweep, and in a
+population that does not recombine each sweep carries along a whole
+genome, so the population keeps descending from a recent ancestor: <a
+href="#selection-at-linked-sites">selection at linked sites</a>. The
+same sweeps carry the synonymous mutations along, and leave the rate at
+which they accumulate unchanged: along a line of descent they appear at
+rate <span class="math inline">\(\mu\)</span>, whatever the sweeps do
+(<a href="#long-term-evolution-experiment">above</a>).</p>
+<h2 id="additional-material.-the-diffusion-approximation">Additional
+material. The diffusion approximation</h2>
+<p>All the results so far come from exact equations for the Moran model.
+For large <span class="math inline">\(N\)</span>, <span
+class="math inline">\(x\)</span> changes in small steps of <span
+class="math inline">\(1/N\)</span>, and the master equation can be
+replaced by a partial differential equation for the probability density
+<span class="math inline">\(P(x,t)\)</span> of the frequency, the
+<em>Fokker–Planck equation</em>:</p>
+<p><span class="math display">\[
+\frac{\partial P}{\partial t}=-\frac{\partial}{\partial
+x}\bigl[A(x)\,P\bigr]+\frac12\,\frac{\partial^2}{\partial
+x^2}\bigl[B(x)\,P\bigr],\qquad B(x)=\frac{2\,x(1-x)}{N} .
+\]</span></p>
+<p><span class="math inline">\(B\)</span> is drift. <span
+class="math inline">\(A\)</span> is what pushes the frequency
+deterministically: zero for pure drift, <span
+class="math inline">\(v-(u+v)x\)</span> with two alleles mutating into
+each other at rates <span class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span>, and selection in L10. The derivation,
+the boundaries, the stationary distribution with mutation and the times
+to fixation are in S2.</p>
+<h2 id="additional-material.-the-wrightfisher-model">Additional
+material. The Wright–Fisher model</h2>
+<p>Population genetics was built on a different model, where generations
+do not overlap: all individuals reproduce at the same time, and then
+die. Each of the <span class="math inline">\(N\)</span> individuals of
+the next generation picks its parent at random in the current one (<a
+href="https://doi.org/10.1093/genetics/16.2.97">Wright 1931</a>). The
+number of <span class="math inline">\(A\)</span> in the next generation
+is binomial,</p>
+<p><span class="math display">\[
+P(n&#39;\mid n)=\binom{N}{n&#39;}\,x^{n&#39;}(1-x)^{N-n&#39;},\qquad
+x=\frac nN ,
+\]</span></p>
+<p>and multinomial with <span class="math inline">\(m\)</span> types.
+For the frequency <span
+class="math inline">\(x&#39;=n&#39;/N\)</span>,</p>
+<p><span class="math display">\[
+\langle x&#39;\rangle_x=x,\qquad
+\operatorname{var}(x&#39;)_x=\frac{x(1-x)}{N}.
+\]</span></p>
+<p>For the heterozygosity, <span class="math inline">\(\langle
+x&#39;^2\rangle_x=x^2+x(1-x)/N\)</span>, so</p>
+<p><span class="math display">\[
+\langle H(t+1)\rangle_{x(t)}=2\langle x&#39;\rangle_x-2\langle
+x&#39;^2\rangle_x=\Bigl(1-\frac1N\Bigr)\,2x(1-x)=\Bigl(1-\frac1N\Bigr)H(t),
+\]</span></p>
+<p>and <span class="math inline">\(\langle H(t)\rangle=(1-1/N)^t
+H(0)\simeq H(0)\,e^{-t/N}\)</span>. Per generation, drift is half as
+fast as in the Moran model. The difference is in the variance of the
+number of offspring: about 1 here, 2 in the Moran model (exercise
+2).</p>
+<p><strong>Fixation.</strong> The mean frequency does not change, so a
+neutral type fixes with probability <span
+class="math inline">\(n/N\)</span>, as in the Moran model. A neutral
+mutant that fixes takes about <span class="math inline">\(2N\)</span>
+generations.</p>
+<p><strong>Mutation.</strong> The argument for <span
+class="math inline">\(F\)</span> is the same, in discrete time: <span
+class="math inline">\(F(t+1)=(1-\mu)^2\bigl[\frac1N+(1-\frac1N)F(t)\bigr]\)</span>.
+The fixed point is <span
+class="math inline">\(F^*\simeq1/(1+2N\mu)\)</span>, so <span
+class="math inline">\(\theta=2N\mu\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Moran</th>
+<th>Wright–Fisher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>variance of the number of offspring</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\langle H\rangle\)</span> decays as</td>
+<td><span class="math inline">\(e^{-2t/N}\)</span></td>
+<td><span class="math inline">\(e^{-t/N}\)</span></td>
+</tr>
+<tr>
+<td>time to fixation of a neutral mutant</td>
+<td><span class="math inline">\(N\)</span></td>
+<td><span class="math inline">\(2N\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(\theta\)</span></td>
+<td><span class="math inline">\(N\mu\)</span></td>
+<td><span class="math inline">\(2N\mu\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading the literature.</strong> Population genetics defines
+<span class="math inline">\(N_e\)</span> against Wright–Fisher, <span
+class="math inline">\(N_e=N/\sigma^2\)</span>, half of the <span
+class="math inline">\(N_e\)</span> of this lecture. So in papers and
+textbooks, for a diploid species, you find <span
+class="math inline">\(\langle H\rangle\propto e^{-t/2N_e}\)</span>,
+<span class="math inline">\(\pi=4N_e\mu\)</span>, and a time <span
+class="math inline">\(4N_e\)</span> to fix a neutral mutation. In these
+units the LTEE has <span class="math inline">\(N_e\approx
+N_0\,g\approx3\times10^7\)</span>.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Moran with <span class="math inline">\(m\)</span> types. Show that
+each <span class="math inline">\(n_i\)</span> goes up and down by one at
+rate <span class="math inline">\(N\,x_i(1-x_i)\)</span>, and that <span
+class="math inline">\(d\langle H\rangle/dt=-\frac2N\langle
+H\rangle\)</span> with <span
+class="math inline">\(H=1-\sum_ix_i^2\)</span>.</li>
+<li>Offspring number. (a) In the Moran model each individual is replaced
+at rate 1 and reproduces at rate 1. Show that the number of offspring it
+has before being replaced is geometric, <span
+class="math inline">\(P(k)=2^{-(k+1)}\)</span>, with mean 1 and variance
+2. (b) In Wright–Fisher (additional material), show that it is binomial
+with mean 1 and variance <span class="math inline">\(1-1/N\)</span>.
+Relate this to the factor 2 between the two decays of <span
+class="math inline">\(H\)</span>.</li>
+<li>Effective size. A population alternates between <span
+class="math inline">\(N_1\)</span> and <span
+class="math inline">\(N_2\)</span> individuals, one generation each.
+Find <span class="math inline">\(N_e\)</span> for <span
+class="math inline">\(N_1=10\)</span>, <span
+class="math inline">\(N_2=10^4\)</span>, and compare it with the
+arithmetic mean.</li>
+<li>Mutation and drift. (a) Derive the equation for <span
+class="math inline">\(F\)</span> and its fixed point. (b) A haploid
+population has <span class="math inline">\(N=10^9\)</span> and <span
+class="math inline">\(\mu=10^{-8}\)</span> per site. Compute <span
+class="math inline">\(H^*\)</span>, and how many generations it takes to
+approach it.</li>
+<li>Data in the course folder: the mutations of the LTEE clones
+(Tenaillon et al. 2016) and of 15 mutation-accumulation lines of the
+same strain, kept for 13,750 generations. (a) For each of the six
+populations, fit the slope of synonymous mutations against generations.
+Are the differences compatible with Poisson noise? (b) In the
+mutation-accumulation lines, what fraction of point mutations is
+synonymous? Use it, with the genome size <span
+class="math inline">\(4.63\times10^6\)</span> bp, to turn the LTEE slope
+into a mutation rate per base pair. (c) Compute the same rate directly
+from the mutation-accumulation lines (all point mutations, per line, per
+generation, per base pair). The two differ by a factor of about 3.
+Propose explanations, using what you know about <span
+class="math inline">\(N_e\)</span> in the two experiments.</li>
+<li>Data in the course folder: the diversity and census sizes of Buffalo
+2021. Assume <span class="math inline">\(\mu=10^{-8}\)</span> per site
+and a diploid species, and invert <span
+class="math inline">\(\pi=\theta/(1+\theta)\)</span>, <span
+class="math inline">\(\theta=2N_e\mu\)</span>, to get <span
+class="math inline">\(N_e\)</span> for each species. Plot <span
+class="math inline">\(N_e/N_c\)</span> against <span
+class="math inline">\(N_c\)</span>. By how much should <span
+class="math inline">\(N_e\)</span> be smaller than <span
+class="math inline">\(N_c\)</span> to explain the data?</li>
+</ol>
+<h2 id="at-home">At home</h2>
+<ul>
+<li>J. H. Gillespie, <em>Population Genetics: A Concise Guide</em>
+(Johns Hopkins University Press, 2nd ed. 2004), ch. 2–3: drift, mutation
+and the neutral theory, with the same calculations.</li>
+<li>M. A. Nowak, <em>Evolutionary Dynamics</em> (2006), ch. 6: the Moran
+process and fixation probabilities.</li>
+<li><a href="https://doi.org/10.1088/1742-5468/2007/07/P07018">Blythe
+&amp; McKane 2007</a>: stochastic models of evolution, written for
+physicists. Also for S2.</li>
+<li><a href="https://doi.org/10.1038/nrg2526">Charlesworth 2009</a>:
+what effective population size is, and what it does to molecular
+evolution.</li>
+<li><a href="https://doi.org/10.1093/molbev/msy092">Kern &amp; Hahn
+2018</a>: the neutral theory fifty years later.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>S. Wright, <a
+href="https://doi.org/10.1093/genetics/16.2.97">Evolution in Mendelian
+populations</a>, <em>Genetics</em> <strong>16</strong>, 97 (1931).</li>
+<li>P. A. P. Moran, <a
+href="https://doi.org/10.1017/S0305004100033193">Random processes in
+genetics</a>, <em>Math. Proc. Camb. Philos. Soc.</em>
+<strong>54</strong>, 60 (1958).</li>
+<li>M. Kimura, J. F. Crow, <a
+href="https://doi.org/10.1093/genetics/49.4.725">The number of alleles
+that can be maintained in a finite population</a>, <em>Genetics</em>
+<strong>49</strong>, 725 (1964).</li>
+<li>E. Zuckerkandl, L. Pauling, <a
+href="https://doi.org/10.1016/B978-1-4832-2734-4.50017-6">Evolutionary
+divergence and convergence in proteins</a>, in <em>Evolving Genes and
+Proteins</em>, V. Bryson, H. J. Vogel eds. (Academic Press, 1965),
+p. 97.</li>
+<li>M. Kimura, <a href="https://doi.org/10.1038/217624a0">Evolutionary
+rate at the molecular level</a>, <em>Nature</em> <strong>217</strong>,
+624 (1968).</li>
+<li>J. L. King, T. H. Jukes, <a
+href="https://doi.org/10.1126/science.164.3881.788">Non-Darwinian
+evolution</a>, <em>Science</em> <strong>164</strong>, 788 (1969).</li>
+<li>R. E. Dickerson, <a href="https://doi.org/10.1007/BF01659392">The
+structure of cytochrome c and the rates of molecular evolution</a>,
+<em>J. Mol. Evol.</em> <strong>1</strong>, 26 (1971).</li>
+<li>J. Maynard Smith, J. Haigh, <a
+href="https://doi.org/10.1017/S0016672300014634">The hitch-hiking effect
+of a favourable gene</a>, <em>Genet. Res.</em> <strong>23</strong>, 23
+(1974).</li>
+<li>R. C. Lewontin, <em>The Genetic Basis of Evolutionary Change</em>
+(Columbia University Press, 1974).</li>
+<li>C. W. Birky, J. B. Walsh, <a
+href="https://doi.org/10.1073/pnas.85.17.6414">Effects of linkage on
+rates of molecular evolution</a>, <em>PNAS</em> <strong>85</strong>,
+6414 (1988).</li>
+<li>A. R. Hoelzel et al., <a
+href="https://doi.org/10.1093/oxfordjournals.jhered.a111370">Elephant
+seal genetic variation and the use of simulation models to investigate
+historical population bottlenecks</a>, <em>J. Hered.</em>
+<strong>84</strong>, 443 (1993).</li>
+<li>R. Frankham, <a
+href="https://doi.org/10.1017/S0016672300034455">Effective population
+size/adult population size ratios in wildlife: a review</a>, <em>Genet.
+Res.</em> <strong>66</strong>, 95 (1995).</li>
+<li>J. H. Gillespie, <a
+href="https://doi.org/10.1111/j.0014-3820.2001.tb00732.x">Is the
+population size of a species relevant to its evolution?</a>,
+<em>Evolution</em> <strong>55</strong>, 2161 (2001).</li>
+<li>R. A. Blythe, A. J. McKane, <a
+href="https://doi.org/10.1088/1742-5468/2007/07/P07018">Stochastic
+models of evolution in genetics, ecology and linguistics</a>, <em>J.
+Stat. Mech.</em> P07018 (2007).</li>
+<li>B. Charlesworth, <a href="https://doi.org/10.1038/nrg2526">Effective
+population size and patterns of molecular evolution and variation</a>,
+<em>Nat. Rev. Genet.</em> <strong>10</strong>, 195 (2009).</li>
+<li>S. Wielgoss, J. E. Barrick, O. Tenaillon et al., <a
+href="https://doi.org/10.1534/g3.111.000406">Mutation rate inferred from
+synonymous substitutions in a long-term evolution experiment with
+<em>Escherichia coli</em></a>, <em>G3</em> <strong>1</strong>, 183
+(2011).</li>
+<li>J. J. Leffler et al., <a
+href="https://doi.org/10.1371/journal.pbio.1001388">Revisiting an old
+riddle: what determines genetic diversity levels within species?</a>,
+<em>PLoS Biol.</em> <strong>10</strong>, e1001388 (2012).</li>
+<li>O. Tenaillon, J. E. Barrick, N. Ribeck et al., <a
+href="https://doi.org/10.1038/nature18959">Tempo and mode of genome
+evolution in a 50,000-generation experiment</a>, <em>Nature</em>
+<strong>536</strong>, 165 (2016); curated counts: <a
+href="https://github.com/barricklab/LTEE-Ecoli">barricklab/LTEE-Ecoli</a>
+(CC0).</li>
+<li>A. D. Kern, M. W. Hahn, <a
+href="https://doi.org/10.1093/molbev/msy092">The neutral theory in light
+of natural selection</a>, <em>Mol. Biol. Evol.</em> <strong>35</strong>,
+1366 (2018).</li>
+<li>V. Buffalo, <a
+href="https://doi.org/10.7554/eLife.67509">Quantifying the relationship
+between genetic diversity and population size suggests natural selection
+cannot explain Lewontin’s paradox</a>, <em>eLife</em>
+<strong>10</strong>, e67509 (2021); data: <a
+href="https://github.com/vsbuffalo/paradox_variation">vsbuffalo/paradox_variation</a>.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="l9.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>

@@ -14,6 +14,8 @@ Lecture 5. Cooperation and tipping points [L5](l5.html)
 Lecture 6. Competition between two species [L6](l6.html)
 Lecture 7. Selection [L7](l7.html)
 Lecture 8. What is evolution? [L8](l8.html)
+Lecture 9. Neutral evolution: drift and mutation [L9](l9.html)
+Lecture 10. Selection, drift and adaptation [L10](l10.html)
 
 Appendix S1. Linear systems [S1](s1.html)
 
