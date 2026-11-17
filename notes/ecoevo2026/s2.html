@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Appendix S2. The diffusion approximation · Ecology &amp;
+Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script defer=""
+src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="s2.md" download>&darr; Markdown</a>
+</div>
+<h1 id="appendix-s2.-the-diffusion-approximation">Appendix S2. The
+diffusion approximation</h1>
+<hr />
+<p>In <a href="l9.html">L9</a> and <a href="l10.html">L10</a> every
+result came from an exact calculation on a discrete model: a recursion
+for the heterozygosity, a first-event argument for the fixation
+probability. Each needed its own trick. For a large population there is
+a single tool. The frequency <span class="math inline">\(x=n/N\)</span>
+moves in steps of <span class="math inline">\(1/N\)</span>, and over
+many steps it looks like a continuous random motion. The master equation
+of <a href="l2.html#master-equation">L2</a> becomes a partial
+differential equation for the density <span
+class="math inline">\(P(x,t)\)</span> of the frequency. This appendix
+derives it and uses it.</p>
+<h2 id="why-a-continuous-description">Why a continuous description</h2>
+<p>Two orders are possible. Solve the discrete model at finite <span
+class="math inline">\(N\)</span> and <span
+class="math inline">\(t\)</span>, then take <span
+class="math inline">\(N\)</span> large: this is what L9 did, as in <span
+class="math inline">\(\langle H(t)\rangle=H(0)(1-1/N)^t\)</span>. Or
+take <span class="math inline">\(N\)</span> large first and solve the
+limiting equation. The second route is the <em>diffusion
+approximation</em>.</p>
+<p>The heterozygosity suggests how to take the limit. It depends on time
+only through <span class="math inline">\(t/N\)</span>: for <span
+class="math inline">\(N\to\infty\)</span> at fixed <span
+class="math inline">\(t\)</span> nothing happens, so the right time
+scale is <span class="math inline">\(N\)</span> generations. On that
+scale <span class="math inline">\(x\)</span> makes many small steps, as
+a particle in a fluid.</p>
+<h2 id="kramersmoyal-expansion">Kramers–Moyal expansion</h2>
+<p>Let <span class="math inline">\(x\)</span> be continuous, with <span
+class="math inline">\(W(x&#39;\mid x)\)</span> the rate of a jump from
+<span class="math inline">\(x\)</span> to <span
+class="math inline">\(x&#39;\)</span>. The master equation (gain minus
+loss, as in L2) is</p>
+<p><span class="math display">\[
+\frac{\partial P(x,t)}{\partial t}=\int dx&#39;\,\bigl[W(x\mid
+x&#39;)\,P(x&#39;,t)-W(x&#39;\mid x)\,P(x,t)\bigr].
+\]</span></p>
+<p>Write the rates in terms of the jump <span
+class="math inline">\(y=x&#39;-x\)</span>, <span
+class="math inline">\(W(x+y\mid x)=w(y\mid x)\)</span>. In the gain term
+the jump is <span class="math inline">\(y=x-x&#39;\)</span>, from <span
+class="math inline">\(x-y\)</span>; in the loss term it is <span
+class="math inline">\(y=x&#39;-x\)</span>, from <span
+class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial P(x,t)}{\partial t}=\int dy\,\bigl[w(y\mid
+x-y)\,P(x-y,t)-w(y\mid x)\,P(x,t)\bigr].
+\]</span></p>
+<p>Expand the gain term in the shift <span
+class="math inline">\(-y\)</span> of the starting point, keeping the
+size <span class="math inline">\(y\)</span> of the jump fixed:</p>
+<p><span class="math display">\[
+w(y\mid
+x-y)\,P(x-y,t)=\sum_{n=0}^\infty\frac{(-y)^n}{n!}\,\frac{\partial^n}{\partial
+x^n}\bigl[w(y\mid x)\,P(x,t)\bigr].
+\]</span></p>
+<p>The <span class="math inline">\(n=0\)</span> term cancels the loss
+term. Exchanging the sum and the integral,</p>
+<p><span class="math display">\[
+\boxed{\ \frac{\partial P}{\partial
+t}=\sum_{n=1}^\infty\frac{(-1)^n}{n!}\,\frac{\partial^n}{\partial
+x^n}\bigl[\alpha_n(x)\,P(x,t)\bigr],\qquad \alpha_n(x)=\int
+dy\;y^n\,w(y\mid x)\ }
+\]</span></p>
+<p>the <em>Kramers–Moyal expansion</em>. The <span
+class="math inline">\(\alpha_n\)</span> are the moments of the jump per
+unit time: <span class="math inline">\(\alpha_1\)</span> is the mean
+displacement per unit time, <span
+class="math inline">\(\alpha_2\)</span> the mean squared displacement
+per unit time. The expansion is exact. It is useful only if it can be
+cut.</p>
+<p>For jumps of <span class="math inline">\(\pm\Delta x\)</span> at
+rates <span class="math inline">\(T^\pm(x)\)</span>, <span
+class="math inline">\(w(y\mid x)=T^+(x)\,\delta(y-\Delta
+x)+T^-(x)\,\delta(y+\Delta x)\)</span> and</p>
+<p><span class="math display">\[
+\alpha_n(x)=\bigl[T^+(x)+(-1)^nT^-(x)\bigr]\,\Delta x^n .
+\]</span></p>
+<h2 id="truncation-and-the-fokkerplanck-equation">Truncation and the
+Fokker–Planck equation</h2>
+<p>Take the steps small, <span class="math inline">\(\Delta
+x\to0\)</span>. If the result is to describe a motion, the mean and the
+variance of the displacement per unit time must stay finite:</p>
+<ul>
+<li><span class="math inline">\(\alpha_2=(T^++T^-)\,\Delta x^2\)</span>
+finite: the total rate grows as <span class="math inline">\(1/\Delta
+x^2\)</span>;</li>
+<li><span class="math inline">\(\alpha_1=(T^+-T^-)\,\Delta x\)</span>
+finite: the bias <span class="math inline">\(T^+-T^-\)</span> grows only
+as <span class="math inline">\(1/\Delta x\)</span>, a fraction <span
+class="math inline">\(\sim\Delta x\)</span> of the total rate.</li>
+</ul>
+<p>Then <span class="math inline">\(\alpha_n\sim(T^++T^-)\,\Delta
+x^n\sim\Delta x^{n-2}\to0\)</span> for <span
+class="math inline">\(n&gt;2\)</span>. Board 15.3 makes the same
+argument for a general jump distribution of width <span
+class="math inline">\(\Delta x^\beta\)</span> and shift <span
+class="math inline">\(a(x)\,\Delta x^\alpha\)</span>: the first two
+moments stay finite only if <span
+class="math inline">\(\beta=\alpha/2\)</span>, and then all the others
+vanish. Keeping <span class="math inline">\(n=1,2\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\ \frac{\partial P}{\partial t}=-\frac{\partial}{\partial
+x}\bigl[A(x)\,P\bigr]+\frac12\,\frac{\partial^2}{\partial
+x^2}\bigl[B(x)\,P\bigr],\qquad A=\alpha_1,\quad B=\alpha_2\ }
+\]</span></p>
+<p>the <em>Fokker–Planck equation</em> (Kolmogorov’s forward equation).
+<span class="math inline">\(A\)</span> is the <em>drift</em>, the
+deterministic part, and <span class="math inline">\(B\)</span> the
+<em>diffusion</em>, the noise.</p>
+<h3 id="example-1.-random-walk">Example 1. Random walk</h3>
+<p>Steps of <span class="math inline">\(\pm\Delta x\)</span>, both at
+rate <span class="math inline">\(d\)</span>: <span
+class="math inline">\(\alpha_1=0\)</span>, <span
+class="math inline">\(\alpha_2=2d\,\Delta x^2\)</span>, <span
+class="math inline">\(\alpha_n=2d\,\Delta x^n\)</span> for even <span
+class="math inline">\(n\)</span>. With <span
+class="math inline">\(D=d\,\Delta x^2\)</span> fixed as <span
+class="math inline">\(\Delta x\to0\)</span>, <span
+class="math inline">\(\alpha_n=2D\,\Delta x^{n-2}\to0\)</span> for <span
+class="math inline">\(n&gt;2\)</span>, and</p>
+<p><span class="math display">\[
+\frac{\partial P}{\partial t}=D\,\frac{\partial^2P}{\partial x^2},
+\]</span></p>
+<p>the heat equation. With different rates to the right and to the left
+one gets a drift as well (exercise 1).</p>
+<h3 id="example-2.-moran-model">Example 2. Moran model</h3>
+<p>Steps of <span class="math inline">\(\pm1/N\)</span>, with the rates
+of <a href="l10.html#moran-model-with-selection">L10</a>, <span
+class="math inline">\(T^\pm=Nf_\pm\,x(1-x)\)</span> per generation,
+<span class="math inline">\(f_+=f_A=1+s\)</span>, <span
+class="math inline">\(f_-=f_a=1\)</span>:</p>
+<p><span class="math display">\[
+\alpha_1=\frac{T^+-T^-}{N}=s\,x(1-x),\qquad
+\alpha_2=\frac{T^++T^-}{N^2}=\frac{(f_A+f_a)\,x(1-x)}{N}\simeq\frac{2\,x(1-x)}N
+,
+\]</span></p>
+<p><span class="math inline">\(\alpha_3=s\,x(1-x)/N^2\)</span>, <span
+class="math inline">\(\alpha_4\simeq2x(1-x)/N^3\)</span>, and so on. The
+terms with <span class="math inline">\(n\ge3\)</span> are smaller than
+<span class="math inline">\(\alpha_2\)</span> by powers of <span
+class="math inline">\(1/N\)</span>. The two first terms are of the same
+order when <span class="math inline">\(Ns=O(1)\)</span>, on time scales
+of <span class="math inline">\(N\)</span> generations, as anticipated.
+The neutral Moran model gives</p>
+<p><span class="math display">\[
+\frac{\partial P}{\partial t}=\frac1N\,\frac{\partial^2}{\partial
+x^2}\bigl[x(1-x)\,P\bigr],
+\]</span></p>
+<p>and with <span class="math inline">\(\tau=t/N\)</span>, <span
+class="math inline">\(\partial_\tau P=\partial_x^2[x(1-x)P]\)</span>
+(board 15.5).</p>
+<h3 id="example-3.-wrightfisher">Example 3. Wright–Fisher</h3>
+<p>Here one generation is one jump, and the jump <span
+class="math inline">\(x&#39;-x\)</span> has the central moments of the
+binomial distribution, divided by <span
+class="math inline">\(N^n\)</span>:</p>
+<p><span class="math display">\[
+\alpha_1=0,\qquad \alpha_2=\frac{x(1-x)}N,\qquad
+\alpha_3=\frac{x(1-x)(1-2x)}{N^2},\qquad
+\alpha_4=\frac{3x^2(1-x)^2}{N^2}+O(N^{-3}).
+\]</span></p>
+<p>In general the <span class="math inline">\(n\)</span>-th central
+moment of the binomial is of order <span
+class="math inline">\(N^{\lfloor n/2\rfloor}\)</span>, so <span
+class="math inline">\(\alpha_n=O(N^{-\lceil n/2\rceil})\)</span> and
+again only <span class="math inline">\(n\le2\)</span> survive. Selection
+adds <span class="math inline">\(\alpha_1=s\,x(1-x)/(1+sx)\simeq
+s\,x(1-x)\)</span>. Replacing <span
+class="math inline">\(P(t+1)-P(t)\)</span> by <span
+class="math inline">\(\partial_tP\)</span> is fine on time scales of
+<span class="math inline">\(N\)</span> generations.</p>
+<p><strong>Both models give the same equation</strong>, with <span
+class="math inline">\(A=s\,x(1-x)\)</span>. They differ only in the
+noise: <span class="math inline">\(B=2x(1-x)/N\)</span> for Moran, <span
+class="math inline">\(B=x(1-x)/N\)</span> for Wright–Fisher. For large
+<span class="math inline">\(N\)</span> a Wright–Fisher population of
+<span class="math inline">\(N\)</span> individuals behaves as a Moran
+population of <span class="math inline">\(2N\)</span>. From here on we
+use the Moran model,</p>
+<p><span class="math display">\[
+\frac{\partial P}{\partial t}=-\frac{\partial}{\partial
+x}\bigl[s\,x(1-x)\,P\bigr]+\frac1N\,\frac{\partial^2}{\partial
+x^2}\bigl[x(1-x)\,P\bigr].
+\]</span></p>
+<p>For Wright–Fisher, replace <span
+class="math inline">\(N\to2N\)</span> in every formula below, except in
+<span class="math inline">\(x=1/N\)</span>, the frequency of a single
+individual.</p>
+<h2 id="the-fokkerplanck-equation">The Fokker–Planck equation</h2>
+<h3 id="probability-current-and-boundaries">Probability current and
+boundaries</h3>
+<p>The equation is a continuity equation,</p>
+<p><span class="math display">\[
+\frac{\partial P}{\partial t}=-\frac{\partial J}{\partial x},\qquad
+J(x,t)=A(x)\,P-\frac12\,\frac{\partial}{\partial x}\bigl[B(x)\,P\bigr].
+\]</span></p>
+<p>On <span class="math inline">\([a,b]\)</span>, <span
+class="math inline">\(\frac{d}{dt}\int_a^bP\,dx=J(a,t)-J(b,t)\)</span>:
+probability is lost or gained only through the boundaries. Three kinds
+of boundary:</p>
+<ul>
+<li><em>natural</em>: <span class="math inline">\(x\in\mathbb
+R\)</span>, with <span class="math inline">\(P\to0\)</span> at
+infinity;</li>
+<li><em>reflecting</em>: <span
+class="math inline">\(J(a,t)=J(b,t)=0\)</span>, nothing leaves;</li>
+<li><em>absorbing</em>: <span
+class="math inline">\(P(a,t)=P(b,t)=0\)</span> in the continuum.
+Probability flows out and <span
+class="math inline">\(\int_a^bP\,dx&lt;1\)</span>; what is missing is
+the probability of having been absorbed.</li>
+</ul>
+<p>For drift, <span class="math inline">\(x=0\)</span> and <span
+class="math inline">\(x=1\)</span> are absorbing: once a type is lost or
+fixed, nothing changes. At those points <span
+class="math inline">\(B\)</span> itself vanishes, since there is no
+noise without variation.</p>
+<h3 id="what-a-and-b-mean">What <span class="math inline">\(A\)</span>
+and <span class="math inline">\(B\)</span> mean</h3>
+<p>Multiply by <span class="math inline">\(x\)</span> and integrate by
+parts (boundary terms vanish):</p>
+<p><span class="math display">\[
+\frac{d\langle x\rangle}{dt}=\langle A(x)\rangle .
+\]</span></p>
+<p>The mean moves with the <em>average</em> of <span
+class="math inline">\(A\)</span>, which equals <span
+class="math inline">\(A(\langle x\rangle)\)</span> only if <span
+class="math inline">\(A\)</span> is linear: the same remark as for the
+mean of a nonlinear birth–death process in <a
+href="l2.html#the-mean-obeys-the-deterministic-equation">L2</a>. In the
+same way,</p>
+<p><span class="math display">\[
+\frac{d\operatorname{var}(x)}{dt}=2\bigl\langle(x-\langle
+x\rangle)\,A(x)\bigr\rangle+\langle B(x)\rangle .
+\]</span></p>
+<p><span class="math inline">\(B\)</span> is the source of variance;
+<span class="math inline">\(A\)</span> can increase it or decrease it.
+For neutral drift, <span class="math inline">\(A=0\)</span>, <span
+class="math inline">\(d\langle x\rangle/dt=0\)</span> and <span
+class="math inline">\(d\langle x^2\rangle/dt=\langle B\rangle=2\langle
+x(1-x)\rangle/N\)</span>. So <span class="math inline">\(d\langle
+H\rangle/dt=-\frac2N\langle H\rangle\)</span>: the decay of L9.</p>
+<h3 id="solution-by-eigenfunctions">Solution by eigenfunctions</h3>
+<p>As for the Schrödinger equation, look for <span
+class="math inline">\(P(x,t)=\sum_nc_n\,\psi_n(x)\,e^{-\lambda_nt}\)</span>,
+with</p>
+<p><span class="math display">\[
+-\frac{d}{dx}\bigl[A\,\psi_n\bigr]+\frac12\,\frac{d^2}{dx^2}\bigl[B\,\psi_n\bigr]=-\lambda_n\,\psi_n
+.
+\]</span></p>
+<p>For neutral drift the eigenfunctions are polynomials (Gegenbauer) and
+<span class="math inline">\(\lambda_n=n(n+1)/N\)</span>, <span
+class="math inline">\(n=1,2,\dots\)</span> (<a
+href="https://doi.org/10.1073/pnas.41.3.144">Kimura 1955</a>). Check the
+first two with <span
+class="math inline">\(\frac1N\frac{d^2}{dx^2}[x(1-x)\psi]\)</span>:
+<span class="math inline">\(\psi=1\)</span> gives <span
+class="math inline">\(-2/N\)</span>, and <span
+class="math inline">\(\psi=1-2x\)</span> gives <span
+class="math inline">\(-6/N\)</span> times <span
+class="math inline">\(\psi\)</span>. The slowest mode, <span
+class="math inline">\(\lambda_1=2/N\)</span>, is the decay of the
+heterozygosity. With absorbing boundaries the solution also has masses
+at the two ends (<a
+href="https://doi.org/10.1016/j.jtbi.2007.04.016">McKane &amp; Waxman
+2007</a>):</p>
+<p><span class="math display">\[
+P(x,t\mid x_0)=\Pi_0(t)\,\delta(x)+\Pi_1(t)\,\delta(1-x)+\rho(x,t),
+\]</span></p>
+<p>where <span class="math inline">\(\rho\to0\)</span>, <span
+class="math inline">\(\Pi_1(t)\to x_0\)</span> and <span
+class="math inline">\(\Pi_0(t)\to1-x_0\)</span> for <span
+class="math inline">\(t\to\infty\)</span>: the fixation probability of
+L9.</p>
+<h2 id="stationary-distribution">Stationary distribution</h2>
+<p>If <span class="math inline">\(P(x,t)\to P^*(x)\)</span>, then <span
+class="math inline">\(\partial_xJ^*=0\)</span> and the current is
+constant. With reflecting boundaries it is zero:</p>
+<p><span class="math display">\[
+A\,P^*=\frac12\,\frac{d}{dx}\bigl[B\,P^*\bigr].
+\]</span></p>
+<p>With <span class="math inline">\(Q=B\,P^*/2\)</span> this is <span
+class="math inline">\(Q&#39;=(2A/B)\,Q\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{\ P^*(x)=\frac{C}{B(x)}\exp\Bigl(2\int^x
+dy\,\frac{A(y)}{B(y)}\Bigr)\ }
+\]</span></p>
+<p>with <span class="math inline">\(C\)</span> fixed by normalization.
+If <span class="math inline">\(A=-U&#39;(x)\)</span> and <span
+class="math inline">\(B=2k_BT\)</span> is constant, <span
+class="math inline">\(P^*\propto e^{-U/k_BT}\)</span>: the Boltzmann
+distribution, with <span class="math inline">\(A\)</span> the force and
+<span class="math inline">\(B\)</span> the temperature.</p>
+<p>For neutral drift, <span class="math inline">\(A=0\)</span> and <span
+class="math inline">\(P^*\propto1/[x(1-x)]\)</span>, which cannot be
+normalized. There is no stationary distribution inside <span
+class="math inline">\((0,1)\)</span>, because the boundaries are
+absorbing: the stationary state is all the mass at 0 and 1.</p>
+<p>In more dimensions, <span
+class="math inline">\(\partial_tP=-\nabla\cdot\mathbf J\)</span>, and a
+stationary state needs only <span
+class="math inline">\(\nabla\cdot\mathbf J^*=0\)</span>. Zero flux
+through the boundary no longer implies <span
+class="math inline">\(\mathbf J^*=0\)</span>: currents can circulate
+inside.</p>
+<h3 id="mutation-and-drift-the-beta-distribution">Mutation and drift,
+the Beta distribution</h3>
+<p>Two alleles in the Moran model (board 16): at each birth <span
+class="math inline">\(A\)</span> mutates to <span
+class="math inline">\(a\)</span> with probability <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(a\)</span> to <span
+class="math inline">\(A\)</span> with probability <span
+class="math inline">\(v\)</span>. Then, per generation,</p>
+<p><span class="math display">\[
+n\to n+1:\ N\bigl[x(1-x)(1-u)+(1-x)^2v\bigr],\qquad n\to n-1:\
+N\bigl[x(1-x)(1-v)+x^2u\bigr].
+\]</span></p>
+<p>The first is an <span class="math inline">\(A\)</span> born without
+mutation, or an <span class="math inline">\(a\)</span> born and mutated,
+replacing an <span class="math inline">\(a\)</span>; the second is the
+converse. The jump moments are</p>
+<p><span class="math display">\[
+A(x)=v-(u+v)\,x,\qquad
+B(x)=\frac1N\bigl[2x(1-x)+v(1-x)^2+ux^2-(u+v)\,x(1-x)\bigr]\simeq\frac{2x(1-x)}N
+.
+\]</span></p>
+<p>The interesting regime is <span
+class="math inline">\(Nu,Nv=O(1)\)</span>. Then <span
+class="math inline">\(A\)</span> is of order <span
+class="math inline">\(1/N\)</span>, like <span
+class="math inline">\(B\)</span>, and the mutation terms inside <span
+class="math inline">\(B\)</span> are smaller by a factor <span
+class="math inline">\(u\)</span> or <span
+class="math inline">\(v\)</span>: <span class="math inline">\(B\)</span>
+keeps only its drift part. With <span
+class="math inline">\(2A/B=N\,[v/x-u/(1-x)]\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\
+P^*(x)=\frac{\Gamma(Nu+Nv)}{\Gamma(Nu)\,\Gamma(Nv)}\;x^{Nv-1}(1-x)^{Nu-1}\
+}
+\]</span></p>
+<p>a <em>Beta distribution</em>. Its moments are</p>
+<p><span class="math display">\[
+\langle x\rangle=\frac{v}{u+v},\qquad \langle
+H\rangle=\langle2x(1-x)\rangle=\frac{2Nuv}{(u+v)(Nu+Nv+1)} ,
+\]</span></p>
+<p>and for <span class="math inline">\(u=v\)</span>, <span
+class="math inline">\(\langle H\rangle=Nu/(2Nu+1)\)</span>.</p>
+<ul>
+<li><span class="math inline">\(Nu,Nv\ll1\)</span>: U-shaped, almost all
+the mass near 0 and 1, <span class="math inline">\(H\to0\)</span>. Drift
+wins.</li>
+<li><span class="math inline">\(Nu=Nv=1\)</span>: uniform.</li>
+<li><span class="math inline">\(Nu,Nv\gg1\)</span>: peaked at <span
+class="math inline">\(v/(u+v)\)</span>, <span
+class="math inline">\(H\to1/2\)</span> for <span
+class="math inline">\(u=v\)</span>. Mutation wins.</li>
+</ul>
+<p>For Wright–Fisher the exponents are <span
+class="math inline">\(2Nv-1\)</span> and <span
+class="math inline">\(2Nu-1\)</span>. With the effective size of L9,
+<span class="math inline">\(N\to N_e\)</span>.</p>
+<p><strong><span class="math inline">\(m\)</span> alleles.</strong> If
+each allele mutates to each of the others with probability <span
+class="math inline">\(u/(m-1)\)</span>, a given allele against all the
+rest is the two-allele case with <span
+class="math inline">\(v=u/(m-1)\)</span>. Then <span
+class="math inline">\(\langle H\rangle=1-m\langle
+x^2\rangle=Nu/[Nu\,m/(m-1)+1]\)</span>. For <span
+class="math inline">\(m\to\infty\)</span>, every mutation is new and
+<span class="math inline">\(\langle
+H\rangle=Nu/(Nu+1)=\theta/(1+\theta)\)</span> with <span
+class="math inline">\(\theta=Nu\)</span>: the result of <a
+href="l9.html#mutation-and-drift">L9</a>, obtained there from the
+equation for the probability of identity.</p>
+<h2 id="backward-equation">Backward equation</h2>
+<p>The forward equation evolves <span class="math inline">\(P(x,t\mid
+x_0)\)</span> in the final point <span class="math inline">\(x\)</span>.
+Questions about the fate of a mutation (“where does it end, and when?”)
+are questions about the <em>initial</em> point. Start from the
+Chapman–Kolmogorov equation, valid for any intermediate time <span
+class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[
+P(x&#39;,t&#39;\mid x_0,0)=\int dx\;P(x&#39;,t&#39;\mid x,t)\,P(x,t\mid
+x_0,0).
+\]</span></p>
+<p>The left side does not depend on <span
+class="math inline">\(t\)</span>. Differentiate in <span
+class="math inline">\(t\)</span>, use the forward equation for <span
+class="math inline">\(\partial_tP(x,t\mid x_0,0)\)</span>, and integrate
+by parts to move the <span class="math inline">\(x\)</span>-derivatives
+onto <span class="math inline">\(P(x&#39;,t&#39;\mid x,t)\)</span>:</p>
+<p><span class="math display">\[
+0=\int dx\;\Bigl[\frac{\partial}{\partial
+t}+A(x)\,\frac{\partial}{\partial
+x}+\frac12B(x)\,\frac{\partial^2}{\partial x^2}\Bigr]P(x&#39;,t&#39;\mid
+x,t)\;P(x,t\mid x_0,0).
+\]</span></p>
+<p>This holds for every <span class="math inline">\(x_0\)</span>, so the
+bracket vanishes:</p>
+<p><span class="math display">\[
+\boxed{\ -\frac{\partial}{\partial t}P(x&#39;,t&#39;\mid
+x,t)=A(x)\,\frac{\partial P}{\partial
+x}+\frac12\,B(x)\,\frac{\partial^2P}{\partial x^2}\ }
+\]</span></p>
+<p>the <em>backward equation</em>. The derivatives act on the starting
+point, and <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> sit outside the derivatives.</p>
+<h3 id="fixation-probability">Fixation probability</h3>
+<p>Let <span class="math inline">\(\Pi(x)\)</span> be the probability of
+reaching 1 before 0, starting from <span
+class="math inline">\(x\)</span>. In a short time <span
+class="math inline">\(dt\)</span>, <span
+class="math inline">\(x\)</span> moves by <span
+class="math inline">\(dx\)</span>, with <span
+class="math inline">\(\langle dx\rangle=A\,dt\)</span> and <span
+class="math inline">\(\langle dx^2\rangle=B\,dt\)</span>, and the
+probability of fixation from the new point is the same function: <span
+class="math inline">\(\Pi(x)=\langle\Pi(x+dx)\rangle\)</span>. This is
+the first-event argument of L9 in the continuum. Expanding to second
+order,</p>
+<p><span class="math display">\[
+A(x)\,\Pi&#39;(x)+\frac12\,B(x)\,\Pi&#39;&#39;(x)=0,\qquad
+\Pi(0)=0,\quad \Pi(1)=1 .
+\]</span></p>
+<p>Board 17.3 gets the same equation from the backward equation for the
+first-passage density, integrated over time. It is first order in <span
+class="math inline">\(\Pi&#39;\)</span>: <span
+class="math inline">\(\Pi&#39;\propto\psi(x)=\exp\bigl(-2\int^xA/B\bigr)\)</span>,
+and</p>
+<p><span class="math display">\[
+\Pi(x)=\frac{\int_0^x\psi(y)\,dy}{\int_0^1\psi(y)\,dy} .
+\]</span></p>
+<p>With <span class="math inline">\(A=s\,x(1-x)\)</span> and <span
+class="math inline">\(B=2x(1-x)/N\)</span>, <span
+class="math inline">\(2A/B=Ns\)</span> and <span
+class="math inline">\(\psi=e^{-Nsx}\)</span>:</p>
+<p><span class="math display">\[
+\boxed{\ \Pi(x)=\frac{1-e^{-Nsx}}{1-e^{-Ns}}\ }
+\]</span></p>
+<p><a href="https://doi.org/10.1093/genetics/47.6.713">Kimura 1962</a>.
+For <span class="math inline">\(s\to0\)</span>, <span
+class="math inline">\(\Pi=x\)</span>. For a single mutant, <span
+class="math inline">\(x=1/N\)</span> and <span
+class="math inline">\(Ns\gg1\)</span>, <span
+class="math inline">\(\Pi\simeq s\)</span>. It is the continuum limit of
+the exact result of <a href="l10.html#fixation-probability">L10</a>:
+<span class="math inline">\(r^{-n}=e^{-n\ln(1+s)}\simeq
+e^{-Nsx}\)</span>. For Wright–Fisher, <span
+class="math inline">\(N\to2N\)</span> in the exponents gives <span
+class="math inline">\(\Pi\simeq2s\)</span> for a single mutant.</p>
+<h3 id="times-to-fixation">Times to fixation</h3>
+<p>The mean time <span class="math inline">\(T(x)\)</span> to reach
+either boundary obeys the same argument with one more step: <span
+class="math inline">\(T(x)=dt+\langle T(x+dx)\rangle\)</span>, so</p>
+<p><span class="math display">\[
+A\,T&#39;+\frac12\,B\,T&#39;&#39;=-1,\qquad T(0)=T(1)=0 .
+\]</span></p>
+<p>For neutral drift, <span
+class="math inline">\(T&#39;&#39;=-N/[x(1-x)]\)</span>, and</p>
+<p><span class="math display">\[
+T(x)=-N\bigl[x\ln x+(1-x)\ln(1-x)\bigr].
+\]</span></p>
+<p>From <span class="math inline">\(x=1/2\)</span> this is <span
+class="math inline">\(N\ln2\simeq0.7\,N\)</span> generations. From a
+single new mutant, <span class="math inline">\(x=1/N\)</span>, it is
+<span class="math inline">\(\simeq1+\ln N\)</span>: most new mutations
+are lost quickly.</p>
+<p><strong>Conditional on fixation.</strong> Let <span
+class="math inline">\(T_1(x)\)</span> be the mean time to fixation of
+the mutations that do fix. The product <span
+class="math inline">\(\tau=\Pi\,T_1\)</span> obeys <span
+class="math inline">\(A\tau&#39;+\frac12B\tau&#39;&#39;=-\Pi\)</span>,
+with <span class="math inline">\(\tau(0)=\tau(1)=0\)</span>. This is the
+<span class="math inline">\(n=1\)</span> case of board 17.4: the moments
+<span class="math inline">\(T_n\)</span> of the first-passage time to a
+boundary, weighted by the probability of reaching it, obey <span
+class="math inline">\(A\,T_n&#39;+\frac12B\,T_n&#39;&#39;+n\,T_{n-1}=0\)</span>,
+with <span class="math inline">\(T_0=\Pi\)</span>. For neutral drift,
+<span class="math inline">\(\tau&#39;&#39;=-N/(1-x)\)</span>, so <span
+class="math inline">\(\tau=-N(1-x)\ln(1-x)\)</span> and</p>
+<p><span class="math display">\[
+T_1(x)=-N\,\frac{(1-x)\ln(1-x)}{x}\ \xrightarrow{\ x\to0\ }\ N
+\]</span></p>
+<p>(<a href="https://doi.org/10.1093/genetics/61.3.763">Kimura &amp;
+Ohta 1969</a>). A new neutral mutation that fixes takes on average <span
+class="math inline">\(N\)</span> generations. In Wright–Fisher it takes
+<span class="math inline">\(2N\)</span>.</p>
+<h2 id="exercises">Exercises</h2>
+<ol type="1">
+<li>Biased random walk. Steps of <span class="math inline">\(\pm\Delta
+x\)</span> at rates <span class="math inline">\(T^\pm\)</span>. Show
+that the limit <span class="math inline">\(\Delta x\to0\)</span> with
+<span class="math inline">\(V=(T^+-T^-)\,\Delta x\)</span> and <span
+class="math inline">\(D=(T^++T^-)\,\Delta x^2/2\)</span> fixed gives
+<span
+class="math inline">\(\partial_tP=-V\,\partial_xP+D\,\partial_x^2P\)</span>.
+Solve it from <span
+class="math inline">\(P(x,0)=\delta(x)\)</span>.</li>
+<li>Wright–Fisher jump moments. From the central moments of the binomial
+distribution, compute <span
+class="math inline">\(\alpha_1,\dots,\alpha_4\)</span> for neutral
+Wright–Fisher, and show that <span
+class="math inline">\(\alpha_3/\alpha_2\)</span> and <span
+class="math inline">\(\alpha_4/\alpha_2\)</span> vanish as <span
+class="math inline">\(1/N\)</span>.</li>
+<li>With <span class="math inline">\(B=2k_BT\)</span> constant and <span
+class="math inline">\(A=-U&#39;(x)\)</span>, show that <span
+class="math inline">\(P^*\propto e^{-U/k_BT}\)</span>.</li>
+<li>Eigenfunctions of neutral drift. Show that <span
+class="math inline">\(\psi=1\)</span> and <span
+class="math inline">\(\psi=1-2x\)</span> are eigenfunctions of <span
+class="math inline">\(\frac1N\frac{d^2}{dx^2}[x(1-x)\psi]\)</span>, and
+find the next one, a polynomial of degree 2.</li>
+<li>Times. For the neutral Moran model with <span
+class="math inline">\(N=10^4\)</span>, compute the mean time to fixation
+of a new mutant that fixes, and the mean time to loss of one that is
+lost. (Hint: the mean time to loss conditional on loss is <span
+class="math inline">\(T_0(x)=-N\,x\ln x/(1-x)\)</span>; show it.)</li>
+<li>Beta distribution. For <span class="math inline">\(u=v\)</span>,
+sketch <span class="math inline">\(P^*\)</span> for <span
+class="math inline">\(Nu=0.2\)</span>, <span
+class="math inline">\(1\)</span>, <span
+class="math inline">\(5\)</span>, and compute <span
+class="math inline">\(\langle H\rangle\)</span>. In L9’s simulator, set
+<span class="math inline">\(N=100\)</span>, <span
+class="math inline">\(s=0\)</span> and <span
+class="math inline">\(\mu\)</span> such that <span
+class="math inline">\(N\mu\)</span> crosses 1, and watch the
+histogram.</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>M. Kimura, <a href="https://doi.org/10.1073/pnas.41.3.144">Solution
+of a process of random genetic drift with a continuous model</a>,
+<em>PNAS</em> <strong>41</strong>, 144 (1955).</li>
+<li>M. Kimura, <a href="https://doi.org/10.1093/genetics/47.6.713">On
+the probability of fixation of mutant genes in a population</a>,
+<em>Genetics</em> <strong>47</strong>, 713 (1962).</li>
+<li>M. Kimura, T. Ohta, <a
+href="https://doi.org/10.1093/genetics/61.3.763">The average number of
+generations until fixation of a mutant gene in a finite population</a>,
+<em>Genetics</em> <strong>61</strong>, 763 (1969).</li>
+<li>W. J. Ewens, <a
+href="https://doi.org/10.1007/978-0-387-21822-9"><em>Mathematical
+Population Genetics I</em></a> (Springer, 2nd ed. 2004), ch. 4–5.</li>
+<li>R. A. Blythe, A. J. McKane, <a
+href="https://doi.org/10.1088/1742-5468/2007/07/P07018">Stochastic
+models of evolution in genetics, ecology and linguistics</a>, <em>J.
+Stat. Mech.</em> P07018 (2007).</li>
+<li>A. J. McKane, D. Waxman, <a
+href="https://doi.org/10.1016/j.jtbi.2007.04.016">Singular solutions of
+the diffusion equation of population genetics</a>, <em>J. Theor.
+Biol.</em> <strong>247</strong>, 849 (2007).</li>
+<li>C. W. Gardiner, <em>Stochastic Methods: A Handbook for the Natural
+and Social Sciences</em> (Springer, 4th ed. 2009), ch. 3 and 5.</li>
+<li>N. G. van Kampen, <em>Stochastic Processes in Physics and
+Chemistry</em> (North-Holland, 3rd ed. 2007), ch. VIII.</li>
+</ul>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="s2.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>

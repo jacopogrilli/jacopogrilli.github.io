@@ -18,5 +18,6 @@ Lecture 9. Neutral evolution: drift and mutation [L9](l9.html)
 Lecture 10. Selection, drift and adaptation [L10](l10.html)
 
 Appendix S1. Linear systems [S1](s1.html)
+Appendix S2. The diffusion approximation [S2](s2.html)
 
 [Extra material](extra-mat.html)
