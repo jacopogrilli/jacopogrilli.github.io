@@ -22,3 +22,8 @@ Appendix S1. Linear systems [S1](s1.html)
 Appendix S2. The diffusion approximation [S2](s2.html)
 
 [Extra material](extra-mat.html)
+
+## Exam
+
+Exam slots: [add your name here](https://docs.google.com/spreadsheets/d/1mq0hbD1TCkSrwcqM9gsb3iN7BjALRX0UtvoKyBWcZGw/edit?usp=sharing)
+Exercises for the exam [Exercises](exercises.html)

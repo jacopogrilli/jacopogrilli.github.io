@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jacopo Grilli">
+<meta name="generator" content="publish_notes.py">
+<title>Ecology &amp; Evolution 2026 — Exercises for the exam · Ecology
+&amp; Evolution 2026</title>
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1f2328; --muted: #5b6470; --accent: #1a5fb4;
+  --rule: #e3e5e8; --code: #f1f2f4; --note: #2563eb; --warning: #c2410c; --tip: #15803d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e6e7ea; --muted: #9aa1ab; --accent: #7fb2ff;
+    --rule: #2c3038; --code: #22252b; --note: #7fb2ff; --warning: #f0a36b; --tip: #6cc98b;
+  }
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header.site, main, footer.site { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem; font-size: .9rem;
+}
+header.site a { color: var(--muted); text-decoration: none; }
+header.site a:hover { color: var(--accent); }
+header.site nav { display: flex; gap: 1rem; align-items: center; }
+.resources { margin: 1.2rem 0; line-height: 2; }
+.resources a { text-decoration: none; }
+.resources a:hover { text-decoration: underline; }
+.resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
+.resources a[href*=".pptx"]::before, .resources a[href*=".zip"]::before {
+  content: ""; display: inline-block; width: .72em; height: .96em;
+  margin-right: .3em; vertical-align: -.1em;
+  background: center/contain no-repeat var(--icon);
+}
+.resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".zip"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%236b7280'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 1.2rem 0; font-size: .9rem; }
+.pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pagenav a { color: var(--muted); text-decoration: none; }
+.pagenav a:hover { color: var(--accent); }
+a.download {
+  border: 1px solid var(--rule); border-radius: 6px; padding: .15rem .6rem;
+  white-space: nowrap;
+}
+a.download:hover { border-color: var(--accent); }
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.2rem 0 1rem; }
+h2 { font-size: 1.4rem; line-height: 1.3; margin: 2.4rem 0 .8rem; padding-bottom: .25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+blockquote { margin: 1.2rem 0; padding: .1rem 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+code { background: var(--code); padding: .1em .3em; border-radius: 4px; font-size: .9em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; display: block; overflow-x: auto; margin: 1.2rem 0; font-size: .95rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+th { border-bottom-width: 2px; }
+li { margin: .25rem 0; }
+.math.display, mjx-container[display="true"] { display: block; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.callout {
+  --c: var(--note);
+  border-left: 4px solid var(--c); border-radius: 6px; padding: .5rem 1rem; margin: 1.4rem 0;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+.callout-warning, .callout-caution, .callout-danger { --c: var(--warning); }
+.callout-tip, .callout-success, .callout-example { --c: var(--tip); }
+.callout-figure { --c: var(--muted); }  /* grey box, e.g. around an interactive figure */
+.callout-title, details.callout > summary { font-weight: 650; }
+details.callout > summary { cursor: pointer; }
+footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bottom: 2rem; font-size: .85rem; color: var(--muted); }
+footer.site a { color: var(--muted); }
+</style>
+<script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+type="text/javascript"></script>
+</head>
+<body>
+<header class="site">
+  <a href="index.html">Ecology &amp; Evolution 2026</a>
+  <a href="/">Jacopo Grilli</a>
+</header>
+<main>
+<div class="pagenav top">
+  <span><a href="index.html">&larr; Back to index</a></span>
+  <a class="download" href="exercises.md" download>&darr; Markdown</a>
+</div>
+<h1 id="ecology-evolution-2026-exercises-for-the-exam">Ecology &amp;
+Evolution 2026 — Exercises for the exam</h1>
+<p>You are <em>very</em> encouraged to discuss the exercises with
+others. Analytic calculations and simulations are both welcome. The oral
+exam starts from these exercises.</p>
+<p>The notation is the one of the lecture notes (L1–L12, S1–S2).</p>
+<h2 id="is-stress-mutagenic-fluctuation-tests-with-cell-death">1. Is
+stress mutagenic? Fluctuation tests with cell death</h2>
+<p>A culture starts from <span class="math inline">\(N_0\)</span>
+sensitive cells and grows until it has <span class="math inline">\(N\gg
+N_0\)</span> cells. <span class="math inline">\(N_0\)</span> is large
+enough that the culture does not go extinct, and small enough that it
+contains no resistant cell. Every cell divides at rate <span
+class="math inline">\(b\)</span> and dies at rate <span
+class="math inline">\(d&lt;b\)</span>. A cell born from a sensitive
+parent is resistant with probability <span
+class="math inline">\(\mu\)</span>, the mutation probability per
+division of L3. Resistant cells divide and die at the same rates. At the
+end the whole culture is plated and the resistant cells, <span
+class="math inline">\(M\)</span>, are counted. With <span
+class="math inline">\(d=0\)</span> this is the setting of L3.</p>
+<ol type="1">
+<li>On average, how many divisions does the culture go through to reach
+<span class="math inline">\(N\)</span> cells, and how many mutational
+events happen?</li>
+<li>What’s the average number of resistant cells <span
+class="math inline">\(\langle M \rangle\)</span>?</li>
+<li>What’s the probability <span class="math inline">\(P_0\)</span> that
+a culture has no resistant cell? (Each mutational event founds a clone,
+which is a birth–death process: it counts only if it is still alive at
+the end.)</li>
+<li>Show that the tail is still <span class="math inline">\(P(M\ge
+m)\propto 1/m\)</span>, and find its prefactor.</li>
+<li>A lab wants to know whether streptomycin, a bactericidal antibiotic,
+is mutagenic at doses too low to stop growth. They run two fluctuation
+tests as in L3, each with 100 cultures of <em>E. coli</em> inoculated
+with <span class="math inline">\(N_0=10^3\)</span> cells and grown to
+<span class="math inline">\(N\approx10^8\)</span> cells: one in plain
+medium, one with a quarter of the minimal inhibitory concentration (MIC)
+of streptomycin. At the end, each culture is plated whole on agar with
+rifampicin, and the rifampicin-resistant colonies are counted
+(resistance to rifampicin comes from mutations in the RNA polymerase,
+unrelated to streptomycin). Time-lapse microscopy shows that with
+streptomycin the cells divide as fast as without it, but die at rate
+<span class="math inline">\(d=0.6\,b\)</span>, while without the drug
+<span class="math inline">\(d\simeq0\)</span>. They estimate <span
+class="math inline">\(\mu\)</span> in the two ways of L3: from the
+fraction of cultures without resistant colonies, <span
+class="math inline">\(P_0=e^{-\mu N}\)</span>, and from the mean, <span
+class="math inline">\(\langle M\rangle=\mu N\ln(N/N_0)\)</span>. With
+streptomycin the first estimate is 1.5 times higher and the second 2.5
+times higher, and they conclude that streptomycin is mutagenic. Do you
+agree? What does each estimator actually count? How could a fluctuation
+test alone measure <span class="math inline">\(d/b\)</span>?</li>
+<li>What changes if, during growth, the drug kills resistant cells less
+than sensitive ones, as it would if the test scored resistance to
+streptomycin itself (L7)?</li>
+</ol>
+<p>If you want to test with simulations, use (for instance) <span
+class="math inline">\(b=1\)</span>, <span
+class="math inline">\(d=0.6\)</span>, <span
+class="math inline">\(N_0=50\)</span>, <span
+class="math inline">\(N=2\times10^4\)</span>, <span
+class="math inline">\(\mu=5\times10^{-5}\)</span>.</p>
+<h2 id="rescue-or-drag-down-two-patches-with-an-allee-effect">2. Rescue
+or drag down? Two patches with an Allee effect</h2>
+<p>Two identical patches, each with the strong Allee effect of L5,
+exchange individuals at rate <span
+class="math inline">\(\kappa\)</span>. In the units of L5,</p>
+<p><span class="math display">\[
+\frac{du_1}{d\tau}=f(u_1)+\kappa\,(u_2-u_1),\qquad
+\frac{du_2}{d\tau}=f(u_2)+\kappa\,(u_1-u_2)
+\]</span><br />
+with<br />
+<span class="math display">\[
+f(u)=u\,(u-\alpha)(1-u),\quad 0&lt;\alpha&lt;1 .
+\]</span></p>
+<p>Study the phase diagram as a function of <span
+class="math inline">\(\kappa\)</span> and <span
+class="math inline">\(\alpha\)</span>.<br />
+Consider the case where the population is at carrying capacity in one
+patch and extinct in the other. What happens for <span
+class="math inline">\(\kappa &gt; 0\)</span>?</p>
+<h2 id="one-resource-two-winners-competition-under-serial-dilution">3.
+One resource, two winners: competition under serial dilution</h2>
+<p>Two species share a single resource in serial batch culture. At each
+transfer a fraction <span class="math inline">\(1/D\)</span> of the
+culture goes into fresh medium with resource <span
+class="math inline">\(R_0\)</span>. Within a cycle nothing dies,</p>
+<p><span class="math display">\[
+\frac{dN_i}{dt}=b_i\,\phi_i(R)\,N_i,\qquad
+\frac{dR}{dt}=-\sum_i\frac{b_i\,\phi_i(R)}{Y_i}\,N_i,\qquad
+\phi_i(R)=\frac{R}{K_i+R},
+\]</span></p>
+<p>and each cycle lasts until the resource is exhausted. In a chemostat
+(L11) only the species with the lowest <span
+class="math inline">\(R^*\)</span> survives.</p>
+<ol type="1">
+<li>Species <span class="math inline">\(r\)</span> alone, in its
+periodic state: show that <span
+class="math inline">\(N_r(t)=Y_r\,\bigl(R_0-R(t)\bigr)\)</span>
+throughout the cycle.</li>
+<li>Add a few cells of species <span class="math inline">\(i\)</span>.
+What is the condition for invasion?</li>
+<li>Is coexistence possible? Is bistability possible?</li>
+<li>In L6 a daily dilution was <em>exactly</em> a mortality <span
+class="math inline">\(\delta=\ln D/T\)</span>, as far as invasion is
+concerned. Is this still valid? Compare the outcome at <span
+class="math inline">\(D=10\)</span> with a chemostat at <span
+class="math inline">\(\delta=\ln 10/(24\ \text{h})\)</span>.</li>
+<li>Does the coexistence of two species on one resource contradict
+competitive exclusion (L11)? What plays the role of the second
+resource?</li>
+</ol>
+<p>If you want to simulate the system consider a gleaner, <span
+class="math inline">\(b_g=0.3\)</span>/h and <span
+class="math inline">\(K_g=0.01\)</span> mM, and an opportunist, <span
+class="math inline">\(b_o=1\)</span>/h and <span
+class="math inline">\(K_o=1\)</span> mM, with <span
+class="math inline">\(R_0=1\)</span> mM. Simulate many cycles from
+different starting fractions.</p>
+<h2 id="genetic-draft-when-sweeps-act-as-noise">4. Genetic draft: when
+sweeps act as noise</h2>
+<p>In an asexual population the genome is inherited as one block. A
+neutral site then rises and falls with the beneficial mutations that
+happen to sit on the same genome (selection at linked sites, L9;
+quasi-neutral fixation, L10). This exercise is about what these sweeps
+do to a neutral site.</p>
+<p><strong>Setting.</strong> A population of <span
+class="math inline">\(N\)</span> asexual individuals, with time measured
+in generations. We follow a single neutral site with two alleles, <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(a\)</span>, and call <span
+class="math inline">\(x\)</span> the frequency of <span
+class="math inline">\(A\)</span>. Two kinds of events change <span
+class="math inline">\(x\)</span>.</p>
+<ul>
+<li><em>Drift</em>, as in the Moran model of L9. Each individual
+reproduces at rate 1. Its offspring carries the allele of its parent and
+replaces an individual chosen at random.</li>
+<li><em>Sweeps</em>. From time to time a beneficial mutation, with
+advantage <span class="math inline">\(\sigma\)</span>, appears at
+another site, in an individual chosen at random. A sweep lasts about
+<span class="math inline">\(2\ln N/\sigma\)</span> generations (L7),
+much less than the <span class="math inline">\(\sim N\)</span>
+generations over which drift acts, so we treat it as instantaneous.
+Sweeps happen at random times, at rate <span
+class="math inline">\(\lambda\)</span> per generation. In a sweep, the
+descendants of the individual where the mutation appeared, which all
+carry its allele at the neutral site, replace a fraction <span
+class="math inline">\(y\)</span> of the population, chosen at random. In
+a complete sweep <span class="math inline">\(y=1\)</span>, and the whole
+population descends from that individual. If the sweep is stopped before
+(for instance by a beneficial mutation in another lineage, as in clonal
+interference), <span class="math inline">\(y&lt;1\)</span>.</li>
+</ul>
+<p>For instance, with <span class="math inline">\(N=10\)</span> and
+<span class="math inline">\(y=0.3\)</span>: a sweep starts in individual
+7, which carries <span class="math inline">\(a\)</span>, and three
+individuals chosen at random are replaced by copies of individual 7.
+Treat <span class="math inline">\(y\)</span> as a fixed parameter.</p>
+<ol type="1">
+<li>What does a sweep do to the mean of <span
+class="math inline">\(x\)</span>, and to its variance? What is the
+probability that a neutral allele, now at frequency <span
+class="math inline">\(x\)</span>, eventually fixes? Do sweeps change the
+rate at which neutral mutations are substituted (the molecular clock of
+L9)?</li>
+<li>How does the mean heterozygosity <span class="math inline">\(\langle
+H\rangle\)</span> decay? Now let every newborn carry a new allele with
+probability <span class="math inline">\(\mu\)</span> (infinitely many
+alleles, as in L9). Where do mutation, drift and sweeps balance? (Use
+the equation for <span class="math inline">\(F\)</span> of L9: what does
+a sweep do to <span class="math inline">\(F\)</span>?)</li>
+<li>Suppose the sweeps are caused by beneficial mutations that appear at
+rate <span class="math inline">\(U_b\)</span> per genome and escape
+drift with probability <span class="math inline">\(\sigma\)</span>
+(L10), so that <span class="math inline">\(\lambda=NU_b\sigma\)</span>.
+How does the neutral diversity depend on <span
+class="math inline">\(N\)</span>? Compare with Lewontin’s paradox (L9).
+Can sweeps dominate drift while they still come one at a time
+(L10)?</li>
+</ol>
+<p>If you want to simulate the system, use for instance <span
+class="math inline">\(N=1000\)</span>, <span
+class="math inline">\(\lambda=0.02\)</span> and <span
+class="math inline">\(y=0.2\)</span> or <span
+class="math inline">\(0.5\)</span>.</p>
+<h2 id="why-do-phages-survive-the-evolution-of-resistance">5. Why do
+phages survive the evolution of resistance?</h2>
+<p>Consider a chemostat with dilution rate <span
+class="math inline">\(D\)</span> and glucose <span
+class="math inline">\(R\)</span> supplied at concentration <span
+class="math inline">\(R_{\text{in}}\)</span>, with sensitive cells <span
+class="math inline">\(N\)</span>, resistant cells <span
+class="math inline">\(M\)</span> that the phage does not adsorb but that
+grow more slowly (<span class="math inline">\(b_M&lt;b_N\)</span>), and
+phages <span class="math inline">\(V\)</span> without latent period:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{dR}{dt}&amp;=D\,(R_{\text{in}}-R)-\frac{b_N\,\phi(R)\,N+b_M\,\phi(R)\,M}{Y},\\
+\frac{dN}{dt}&amp;=\bigl(b_N\,\phi(R)-D\bigr)N-aNV,\qquad
+\frac{dM}{dt}=\bigl(b_M\,\phi(R)-D\bigr)M,\\
+\frac{dV}{dt}&amp;=(\beta-1)\,aNV-DV,
+\end{aligned}
+\qquad \phi(R)=\frac{R}{K_R+R}.
+\]</span></p>
+<ol type="1">
+<li>Without phages, who wins? Without resistant cells, find the
+coexistence point of <span class="math inline">\(N\)</span> and <span
+class="math inline">\(V\)</span>, and the minimal <span
+class="math inline">\(R_{\text{in}}\)</span> for the phage to
+persist.</li>
+<li>A resistant mutant appears in the <span
+class="math inline">\(N\)</span>–<span class="math inline">\(V\)</span>
+chemostat. Under what conditions does it invade?</li>
+<li>Find the fixed point with all four populations present. What keeps
+the phage alive? What if resistance were free?</li>
+<li>Two kinds of bacteria and a phage persist on a single supplied
+resource. Does this contradict competitive exclusion (L11)?</li>
+<li>How does the probability that a resistant mutant arises and
+establishes in the population depend on the mutation rate <span
+class="math inline">\(\mu\)</span> and on the supplied resource <span
+class="math inline">\(R_{\text{in}}\)</span>?</li>
+</ol>
+<p>For simulations you can use <span
+class="math inline">\(D=0.2\)</span>/h, <span
+class="math inline">\(b_N=0.77\)</span>/h, <span
+class="math inline">\(K_R=0.073\)</span> mg/L, <span
+class="math inline">\(Y=5\times10^5\)</span> cells/ml per mg/L, <span
+class="math inline">\(a=3\times10^{-7}\)</span> ml/h, <span
+class="math inline">\(\beta=80\)</span> and <span
+class="math inline">\(b_M=0.5\)</span>/h.</p>
+<div class="pagenav bottom">
+  <a href="index.html">&larr; Back to index</a>
+  <a class="download" href="exercises.md" download>&darr; Markdown</a>
+</div>
+</main>
+<footer class="site">
+  Jacopo Grilli · ICTP, Trieste · <a href="/">jacopogrilli.github.io</a>
+</footer>
+</body>
+</html>
