@@ -12,6 +12,16 @@
   url: https://indico.ictp.it/event/11475
   slides:
 
+- title:
+  what: 0
+  upcoming: 1
+  type: Invited Talk
+  date: January 20 - 21, 2027
+  place: "Mini-symposium 'From Essential to High-Fidelity Ecosystem Models', OGS"
+  location: ictp
+  url:
+  slides:
+
 - title: "Theoretical Ecology and the Physics of Life: Upscaling Biodiversity in a Changing World"
   what: 0
   upcoming: 1
@@ -22,9 +32,19 @@
   url: https://www.ictp-saifr.org/2027-activities/
   slides:
 
-- title:
+- title: "Ecology and evolution in random seascapes"
   what: 0
-  upcoming: 1
+  upcoming: 0
+  type: Invited Seminar
+  date: November 24, 2026
+  place: Quantitative Life Sciences and Medicine Seminar Series, McGill University
+  location: remotely
+  url:
+  slides:
+
+- title: "Ecology and evolution in random seascapes"
+  what: 0
+  upcoming: 0
   type: Invited Seminar
   date: October 26, 2026
   place: SMAQ Seminar, Gran Sasso Science Institute
@@ -34,7 +54,7 @@
 
 - title: "Patterns and constraints in the taxonomic and functional composition of microbial communities"
   what: 0
-  upcoming: 1
+  upcoming: 0
   type: Invited Seminar
   date: October 15, 2026
   place: Special Seminar Series, Humanitas Research Hospital

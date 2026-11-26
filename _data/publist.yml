@@ -36,8 +36,8 @@
   highlight: 0
 
 
-- title: "Population growth is primarily inhibited by processes other than resource depletion, leaving a sublinear signature across species"
-  authors: O. Mazzarisi, R. Droghetti, H. Carmichael, L. Ciandrini, M. Cosentino Lagomarsino, M. Dal Bello, L. Fant, G. Ghedini, J. Grilli, G. Yvon-Durocher, D.C. Reuman
+- title: "The shape of density dependence points to regulation of population growth beyond classical resource limitation"
+  authors: O. Mazzarisi, R. Droghetti, S. Barton, H. Carmichael, L. Ciandrini, M. Cosentino Lagomarsino, M. Dal Bello, L. Fant, G. Ghedini, J. Grilli, G. Yvon-Durocher, D.C. Reuman
   journal:
   journalshort:
   reference:
@@ -92,22 +92,22 @@
   highlight: 0
 
 
-- title: "Unifying Theories in High-Dimensional Biology: Approaches, Challenges and Opportunities"
-  authors: M. Bauer, A. Goyal, S. Goyal, G. Reddy, S. Chakrabarti, M.M. Desai, W. Gilpin, J. Grilli, K. Husain, S. Jain, M. Kumar Jolly, K. Kawaguchi, A. Koseska, M. Lin, L. Narlikar, S. Pigolotti, A. Raju, K. Shrinivas, R. Siddharthan, G.J. Stephens, A. Tiffeau-Mayer, S. Vaikuntanathan
-  journal: 
-  journalshort: 
-  reference:  
-  year: 2025
-  doi: 
+- title: "Unifying theories in high-dimensional biophysics: approaches, challenges and opportunities"
+  authors: M. Bauer, A. Goyal, S. Goyal, G. Reddy, S. Chakrabarti, M.M. Desai, W. Gilpin, J. Grilli, K.B. Husain, S. Jain, M. Kumar Jolly, K. Kawaguchi, A. Koseska, M.M. Lin, L. Narlikar, S. Pigolotti, A. Raju, K. Shrinivas, R. Siddharthan, G.J. Stephens, A. Tiffeau-Mayer, S. Vaikuntanathan
+  journal: npj Systems Biology and Applications
+  journalshort: npj Syst Biol Appl
+  reference: 12, 43
+  year: 2026
+  doi: 10.1038/s41540-026-00680-9
   arxiv: 2512.10111
-  biorxiv: 
-  news: 
-  description: 
-  image: 
-  mendeley: 
-  researchgate: 
-  pmid: 
-  preprint: 1
+  biorxiv:
+  news:
+  description:
+  image:
+  mendeley:
+  researchgate:
+  pmid:
+  preprint: 0
   highlight: 0
 
 - title: Eco-evolutionary dynamics lead to functionally robust and redundant communities
