@@ -95,6 +95,8 @@ DECK_LABEL_RE = re.compile(r"^\s*(?:\*\*)?slides?(?:\*\*)?\s*:?\s*$", re.I)
 COLAB_BARE_RE = re.compile(r"(?<![(\]])\bhttps://colab\.research\.google\.com/[^\s)<>]+")
 COLAB_ONLY_RE = re.compile(r"^\s*(?:\*\*)?(?:colab|notebook)?(?:\*\*)?\s*:?\s*$", re.I)
 PROTECT_RE = re.compile(r"(\$\$.*?\$\$|\$[^$\n]+?\$|`[^`\n]+`)", re.S)
+# a body line of file links, "Slides: [pdf](…) · [keynote](…)" or "Material: [zip](…)": same icons as under the title
+FILE_LINE_RE = re.compile(r"^\s*(?:slides|material|exercises|solutions)\s*:.*\]\([^)\s]*\.(?:pdf|key|pptx|zip)(?:[?#][^)\s]*)?\)", re.I)
 
 
 def split_frontmatter(text):
@@ -356,7 +358,13 @@ class Page:
         if resources:
             block = "\n".join(resources)
             md = md.replace(block, f"::: {{.resources}}\n{block}\n:::", 1)
-        return "\n".join(self.callouts(md.split("\n")))
+        lines = []
+        for line in md.split("\n"):
+            if FILE_LINE_RE.match(line) and line not in resources:
+                lines += ["", "::: {.resources}", line, ":::", ""]
+            else:
+                lines.append(line)
+        return "\n".join(self.callouts(lines))
 
 
 def deck_label(url):
