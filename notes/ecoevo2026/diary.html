@@ -34,7 +34,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a { text-decoration: none; }
 .resources a:hover { text-decoration: underline; }
 .resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
-.resources a[href*=".pptx"]::before {
+.resources a[href*=".pptx"]::before, .resources a[href*=".zip"]::before {
   content: ""; display: inline-block; width: .72em; height: .96em;
   margin-right: .3em; vertical-align: -.1em;
   background: center/contain no-repeat var(--icon);
@@ -42,6 +42,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".zip"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%236b7280'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
   margin: 1.2rem 0; font-size: .9rem; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
@@ -80,8 +81,7 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script defer=""
-src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -404,6 +404,72 @@ mutation fixes depends on the genome where the next one lands. This is
 <a href="l10.html#clonal-interference">clonal interference</a>, and
 fixation becomes <a
 href="l10.html#quasi-neutral-fixation">quasi-neutral</a>.</p>
+<p><strong>Wed 18/11</strong> — We redid the recursion for the <a
+href="l10.html#fixation-probability">fixation probability</a>, and saw
+why the mutations followed in the LTEE fix <a
+href="l10.html#fixation-in-the-ltee">as if they were neutral</a>: they
+are followed only once they are frequent. More from the LTEE: mutations
+fix in bursts, as expected with <a
+href="l10.html#clonal-interference">clonal interference</a>. Competing
+evolved samples against the frozen ancestor shows that <a
+href="l10.html#additional-material.-fitness-in-the-ltee-keeps-rising">fitness
+keeps rising</a>, with no plateau, while each new mutation adds less. In
+some populations two clades coexist for thousands of generations: one is
+faster on glucose, the other is better at using the acetate that the
+first releases. Then we changed chapter, back to ecology, with species
+that interact through the environment. In a <a
+href="l11.html#chemostat">chemostat</a> a species alone draws the
+resource down to <span class="math inline">\(R^*\)</span>, where its
+growth balances the dilution, and its abundance is the yield times the
+resource consumed. Two species on <a
+href="l11.html#one-resource-two-species">one resource</a> cannot
+coexist. By invasion analysis the species with the lowest <span
+class="math inline">\(R^*\)</span> wins (<a
+href="l11.html#the-r-rule">the R* rule</a>), and <span
+class="math inline">\(R^*\)</span> depends on the maximal growth rate,
+the affinity and the dilution: in the experiment with tryptophan, the
+faster grower loses.</p>
+<p><strong>Fri 20/11</strong> — Exercise session with Emanuele Pigani,
+on L5 and L6: a public good shared by all cells gives a weak Allee
+effect (<a href="l5.html">L5</a>), and two competing species with
+different mortalities (<a href="l6.html#adding-mortality">L6</a>).
+Exercises and solutions are in the <a
+href="extra-mat.html#exercises-by-emanuele-pigani">additional
+material</a>.</p>
+<p><strong>Mon 23/11</strong> — After a recap of the <span
+class="math inline">\(R^*\)</span> rule, the <a
+href="l11.html#tryptophan-in-a-chemostat">tryptophan experiments</a>
+again: with the same affinity the faster grower wins, and an antibiotic
+can be tuned to make the two <span class="math inline">\(R^*\)</span>
+equal. Then neither species wins, but this is not coexistence: any
+mixture with the right total is a fixed point, and nothing brings it
+back after a perturbation. With <span class="math inline">\(S\)</span>
+species and <span class="math inline">\(M\)</span> resources, a fixed
+point needs <span class="math inline">\(S\)</span> conditions on <span
+class="math inline">\(M\)</span> concentrations, so at most as many
+species as resources can coexist (<a
+href="l11.html#competitive-exclusion-in-general">competitive
+exclusion</a>). <a href="l11.html#two-resources">Two diatoms</a> need
+silicate and phosphate, and their growth is set by the scarcer of the
+two. Depending on the supply ratio, both are limited by the same
+resource and the one with the lower <span
+class="math inline">\(R^*\)</span> for it wins, or each is limited by a
+different one and they coexist, as in Tilman’s experiments. When the
+resources are fast, competition for resources gives the <a
+href="l11.html#from-resources-to-lotkavolterra">Lotka–Volterra
+equations</a>, with interactions set by how much the diets overlap.
+Resources can also be produced: <a
+href="l11.html#one-species-waste-is-anothers-resource">one species’
+waste is another’s resource</a>, as nitrite in denitrification and
+acetate in the LTEE. Predation is for the next class.</p>
+<p><strong>Wed 25/11</strong> — Exercise session with Emanuele Pigani,
+on L7 and L9: two types with different carrying capacities, and who wins
+while the population grows and once it has saturated (<a
+href="l7.html">L7</a>); the balance of mutation and drift in the Moran
+model (<a href="l9.html#mutation-and-drift">L9</a>). Exercises and
+solutions are in the <a
+href="extra-mat.html#exercises-by-emanuele-pigani">additional
+material</a>.</p>
 <div class="pagenav bottom">
   <a href="index.html">&larr; Back to index</a>
   <a class="download" href="diary.md" download>&darr; Markdown</a>

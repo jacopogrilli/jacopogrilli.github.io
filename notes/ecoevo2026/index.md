@@ -16,6 +16,7 @@ Lecture 7. Selection [L7](l7.html)
 Lecture 8. What is evolution? [L8](l8.html)
 Lecture 9. Neutral evolution: drift and mutation [L9](l9.html)
 Lecture 10. Selection, drift and adaptation [L10](l10.html)
+Lecture 11. Competition for resources [L11](l11.html)
 
 Appendix S1. Linear systems [S1](s1.html)
 Appendix S2. The diffusion approximation [S2](s2.html)

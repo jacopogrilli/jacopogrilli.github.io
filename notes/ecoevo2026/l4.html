@@ -35,7 +35,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a { text-decoration: none; }
 .resources a:hover { text-decoration: underline; }
 .resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
-.resources a[href*=".pptx"]::before {
+.resources a[href*=".pptx"]::before, .resources a[href*=".zip"]::before {
   content: ""; display: inline-block; width: .72em; height: .96em;
   margin-right: .3em; vertical-align: -.1em;
   background: center/contain no-repeat var(--icon);
@@ -43,6 +43,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".zip"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%236b7280'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
   margin: 1.2rem 0; font-size: .9rem; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
@@ -81,8 +82,7 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script defer=""
-src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -466,30 +466,30 @@ population grows when resources are abundant</p>
 <col style="width: 51%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>open (supply <span class="math inline">\(s\)</span>)</th>
 <th>closed (batch)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>what limits</td>
 <td>a flux of resource</td>
 <td>a stock of resource</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ceiling</td>
 <td><span class="math inline">\(N_{\max}=sY/d\)</span></td>
 <td><span class="math inline">\(N_{\max}=Y R_{\text{tot}}\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>approach to it</td>
 <td>exponential, at rate <span class="math inline">\(d\)</span></td>
 <td>over one doubling (<span class="math inline">\(\kappa\ll1\)</span>)
 or as a sigmoid (<span class="math inline">\(\kappa\gg1\)</span>)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>relaxation rate after a perturbation</td>
 <td><span class="math inline">\(d\)</span></td>
 <td><span class="math inline">\(r\)</span> (logistic limit)</td>

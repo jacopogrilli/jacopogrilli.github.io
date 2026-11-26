@@ -35,7 +35,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a { text-decoration: none; }
 .resources a:hover { text-decoration: underline; }
 .resources a[href*=".pdf"]::before, .resources a[href*=".key"]::before,
-.resources a[href*=".pptx"]::before {
+.resources a[href*=".pptx"]::before, .resources a[href*=".zip"]::before {
   content: ""; display: inline-block; width: .72em; height: .96em;
   margin-right: .3em; vertical-align: -.1em;
   background: center/contain no-repeat var(--icon);
@@ -43,6 +43,7 @@ header.site nav { display: flex; gap: 1rem; align-items: center; }
 .resources a[href*=".pdf"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23c0392b'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".key"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%231d6ff2'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .resources a[href*=".pptx"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%23d24726'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
+.resources a[href*=".zip"] { --icon: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2016'><path%20fill='%236b7280'%20d='M2%200h6l4%204v10a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2V2a2%202%200%200%201%202-2z'/><path%20fill='%23ffffff'%20fill-opacity='.5'%20d='M8%200l4%204H9a1%201%200%200%201-1-1V0z'/></svg>"); }
 .pagenav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
   margin: 1.2rem 0; font-size: .9rem; }
 .pagenav.bottom { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
@@ -81,8 +82,7 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1rem; padding-bott
 footer.site a { color: var(--muted); }
 </style>
 <script>window.MathJax = { output: { displayOverflow: 'linebreak' } };</script>
-<script defer=""
-src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
 type="text/javascript"></script>
 </head>
 <body>
@@ -787,7 +787,7 @@ class="math inline">\(f&#39;(x^*)=0\)</span> (<a href="l4.html">L4</a>,
 <a href="l5.html">L5</a>). In two dimensions, a linear center can be a
 true center of the nonlinear system (predator–prey Lotka–Volterra, which
 has a conserved quantity, L12), or a weak spiral in or out, which is
-where limit cycles are born (Hopf bifurcation, L13).</p>
+where limit cycles are born (Hopf bifurcation, L12).</p>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li>Show that the eigenvalues of a real symmetric matrix are real, and
