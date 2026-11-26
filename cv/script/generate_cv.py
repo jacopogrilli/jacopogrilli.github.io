@@ -146,19 +146,24 @@ def gen_talks():
         sec = route(t)
         date = esc(t.get("date"))
         place = esc(t.get("place")) if nonempty(t.get("place")) else ""
-        title = esc(t.get("title"))
+        title = esc(t.get("title")) if nonempty(t.get("title")) else ""
         url = str(t.get("url")).strip() if nonempty(t.get("url")) else ""
 
+        # untitled talks (title not yet sent) print the type alone, with no
+        # dangling ": \emph{}" or ", ." separators
         if sec == "organized":
             head = ("%s %s" % (place, label(t.get("type")))).strip()
             linked = (r"\href{%s}{%s}" % (url, title)) if url else title
+            tail = (", %s." % linked) if title else "."
             buckets[sec].append(
-                "\\item %s \\\\\n\\emph{%s}, %s.\n" % (date, head, linked))
+                "\\item %s \\\\\n\\emph{%s}%s\n" % (date, head, tail))
         else:
             where = ("%s. " % place) if place else ""
+            what = label(t.get("type"))
+            if title:
+                what += r": \emph{%s}" % title
             buckets[sec].append(
-                "\\item %s. %s\\\\\n%s: \\emph{%s}\n" %
-                (date, where, label(t.get("type")), title))
+                "\\item %s. %s\\\\\n%s\n" % (date, where, what))
 
     write("organized.tex", "\n".join(buckets["organized"]))
     write("seminars.tex", "\n".join(buckets["seminars"]))
